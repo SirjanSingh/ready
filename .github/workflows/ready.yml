@@ -1,0 +1,23 @@
+name: ready
+on:
+  issues:
+    types: [opened, edited, reopened]
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - name: Check the issue is ready for an agent
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          READY_API_KEY: ${{ secrets.READY_API_KEY }}
+          READY_BASE_URL: ${{ vars.READY_BASE_URL }}
+          READY_MODEL: ${{ vars.READY_MODEL }}
+        run: |
+          uvx --from "git+https://github.com/${{ vars.READY_SOURCE || 'SirjanSingh/ready' }}" ready check "${{ github.event.issue.html_url }}" --repo . --post || [ $? -eq 3 ]
