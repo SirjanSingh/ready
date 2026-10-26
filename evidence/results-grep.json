@@ -1,0 +1,309 @@
+{
+  "variant": "grep",
+  "k": 5,
+  "date": "2026-10-27T01:52:59",
+  "note": null,
+  "overall": {
+    "n": 3,
+    "errors": 0,
+    "hit@1": 1.0,
+    "cov@1": 0.8333333333333334,
+    "hit@3": 1.0,
+    "cov@3": 1.0,
+    "hit@5": 1.0,
+    "cov@5": 1.0,
+    "truth_files": 4,
+    "truth_files_absent_at_base": 0
+  },
+  "per_repo": {
+    "fastapi/sqlmodel": {
+      "n": 3,
+      "errors": 0,
+      "hit@1": 1.0,
+      "cov@1": 0.8333333333333334,
+      "hit@3": 1.0,
+      "cov@3": 1.0,
+      "hit@5": 1.0,
+      "cov@5": 1.0,
+      "truth_files": 4,
+      "truth_files_absent_at_base": 0
+    }
+  },
+  "confusion": {
+    "tp": 0,
+    "fp": 1,
+    "fn": 0,
+    "tn": 2,
+    "n": 3,
+    "accuracy": 0.6666666666666666,
+    "precision": 0.0,
+    "recall": null,
+    "predicted_needs_human": 1,
+    "gold_positive": 0
+  },
+  "pairs": [
+    {
+      "repo": "fastapi/sqlmodel",
+      "issue_number": 1623,
+      "issue_url": "https://github.com/fastapi/sqlmodel/issues/1623",
+      "pr_number": 1607,
+      "base_sha": "5611bda2e5c43929108ce2a2ac8820455a7bac4b",
+      "truth": [
+        "sqlmodel/main.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "sqlmodel/main.py",
+        "sqlmodel/_compat.py",
+        "sqlmodel/__init__.py",
+        "sqlmodel/sql/expression.py",
+        "sqlmodel/orm/session.py"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "sqlmodel/main.py",
+          "sqlmodel/_compat.py",
+          "sqlmodel/__init__.py",
+          "sqlmodel/sql/expression.py",
+          "sqlmodel/orm/session.py",
+          "sqlmodel/sql/_expression_select_cls.py",
+          "sqlmodel/ext/asyncio/session.py",
+          "tests/test_pydantic/test_field.py"
+        ],
+        "tests": [
+          "tests/test_main.py",
+          "tests/test_tutorial/test_fastapi/test_app_testing/test_tutorial001_tests_main.py",
+          "tests/conftest.py"
+        ],
+        "test_cmd": "bash scripts/test.sh",
+        "summary": "SQLModel fails to create DB constraints when using Annotated types after Pydantic 2.12.0",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 330 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": true,
+            "detail": "States what should happen vs what happens",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 1.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "fastapi/sqlmodel",
+      "issue_number": 1536,
+      "issue_url": "https://github.com/fastapi/sqlmodel/issues/1536",
+      "pr_number": 1577,
+      "base_sha": "59adbe76a6b06e09bbdc815a8aea055a1885af22",
+      "truth": [
+        "sqlmodel/main.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "sqlmodel/main.py",
+        "sqlmodel/_compat.py",
+        "sqlmodel/default.py",
+        "scripts/generate_select.py",
+        "sqlmodel/__init__.py"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "sqlmodel/main.py",
+          "sqlmodel/_compat.py",
+          "sqlmodel/default.py",
+          "scripts/generate_select.py",
+          "sqlmodel/__init__.py",
+          "tests/test_field_sa_column.py",
+          "sqlmodel/sql/expression.py",
+          "tests/conftest.py"
+        ],
+        "tests": [
+          "tests/test_main.py",
+          "tests/test_tutorial/test_fastapi/test_app_testing/test_tutorial001_py310_tests_main.py",
+          "tests/test_tutorial/test_fastapi/test_app_testing/test_tutorial001_py39_tests_main.py"
+        ],
+        "test_cmd": "bash scripts/test.sh",
+        "summary": "`Field(alias=\"\")` doesn't work with Pydantic V2",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 546 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": true,
+            "detail": "States what should happen vs what happens",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 1.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "fastapi/sqlmodel",
+      "issue_number": 909,
+      "issue_url": "https://github.com/fastapi/sqlmodel/issues/909",
+      "pr_number": 1342,
+      "base_sha": "e8f87e62e99831d26d15e4c938ff205d63ea3990",
+      "truth": [
+        "sqlmodel/ext/asyncio/session.py",
+        "sqlmodel/orm/session.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "sqlmodel/orm/session.py",
+        "sqlmodel/ext/asyncio/session.py",
+        "sqlmodel/_compat.py",
+        "sqlmodel/main.py",
+        "sqlmodel/sql/expression.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "How will we know this is done? Name one behaviour or output an agent can check.",
+        "footprint": [
+          "sqlmodel/orm/session.py",
+          "sqlmodel/ext/asyncio/session.py",
+          "sqlmodel/_compat.py",
+          "sqlmodel/main.py",
+          "sqlmodel/sql/expression.py",
+          "sqlmodel/sql/_expression_select_gen.py",
+          "sqlmodel/sql/_expression_select_cls.py",
+          "scripts/deploy_docs_status.py"
+        ],
+        "tests": [
+          "tests/conftest.py",
+          "tests/test_fields_set.py"
+        ],
+        "test_cmd": "bash scripts/test.sh",
+        "summary": "Add an overload to the `exec` method with `_Executable` statement for update and delete statements",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 74 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "checkable_criteria",
+            "ok": false,
+            "detail": "No checkable acceptance criteria",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.5,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 1
+      }
+    }
+  ]
+}

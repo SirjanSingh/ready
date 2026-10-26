@@ -32,3 +32,4 @@ packages = ["ready"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+norecursedirs = ["fixtures"]

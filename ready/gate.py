@@ -10,7 +10,7 @@ from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
 from ready import checklist, llm
-from ready.repo import candidate_files, extract_terms, related_tests, test_command
+from ready.repo import candidate_files, extract_terms, related_tests, detect_test_command
 
 PRIORITY = ["expected_vs_actual", "reproduction", "checkable_criteria", "context"]
 
@@ -67,7 +67,7 @@ def run_gate(issue_text: str, repo: Path, use_model: bool = True) -> Verdict:
         question=question,
         footprint=footprint,
         tests=related_tests(src, repo),
-        test_cmd=test_command(repo),
+        test_cmd=detect_test_command(repo),
         summary=(draft.summary if draft else "") or title,
         acceptance=draft.acceptance if draft else [],
         findings=[asdict(f) for f in findings],

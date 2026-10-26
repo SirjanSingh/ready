@@ -63,7 +63,9 @@ def extract_terms(text: str) -> dict[str, float]:
         low = tok.lower()
         if low in STOP:
             continue
-        camel = bool(re.search(r"[a-z][A-Z]", tok)) or tok[0].isupper()
+        # A capitalised word is a class name only if it has inner capitals (CamelCase) or is
+        # used like code (followed by "(" or "."); "Calling" at a sentence start is not.
+        camel = bool(re.search(r"[a-z][A-Z]", tok)) or (tok[0].isupper() and bool(re.search(rf"\b{re.escape(tok)}[(.]", text)))
         snake = "_" in tok
         w = 2.0 if (camel or snake) else 0.5
         terms[tok] = max(terms.get(tok, 0), w)
@@ -74,6 +76,16 @@ def candidate_files(issue_text: str, repo: Path, limit: int = 25) -> list[Candid
     """Rank tracked source files by weighted term hits in their path and contents."""
     repo = Path(repo)
     terms = extract_terms(issue_text)
+    title = issue_text.partition("\n")[0]
+    # The title is where people name the thing that is wrong; the body names everything nearby.
+    terms = {t: w * (2.0 if re.search(rf"\b{re.escape(t)}\b", title) else 1.0) for t, w in terms.items()}
+    # `Cart.total`, `c.total` and `total` are one symbol: count it once, at its best weight.
+    by_leaf: dict[str, tuple[str, float]] = {}
+    for t, w in terms.items():
+        leaf = t if ("/" in t or "." in t and t.rsplit(".", 1)[-1] in {"py", "ts", "tsx", "js", "go", "rs"}) else t.split(".")[-1]
+        if leaf not in by_leaf or w > by_leaf[leaf][1]:
+            by_leaf[leaf] = (t, w)
+    terms = dict(by_leaf.values())
     if not terms:
         return []
     files = _tracked_files(repo)
@@ -136,7 +148,7 @@ def related_tests(paths: list[str], repo: Path, limit: int = 3) -> list[str]:
     return out[:limit]
 
 
-def test_command(repo: Path) -> str | None:
+def detect_test_command(repo: Path) -> str | None:
     """How this repo runs its tests, read from its own config, never guessed from habit."""
     repo = Path(repo)
     pkg = repo / "package.json"
