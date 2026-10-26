@@ -38,6 +38,12 @@ _VERSION_REGRESSION = re.compile(r"(\b\d+\.\d+(\.\d+)?\b.*\b(work(s|ed)|broke|fa
 _INLINE_CALL = re.compile(r"`[^`\n]*\w\([^`\n]*\)[^`\n]*`")
 _CHANGE_VERB = re.compile(r"\b(support|add|allow|change|rename|remove|deprecate|expose|accept|return|raise|make|use|update|bump|drop)\b", re.I)
 _CODE_SYMBOL = re.compile(r"`[^`\n]{2,}`|\b\w+\.\w+\(|\b[A-Za-z_]+(_[A-Za-z]+)+\b|[A-Z][a-z]+[A-Z]\w+|\b\w+\s*[<>=]=?\s*\d+\.\d+")
+_INJECTION = re.compile(
+    r"(ignore (all |any |your )?(previous|prior|above)? ?(instructions|checklist|rules)"
+    r"|ignore your \w+|disregard (the|your|all) \w+|you are (now )?an? (ai|agent|assistant)"
+    r"|(label|mark) (it|this)( as)? agent-ready|tell the (agent|ai|assistant) to|system prompt)",
+    re.I,
+)
 _PATHISH = re.compile(r"[\w./-]+\.(py|ts|tsx|js|go|rs|java|rb)\b|\b[a-z_]+(\.[a-z_]+){1,}\b")
 
 
@@ -54,6 +60,14 @@ def evaluate(title: str, body: str) -> list[Finding]:
     bug = is_bug_report(title, body)
     out: list[Finding] = []
 
+    inj = _INJECTION.search(text)
+    out.append(Finding(
+        "addressed_to_agent",
+        ok=not inj,
+        detail=f'Contains instructions aimed at an AI agent: "{inj.group(0)[:80]}"' if inj else "No instructions aimed at an agent",
+        cites="An issue is data for the agent, not instructions to it; a human must confirm intent.",
+        human_only=True,
+    ))
     out.append(Finding(
         "outcome_title",
         ok=bool(title.strip()) and not _VAGUE_TITLE.match(title) and len(title.split()) >= 3,
@@ -110,6 +124,7 @@ def evaluate(title: str, body: str) -> list[Finding]:
 
 # What to ask when a human-only rule fails, in priority order. One question, never a form.
 QUESTIONS = {
+    "addressed_to_agent": "This issue contains instructions aimed at an AI agent, which Ready ignored. Can a maintainer restate what change is actually wanted?",
     "expected_vs_actual": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
     "reproduction": "Can you add the smallest snippet or command that shows the problem, with the versions you ran it on?",
     "checkable_criteria": "How will we know this is done? Name one behaviour or output an agent can check.",

@@ -43,6 +43,7 @@ query($q: String!, $cursor: String) {
       ... on Issue {
         number title body createdAt
         author { login }
+        labels(first: 20) { nodes { name } }
         comments(first: 40) {
           nodes { author { login } authorAssociation createdAt body }
         }
@@ -160,6 +161,7 @@ def build_pair(repo: str, issue: dict) -> tuple[dict | None, str]:
             "changed_files": files,
             "changed_files_src": src,
             "first_fix_commit_time": first["committedDate"] if first else None,
+            "labels": [l["name"] for l in (issue.get("labels") or {}).get("nodes", [])],
             "needed_clarification": needed,
             "clarification_evidence": evidence,
         }, "ok"

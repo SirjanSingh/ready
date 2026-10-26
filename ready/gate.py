@@ -12,7 +12,7 @@ from pathlib import Path
 from ready import checklist, llm
 from ready.repo import candidate_files, extract_terms, related_tests, detect_test_command
 
-PRIORITY = ["expected_vs_actual", "reproduction", "checkable_criteria", "context"]
+PRIORITY = ["addressed_to_agent", "expected_vs_actual", "reproduction", "checkable_criteria", "context"]
 
 
 @dataclass
