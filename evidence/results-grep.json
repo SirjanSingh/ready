@@ -1,30 +1,30 @@
 {
   "variant": "grep",
   "k": 5,
-  "date": "2026-10-27T02:23:39",
-  "note": "Rescored on 2026-10-27 from the run dated 2026-10-27T02:22:39 (no new predictions).",
-  "elapsed_s": null,
+  "date": "2026-10-27T03:01:59",
+  "note": "engine 47a0fea at start, 5636dee at end (ready/ changed during the run; numbers may mix versions).",
+  "elapsed_s": 2240,
   "overall": {
     "n": 60,
     "errors": 0,
-    "hit@1": 0.45,
-    "cov@1": 0.3541666666666667,
-    "hit@3": 0.6833333333333333,
-    "cov@3": 0.5916666666666667,
+    "hit@1": 0.4666666666666667,
+    "cov@1": 0.3625,
+    "hit@3": 0.7166666666666667,
+    "cov@3": 0.6166666666666667,
     "hit@5": 0.7666666666666667,
-    "cov@5": 0.6777777777777777,
+    "cov@5": 0.6694444444444444,
     "truth_files": 91,
-    "truth_files_absent_at_base": 2
+    "truth_files_absent_at_base": 0
   },
   "overall_code_truth_only": {
     "n": 54,
     "errors": 0,
-    "hit@1": 0.5,
-    "cov@1": 0.39351851851851855,
-    "hit@3": 0.7592592592592593,
-    "cov@3": 0.6574074074074074,
+    "hit@1": 0.5185185185185185,
+    "cov@1": 0.4027777777777778,
+    "hit@3": 0.7962962962962963,
+    "cov@3": 0.6851851851851852,
     "hit@5": 0.8518518518518519,
-    "cov@5": 0.7530864197530863,
+    "cov@5": 0.7438271604938271,
     "truth_files": 85,
     "truth_files_absent_at_base": 0
   },
@@ -34,10 +34,10 @@
       "errors": 0,
       "hit@1": 0.4,
       "cov@1": 0.2375,
-      "hit@3": 0.55,
-      "cov@3": 0.425,
-      "hit@5": 0.7,
-      "cov@5": 0.5833333333333333,
+      "hit@3": 0.6,
+      "cov@3": 0.475,
+      "hit@5": 0.65,
+      "cov@5": 0.5333333333333333,
       "truth_files": 34,
       "truth_files_absent_at_base": 0
     },
@@ -56,26 +56,26 @@
     "pallets/click": {
       "n": 13,
       "errors": 0,
-      "hit@1": 0.46153846153846156,
-      "cov@1": 0.46153846153846156,
+      "hit@1": 0.5384615384615384,
+      "cov@1": 0.5,
       "hit@3": 0.8461538461538461,
       "cov@3": 0.8076923076923077,
       "hit@5": 0.8461538461538461,
       "cov@5": 0.8076923076923077,
       "truth_files": 15,
-      "truth_files_absent_at_base": 1
+      "truth_files_absent_at_base": 0
     },
     "pydantic/pydantic": {
       "n": 20,
       "errors": 0,
       "hit@1": 0.35,
       "cov@1": 0.275,
-      "hit@3": 0.65,
-      "cov@3": 0.525,
-      "hit@5": 0.75,
-      "cov@5": 0.625,
+      "hit@3": 0.7,
+      "cov@3": 0.55,
+      "hit@5": 0.8,
+      "cov@5": 0.65,
       "truth_files": 33,
-      "truth_files_absent_at_base": 1
+      "truth_files_absent_at_base": 0
     }
   },
   "confusion": {
@@ -121,8 +121,8 @@
           "httpx/_models.py",
           "httpx/_api.py",
           "httpx/_utils.py",
-          "httpx/_config.py",
-          "httpx/_content.py"
+          "httpx/_content.py",
+          "httpx/_config.py"
         ],
         "tests": [
           "tests/test_urlparse.py",
@@ -211,9 +211,9 @@
           "httpx/_models.py",
           "httpx/_client.py",
           "httpx/_urls.py",
-          "httpx/_api.py",
+          "tests/test_multipart.py",
           "httpx/_utils.py",
-          "tests/test_multipart.py"
+          "httpx/_api.py"
         ],
         "tests": [
           "tests/test_decoders.py",
@@ -378,7 +378,7 @@
         "httpx/_models.py",
         "httpx/_utils.py",
         "httpx/_client.py",
-        "httpx/_auth.py"
+        "httpx/_content_streams.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -391,10 +391,10 @@
           "httpx/_models.py",
           "httpx/_utils.py",
           "httpx/_client.py",
-          "httpx/_auth.py",
           "httpx/_content_streams.py",
-          "httpx/_transports/asgi.py",
-          "httpx/_transports/wsgi.py"
+          "setup.py",
+          "httpx/_auth.py",
+          "httpx/_exceptions.py"
         ],
         "tests": [
           "tests/test_decoders.py",
@@ -466,9 +466,9 @@
       "predicted": [
         "httpx/_models.py",
         "httpx/_urls.py",
-        "httpx/_client.py",
         "httpx/_urlparse.py",
-        "httpx/_compat.py"
+        "httpx/_client.py",
+        "httpx/_api.py"
       ],
       "verdict_status": "needs_human",
       "error": null,
@@ -479,16 +479,15 @@
         "footprint": [
           "httpx/_models.py",
           "httpx/_urls.py",
-          "httpx/_client.py",
           "httpx/_urlparse.py",
-          "httpx/_compat.py",
+          "httpx/_client.py",
           "httpx/_api.py",
-          "httpx/_exceptions.py",
-          "httpx/_utils.py"
+          "httpx/_config.py",
+          "httpx/_transports/wsgi.py",
+          "httpx/_exceptions.py"
         ],
         "tests": [
-          "tests/client/test_async_client.py",
-          "tests/client/test_client.py"
+          "tests/test_urlparse.py"
         ],
         "test_cmd": "bash scripts/test",
         "summary": "Use percent-encoding for `/` in query params, for better robustness.",
@@ -528,11 +527,11 @@
       "metrics": {
         "hit@1": false,
         "cov@1": 0.0,
-        "hit@3": false,
-        "cov@3": 0.0,
+        "hit@3": true,
+        "cov@3": 1.0,
         "hit@5": true,
         "cov@5": 1.0,
-        "first_hit_rank": 4
+        "first_hit_rank": 3
       }
     },
     {
@@ -564,9 +563,9 @@
           "httpx/_client.py",
           "httpx/_models.py",
           "httpx/_utils.py",
-          "httpx/_exceptions.py",
           "httpx/_compat.py",
-          "httpx/_decoders.py"
+          "httpx/_exceptions.py",
+          "httpx/_content.py"
         ],
         "tests": [
           "tests/client/test_async_client.py",
@@ -728,8 +727,8 @@
         "httpx/_urls.py",
         "httpx/_urlparse.py",
         "httpx/_client.py",
-        "httpx/_utils.py",
-        "httpx/_compat.py"
+        "httpx/_api.py",
+        "httpx/_utils.py"
       ],
       "verdict_status": "needs_human",
       "error": null,
@@ -741,11 +740,11 @@
           "httpx/_urls.py",
           "httpx/_urlparse.py",
           "httpx/_client.py",
-          "httpx/_utils.py",
-          "httpx/_compat.py",
           "httpx/_api.py",
+          "httpx/_utils.py",
           "httpx/_exceptions.py",
-          "httpx/_models.py"
+          "httpx/_models.py",
+          "httpx/_compat.py"
         ],
         "tests": [
           "tests/client/test_async_client.py",
@@ -829,7 +828,7 @@
           "httpx/_config.py",
           "httpx/_models.py",
           "httpx/_exceptions.py",
-          "httpx/_compat.py",
+          "httpx/_multipart.py",
           "httpx/_urls.py"
         ],
         "tests": [
@@ -902,8 +901,8 @@
       "predicted": [
         "httpx/_utils.py",
         "httpx/_urlparse.py",
-        "httpx/_client.py",
         "tests/test_utils.py",
+        "httpx/_client.py",
         "httpx/_urls.py"
       ],
       "verdict_status": "needs_human",
@@ -915,12 +914,12 @@
         "footprint": [
           "httpx/_utils.py",
           "httpx/_urlparse.py",
-          "httpx/_client.py",
           "tests/test_utils.py",
+          "httpx/_client.py",
           "httpx/_urls.py",
-          "httpx/_compat.py",
           "httpx/_models.py",
-          "httpx/_transports/base.py"
+          "httpx/_transports/base.py",
+          "tests/test_urlparse.py"
         ],
         "tests": [
           "tests/test_utils.py",
@@ -992,9 +991,9 @@
       "predicted": [
         "httpx/_transports/asgi.py",
         "httpx/_client.py",
-        "tests/conftest.py",
         "httpx/_transports/wsgi.py",
-        "httpx/_urls.py"
+        "tests/conftest.py",
+        "httpx/_transports/default.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -1005,12 +1004,12 @@
         "footprint": [
           "httpx/_transports/asgi.py",
           "httpx/_client.py",
-          "tests/conftest.py",
           "httpx/_transports/wsgi.py",
-          "httpx/_urls.py",
+          "tests/conftest.py",
           "httpx/_transports/default.py",
           "httpx/_transports/base.py",
-          "httpx/_transports/__init__.py"
+          "httpx/_transports/__init__.py",
+          "tests/test_wsgi.py"
         ],
         "tests": [
           "tests/test_asgi.py",
@@ -1100,7 +1099,7 @@
           "httpx/__init__.py",
           "httpx/_exceptions.py",
           "httpx/_models.py",
-          "tests/client/test_proxies.py",
+          "httpx/_compat.py",
           "httpx/_auth.py"
         ],
         "tests": [
@@ -1165,8 +1164,8 @@
       "needed_clarification": false,
       "predicted": [
         "httpx/_client.py",
-        "httpx/_models.py",
         "httpx/_urls.py",
+        "httpx/_models.py",
         "httpx/_api.py",
         "httpx/_utils.py"
       ],
@@ -1178,13 +1177,13 @@
         "question": null,
         "footprint": [
           "httpx/_client.py",
-          "httpx/_models.py",
           "httpx/_urls.py",
+          "httpx/_models.py",
           "httpx/_api.py",
           "httpx/_utils.py",
           "httpx/_transports/default.py",
           "httpx/_main.py",
-          "httpx/_urlparse.py"
+          "httpx/_exceptions.py"
         ],
         "tests": [
           "tests/client/test_async_client.py",
@@ -1255,9 +1254,9 @@
       "predicted": [
         "httpx/dispatch/http11.py",
         "httpx/client.py",
-        "httpx/dispatch/connection_pool.py",
-        "httpx/dispatch/http2.py",
-        "httpx/dispatch/connection.py"
+        "httpx/models.py",
+        "httpx/concurrency/asyncio.py",
+        "httpx/dispatch/connection_pool.py"
       ],
       "verdict_status": "needs_human",
       "error": null,
@@ -1268,17 +1267,17 @@
         "footprint": [
           "httpx/dispatch/http11.py",
           "httpx/client.py",
+          "httpx/models.py",
+          "httpx/concurrency/asyncio.py",
           "httpx/dispatch/connection_pool.py",
           "httpx/dispatch/http2.py",
           "httpx/dispatch/connection.py",
-          "httpx/models.py",
-          "httpx/concurrency/asyncio.py",
           "httpx/middleware.py"
         ],
         "tests": [
           "tests/client/test_async_client.py",
           "tests/client/test_client.py",
-          "tests/dispatch/test_connection_pools.py"
+          "tests/models/test_responses.py"
         ],
         "test_cmd": "nox",
         "summary": "h11._util.LocalProtocolError: Too little data for declared Content-Length",
@@ -1343,9 +1342,9 @@
       ],
       "needed_clarification": false,
       "predicted": [
+        "httpx/_models.py",
         "httpx/_compat.py",
         "httpx/_urls.py",
-        "httpx/_models.py",
         "httpx/_client.py",
         "httpx/_urlparse.py"
       ],
@@ -1356,14 +1355,14 @@
         "status": "agent_ready",
         "question": null,
         "footprint": [
+          "httpx/_models.py",
           "httpx/_compat.py",
           "httpx/_urls.py",
-          "httpx/_models.py",
           "httpx/_client.py",
           "httpx/_urlparse.py",
           "httpx/_exceptions.py",
           "httpx/_decoders.py",
-          "httpx/_utils.py"
+          "httpx/_auth.py"
         ],
         "tests": [],
         "test_cmd": "bash scripts/test",
@@ -1683,7 +1682,7 @@
         "httpx/_decoders.py",
         "httpx/_client.py",
         "httpx/_urlparse.py",
-        "httpx/_transports/asgi.py"
+        "httpx/_utils.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -1696,10 +1695,10 @@
           "httpx/_decoders.py",
           "httpx/_client.py",
           "httpx/_urlparse.py",
-          "httpx/_transports/asgi.py",
           "httpx/_utils.py",
+          "httpx/_models.py",
           "httpx/_auth.py",
-          "httpx/_models.py"
+          "httpx/_transports/asgi.py"
         ],
         "tests": [
           "tests/test_decoders.py",
@@ -1753,9 +1752,9 @@
         "cov@1": 0.0,
         "hit@3": false,
         "cov@3": 0.0,
-        "hit@5": true,
-        "cov@5": 1.0,
-        "first_hit_rank": 5
+        "hit@5": false,
+        "cov@5": 0.0,
+        "first_hit_rank": null
       }
     },
     {
@@ -1865,8 +1864,8 @@
       "needed_clarification": false,
       "predicted": [
         "sqlmodel/main.py",
-        "github/actions/comment-docs-preview-in-pr/app/main.py",
         "sqlmodel/engine/create.py",
+        ".github/actions/comment-docs-preview-in-pr/app/main.py",
         "sqlmodel/__init__.py",
         "sqlmodel/sql/expression.py"
       ],
@@ -1878,13 +1877,13 @@
         "question": "How will we know this is done? Name one behaviour or output an agent can check.",
         "footprint": [
           "sqlmodel/main.py",
-          ".github/actions/comment-docs-preview-in-pr/app/main.py",
           "sqlmodel/engine/create.py",
+          ".github/actions/comment-docs-preview-in-pr/app/main.py",
           "sqlmodel/__init__.py",
           "sqlmodel/sql/expression.py",
           ".github/actions/watch-previews/app/main.py",
-          "sqlmodel/orm/session.py",
-          "sqlmodel/engine/result.py"
+          "sqlmodel/engine/result.py",
+          "sqlmodel/orm/session.py"
         ],
         "tests": [
           "tests/test_tutorial/test_fastapi/test_app_testing/test_tutorial001_tests_main.py",
@@ -1949,8 +1948,8 @@
         "sqlmodel/main.py",
         "sqlmodel/_compat.py",
         "sqlmodel/__init__.py",
-        "sqlmodel/sql/expression.py",
-        "sqlmodel/orm/session.py"
+        "sqlmodel/orm/session.py",
+        "sqlmodel/sql/expression.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -1962,8 +1961,8 @@
           "sqlmodel/main.py",
           "sqlmodel/_compat.py",
           "sqlmodel/__init__.py",
-          "sqlmodel/sql/expression.py",
           "sqlmodel/orm/session.py",
+          "sqlmodel/sql/expression.py",
           "sqlmodel/sql/_expression_select_cls.py",
           "sqlmodel/ext/asyncio/session.py",
           "sqlmodel/sql/_expression_select_gen.py"
@@ -2039,8 +2038,8 @@
         "sqlmodel/main.py",
         "sqlmodel/_compat.py",
         "sqlmodel/default.py",
-        "sqlmodel/__init__.py",
-        "scripts/generate_select.py"
+        "scripts/generate_select.py",
+        "sqlmodel/__init__.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -2052,10 +2051,10 @@
           "sqlmodel/main.py",
           "sqlmodel/_compat.py",
           "sqlmodel/default.py",
-          "sqlmodel/__init__.py",
           "scripts/generate_select.py",
+          "sqlmodel/__init__.py",
           "tests/test_field_sa_column.py",
-          "sqlmodel/sql/expression.py",
+          "tests/test_fields_set.py",
           "tests/test_pydantic/test_field.py"
         ],
         "tests": [
@@ -2128,9 +2127,9 @@
       "predicted": [
         "sqlmodel/orm/session.py",
         "sqlmodel/ext/asyncio/session.py",
-        "sqlmodel/main.py",
+        ".github/actions/comment-docs-preview-in-pr/app/main.py",
         "sqlmodel/sql/expression.py",
-        "github/actions/comment-docs-preview-in-pr/app/main.py"
+        "sqlmodel/main.py"
       ],
       "verdict_status": "needs_human",
       "error": null,
@@ -2141,16 +2140,15 @@
         "footprint": [
           "sqlmodel/orm/session.py",
           "sqlmodel/ext/asyncio/session.py",
-          "sqlmodel/main.py",
-          "sqlmodel/sql/expression.py",
           ".github/actions/comment-docs-preview-in-pr/app/main.py",
-          "sqlmodel/__init__.py",
-          "sqlmodel/orm/__init__.py",
-          "sqlmodel/engine/result.py"
+          "sqlmodel/sql/expression.py",
+          "sqlmodel/main.py",
+          ".github/actions/watch-previews/app/main.py",
+          "sqlmodel/engine/result.py",
+          "sqlmodel/__init__.py"
         ],
         "tests": [
-          "tests/test_tutorial/test_fastapi/test_app_testing/test_tutorial001_tests_main.py",
-          "tests/conftest.py"
+          "tests/test_tutorial/test_fastapi/test_app_testing/test_tutorial001_tests_main.py"
         ],
         "test_cmd": "bash scripts/test.sh",
         "summary": "SAWarning from sqlalchemy",
@@ -2220,7 +2218,7 @@
         "sqlmodel/orm/session.py",
         "sqlmodel/main.py",
         "sqlmodel/sql/expression.py",
-        "github/actions/comment-docs-preview-in-pr/app/main.py"
+        ".github/actions/comment-docs-preview-in-pr/app/main.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -2235,8 +2233,8 @@
           "sqlmodel/sql/expression.py",
           ".github/actions/comment-docs-preview-in-pr/app/main.py",
           "sqlmodel/__init__.py",
-          "sqlmodel/ext/asyncio/__init__.py",
-          "sqlmodel/sql/base.py"
+          "sqlmodel/engine/result.py",
+          "sqlmodel/engine/create.py"
         ],
         "tests": [
           "tests/test_main.py",
@@ -2324,9 +2322,9 @@
           "sqlmodel/engine/result.py",
           "sqlmodel/orm/session.py",
           "sqlmodel/ext/asyncio/session.py",
-          ".github/actions/comment-docs-preview-in-pr/app/main.py",
           "sqlmodel/sql/expression.py",
-          ".github/actions/watch-previews/app/main.py"
+          "sqlmodel/engine/create.py",
+          ".github/actions/comment-docs-preview-in-pr/app/main.py"
         ],
         "tests": [
           "tests/test_tutorial/test_fastapi/test_app_testing/test_tutorial001_tests_main.py",
@@ -2400,7 +2398,7 @@
         "sqlmodel/ext/asyncio/session.py",
         "sqlmodel/_compat.py",
         "sqlmodel/main.py",
-        "sqlmodel/sql/expression.py"
+        "sqlmodel/sql/_expression_select_cls.py"
       ],
       "verdict_status": "needs_human",
       "error": null,
@@ -2413,10 +2411,10 @@
           "sqlmodel/ext/asyncio/session.py",
           "sqlmodel/_compat.py",
           "sqlmodel/main.py",
-          "sqlmodel/sql/expression.py",
           "sqlmodel/sql/_expression_select_cls.py",
-          "sqlmodel/sql/_expression_select_gen.py",
-          "sqlmodel/sql/base.py"
+          "sqlmodel/sql/base.py",
+          "scripts/deploy_docs_status.py",
+          "tests/test_main.py"
         ],
         "tests": [
           "tests/conftest.py",
@@ -2479,8 +2477,8 @@
       ],
       "needed_clarification": false,
       "predicted": [
-        "src/click/_termui_impl.py",
         "src/click/termui.py",
+        "src/click/_termui_impl.py",
         "src/click/__init__.py",
         "src/click/core.py",
         "src/click/_compat.py"
@@ -2492,8 +2490,8 @@
         "status": "agent_ready",
         "question": null,
         "footprint": [
-          "src/click/_termui_impl.py",
           "src/click/termui.py",
+          "src/click/_termui_impl.py",
           "src/click/__init__.py",
           "src/click/core.py",
           "src/click/_compat.py",
@@ -2547,13 +2545,13 @@
         "model": null
       },
       "metrics": {
-        "hit@1": false,
-        "cov@1": 0.0,
+        "hit@1": true,
+        "cov@1": 0.5,
         "hit@3": true,
         "cov@3": 0.5,
         "hit@5": true,
         "cov@5": 0.5,
-        "first_hit_rank": 2
+        "first_hit_rank": 1
       }
     },
     {
@@ -2650,10 +2648,10 @@
       ],
       "needed_clarification": false,
       "predicted": [
-        "src/click/shell_completion.py",
         "src/click/core.py",
         "src/click/_termui_impl.py",
         "src/click/termui.py",
+        "src/click/shell_completion.py",
         "src/click/decorators.py"
       ],
       "verdict_status": "needs_human",
@@ -2663,17 +2661,17 @@
         "status": "needs_human",
         "question": "How will we know this is done? Name one behaviour or output an agent can check.",
         "footprint": [
-          "src/click/shell_completion.py",
           "src/click/core.py",
           "src/click/_termui_impl.py",
           "src/click/termui.py",
+          "src/click/shell_completion.py",
           "src/click/decorators.py",
-          "src/click/_compat.py",
           "src/click/testing.py",
-          "src/click/_textwrap.py"
+          "src/click/_compat.py",
+          "src/click/utils.py"
         ],
         "tests": [
-          "tests/test_shell_completion.py"
+          "tests/test_termui.py"
         ],
         "test_cmd": "pytest",
         "summary": "release 8.5.0",
@@ -2732,8 +2730,8 @@
       "needed_clarification": false,
       "predicted": [
         "src/click/_termui_impl.py",
-        "src/click/core.py",
         "src/click/testing.py",
+        "src/click/core.py",
         "src/click/termui.py",
         "src/click/types.py"
       ],
@@ -2745,8 +2743,8 @@
         "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
         "footprint": [
           "src/click/_termui_impl.py",
-          "src/click/core.py",
           "src/click/testing.py",
+          "src/click/core.py",
           "src/click/termui.py",
           "src/click/types.py",
           "src/click/_compat.py",
@@ -2821,9 +2819,9 @@
       "predicted": [
         "src/click/_termui_impl.py",
         "src/click/termui.py",
-        "src/click/core.py",
         "src/click/__init__.py",
-        "src/click/shell_completion.py"
+        "tests/typing/typing_edit.py",
+        "src/click/core.py"
       ],
       "verdict_status": "needs_human",
       "error": null,
@@ -2834,12 +2832,12 @@
         "footprint": [
           "src/click/_termui_impl.py",
           "src/click/termui.py",
-          "src/click/core.py",
           "src/click/__init__.py",
+          "tests/typing/typing_edit.py",
+          "src/click/core.py",
           "src/click/shell_completion.py",
           "src/click/testing.py",
-          "src/click/types.py",
-          "src/click/utils.py"
+          "src/click/types.py"
         ],
         "tests": [
           "tests/test_termui.py"
@@ -2918,8 +2916,8 @@
           "src/click/termui.py",
           "src/click/testing.py",
           "src/click/utils.py",
-          "src/click/shell_completion.py",
           "src/click/types.py",
+          "src/click/shell_completion.py",
           "src/click/_compat.py"
         ],
         "tests": [
@@ -2992,7 +2990,7 @@
         "src/click/core.py",
         "src/click/termui.py",
         "src/click/utils.py",
-        "src/click/_termui_impl.py"
+        "src/click/testing.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -3005,10 +3003,10 @@
           "src/click/core.py",
           "src/click/termui.py",
           "src/click/utils.py",
+          "src/click/testing.py",
           "src/click/_termui_impl.py",
           "src/click/shell_completion.py",
-          "src/click/_compat.py",
-          "src/click/__init__.py"
+          "tests/test_options.py"
         ],
         "tests": [
           "tests/test_termui.py"
@@ -3084,9 +3082,7 @@
       ],
       "verdict_status": "needs_human",
       "error": null,
-      "truth_absent_at_base": [
-        "github/workflows/nightly.yaml"
-      ],
+      "truth_absent_at_base": [],
       "verdict": {
         "status": "needs_human",
         "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
@@ -3171,7 +3167,7 @@
         "src/click/_termui_impl.py",
         "src/click/core.py",
         "src/click/utils.py",
-        "src/click/__init__.py"
+        "src/click/exceptions.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -3184,10 +3180,10 @@
           "src/click/_termui_impl.py",
           "src/click/core.py",
           "src/click/utils.py",
-          "src/click/__init__.py",
           "src/click/exceptions.py",
+          "src/click/__init__.py",
           "src/click/shell_completion.py",
-          "src/click/testing.py"
+          "tests/test_termui.py"
         ],
         "tests": [
           "tests/test_termui.py"
@@ -3251,8 +3247,8 @@
         "src/click/_termui_impl.py",
         "src/click/termui.py",
         "src/click/testing.py",
-        "src/click/utils.py",
-        "src/click/core.py"
+        "src/click/core.py",
+        "src/click/utils.py"
       ],
       "verdict_status": "needs_human",
       "error": null,
@@ -3264,11 +3260,11 @@
           "src/click/_termui_impl.py",
           "src/click/termui.py",
           "src/click/testing.py",
-          "src/click/utils.py",
           "src/click/core.py",
+          "src/click/utils.py",
           "src/click/_compat.py",
-          "src/click/_winconsole.py",
-          "src/click/types.py"
+          "src/click/types.py",
+          "src/click/_winconsole.py"
         ],
         "tests": [
           "tests/test_termui.py",
@@ -3340,8 +3336,8 @@
         "src/click/_termui_impl.py",
         "src/click/termui.py",
         "src/click/testing.py",
-        "src/click/_compat.py",
-        "src/click/utils.py"
+        "src/click/utils.py",
+        "src/click/_compat.py"
       ],
       "verdict_status": "needs_human",
       "error": null,
@@ -3353,11 +3349,11 @@
           "src/click/_termui_impl.py",
           "src/click/termui.py",
           "src/click/testing.py",
-          "src/click/_compat.py",
           "src/click/utils.py",
+          "src/click/_compat.py",
           "src/click/core.py",
-          "src/click/_winconsole.py",
-          "src/click/types.py"
+          "src/click/types.py",
+          "src/click/_winconsole.py"
         ],
         "tests": [
           "tests/test_termui.py",
@@ -3430,7 +3426,7 @@
         "src/click/_termui_impl.py",
         "src/click/utils.py",
         "src/click/core.py",
-        "src/click/testing.py"
+        "tests/test_utils/test_echo_via_pager.py"
       ],
       "verdict_status": "needs_human",
       "error": null,
@@ -3443,10 +3439,10 @@
           "src/click/_termui_impl.py",
           "src/click/utils.py",
           "src/click/core.py",
+          "tests/test_utils/test_echo_via_pager.py",
           "src/click/testing.py",
           "src/click/types.py",
-          "src/click/shell_completion.py",
-          "tests/test_utils/test_echo_via_pager.py"
+          "tests/test_termui.py"
         ],
         "tests": [
           "tests/test_termui.py"
@@ -3608,8 +3604,8 @@
         "pydantic/json_schema.py",
         "pydantic/main.py",
         "pydantic-core/python/pydantic_core/core_schema.py",
-        "pydantic/config.py",
-        "pydantic-core/src/validators/model_fields.rs"
+        "pydantic-core/src/validators/model_fields.rs",
+        "pydantic/config.py"
       ],
       "verdict_status": "needs_human",
       "error": null,
@@ -3621,11 +3617,11 @@
           "pydantic/json_schema.py",
           "pydantic/main.py",
           "pydantic-core/python/pydantic_core/core_schema.py",
-          "pydantic/config.py",
           "pydantic-core/src/validators/model_fields.rs",
-          "pydantic/type_adapter.py",
+          "pydantic/config.py",
+          "pydantic-core/src/validators/dataclass.rs",
           "pydantic-core/src/validators/named_tuple.rs",
-          "pydantic-core/src/validators/dataclass.rs"
+          "pydantic-core/src/validators/arguments.rs"
         ],
         "tests": [
           "tests/test_json_schema.py",
@@ -3689,28 +3685,26 @@
       "needed_clarification": false,
       "predicted": [
         "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
-        "pydantic-core/python/pydantic_core/core_schema.py",
         "pydantic-core/src/errors/validation_exception.rs",
+        "pydantic-core/python/pydantic_core/core_schema.py",
         "pydantic/json_schema.py",
-        "pydantic/_internal/_generate_schema.py"
+        "pydantic/networks.py"
       ],
       "verdict_status": "needs_human",
       "error": null,
-      "truth_absent_at_base": [
-        "github/workflows/ci.yml"
-      ],
+      "truth_absent_at_base": [],
       "verdict": {
         "status": "needs_human",
         "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
         "footprint": [
           "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
-          "pydantic-core/python/pydantic_core/core_schema.py",
           "pydantic-core/src/errors/validation_exception.rs",
+          "pydantic-core/python/pydantic_core/core_schema.py",
           "pydantic/json_schema.py",
-          "pydantic/_internal/_generate_schema.py",
-          "pydantic/mypy.py",
           "pydantic/networks.py",
-          "pydantic/main.py"
+          "pydantic/main.py",
+          "pydantic/_internal/_generate_schema.py",
+          "pydantic/fields.py"
         ],
         "tests": [
           "pydantic-core/tests/serializers/test_core_schema_as_ser_schema.py"
@@ -3780,9 +3774,9 @@
       "predicted": [
         "pydantic-core/src/input/datetime.rs",
         "pydantic-core/src/validators/timedelta.rs",
-        "pydantic-core/src/input/input_json.rs",
         "pydantic-core/src/input/input_python.rs",
-        "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi"
+        "pydantic-core/src/input/input_json.rs",
+        "pydantic-core/src/input/return_enums.rs"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -3793,12 +3787,12 @@
         "footprint": [
           "pydantic-core/src/input/datetime.rs",
           "pydantic-core/src/validators/timedelta.rs",
-          "pydantic-core/src/input/input_json.rs",
           "pydantic-core/src/input/input_python.rs",
-          "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
+          "pydantic-core/src/input/input_json.rs",
           "pydantic-core/src/input/return_enums.rs",
           "pydantic-core/src/errors/validation_exception.rs",
-          "pydantic/main.py"
+          "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
+          "pydantic-core/src/input/input_abstract.rs"
         ],
         "tests": [
           "pydantic-core/tests/serializers/test_datetime.py",
@@ -3869,10 +3863,10 @@
       "needed_clarification": false,
       "predicted": [
         "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
-        "pydantic/_internal/_model_construction.py",
-        "pydantic/_internal/_generate_schema.py",
         "pydantic-core/python/pydantic_core/core_schema.py",
-        "pydantic/networks.py"
+        "pydantic/_internal/_generate_schema.py",
+        "pydantic/type_adapter.py",
+        "pydantic/_internal/_model_construction.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -3882,18 +3876,18 @@
         "question": null,
         "footprint": [
           "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
-          "pydantic/_internal/_model_construction.py",
-          "pydantic/_internal/_generate_schema.py",
           "pydantic-core/python/pydantic_core/core_schema.py",
-          "pydantic/networks.py",
-          "pydantic/v1/main.py",
+          "pydantic/_internal/_generate_schema.py",
           "pydantic/type_adapter.py",
-          "pydantic/json_schema.py"
+          "pydantic/_internal/_model_construction.py",
+          "pydantic/networks.py",
+          "pydantic/json_schema.py",
+          "pydantic/_internal/_typing_extra.py"
         ],
         "tests": [
+          "pydantic-core/tests/serializers/test_core_schema_as_ser_schema.py",
           "tests/conftest.py",
-          "tests/test_config.py",
-          "tests/test_edge_cases.py"
+          "tests/test_config.py"
         ],
         "test_cmd": "make test",
         "summary": "Sequence validation reconstructs named tuples incorrectly",
@@ -3961,9 +3955,9 @@
       "predicted": [
         "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
         "pydantic/types.py",
-        "pydantic/main.py",
         "pydantic-core/src/errors/validation_exception.rs",
-        "pydantic/version.py"
+        "pydantic/main.py",
+        "pydantic-core/python/pydantic_core/core_schema.py"
       ],
       "verdict_status": "needs_human",
       "error": null,
@@ -3974,12 +3968,12 @@
         "footprint": [
           "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
           "pydantic/types.py",
-          "pydantic/main.py",
           "pydantic-core/src/errors/validation_exception.rs",
-          "pydantic/version.py",
-          "pydantic/functional_validators.py",
+          "pydantic/main.py",
           "pydantic-core/python/pydantic_core/core_schema.py",
-          "pydantic/v1/error_wrappers.py"
+          "pydantic/functional_validators.py",
+          "pydantic/version.py",
+          "pydantic/fields.py"
         ],
         "tests": [
           "tests/test_types.py",
@@ -4031,11 +4025,11 @@
       "metrics": {
         "hit@1": false,
         "cov@1": 0.0,
-        "hit@3": false,
-        "cov@3": 0.0,
+        "hit@3": true,
+        "cov@3": 0.5,
         "hit@5": true,
         "cov@5": 0.5,
-        "first_hit_rank": 4
+        "first_hit_rank": 3
       }
     },
     {
@@ -4052,8 +4046,8 @@
         "pydantic/main.py",
         "pydantic/json_schema.py",
         "pydantic/config.py",
-        "tests/test_json_schema.py",
-        "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi"
+        "pydantic/v1/main.py",
+        "pydantic-core/src/validators/dataclass.rs"
       ],
       "verdict_status": "needs_human",
       "error": null,
@@ -4065,11 +4059,11 @@
           "pydantic/main.py",
           "pydantic/json_schema.py",
           "pydantic/config.py",
-          "tests/test_json_schema.py",
-          "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
           "pydantic/v1/main.py",
+          "pydantic-core/src/validators/dataclass.rs",
           "pydantic/_internal/_model_construction.py",
-          "pydantic/_internal/_generate_schema.py"
+          "pydantic/_internal/_generate_schema.py",
+          "pydantic/v1/config.py"
         ],
         "tests": [
           "tests/test_main.py",
@@ -4140,10 +4134,10 @@
       "needed_clarification": false,
       "predicted": [
         "pydantic/main.py",
-        "pydantic/_internal/_generics.py",
         "pydantic/v1/main.py",
+        "pydantic/_internal/_generics.py",
         "pydantic/_internal/_generate_schema.py",
-        "pydantic/v1/utils.py"
+        "pydantic/_internal/_model_construction.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -4153,13 +4147,13 @@
         "question": null,
         "footprint": [
           "pydantic/main.py",
-          "pydantic/_internal/_generics.py",
           "pydantic/v1/main.py",
+          "pydantic/_internal/_generics.py",
           "pydantic/_internal/_generate_schema.py",
-          "pydantic/v1/utils.py",
           "pydantic/_internal/_model_construction.py",
-          "pydantic/_internal/_fields.py",
-          "pydantic/v1/generics.py"
+          "pydantic/v1/utils.py",
+          "pydantic/v1/generics.py",
+          "pydantic/_internal/_fields.py"
         ],
         "tests": [
           "tests/test_main.py",
@@ -4215,7 +4209,7 @@
         "cov@3": 1.0,
         "hit@5": true,
         "cov@5": 1.0,
-        "first_hit_rank": 2
+        "first_hit_rank": 3
       }
     },
     {
@@ -4232,8 +4226,8 @@
         "pydantic/_internal/_generate_schema.py",
         "pydantic/type_adapter.py",
         "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
-        "pydantic/dataclasses.py",
-        "pydantic-core/src/validators/mod.rs"
+        "pydantic-core/src/errors/types.rs",
+        "pydantic/main.py"
       ],
       "verdict_status": "needs_human",
       "error": null,
@@ -4245,11 +4239,11 @@
           "pydantic/_internal/_generate_schema.py",
           "pydantic/type_adapter.py",
           "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
-          "pydantic/dataclasses.py",
-          "pydantic-core/src/validators/mod.rs",
-          "pydantic/errors.py",
+          "pydantic-core/src/errors/types.rs",
           "pydantic/main.py",
-          "pydantic-core/src/errors/types.rs"
+          "pydantic-core/src/validators/with_default.rs",
+          "pydantic/_internal/_generics.py",
+          "pydantic/dataclasses.py"
         ],
         "tests": [
           "tests/test_type_adapter.py",
@@ -4321,10 +4315,10 @@
       "needed_clarification": false,
       "predicted": [
         "pydantic-core/src/errors/validation_exception.rs",
-        "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
         "pydantic-core/src/serializers/type_serializers/union.rs",
-        "pydantic/type_adapter.py",
-        "pydantic-core/python/pydantic_core/core_schema.py"
+        "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
+        "pydantic-core/python/pydantic_core/core_schema.py",
+        "pydantic/type_adapter.py"
       ],
       "verdict_status": "needs_human",
       "error": null,
@@ -4334,13 +4328,13 @@
         "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
         "footprint": [
           "pydantic-core/src/errors/validation_exception.rs",
-          "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
           "pydantic-core/src/serializers/type_serializers/union.rs",
-          "pydantic/type_adapter.py",
+          "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
           "pydantic-core/python/pydantic_core/core_schema.py",
+          "pydantic/type_adapter.py",
           "pydantic-core/src/serializers/type_serializers/function.rs",
-          "pydantic/main.py",
-          "pydantic-core/src/errors/value_exception.rs"
+          "pydantic-core/src/errors/value_exception.rs",
+          "pydantic/main.py"
         ],
         "tests": [
           "pydantic-core/tests/serializers/test_union.py",
@@ -4396,7 +4390,7 @@
         "cov@3": 0.5,
         "hit@5": true,
         "cov@5": 0.5,
-        "first_hit_rank": 3
+        "first_hit_rank": 2
       }
     },
     {
@@ -4412,9 +4406,9 @@
       "predicted": [
         "pydantic/main.py",
         "pydantic-core/src/validators/model_fields.rs",
+        "pydantic-core/src/validators/mod.rs",
         "pydantic/_internal/_generate_schema.py",
-        "pydantic/fields.py",
-        "pydantic-core/src/validators/mod.rs"
+        "pydantic-core/src/validators/dataclass.rs"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -4425,17 +4419,17 @@
         "footprint": [
           "pydantic/main.py",
           "pydantic-core/src/validators/model_fields.rs",
-          "pydantic/_internal/_generate_schema.py",
-          "pydantic/fields.py",
           "pydantic-core/src/validators/mod.rs",
-          "pydantic/json_schema.py",
+          "pydantic/_internal/_generate_schema.py",
+          "pydantic-core/src/validators/dataclass.rs",
           "pydantic-core/python/pydantic_core/core_schema.py",
-          "pydantic-core/src/validators/dataclass.rs"
+          "pydantic-core/src/errors/validation_exception.rs",
+          "pydantic-core/src/validators/function.rs"
         ],
         "tests": [
           "tests/test_main.py",
           "pydantic-core/tests/validators/test_model_fields.py",
-          "tests/conftest.py"
+          "pydantic-core/tests/serializers/test_model.py"
         ],
         "test_cmd": "make test",
         "summary": "JSON model validation allocates an unused extras dict per model when `extra` isn't `'allow'`",
@@ -4497,8 +4491,8 @@
         "pydantic-core/src/validators/decimal.rs",
         "pydantic/fields.py",
         "pydantic/v1/fields.py",
-        "pydantic/type_adapter.py",
-        "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi"
+        "pydantic/_internal/_validators.py",
+        "pydantic/functional_validators.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -4510,11 +4504,11 @@
           "pydantic-core/src/validators/decimal.rs",
           "pydantic/fields.py",
           "pydantic/v1/fields.py",
+          "pydantic/_internal/_validators.py",
+          "pydantic/functional_validators.py",
           "pydantic/type_adapter.py",
           "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
-          "pydantic/_internal/_validators.py",
-          "pydantic-core/src/validators/mod.rs",
-          "pydantic/functional_validators.py"
+          "pydantic-core/src/validators/mod.rs"
         ],
         "tests": [
           "pydantic-core/tests/serializers/test_decimal.py",
@@ -4568,9 +4562,9 @@
         "cov@1": 0.0,
         "hit@3": false,
         "cov@3": 0.0,
-        "hit@5": false,
-        "cov@5": 0.0,
-        "first_hit_rank": null
+        "hit@5": true,
+        "cov@5": 0.5,
+        "first_hit_rank": 4
       }
     },
     {
@@ -4590,10 +4584,10 @@
       "needed_clarification": false,
       "predicted": [
         "pydantic-core/src/validators/function.rs",
+        "pydantic/functional_validators.py",
         "pydantic-core/src/validators/generator.rs",
-        "pydantic-core/src/validators/mod.rs",
         "pydantic-core/src/validators/arguments_v3.rs",
-        "pydantic/functional_validators.py"
+        "pydantic/_internal/_generate_schema.py"
       ],
       "verdict_status": "needs_human",
       "error": null,
@@ -4603,13 +4597,13 @@
         "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
         "footprint": [
           "pydantic-core/src/validators/function.rs",
-          "pydantic-core/src/validators/generator.rs",
-          "pydantic-core/src/validators/mod.rs",
-          "pydantic-core/src/validators/arguments_v3.rs",
           "pydantic/functional_validators.py",
+          "pydantic-core/src/validators/generator.rs",
+          "pydantic-core/src/validators/arguments_v3.rs",
           "pydantic/_internal/_generate_schema.py",
-          "pydantic-core/src/validators/model.rs",
-          "pydantic-core/src/validators/dataclass.rs"
+          "pydantic-core/src/validators/mod.rs",
+          "pydantic-core/python/pydantic_core/core_schema.py",
+          "pydantic-core/src/validators/model.rs"
         ],
         "tests": [
           "pydantic-core/tests/serializers/test_functions.py",
@@ -4683,7 +4677,7 @@
         "pydantic/main.py",
         "pydantic/_internal/_model_construction.py",
         "pydantic/fields.py",
-        "pydantic/v1/mypy.py"
+        "pydantic/v1/main.py"
       ],
       "verdict_status": "needs_human",
       "error": null,
@@ -4696,10 +4690,10 @@
           "pydantic/main.py",
           "pydantic/_internal/_model_construction.py",
           "pydantic/fields.py",
+          "pydantic/v1/main.py",
+          "pydantic-core/python/pydantic_core/core_schema.py",
           "pydantic/v1/mypy.py",
-          "pydantic/_internal/_generics.py",
-          "pydantic/types.py",
-          "pydantic-core/python/pydantic_core/core_schema.py"
+          "pydantic/types.py"
         ],
         "tests": [
           "tests/mypy/test_mypy.py",
@@ -4771,10 +4765,10 @@
       "needed_clarification": false,
       "predicted": [
         "pydantic/main.py",
-        "pydantic/fields.py",
         "pydantic/_internal/_fields.py",
-        "pydantic/_internal/_model_construction.py",
-        "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi"
+        "pydantic/fields.py",
+        "pydantic/_internal/_typing_extra.py",
+        "pydantic/_internal/_model_construction.py"
       ],
       "verdict_status": "needs_human",
       "error": null,
@@ -4784,12 +4778,12 @@
         "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
         "footprint": [
           "pydantic/main.py",
-          "pydantic/fields.py",
           "pydantic/_internal/_fields.py",
+          "pydantic/fields.py",
+          "pydantic/_internal/_typing_extra.py",
           "pydantic/_internal/_model_construction.py",
           "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
-          "pydantic/_internal/_typing_extra.py",
-          "pydantic/_internal/_generics.py",
+          "pydantic/v1/main.py",
           "pydantic/config.py"
         ],
         "tests": [
@@ -4846,7 +4840,7 @@
         "cov@3": 0.5,
         "hit@5": true,
         "cov@5": 0.5,
-        "first_hit_rank": 3
+        "first_hit_rank": 2
       }
     },
     {
@@ -4951,10 +4945,10 @@
       ],
       "needed_clarification": true,
       "predicted": [
-        "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
         "pydantic/main.py",
-        "pydantic/_internal/_generate_schema.py",
+        "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
         "pydantic/v1/main.py",
+        "pydantic/_internal/_generate_schema.py",
         "pydantic/config.py"
       ],
       "verdict_status": "needs_human",
@@ -4964,10 +4958,10 @@
         "status": "needs_human",
         "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
         "footprint": [
-          "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
           "pydantic/main.py",
-          "pydantic/_internal/_generate_schema.py",
+          "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
           "pydantic/v1/main.py",
+          "pydantic/_internal/_generate_schema.py",
           "pydantic/config.py",
           "pydantic/type_adapter.py",
           "pydantic/_internal/_generics.py",
@@ -4975,8 +4969,8 @@
         ],
         "tests": [
           "tests/test_main.py",
-          "tests/conftest.py",
-          "tests/test_config.py"
+          "tests/test_dunder_all.py",
+          "tests/test_type_hints.py"
         ],
         "test_cmd": "make test",
         "summary": "TypeError: ForwardRef.__init__() got an unexpected keyword argument 'is_class` on Python 3.10",
@@ -5060,8 +5054,8 @@
           "pydantic/_internal/_model_construction.py",
           "pydantic/_internal/_generate_schema.py",
           "pydantic/config.py",
-          "pydantic/type_adapter.py",
-          "pydantic/fields.py"
+          "pydantic-core/src/validators/typed_dict.rs",
+          "pydantic/type_adapter.py"
         ],
         "tests": [
           "tests/test_json_schema.py",
@@ -5133,8 +5127,8 @@
       "predicted": [
         "pydantic-core/python/pydantic_core/core_schema.py",
         "pydantic/json_schema.py",
-        "pydantic/type_adapter.py",
         "pydantic/main.py",
+        "pydantic/type_adapter.py",
         "pydantic/types.py"
       ],
       "verdict_status": "needs_human",
@@ -5146,8 +5140,8 @@
         "footprint": [
           "pydantic-core/python/pydantic_core/core_schema.py",
           "pydantic/json_schema.py",
-          "pydantic/type_adapter.py",
           "pydantic/main.py",
+          "pydantic/type_adapter.py",
           "pydantic/types.py",
           "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
           "pydantic/_internal/_generate_schema.py",
@@ -5308,8 +5302,8 @@
         "pydantic/main.py",
         "pydantic-core/src/validators/model.rs",
         "pydantic-core/src/validators/model_fields.rs",
-        "pydantic/json_schema.py",
-        "pydantic-core/python/pydantic_core/core_schema.py"
+        "pydantic-core/python/pydantic_core/core_schema.py",
+        "pydantic/json_schema.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -5321,11 +5315,11 @@
           "pydantic/main.py",
           "pydantic-core/src/validators/model.rs",
           "pydantic-core/src/validators/model_fields.rs",
-          "pydantic/json_schema.py",
           "pydantic-core/python/pydantic_core/core_schema.py",
+          "pydantic/json_schema.py",
+          "pydantic-core/src/validators/mod.rs",
           "pydantic/fields.py",
-          "pydantic/_internal/_generate_schema.py",
-          "pydantic/functional_validators.py"
+          "pydantic/types.py"
         ],
         "tests": [
           "tests/test_main.py",

@@ -73,8 +73,8 @@ CODE_EXT = (".py", ".pyi", ".ts", ".tsx", ".js", ".jsx", ".go", ".rs")
 
 
 def engine_state() -> str:
-    """Commit of this repo plus a marker if ready/ has uncommitted edits."""
-    sha = subprocess.run(["git", "-C", str(ROOT), "rev-parse", "--short", "HEAD"],
+    """Last commit that touched ready/, plus a marker if ready/ has uncommitted edits."""
+    sha = subprocess.run(["git", "-C", str(ROOT), "log", "-1", "--format=%h", "--", "ready"],
                          capture_output=True, text=True).stdout.strip()
     dirty = subprocess.run(["git", "-C", str(ROOT), "status", "--porcelain", "ready"],
                            capture_output=True, text=True).stdout.strip()

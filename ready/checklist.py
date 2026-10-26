@@ -30,10 +30,21 @@ _REPRO = re.compile(r"(```|^\s*(>>>|\$|pip |python |npm |uv |pytest)|steps to re
 _CRITERIA = re.compile(r"(acceptance criteria|definition of done|- \[ \]|\bshould (return|raise|accept|work|be|not)\b|\bmust\b|\bexpected (output|behaviou?r|result)\b)", re.I)
 _VAGUE_TITLE = re.compile(r"^\s*(bug|issue|problem|help|question|docs?|fix|error|broken|not working)[\s.!?:]*$", re.I)
 _TRACEBACK = re.compile(r"(Traceback \(most recent call last\)|^\s*File \".+\", line \d+|\b\w+(Error|Exception):)", re.M)
+# Concrete evidence of a failure implies its own expected behaviour ("this should not raise").
+# Calibrated on 60 real issues that maintainers fixed without asking anything: requiring an
+# explicit "expected vs actual" sentence flagged 22 of them, all clearly workable.
+_ERROR_NAME = re.compile(r"\b[A-Z][A-Za-z]*(Error|Exception|Warning)\b|\bWinError \d+|\bexit (code|status) \d+|\bsegfault|\bpanic", re.I)
+_VERSION_REGRESSION = re.compile(r"(\b\d+\.\d+(\.\d+)?\b.*\b(work(s|ed)|broke|fails?|regress))|\b(since|after|in) (v?\d+\.\d+)|\bno longer\b|\bused to\b|\bstopped working\b", re.I | re.S)
+_INLINE_CALL = re.compile(r"`[^`\n]*\w\([^`\n]*\)[^`\n]*`")
+_CHANGE_VERB = re.compile(r"\b(support|add|allow|change|rename|remove|deprecate|expose|accept|return|raise|make|use|update|bump|drop)\b", re.I)
+_CODE_SYMBOL = re.compile(r"`[^`\n]{2,}`|\b\w+\.\w+\(|\b[A-Za-z_]+(_[A-Za-z]+)+\b|[A-Z][a-z]+[A-Z]\w+|\b\w+\s*[<>=]=?\s*\d+\.\d+")
 _PATHISH = re.compile(r"[\w./-]+\.(py|ts|tsx|js|go|rs|java|rb)\b|\b[a-z_]+(\.[a-z_]+){1,}\b")
 
 
 def is_bug_report(title: str, body: str) -> bool:
+    # "Change X to Y" / "Support Z" is a change request even if its body mentions errors.
+    if re.match(r"\s*(\[\w+\]\s*)?(support|add|allow|change|rename|remove|deprecate|expose|bump|drop|update)\b", title, re.I):
+        return False
     return bool(_BUG_WORDS.search(f"{title}\n{body}"))
 
 
@@ -56,26 +67,34 @@ def evaluate(title: str, body: str) -> list[Finding]:
         cites=f'{ALAN_TASK_DOC}: "Description: context, constraints, and acceptance criteria."',
         human_only=True,
     ))
+    has_repro = bool(_REPRO.search(body) or _TRACEBACK.search(body) or _INLINE_CALL.search(body))
+    concrete_failure = bool(_ERROR_NAME.search(text) or _VERSION_REGRESSION.search(text))
     if bug:
+        expect_ok = bool(_EXPECT.search(text)) or concrete_failure
         out.append(Finding(
             "expected_vs_actual",
-            ok=bool(_EXPECT.search(text)),
-            detail="States what should happen vs what happens" if _EXPECT.search(text) else "Does not say what should happen instead",
+            ok=expect_ok,
+            detail=("States what should happen vs what happens" if _EXPECT.search(text)
+                    else "A named error or version regression implies the expected behaviour" if expect_ok
+                    else "Does not say what should happen instead"),
             cites=f'{ALAN_TASK_DOC}: "Add criteria that can be checked."',
             human_only=True,
         ))
+        repro_ok = has_repro or (concrete_failure and bool(_CODE_SYMBOL.search(text)))
         out.append(Finding(
             "reproduction",
-            ok=bool(_REPRO.search(body) or _TRACEBACK.search(body)),
-            detail="Has a reproduction or traceback" if (_REPRO.search(body) or _TRACEBACK.search(body)) else "No code, command or traceback to reproduce",
+            ok=repro_ok,
+            detail="Has a reproduction, traceback or a named failing call" if repro_ok else "No code, command or traceback to reproduce",
             cites=f'{ALAN_TASK_DOC}: "A task should be small enough to execute and specific enough to verify."',
             human_only=True,
         ))
     else:
+        # A change request is checkable when it names the change and the thing it applies to.
+        crit_ok = bool(_CRITERIA.search(text)) or (bool(_CHANGE_VERB.search(title)) and bool(_CODE_SYMBOL.search(text))) or has_repro
         out.append(Finding(
             "checkable_criteria",
-            ok=bool(_CRITERIA.search(text)),
-            detail="Has checkable criteria" if _CRITERIA.search(text) else "No checkable acceptance criteria",
+            ok=crit_ok,
+            detail="Has checkable criteria or names a concrete change" if crit_ok else "No checkable acceptance criteria",
             cites=f'{ALAN_TASK_DOC}: "Add criteria that can be checked. Avoid criteria such as \'looks good\'."',
             human_only=True,
         ))
