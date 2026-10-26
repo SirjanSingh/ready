@@ -1,47 +1,1940 @@
 {
   "variant": "grep",
   "k": 5,
-  "date": "2026-10-27T01:52:59",
-  "note": null,
+  "date": "2026-10-27T02:23:39",
+  "note": "Rescored on 2026-10-27 from the run dated 2026-10-27T02:22:39 (no new predictions).",
+  "elapsed_s": null,
   "overall": {
-    "n": 3,
+    "n": 60,
     "errors": 0,
-    "hit@1": 1.0,
-    "cov@1": 0.8333333333333334,
-    "hit@3": 1.0,
-    "cov@3": 1.0,
-    "hit@5": 1.0,
-    "cov@5": 1.0,
-    "truth_files": 4,
+    "hit@1": 0.45,
+    "cov@1": 0.3541666666666667,
+    "hit@3": 0.6833333333333333,
+    "cov@3": 0.5916666666666667,
+    "hit@5": 0.7666666666666667,
+    "cov@5": 0.6777777777777777,
+    "truth_files": 91,
+    "truth_files_absent_at_base": 2
+  },
+  "overall_code_truth_only": {
+    "n": 54,
+    "errors": 0,
+    "hit@1": 0.5,
+    "cov@1": 0.39351851851851855,
+    "hit@3": 0.7592592592592593,
+    "cov@3": 0.6574074074074074,
+    "hit@5": 0.8518518518518519,
+    "cov@5": 0.7530864197530863,
+    "truth_files": 85,
     "truth_files_absent_at_base": 0
   },
   "per_repo": {
-    "fastapi/sqlmodel": {
-      "n": 3,
+    "encode/httpx": {
+      "n": 20,
       "errors": 0,
-      "hit@1": 1.0,
-      "cov@1": 0.8333333333333334,
-      "hit@3": 1.0,
-      "cov@3": 1.0,
-      "hit@5": 1.0,
-      "cov@5": 1.0,
-      "truth_files": 4,
+      "hit@1": 0.4,
+      "cov@1": 0.2375,
+      "hit@3": 0.55,
+      "cov@3": 0.425,
+      "hit@5": 0.7,
+      "cov@5": 0.5833333333333333,
+      "truth_files": 34,
       "truth_files_absent_at_base": 0
+    },
+    "fastapi/sqlmodel": {
+      "n": 7,
+      "errors": 0,
+      "hit@1": 0.8571428571428571,
+      "cov@1": 0.7142857142857143,
+      "hit@3": 0.8571428571428571,
+      "cov@3": 0.8571428571428571,
+      "hit@5": 0.8571428571428571,
+      "cov@5": 0.8571428571428571,
+      "truth_files": 9,
+      "truth_files_absent_at_base": 0
+    },
+    "pallets/click": {
+      "n": 13,
+      "errors": 0,
+      "hit@1": 0.46153846153846156,
+      "cov@1": 0.46153846153846156,
+      "hit@3": 0.8461538461538461,
+      "cov@3": 0.8076923076923077,
+      "hit@5": 0.8461538461538461,
+      "cov@5": 0.8076923076923077,
+      "truth_files": 15,
+      "truth_files_absent_at_base": 1
+    },
+    "pydantic/pydantic": {
+      "n": 20,
+      "errors": 0,
+      "hit@1": 0.35,
+      "cov@1": 0.275,
+      "hit@3": 0.65,
+      "cov@3": 0.525,
+      "hit@5": 0.75,
+      "cov@5": 0.625,
+      "truth_files": 33,
+      "truth_files_absent_at_base": 1
     }
   },
   "confusion": {
-    "tp": 0,
-    "fp": 1,
-    "fn": 0,
-    "tn": 2,
-    "n": 3,
-    "accuracy": 0.6666666666666666,
-    "precision": 0.0,
-    "recall": null,
-    "predicted_needs_human": 1,
-    "gold_positive": 0
+    "tp": 2,
+    "fp": 34,
+    "fn": 1,
+    "tn": 23,
+    "n": 60,
+    "accuracy": 0.4166666666666667,
+    "precision": 0.05555555555555555,
+    "recall": 0.6666666666666666,
+    "predicted_needs_human": 36,
+    "gold_positive": 3
   },
   "pairs": [
+    {
+      "repo": "encode/httpx",
+      "issue_number": 2670,
+      "issue_url": "https://github.com/encode/httpx/issues/2670",
+      "pr_number": 2671,
+      "base_sha": "15d09a3bbc20372cd87e48f17f7c9381c8220a0f",
+      "truth": [
+        "httpx/_urlparse.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "httpx/_urls.py",
+        "httpx/_urlparse.py",
+        "httpx/_client.py",
+        "httpx/_models.py",
+        "httpx/_api.py"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "httpx/_urls.py",
+          "httpx/_urlparse.py",
+          "httpx/_client.py",
+          "httpx/_models.py",
+          "httpx/_api.py",
+          "httpx/_utils.py",
+          "httpx/_config.py",
+          "httpx/_content.py"
+        ],
+        "tests": [
+          "tests/test_urlparse.py",
+          "tests/client/test_async_client.py",
+          "tests/client/test_client.py"
+        ],
+        "test_cmd": "bash scripts/test",
+        "summary": "Percent sign not encoded when present in query params value",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 233 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": true,
+            "detail": "States what should happen vs what happens",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 2
+      }
+    },
+    {
+      "repo": "encode/httpx",
+      "issue_number": 3411,
+      "issue_url": "https://github.com/encode/httpx/issues/3411",
+      "pr_number": 3412,
+      "base_sha": "189fc4bcbe5f314128775dec66a616ac9a31ad48",
+      "truth": [
+        "httpx/__version__.py",
+        "httpx/_decoders.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "httpx/_decoders.py",
+        "httpx/_exceptions.py",
+        "httpx/_models.py",
+        "httpx/_client.py",
+        "httpx/_urls.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "footprint": [
+          "httpx/_decoders.py",
+          "httpx/_exceptions.py",
+          "httpx/_models.py",
+          "httpx/_client.py",
+          "httpx/_urls.py",
+          "httpx/_api.py",
+          "httpx/_utils.py",
+          "tests/test_multipart.py"
+        ],
+        "tests": [
+          "tests/test_decoders.py",
+          "tests/test_exceptions.py"
+        ],
+        "test_cmd": "bash scripts/test",
+        "summary": "Zstandard data is incomplete on HEAD requests",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 132 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": false,
+            "detail": "Does not say what should happen instead",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.5,
+        "hit@3": true,
+        "cov@3": 0.5,
+        "hit@5": true,
+        "cov@5": 0.5,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "encode/httpx",
+      "issue_number": 2884,
+      "issue_url": "https://github.com/encode/httpx/issues/2884",
+      "pr_number": 2885,
+      "base_sha": "1b7f39eb44304f76b5f402914a2d2fbf57dc24c6",
+      "truth": [
+        "pyproject.toml"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "httpx/_client.py",
+        "httpx/_transports/default.py",
+        "httpx/_main.py",
+        "httpx/_api.py",
+        "httpx/_auth.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "footprint": [
+          "httpx/_client.py",
+          "httpx/_transports/default.py",
+          "httpx/_main.py",
+          "httpx/_api.py",
+          "httpx/_auth.py",
+          "httpx/_config.py",
+          "httpx/_content.py",
+          "httpx/_decoders.py"
+        ],
+        "tests": [
+          "tests/client/test_async_client.py",
+          "tests/client/test_client.py",
+          "tests/test_main.py"
+        ],
+        "test_cmd": "bash scripts/test",
+        "summary": "Support httpcore >= 1.0.0",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 44 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": false,
+            "detail": "Does not say what should happen instead",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": false,
+            "detail": "Names no file, module or symbol (Ready will try to find them)",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": false,
+        "cov@5": 0.0,
+        "first_hit_rank": null
+      }
+    },
+    {
+      "repo": "encode/httpx",
+      "issue_number": 1018,
+      "issue_url": "https://github.com/encode/httpx/issues/1018",
+      "pr_number": 1269,
+      "base_sha": "2d6c30d0613535cf1e3e6d40cc7f3eca388ea804",
+      "truth": [
+        "httpx/_decoders.py",
+        "httpx/_models.py",
+        "setup.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "httpx/_decoders.py",
+        "httpx/_models.py",
+        "httpx/_utils.py",
+        "httpx/_client.py",
+        "httpx/_auth.py"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "httpx/_decoders.py",
+          "httpx/_models.py",
+          "httpx/_utils.py",
+          "httpx/_client.py",
+          "httpx/_auth.py",
+          "httpx/_content_streams.py",
+          "httpx/_transports/asgi.py",
+          "httpx/_transports/wsgi.py"
+        ],
+        "tests": [
+          "tests/test_decoders.py",
+          "tests/test_utils.py",
+          "tests/client/test_proxies.py"
+        ],
+        "test_cmd": "bash scripts/test",
+        "summary": "Replace chardet with plain UTF-8 detection",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 207 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": true,
+            "detail": "States what should happen vs what happens",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.3333333333333333,
+        "hit@3": true,
+        "cov@3": 0.6666666666666666,
+        "hit@5": true,
+        "cov@5": 0.6666666666666666,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "encode/httpx",
+      "issue_number": 2721,
+      "issue_url": "https://github.com/encode/httpx/issues/2721",
+      "pr_number": 2723,
+      "base_sha": "301b8fb03a81447c5b5ab1ca991202e10826fbda",
+      "truth": [
+        "httpx/_urlparse.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "httpx/_models.py",
+        "httpx/_urls.py",
+        "httpx/_client.py",
+        "httpx/_urlparse.py",
+        "httpx/_compat.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "How will we know this is done? Name one behaviour or output an agent can check.",
+        "footprint": [
+          "httpx/_models.py",
+          "httpx/_urls.py",
+          "httpx/_client.py",
+          "httpx/_urlparse.py",
+          "httpx/_compat.py",
+          "httpx/_api.py",
+          "httpx/_exceptions.py",
+          "httpx/_utils.py"
+        ],
+        "tests": [
+          "tests/client/test_async_client.py",
+          "tests/client/test_client.py"
+        ],
+        "test_cmd": "bash scripts/test",
+        "summary": "Use percent-encoding for `/` in query params, for better robustness.",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 185 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "checkable_criteria",
+            "ok": false,
+            "detail": "No checkable acceptance criteria",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 4
+      }
+    },
+    {
+      "repo": "encode/httpx",
+      "issue_number": 2883,
+      "issue_url": "https://github.com/encode/httpx/issues/2883",
+      "pr_number": 2990,
+      "base_sha": "3b9060ee1121b48669e0b30045c9344065f4f2ae",
+      "truth": [
+        "httpx/_urlparse.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "httpx/_urlparse.py",
+        "httpx/_urls.py",
+        "httpx/_client.py",
+        "httpx/_models.py",
+        "httpx/_utils.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "footprint": [
+          "httpx/_urlparse.py",
+          "httpx/_urls.py",
+          "httpx/_client.py",
+          "httpx/_models.py",
+          "httpx/_utils.py",
+          "httpx/_exceptions.py",
+          "httpx/_compat.py",
+          "httpx/_decoders.py"
+        ],
+        "tests": [
+          "tests/client/test_async_client.py",
+          "tests/client/test_client.py"
+        ],
+        "test_cmd": "bash scripts/test",
+        "summary": "ULR parser percent encoding corrupting query params",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 97 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": false,
+            "detail": "Does not say what should happen instead",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": false,
+            "detail": "No code, command or traceback to reproduce",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 1.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "encode/httpx",
+      "issue_number": 2666,
+      "issue_url": "https://github.com/encode/httpx/issues/2666",
+      "pr_number": 2667,
+      "base_sha": "4b5a92e88e03443c2619f0905d756b159f9f0222",
+      "truth": [
+        "httpx/_auth.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "httpx/_client.py",
+        "httpx/_auth.py",
+        "httpx/_models.py",
+        "httpx/_urls.py",
+        "httpx/_decoders.py"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "httpx/_client.py",
+          "httpx/_auth.py",
+          "httpx/_models.py",
+          "httpx/_urls.py",
+          "httpx/_decoders.py",
+          "httpx/_utils.py",
+          "httpx/_transports/default.py",
+          "httpx/_exceptions.py"
+        ],
+        "tests": [
+          "tests/client/test_async_client.py",
+          "tests/client/test_client.py",
+          "tests/client/test_auth.py"
+        ],
+        "test_cmd": "bash scripts/test",
+        "summary": "httpx 0.24 documentation issue for netrc support",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 105 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": true,
+            "detail": "States what should happen vs what happens",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 2
+      }
+    },
+    {
+      "repo": "encode/httpx",
+      "issue_number": 2985,
+      "issue_url": "https://github.com/encode/httpx/issues/2985",
+      "pr_number": 2986,
+      "base_sha": "5b5f6d8e172910371b5901f6e21717097274c513",
+      "truth": [
+        "httpx/_urlparse.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "httpx/_urls.py",
+        "httpx/_urlparse.py",
+        "httpx/_client.py",
+        "httpx/_utils.py",
+        "httpx/_compat.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "How will we know this is done? Name one behaviour or output an agent can check.",
+        "footprint": [
+          "httpx/_urls.py",
+          "httpx/_urlparse.py",
+          "httpx/_client.py",
+          "httpx/_utils.py",
+          "httpx/_compat.py",
+          "httpx/_api.py",
+          "httpx/_exceptions.py",
+          "httpx/_models.py"
+        ],
+        "tests": [
+          "tests/client/test_async_client.py",
+          "tests/client/test_client.py"
+        ],
+        "test_cmd": "bash scripts/test",
+        "summary": "Allow URLs where username or password contains unescaped '@'.",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 64 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "checkable_criteria",
+            "ok": false,
+            "detail": "No checkable acceptance criteria",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 2
+      }
+    },
+    {
+      "repo": "encode/httpx",
+      "issue_number": 2532,
+      "issue_url": "https://github.com/encode/httpx/issues/2532",
+      "pr_number": 2535,
+      "base_sha": "7947b56076db933079ec0c33d1f81406e33008e7",
+      "truth": [
+        "httpx/__init__.py",
+        "httpx/_auth.py",
+        "httpx/_client.py",
+        "httpx/_utils.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "httpx/_utils.py",
+        "httpx/_client.py",
+        "httpx/_urlparse.py",
+        "httpx/_config.py",
+        "httpx/_models.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "Can you add the smallest snippet or command that shows the problem, with the versions you ran it on?",
+        "footprint": [
+          "httpx/_utils.py",
+          "httpx/_client.py",
+          "httpx/_urlparse.py",
+          "httpx/_config.py",
+          "httpx/_models.py",
+          "httpx/_exceptions.py",
+          "httpx/_compat.py",
+          "httpx/_urls.py"
+        ],
+        "tests": [
+          "tests/test_utils.py",
+          "tests/client/test_async_client.py",
+          "tests/client/test_client.py"
+        ],
+        "test_cmd": "bash scripts/test",
+        "summary": "NetRCInfo.netrc_info() doesn't work when run in a systemd service with DynamicUser=true",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 273 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": true,
+            "detail": "States what should happen vs what happens",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": false,
+            "detail": "No code, command or traceback to reproduce",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.25,
+        "hit@3": true,
+        "cov@3": 0.5,
+        "hit@5": true,
+        "cov@5": 0.5,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "encode/httpx",
+      "issue_number": 2660,
+      "issue_url": "https://github.com/encode/httpx/issues/2660",
+      "pr_number": 2659,
+      "base_sha": "7d7c4f15b8784e4a550d974139acfa64193b32c2",
+      "truth": [
+        "httpx/_utils.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "httpx/_utils.py",
+        "httpx/_urlparse.py",
+        "httpx/_client.py",
+        "tests/test_utils.py",
+        "httpx/_urls.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "Can you add the smallest snippet or command that shows the problem, with the versions you ran it on?",
+        "footprint": [
+          "httpx/_utils.py",
+          "httpx/_urlparse.py",
+          "httpx/_client.py",
+          "tests/test_utils.py",
+          "httpx/_urls.py",
+          "httpx/_compat.py",
+          "httpx/_models.py",
+          "httpx/_transports/base.py"
+        ],
+        "tests": [
+          "tests/test_utils.py",
+          "tests/test_urlparse.py",
+          "tests/client/test_async_client.py"
+        ],
+        "test_cmd": "bash scripts/test",
+        "summary": "The `get_environment_proxies` function in _utils.py does not support IPv4, IPv6 correctly",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 163 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": true,
+            "detail": "States what should happen vs what happens",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": false,
+            "detail": "No code, command or traceback to reproduce",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 1.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "encode/httpx",
+      "issue_number": 3111,
+      "issue_url": "https://github.com/encode/httpx/issues/3111",
+      "pr_number": 3109,
+      "base_sha": "87713d2172053c4ad05efacf3ab7e0a5c15616fc",
+      "truth": [
+        "httpx/_transports/asgi.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "httpx/_transports/asgi.py",
+        "httpx/_client.py",
+        "tests/conftest.py",
+        "httpx/_transports/wsgi.py",
+        "httpx/_urls.py"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "httpx/_transports/asgi.py",
+          "httpx/_client.py",
+          "tests/conftest.py",
+          "httpx/_transports/wsgi.py",
+          "httpx/_urls.py",
+          "httpx/_transports/default.py",
+          "httpx/_transports/base.py",
+          "httpx/_transports/__init__.py"
+        ],
+        "tests": [
+          "tests/test_asgi.py",
+          "tests/client/test_async_client.py",
+          "tests/client/test_client.py"
+        ],
+        "test_cmd": "bash scripts/test",
+        "summary": "0.27.0: replacing `app=app` with `transport=ASGITransport(app)` doesn't type check",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 150 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": true,
+            "detail": "States what should happen vs what happens",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 1.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "encode/httpx",
+      "issue_number": 2715,
+      "issue_url": "https://github.com/encode/httpx/issues/2715",
+      "pr_number": 2716,
+      "base_sha": "a682f6f1c7f1c5e10c66ae5bef139aea37ef0c4e",
+      "truth": [
+        "httpx/_transports/default.py",
+        "pyproject.toml"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "httpx/_transports/default.py",
+        "httpx/_client.py",
+        "httpx/_transports/base.py",
+        "httpx/__init__.py",
+        "httpx/_exceptions.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "How will we know this is done? Name one behaviour or output an agent can check.",
+        "footprint": [
+          "httpx/_transports/default.py",
+          "httpx/_client.py",
+          "httpx/_transports/base.py",
+          "httpx/__init__.py",
+          "httpx/_exceptions.py",
+          "httpx/_models.py",
+          "tests/client/test_proxies.py",
+          "httpx/_auth.py"
+        ],
+        "tests": [
+          "tests/client/test_async_client.py",
+          "tests/client/test_client.py"
+        ],
+        "test_cmd": "bash scripts/test",
+        "summary": "Add `socket_options` to `httpx.HTTPTransport`.",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 77 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "checkable_criteria",
+            "ok": false,
+            "detail": "No checkable acceptance criteria",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.5,
+        "hit@3": true,
+        "cov@3": 0.5,
+        "hit@5": true,
+        "cov@5": 0.5,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "encode/httpx",
+      "issue_number": 1434,
+      "issue_url": "https://github.com/encode/httpx/issues/1434",
+      "pr_number": 2845,
+      "base_sha": "adbcd0e0e7fcb174ce60772c7d6104b8b9d329ca",
+      "truth": [
+        "httpx/_config.py",
+        "httpx/_transports/default.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "httpx/_client.py",
+        "httpx/_models.py",
+        "httpx/_urls.py",
+        "httpx/_api.py",
+        "httpx/_utils.py"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "httpx/_client.py",
+          "httpx/_models.py",
+          "httpx/_urls.py",
+          "httpx/_api.py",
+          "httpx/_utils.py",
+          "httpx/_transports/default.py",
+          "httpx/_main.py",
+          "httpx/_urlparse.py"
+        ],
+        "tests": [
+          "tests/client/test_async_client.py",
+          "tests/client/test_client.py"
+        ],
+        "test_cmd": "bash scripts/test",
+        "summary": "HTTPS proxies support",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 512 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": true,
+            "detail": "States what should happen vs what happens",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": false,
+        "cov@5": 0.0,
+        "first_hit_rank": null
+      }
+    },
+    {
+      "repo": "encode/httpx",
+      "issue_number": 309,
+      "issue_url": "https://github.com/encode/httpx/issues/309",
+      "pr_number": 310,
+      "base_sha": "b8c5e7a8528978e646c28a5837df5085ea3803fc",
+      "truth": [
+        "httpx/middleware.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "httpx/dispatch/http11.py",
+        "httpx/client.py",
+        "httpx/dispatch/connection_pool.py",
+        "httpx/dispatch/http2.py",
+        "httpx/dispatch/connection.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "footprint": [
+          "httpx/dispatch/http11.py",
+          "httpx/client.py",
+          "httpx/dispatch/connection_pool.py",
+          "httpx/dispatch/http2.py",
+          "httpx/dispatch/connection.py",
+          "httpx/models.py",
+          "httpx/concurrency/asyncio.py",
+          "httpx/middleware.py"
+        ],
+        "tests": [
+          "tests/client/test_async_client.py",
+          "tests/client/test_client.py",
+          "tests/dispatch/test_connection_pools.py"
+        ],
+        "test_cmd": "nox",
+        "summary": "h11._util.LocalProtocolError: Too little data for declared Content-Length",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 733 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": false,
+            "detail": "Does not say what should happen instead",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": false,
+        "cov@5": 0.0,
+        "first_hit_rank": null
+      }
+    },
+    {
+      "repo": "encode/httpx",
+      "issue_number": 3140,
+      "issue_url": "https://github.com/encode/httpx/issues/3140",
+      "pr_number": 3187,
+      "base_sha": "be56b747350008b7b0456242691919f9086c0f32",
+      "truth": [
+        "httpx/_urlparse.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "httpx/_compat.py",
+        "httpx/_urls.py",
+        "httpx/_models.py",
+        "httpx/_client.py",
+        "httpx/_urlparse.py"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "httpx/_compat.py",
+          "httpx/_urls.py",
+          "httpx/_models.py",
+          "httpx/_client.py",
+          "httpx/_urlparse.py",
+          "httpx/_exceptions.py",
+          "httpx/_decoders.py",
+          "httpx/_utils.py"
+        ],
+        "tests": [],
+        "test_cmd": "bash scripts/test",
+        "summary": "Httpx is not encoding \"%\" symbol while sending requests",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 61 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "checkable_criteria",
+            "ok": true,
+            "detail": "Has checkable criteria",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 5
+      }
+    },
+    {
+      "repo": "encode/httpx",
+      "issue_number": 2599,
+      "issue_url": "https://github.com/encode/httpx/issues/2599",
+      "pr_number": 3080,
+      "base_sha": "cabd1c095e52e2f67ab63ec17941d3a539d7c877",
+      "truth": [
+        "mkdocs.yml"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "httpx/_client.py",
+        "httpx/_main.py",
+        "httpx/_models.py",
+        "httpx/_exceptions.py",
+        "httpx/_api.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "How will we know this is done? Name one behaviour or output an agent can check.",
+        "footprint": [
+          "httpx/_client.py",
+          "httpx/_main.py",
+          "httpx/_models.py",
+          "httpx/_exceptions.py",
+          "httpx/_api.py",
+          "httpx/_urls.py",
+          "httpx/_utils.py",
+          "httpx/_urlparse.py"
+        ],
+        "tests": [
+          "tests/client/test_async_client.py",
+          "tests/client/test_client.py",
+          "tests/test_main.py"
+        ],
+        "test_cmd": "bash scripts/test",
+        "summary": "Document the `extensions` API.",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 213 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "checkable_criteria",
+            "ok": false,
+            "detail": "No checkable acceptance criteria",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": false,
+        "cov@5": 0.0,
+        "first_hit_rank": null
+      }
+    },
+    {
+      "repo": "encode/httpx",
+      "issue_number": 2694,
+      "issue_url": "https://github.com/encode/httpx/issues/2694",
+      "pr_number": 2701,
+      "base_sha": "df5dbc05580a4c3225e70153729e2a306d67a472",
+      "truth": [
+        "httpx/_urlparse.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "httpx/_client.py",
+        "httpx/_transports/asgi.py",
+        "httpx/_exceptions.py",
+        "httpx/_models.py",
+        "httpx/_api.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "How will we know this is done? Name one behaviour or output an agent can check.",
+        "footprint": [
+          "httpx/_client.py",
+          "httpx/_transports/asgi.py",
+          "httpx/_exceptions.py",
+          "httpx/_models.py",
+          "httpx/_api.py",
+          "httpx/_urlparse.py",
+          "httpx/_urls.py",
+          "httpx/_content.py"
+        ],
+        "tests": [
+          "tests/client/test_async_client.py",
+          "tests/client/test_client.py",
+          "tests/test_asgi.py"
+        ],
+        "test_cmd": "bash scripts/test",
+        "summary": "Square brackets no longer work",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 49 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "checkable_criteria",
+            "ok": false,
+            "detail": "No checkable acceptance criteria",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": false,
+            "detail": "Names no file, module or symbol (Ready will try to find them)",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": false,
+        "cov@5": 0.0,
+        "first_hit_rank": null
+      }
+    },
+    {
+      "repo": "encode/httpx",
+      "issue_number": 2794,
+      "issue_url": "https://github.com/encode/httpx/issues/2794",
+      "pr_number": 2803,
+      "base_sha": "e874351f04471029b2c5dcb2d0b50baccc7b9bc0",
+      "truth": [
+        "httpx/_types.py",
+        "pyproject.toml"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "httpx/_models.py",
+        "httpx/_client.py",
+        "httpx/_main.py",
+        "httpx/_transports/base.py",
+        "httpx/_urls.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "footprint": [
+          "httpx/_models.py",
+          "httpx/_client.py",
+          "httpx/_main.py",
+          "httpx/_transports/base.py",
+          "httpx/_urls.py",
+          "httpx/_transports/default.py",
+          "httpx/_exceptions.py",
+          "httpx/_auth.py"
+        ],
+        "tests": [
+          "tests/client/test_async_client.py",
+          "tests/client/test_client.py",
+          "tests/test_main.py"
+        ],
+        "test_cmd": "bash scripts/test",
+        "summary": "Change the type of `Extensions` from `Mapping` to `MutableMapping`.",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 147 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": false,
+            "detail": "Does not say what should happen instead",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": false,
+        "cov@5": 0.0,
+        "first_hit_rank": null
+      }
+    },
+    {
+      "repo": "encode/httpx",
+      "issue_number": 2810,
+      "issue_url": "https://github.com/encode/httpx/issues/2810",
+      "pr_number": 2999,
+      "base_sha": "f8981f3d124f9b8db9073fd5c8afa11acb55a738",
+      "truth": [
+        "httpx/_transports/asgi.py"
+      ],
+      "needed_clarification": true,
+      "predicted": [
+        "httpx/_urls.py",
+        "httpx/_decoders.py",
+        "httpx/_client.py",
+        "httpx/_urlparse.py",
+        "httpx/_transports/asgi.py"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "httpx/_urls.py",
+          "httpx/_decoders.py",
+          "httpx/_client.py",
+          "httpx/_urlparse.py",
+          "httpx/_transports/asgi.py",
+          "httpx/_utils.py",
+          "httpx/_auth.py",
+          "httpx/_models.py"
+        ],
+        "tests": [
+          "tests/test_decoders.py",
+          "tests/client/test_async_client.py",
+          "tests/client/test_client.py"
+        ],
+        "test_cmd": "bash scripts/test",
+        "summary": "ASGI `raw_path` scope key should not include the query string portion.",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 209 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": true,
+            "detail": "States what should happen vs what happens",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 5
+      }
+    },
+    {
+      "repo": "encode/httpx",
+      "issue_number": 96,
+      "issue_url": "https://github.com/encode/httpx/issues/96",
+      "pr_number": 103,
+      "base_sha": "f9e3ad4c162945a04ecc0f96a2156eca5ab39886",
+      "truth": [
+        "http3/client.py",
+        "http3/concurrency.py",
+        "http3/dispatch/connection.py",
+        "http3/dispatch/http11.py",
+        "http3/dispatch/http2.py",
+        "http3/interfaces.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "http3/dispatch/http11.py",
+        "http3/client.py",
+        "http3/dispatch/connection_pool.py",
+        "http3/dispatch/connection.py",
+        "http3/dispatch/asgi.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "footprint": [
+          "http3/dispatch/http11.py",
+          "http3/client.py",
+          "http3/dispatch/connection_pool.py",
+          "http3/dispatch/connection.py",
+          "http3/dispatch/asgi.py",
+          "http3/dispatch/http2.py",
+          "http3/dispatch/wsgi.py",
+          "http3/interfaces.py"
+        ],
+        "tests": [
+          "tests/client/test_async_client.py",
+          "tests/client/test_client.py",
+          "tests/dispatch/test_connection_pools.py"
+        ],
+        "test_cmd": "bash scripts/test",
+        "summary": "h11._util.RemoteProtocolError: can't handle event type ConnectionClosed when role=SERVER and state=SEND_RESPONSE",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 340 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": false,
+            "detail": "Does not say what should happen instead",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.16666666666666666,
+        "hit@3": true,
+        "cov@3": 0.3333333333333333,
+        "hit@5": true,
+        "cov@5": 0.5,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "fastapi/sqlmodel",
+      "issue_number": 76,
+      "issue_url": "https://github.com/fastapi/sqlmodel/issues/76",
+      "pr_number": 79,
+      "base_sha": "2407ecd2bf93968bed17c54ee5954959b90cf02f",
+      "truth": [
+        "sqlmodel/main.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "sqlmodel/main.py",
+        "github/actions/comment-docs-preview-in-pr/app/main.py",
+        "sqlmodel/engine/create.py",
+        "sqlmodel/__init__.py",
+        "sqlmodel/sql/expression.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "How will we know this is done? Name one behaviour or output an agent can check.",
+        "footprint": [
+          "sqlmodel/main.py",
+          ".github/actions/comment-docs-preview-in-pr/app/main.py",
+          "sqlmodel/engine/create.py",
+          "sqlmodel/__init__.py",
+          "sqlmodel/sql/expression.py",
+          ".github/actions/watch-previews/app/main.py",
+          "sqlmodel/orm/session.py",
+          "sqlmodel/engine/result.py"
+        ],
+        "tests": [
+          "tests/test_tutorial/test_fastapi/test_app_testing/test_tutorial001_tests_main.py",
+          "tests/conftest.py"
+        ],
+        "test_cmd": "bash scripts/test.sh",
+        "summary": "Non-optional property with default value is not translated to a non-nullable field in sqlalchemy",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 276 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "checkable_criteria",
+            "ok": false,
+            "detail": "No checkable acceptance criteria",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 1.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 1
+      }
+    },
     {
       "repo": "fastapi/sqlmodel",
       "issue_number": 1623,
@@ -73,7 +1966,7 @@
           "sqlmodel/orm/session.py",
           "sqlmodel/sql/_expression_select_cls.py",
           "sqlmodel/ext/asyncio/session.py",
-          "tests/test_pydantic/test_field.py"
+          "sqlmodel/sql/_expression_select_gen.py"
         ],
         "tests": [
           "tests/test_main.py",
@@ -146,8 +2039,8 @@
         "sqlmodel/main.py",
         "sqlmodel/_compat.py",
         "sqlmodel/default.py",
-        "scripts/generate_select.py",
-        "sqlmodel/__init__.py"
+        "sqlmodel/__init__.py",
+        "scripts/generate_select.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -159,11 +2052,11 @@
           "sqlmodel/main.py",
           "sqlmodel/_compat.py",
           "sqlmodel/default.py",
-          "scripts/generate_select.py",
           "sqlmodel/__init__.py",
+          "scripts/generate_select.py",
           "tests/test_field_sa_column.py",
           "sqlmodel/sql/expression.py",
-          "tests/conftest.py"
+          "tests/test_pydantic/test_field.py"
         ],
         "tests": [
           "tests/test_main.py",
@@ -224,6 +2117,275 @@
     },
     {
       "repo": "fastapi/sqlmodel",
+      "issue_number": 189,
+      "issue_url": "https://github.com/fastapi/sqlmodel/issues/189",
+      "pr_number": 234,
+      "base_sha": "5e0ac5b56ccc72d7f643463ae1cb2af302863e3a",
+      "truth": [
+        "sqlmodel/sql/expression.py.jinja2"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "sqlmodel/orm/session.py",
+        "sqlmodel/ext/asyncio/session.py",
+        "sqlmodel/main.py",
+        "sqlmodel/sql/expression.py",
+        "github/actions/comment-docs-preview-in-pr/app/main.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "footprint": [
+          "sqlmodel/orm/session.py",
+          "sqlmodel/ext/asyncio/session.py",
+          "sqlmodel/main.py",
+          "sqlmodel/sql/expression.py",
+          ".github/actions/comment-docs-preview-in-pr/app/main.py",
+          "sqlmodel/__init__.py",
+          "sqlmodel/orm/__init__.py",
+          "sqlmodel/engine/result.py"
+        ],
+        "tests": [
+          "tests/test_tutorial/test_fastapi/test_app_testing/test_tutorial001_tests_main.py",
+          "tests/conftest.py"
+        ],
+        "test_cmd": "bash scripts/test.sh",
+        "summary": "SAWarning from sqlalchemy",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 290 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": false,
+            "detail": "Does not say what should happen instead",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": false,
+        "cov@5": 0.0,
+        "first_hit_rank": null
+      }
+    },
+    {
+      "repo": "fastapi/sqlmodel",
+      "issue_number": 54,
+      "issue_url": "https://github.com/fastapi/sqlmodel/issues/54",
+      "pr_number": 58,
+      "base_sha": "b8996f0e62bca6155e2d27200d15de8b54c40ac3",
+      "truth": [
+        "sqlmodel/ext/asyncio/session.py",
+        "sqlmodel/orm/session.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "sqlmodel/ext/asyncio/session.py",
+        "sqlmodel/orm/session.py",
+        "sqlmodel/main.py",
+        "sqlmodel/sql/expression.py",
+        "github/actions/comment-docs-preview-in-pr/app/main.py"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "sqlmodel/ext/asyncio/session.py",
+          "sqlmodel/orm/session.py",
+          "sqlmodel/main.py",
+          "sqlmodel/sql/expression.py",
+          ".github/actions/comment-docs-preview-in-pr/app/main.py",
+          "sqlmodel/__init__.py",
+          "sqlmodel/ext/asyncio/__init__.py",
+          "sqlmodel/sql/base.py"
+        ],
+        "tests": [
+          "tests/test_main.py",
+          "tests/test_tutorial/test_fastapi/test_app_testing/test_tutorial001_tests_main.py",
+          "tests/conftest.py"
+        ],
+        "test_cmd": "bash scripts/test.sh",
+        "summary": "AsyncSession does not play well with typing and autocompletion",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 502 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": true,
+            "detail": "States what should happen vs what happens",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.5,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "fastapi/sqlmodel",
+      "issue_number": 25,
+      "issue_url": "https://github.com/fastapi/sqlmodel/issues/25",
+      "pr_number": 26,
+      "base_sha": "db3ad598c5a0f3baab0fc4fbe8acbe6eb7580878",
+      "truth": [
+        "sqlmodel/sql/sqltypes.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "sqlmodel/sql/sqltypes.py",
+        "sqlmodel/main.py",
+        "sqlmodel/engine/result.py",
+        "sqlmodel/orm/session.py",
+        "sqlmodel/ext/asyncio/session.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "footprint": [
+          "sqlmodel/sql/sqltypes.py",
+          "sqlmodel/main.py",
+          "sqlmodel/engine/result.py",
+          "sqlmodel/orm/session.py",
+          "sqlmodel/ext/asyncio/session.py",
+          ".github/actions/comment-docs-preview-in-pr/app/main.py",
+          "sqlmodel/sql/expression.py",
+          ".github/actions/watch-previews/app/main.py"
+        ],
+        "tests": [
+          "tests/test_tutorial/test_fastapi/test_app_testing/test_tutorial001_tests_main.py",
+          "tests/conftest.py"
+        ],
+        "test_cmd": "bash scripts/test.sh",
+        "summary": "Improper UUID serialisation dropping leading zeros ▶️ \"ValueError: badly formed hexadecimal UUID string\"",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 687 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": false,
+            "detail": "Does not say what should happen instead",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 1.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "fastapi/sqlmodel",
       "issue_number": 909,
       "issue_url": "https://github.com/fastapi/sqlmodel/issues/909",
       "pr_number": 1342,
@@ -252,9 +2414,9 @@
           "sqlmodel/_compat.py",
           "sqlmodel/main.py",
           "sqlmodel/sql/expression.py",
-          "sqlmodel/sql/_expression_select_gen.py",
           "sqlmodel/sql/_expression_select_cls.py",
-          "scripts/deploy_docs_status.py"
+          "sqlmodel/sql/_expression_select_gen.py",
+          "sqlmodel/sql/base.py"
         ],
         "tests": [
           "tests/conftest.py",
@@ -303,6 +2465,2916 @@
         "hit@5": true,
         "cov@5": 1.0,
         "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pallets/click",
+      "issue_number": 2626,
+      "issue_url": "https://github.com/pallets/click/issues/2626",
+      "pr_number": 2630,
+      "base_sha": "0d69b6ce8b25fe31ea580c608adb8e45df3805bb",
+      "truth": [
+        "CHANGES.rst",
+        "src/click/termui.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "src/click/_termui_impl.py",
+        "src/click/termui.py",
+        "src/click/__init__.py",
+        "src/click/core.py",
+        "src/click/_compat.py"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "src/click/_termui_impl.py",
+          "src/click/termui.py",
+          "src/click/__init__.py",
+          "src/click/core.py",
+          "src/click/_compat.py",
+          "src/click/shell_completion.py",
+          "src/click/parser.py",
+          "src/click/types.py"
+        ],
+        "tests": [
+          "tests/test_termui.py"
+        ],
+        "test_cmd": "pytest",
+        "summary": "Make ProgressBar type available in public interface",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 280 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": true,
+            "detail": "States what should happen vs what happens",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": true,
+        "cov@3": 0.5,
+        "hit@5": true,
+        "cov@5": 0.5,
+        "first_hit_rank": 2
+      }
+    },
+    {
+      "repo": "pallets/click",
+      "issue_number": 2869,
+      "issue_url": "https://github.com/pallets/click/issues/2869",
+      "pr_number": 3781,
+      "base_sha": "2103e157683c5e4cadc8ee1838df526a54bde9a4",
+      "truth": [
+        "src/click/_termui_impl.py",
+        "src/click/termui.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "src/click/types.py",
+        "src/click/_termui_impl.py",
+        "src/click/termui.py",
+        "src/click/core.py",
+        "src/click/shell_completion.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "How will we know this is done? Name one behaviour or output an agent can check.",
+        "footprint": [
+          "src/click/types.py",
+          "src/click/_termui_impl.py",
+          "src/click/termui.py",
+          "src/click/core.py",
+          "src/click/shell_completion.py",
+          "src/click/_compat.py",
+          "src/click/utils.py",
+          "src/click/__init__.py"
+        ],
+        "tests": [
+          "tests/test_types.py",
+          "tests/test_termui.py"
+        ],
+        "test_cmd": "pytest",
+        "summary": "Support pathlib.Path in edit filename",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 78 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "checkable_criteria",
+            "ok": false,
+            "detail": "No checkable acceptance criteria",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 2
+      }
+    },
+    {
+      "repo": "pallets/click",
+      "issue_number": 3786,
+      "issue_url": "https://github.com/pallets/click/issues/3786",
+      "pr_number": 3787,
+      "base_sha": "2c8cd3ac958a7eb316d67f2d316c27086c4c0369",
+      "truth": [
+        "pyproject.toml"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "src/click/shell_completion.py",
+        "src/click/core.py",
+        "src/click/_termui_impl.py",
+        "src/click/termui.py",
+        "src/click/decorators.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "How will we know this is done? Name one behaviour or output an agent can check.",
+        "footprint": [
+          "src/click/shell_completion.py",
+          "src/click/core.py",
+          "src/click/_termui_impl.py",
+          "src/click/termui.py",
+          "src/click/decorators.py",
+          "src/click/_compat.py",
+          "src/click/testing.py",
+          "src/click/_textwrap.py"
+        ],
+        "tests": [
+          "tests/test_shell_completion.py"
+        ],
+        "test_cmd": "pytest",
+        "summary": "release 8.5.0",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": false,
+            "detail": "Title is too short to name an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 206 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "checkable_criteria",
+            "ok": false,
+            "detail": "No checkable acceptance criteria",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": false,
+        "cov@5": 0.0,
+        "first_hit_rank": null
+      }
+    },
+    {
+      "repo": "pallets/click",
+      "issue_number": 2943,
+      "issue_url": "https://github.com/pallets/click/issues/2943",
+      "pr_number": 2944,
+      "base_sha": "413f76f37dcdb2c475a800870d3f8c1c623238d6",
+      "truth": [
+        "src/click/_termui_impl.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "src/click/_termui_impl.py",
+        "src/click/core.py",
+        "src/click/testing.py",
+        "src/click/termui.py",
+        "src/click/types.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "footprint": [
+          "src/click/_termui_impl.py",
+          "src/click/core.py",
+          "src/click/testing.py",
+          "src/click/termui.py",
+          "src/click/types.py",
+          "src/click/_compat.py",
+          "src/click/parser.py",
+          "src/click/exceptions.py"
+        ],
+        "tests": [
+          "tests/test_testing.py"
+        ],
+        "test_cmd": "pytest",
+        "summary": "_pipepager() fails with mutli-call binaries",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 38 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": false,
+            "detail": "Does not say what should happen instead",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": false,
+            "detail": "No code, command or traceback to reproduce",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": false,
+            "detail": "Names no file, module or symbol (Ready will try to find them)",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 1.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pallets/click",
+      "issue_number": 2582,
+      "issue_url": "https://github.com/pallets/click/issues/2582",
+      "pr_number": 3780,
+      "base_sha": "420c8fb44eeadb537cae69d2fee3796e808558dd",
+      "truth": [
+        "src/click/termui.py"
+      ],
+      "needed_clarification": true,
+      "predicted": [
+        "src/click/_termui_impl.py",
+        "src/click/termui.py",
+        "src/click/core.py",
+        "src/click/__init__.py",
+        "src/click/shell_completion.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "How will we know this is done? Name one behaviour or output an agent can check.",
+        "footprint": [
+          "src/click/_termui_impl.py",
+          "src/click/termui.py",
+          "src/click/core.py",
+          "src/click/__init__.py",
+          "src/click/shell_completion.py",
+          "src/click/testing.py",
+          "src/click/types.py",
+          "src/click/utils.py"
+        ],
+        "tests": [
+          "tests/test_termui.py"
+        ],
+        "test_cmd": "pytest",
+        "summary": "The `edit` utility does not work on Windows for Visual Studio Code",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 40 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "checkable_criteria",
+            "ok": false,
+            "detail": "No checkable acceptance criteria",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": false,
+            "detail": "Names no file, module or symbol (Ready will try to find them)",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 2
+      }
+    },
+    {
+      "repo": "pallets/click",
+      "issue_number": 3416,
+      "issue_url": "https://github.com/pallets/click/issues/3416",
+      "pr_number": 3777,
+      "base_sha": "61b69e967e525bd502f5bf42def4d551e761fe0e",
+      "truth": [
+        "src/click/_termui_impl.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "src/click/_termui_impl.py",
+        "src/click/core.py",
+        "src/click/termui.py",
+        "src/click/testing.py",
+        "src/click/utils.py"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "src/click/_termui_impl.py",
+          "src/click/core.py",
+          "src/click/termui.py",
+          "src/click/testing.py",
+          "src/click/utils.py",
+          "src/click/shell_completion.py",
+          "src/click/types.py",
+          "src/click/_compat.py"
+        ],
+        "tests": [
+          "tests/test_termui.py"
+        ],
+        "test_cmd": "pytest",
+        "summary": "_pipepager mis-detects raw-mode flag, enabling color from any 'r'/'R' substring in $LESS or filename args",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 781 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": true,
+            "detail": "States what should happen vs what happens",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 1.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pallets/click",
+      "issue_number": 3822,
+      "issue_url": "https://github.com/pallets/click/issues/3822",
+      "pr_number": 3858,
+      "base_sha": "7944461a80b780d060899c8835acab3c273a04a6",
+      "truth": [
+        "src/click/types.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "src/click/types.py",
+        "src/click/core.py",
+        "src/click/termui.py",
+        "src/click/utils.py",
+        "src/click/_termui_impl.py"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "src/click/types.py",
+          "src/click/core.py",
+          "src/click/termui.py",
+          "src/click/utils.py",
+          "src/click/_termui_impl.py",
+          "src/click/shell_completion.py",
+          "src/click/_compat.py",
+          "src/click/__init__.py"
+        ],
+        "tests": [
+          "tests/test_termui.py"
+        ],
+        "test_cmd": "pytest",
+        "summary": "`click.Path` should be generic on `path_type`",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 318 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": true,
+            "detail": "States what should happen vs what happens",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 1.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pallets/click",
+      "issue_number": 3766,
+      "issue_url": "https://github.com/pallets/click/issues/3766",
+      "pr_number": 3768,
+      "base_sha": "8b44edfff7d9a6c895fa804148c16b3a0bc9efb5",
+      "truth": [
+        ".github/workflows/nightly.yaml"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "src/click/core.py",
+        "src/click/testing.py",
+        "tests/test_context.py",
+        "tests/test_commands.py",
+        "tests/test_testing.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [
+        "github/workflows/nightly.yaml"
+      ],
+      "verdict": {
+        "status": "needs_human",
+        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "footprint": [
+          "src/click/core.py",
+          "src/click/testing.py",
+          "tests/test_context.py",
+          "tests/test_commands.py",
+          "tests/test_testing.py",
+          "src/click/termui.py",
+          "tests/test_utils/test_confirm.py",
+          "tests/test_defaults.py"
+        ],
+        "tests": [
+          "tests/test_testing.py",
+          "tests/test_termui.py"
+        ],
+        "test_cmd": "pytest",
+        "summary": "docs/contributing.md describes .github/workflows/test-flask.yaml, which was removed in 97b300c",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 222 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": false,
+            "detail": "Does not say what should happen instead",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": false,
+            "detail": "No code, command or traceback to reproduce",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": false,
+        "cov@5": 0.0,
+        "first_hit_rank": null
+      }
+    },
+    {
+      "repo": "pallets/click",
+      "issue_number": 3571,
+      "issue_url": "https://github.com/pallets/click/issues/3571",
+      "pr_number": 3769,
+      "base_sha": "8b44edfff7d9a6c895fa804148c16b3a0bc9efb5",
+      "truth": [
+        "src/click/_termui_impl.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "src/click/termui.py",
+        "src/click/_termui_impl.py",
+        "src/click/core.py",
+        "src/click/utils.py",
+        "src/click/__init__.py"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "src/click/termui.py",
+          "src/click/_termui_impl.py",
+          "src/click/core.py",
+          "src/click/utils.py",
+          "src/click/__init__.py",
+          "src/click/exceptions.py",
+          "src/click/shell_completion.py",
+          "src/click/testing.py"
+        ],
+        "tests": [
+          "tests/test_termui.py"
+        ],
+        "test_cmd": "pytest",
+        "summary": "`click.progressbar` doesn't show full completion when using `show_pos=True` combined with `update_min_steps`",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 119 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "checkable_criteria",
+            "ok": true,
+            "detail": "Has checkable criteria",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 2
+      }
+    },
+    {
+      "repo": "pallets/click",
+      "issue_number": 3740,
+      "issue_url": "https://github.com/pallets/click/issues/3740",
+      "pr_number": 3739,
+      "base_sha": "9c4dfdaebe0e6b2aabc566eb81f6f10eb5cd6ea1",
+      "truth": [
+        "src/click/_termui_impl.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "src/click/_termui_impl.py",
+        "src/click/termui.py",
+        "src/click/testing.py",
+        "src/click/utils.py",
+        "src/click/core.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "footprint": [
+          "src/click/_termui_impl.py",
+          "src/click/termui.py",
+          "src/click/testing.py",
+          "src/click/utils.py",
+          "src/click/core.py",
+          "src/click/_compat.py",
+          "src/click/_winconsole.py",
+          "src/click/types.py"
+        ],
+        "tests": [
+          "tests/test_termui.py",
+          "tests/test_testing.py"
+        ],
+        "test_cmd": "pytest",
+        "summary": "[Bug] On Windows, get_pager_file returns a typing.BinaryIO object NOT typing.TextIO",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 261 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": false,
+            "detail": "Does not say what should happen instead",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 1.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pallets/click",
+      "issue_number": 3731,
+      "issue_url": "https://github.com/pallets/click/issues/3731",
+      "pr_number": 3739,
+      "base_sha": "9c4dfdaebe0e6b2aabc566eb81f6f10eb5cd6ea1",
+      "truth": [
+        "src/click/_termui_impl.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "src/click/_termui_impl.py",
+        "src/click/termui.py",
+        "src/click/testing.py",
+        "src/click/_compat.py",
+        "src/click/utils.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "footprint": [
+          "src/click/_termui_impl.py",
+          "src/click/termui.py",
+          "src/click/testing.py",
+          "src/click/_compat.py",
+          "src/click/utils.py",
+          "src/click/core.py",
+          "src/click/_winconsole.py",
+          "src/click/types.py"
+        ],
+        "tests": [
+          "tests/test_termui.py",
+          "tests/test_testing.py"
+        ],
+        "test_cmd": "pytest",
+        "summary": "echo_via_pager on Windows fails with WinError 32, masking a TypeError from writing str to a binary temp file (8.4.0 regression)",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 706 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": false,
+            "detail": "Does not say what should happen instead",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 1.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pallets/click",
+      "issue_number": 3732,
+      "issue_url": "https://github.com/pallets/click/issues/3732",
+      "pr_number": 3739,
+      "base_sha": "9c4dfdaebe0e6b2aabc566eb81f6f10eb5cd6ea1",
+      "truth": [
+        "src/click/_termui_impl.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "src/click/termui.py",
+        "src/click/_termui_impl.py",
+        "src/click/utils.py",
+        "src/click/core.py",
+        "src/click/testing.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "footprint": [
+          "src/click/termui.py",
+          "src/click/_termui_impl.py",
+          "src/click/utils.py",
+          "src/click/core.py",
+          "src/click/testing.py",
+          "src/click/types.py",
+          "src/click/shell_completion.py",
+          "tests/test_utils/test_echo_via_pager.py"
+        ],
+        "tests": [
+          "tests/test_termui.py"
+        ],
+        "test_cmd": "pytest",
+        "summary": "echo_via_pager broken on Windows since 8.4.0",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 51 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": false,
+            "detail": "Does not say what should happen instead",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": false,
+            "detail": "No code, command or traceback to reproduce",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": false,
+            "detail": "Names no file, module or symbol (Ready will try to find them)",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 2
+      }
+    },
+    {
+      "repo": "pallets/click",
+      "issue_number": 3802,
+      "issue_url": "https://github.com/pallets/click/issues/3802",
+      "pr_number": 3818,
+      "base_sha": "cbb5b2df1ee3492115f8c2ee5cbb09e2271fc714",
+      "truth": [
+        "src/click/core.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "src/click/core.py",
+        "src/click/termui.py",
+        "src/click/_compat.py",
+        "src/click/utils.py",
+        "src/click/testing.py"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "src/click/core.py",
+          "src/click/termui.py",
+          "src/click/_compat.py",
+          "src/click/utils.py",
+          "src/click/testing.py",
+          "src/click/exceptions.py",
+          "src/click/types.py",
+          "src/click/_termui_impl.py"
+        ],
+        "tests": [
+          "tests/test_termui.py",
+          "tests/test_compat.py"
+        ],
+        "test_cmd": "pytest",
+        "summary": "`KeyboardInterrupt` during `click.prompt()` can race",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 347 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": true,
+            "detail": "States what should happen vs what happens",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 1.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pydantic/pydantic",
+      "issue_number": 13993,
+      "issue_url": "https://github.com/pydantic/pydantic/issues/13993",
+      "pr_number": 13997,
+      "base_sha": "03de65fc2f44faa4b32e05ce0a5d499cdf38f89b",
+      "truth": [
+        "pydantic/json_schema.py",
+        "pydantic/main.py",
+        "pydantic/type_adapter.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "pydantic/json_schema.py",
+        "pydantic/main.py",
+        "pydantic-core/python/pydantic_core/core_schema.py",
+        "pydantic/config.py",
+        "pydantic-core/src/validators/model_fields.rs"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "How will we know this is done? Name one behaviour or output an agent can check.",
+        "footprint": [
+          "pydantic/json_schema.py",
+          "pydantic/main.py",
+          "pydantic-core/python/pydantic_core/core_schema.py",
+          "pydantic/config.py",
+          "pydantic-core/src/validators/model_fields.rs",
+          "pydantic/type_adapter.py",
+          "pydantic-core/src/validators/named_tuple.rs",
+          "pydantic-core/src/validators/dataclass.rs"
+        ],
+        "tests": [
+          "tests/test_json_schema.py",
+          "tests/typechecking/json_schema_examples.py",
+          "tests/test_main.py"
+        ],
+        "test_cmd": "make test",
+        "summary": "model_json_schema() does not honor by_alias=True for validation",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 182 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "checkable_criteria",
+            "ok": false,
+            "detail": "No checkable acceptance criteria",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.3333333333333333,
+        "hit@3": true,
+        "cov@3": 0.6666666666666666,
+        "hit@5": true,
+        "cov@5": 0.6666666666666666,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pydantic/pydantic",
+      "issue_number": 13977,
+      "issue_url": "https://github.com/pydantic/pydantic/issues/13977",
+      "pr_number": 14083,
+      "base_sha": "07de1e6201dfff5f0c5e78e57ef2bcc9d8abea1c",
+      "truth": [
+        ".github/workflows/ci.yml"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
+        "pydantic-core/python/pydantic_core/core_schema.py",
+        "pydantic-core/src/errors/validation_exception.rs",
+        "pydantic/json_schema.py",
+        "pydantic/_internal/_generate_schema.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [
+        "github/workflows/ci.yml"
+      ],
+      "verdict": {
+        "status": "needs_human",
+        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "footprint": [
+          "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
+          "pydantic-core/python/pydantic_core/core_schema.py",
+          "pydantic-core/src/errors/validation_exception.rs",
+          "pydantic/json_schema.py",
+          "pydantic/_internal/_generate_schema.py",
+          "pydantic/mypy.py",
+          "pydantic/networks.py",
+          "pydantic/main.py"
+        ],
+        "tests": [
+          "pydantic-core/tests/serializers/test_core_schema_as_ser_schema.py"
+        ],
+        "test_cmd": "make test",
+        "summary": "No PyPy 8.0 wheels for pydantic-core",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 2322 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": false,
+            "detail": "Does not say what should happen instead",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": false,
+        "cov@5": 0.0,
+        "first_hit_rank": null
+      }
+    },
+    {
+      "repo": "pydantic/pydantic",
+      "issue_number": 13969,
+      "issue_url": "https://github.com/pydantic/pydantic/issues/13969",
+      "pr_number": 13973,
+      "base_sha": "0b1dcd0efefbbf4a472779f5d6e0e2006e64a3fe",
+      "truth": [
+        "pydantic-core/src/input/datetime.rs"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "pydantic-core/src/input/datetime.rs",
+        "pydantic-core/src/validators/timedelta.rs",
+        "pydantic-core/src/input/input_json.rs",
+        "pydantic-core/src/input/input_python.rs",
+        "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "pydantic-core/src/input/datetime.rs",
+          "pydantic-core/src/validators/timedelta.rs",
+          "pydantic-core/src/input/input_json.rs",
+          "pydantic-core/src/input/input_python.rs",
+          "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
+          "pydantic-core/src/input/return_enums.rs",
+          "pydantic-core/src/errors/validation_exception.rs",
+          "pydantic/main.py"
+        ],
+        "tests": [
+          "pydantic-core/tests/serializers/test_datetime.py",
+          "pydantic-core/tests/validators/test_datetime.py",
+          "tests/test_datetime.py"
+        ],
+        "test_cmd": "make test",
+        "summary": "Huge int input to a timedelta field wraps to a small wrong timedelta",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 507 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": true,
+            "detail": "States what should happen vs what happens",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 1.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pydantic/pydantic",
+      "issue_number": 13976,
+      "issue_url": "https://github.com/pydantic/pydantic/issues/13976",
+      "pr_number": 13978,
+      "base_sha": "0edb9347fad19f29452037d8fc47331cd2c0a096",
+      "truth": [
+        "pydantic/_internal/_validators.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
+        "pydantic/_internal/_model_construction.py",
+        "pydantic/_internal/_generate_schema.py",
+        "pydantic-core/python/pydantic_core/core_schema.py",
+        "pydantic/networks.py"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
+          "pydantic/_internal/_model_construction.py",
+          "pydantic/_internal/_generate_schema.py",
+          "pydantic-core/python/pydantic_core/core_schema.py",
+          "pydantic/networks.py",
+          "pydantic/v1/main.py",
+          "pydantic/type_adapter.py",
+          "pydantic/json_schema.py"
+        ],
+        "tests": [
+          "tests/conftest.py",
+          "tests/test_config.py",
+          "tests/test_edge_cases.py"
+        ],
+        "test_cmd": "make test",
+        "summary": "Sequence validation reconstructs named tuples incorrectly",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 300 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": true,
+            "detail": "States what should happen vs what happens",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": false,
+        "cov@5": 0.0,
+        "first_hit_rank": null
+      }
+    },
+    {
+      "repo": "pydantic/pydantic",
+      "issue_number": 14034,
+      "issue_url": "https://github.com/pydantic/pydantic/issues/14034",
+      "pr_number": 14051,
+      "base_sha": "22b5c7898523a8a3ae14549cd8b6bb5fc10b7f46",
+      "truth": [
+        "pydantic-core/src/errors/validation_exception.rs",
+        "pydantic-core/src/errors/value_exception.rs"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
+        "pydantic/types.py",
+        "pydantic/main.py",
+        "pydantic-core/src/errors/validation_exception.rs",
+        "pydantic/version.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "footprint": [
+          "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
+          "pydantic/types.py",
+          "pydantic/main.py",
+          "pydantic-core/src/errors/validation_exception.rs",
+          "pydantic/version.py",
+          "pydantic/functional_validators.py",
+          "pydantic-core/python/pydantic_core/core_schema.py",
+          "pydantic/v1/error_wrappers.py"
+        ],
+        "tests": [
+          "tests/test_types.py",
+          "tests/test_types_payment_card_number.py",
+          "tests/test_types_self.py"
+        ],
+        "test_cmd": "make test",
+        "summary": "KeyError when unpickling (some) ValidationErrors",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 229 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": false,
+            "detail": "Does not say what should happen instead",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": true,
+        "cov@5": 0.5,
+        "first_hit_rank": 4
+      }
+    },
+    {
+      "repo": "pydantic/pydantic",
+      "issue_number": 14041,
+      "issue_url": "https://github.com/pydantic/pydantic/issues/14041",
+      "pr_number": 14052,
+      "base_sha": "22b5c7898523a8a3ae14549cd8b6bb5fc10b7f46",
+      "truth": [
+        "pydantic/_internal/_docs_extraction.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "pydantic/main.py",
+        "pydantic/json_schema.py",
+        "pydantic/config.py",
+        "tests/test_json_schema.py",
+        "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "footprint": [
+          "pydantic/main.py",
+          "pydantic/json_schema.py",
+          "pydantic/config.py",
+          "tests/test_json_schema.py",
+          "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
+          "pydantic/v1/main.py",
+          "pydantic/_internal/_model_construction.py",
+          "pydantic/_internal/_generate_schema.py"
+        ],
+        "tests": [
+          "tests/test_main.py",
+          "tests/test_json_schema.py",
+          "tests/typechecking/json_schema_examples.py"
+        ],
+        "test_cmd": "make test",
+        "summary": "Nested class attribute docstrings overwrite outer field descriptions",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 212 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": false,
+            "detail": "Does not say what should happen instead",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": false,
+        "cov@5": 0.0,
+        "first_hit_rank": null
+      }
+    },
+    {
+      "repo": "pydantic/pydantic",
+      "issue_number": 13991,
+      "issue_url": "https://github.com/pydantic/pydantic/issues/13991",
+      "pr_number": 13994,
+      "base_sha": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "truth": [
+        "pydantic/_internal/_generics.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "pydantic/main.py",
+        "pydantic/_internal/_generics.py",
+        "pydantic/v1/main.py",
+        "pydantic/_internal/_generate_schema.py",
+        "pydantic/v1/utils.py"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "pydantic/main.py",
+          "pydantic/_internal/_generics.py",
+          "pydantic/v1/main.py",
+          "pydantic/_internal/_generate_schema.py",
+          "pydantic/v1/utils.py",
+          "pydantic/_internal/_model_construction.py",
+          "pydantic/_internal/_fields.py",
+          "pydantic/v1/generics.py"
+        ],
+        "tests": [
+          "tests/test_main.py",
+          "tests/benchmarks/test_fastapi_startup_generics.py",
+          "tests/test_generics.py"
+        ],
+        "test_cmd": "make test",
+        "summary": "Parametrized generic models no longer resolvable by `__module__`/`__qualname__` (pickle fails) since 2.14.0",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 502 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": true,
+            "detail": "States what should happen vs what happens",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 2
+      }
+    },
+    {
+      "repo": "pydantic/pydantic",
+      "issue_number": 14064,
+      "issue_url": "https://github.com/pydantic/pydantic/issues/14064",
+      "pr_number": 14065,
+      "base_sha": "26693b2a9bc361deed440a2b317895f35620eb01",
+      "truth": [
+        "pydantic/_internal/_generate_schema.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "pydantic/_internal/_generate_schema.py",
+        "pydantic/type_adapter.py",
+        "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
+        "pydantic/dataclasses.py",
+        "pydantic-core/src/validators/mod.rs"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "footprint": [
+          "pydantic/_internal/_generate_schema.py",
+          "pydantic/type_adapter.py",
+          "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
+          "pydantic/dataclasses.py",
+          "pydantic-core/src/validators/mod.rs",
+          "pydantic/errors.py",
+          "pydantic/main.py",
+          "pydantic-core/src/errors/types.rs"
+        ],
+        "tests": [
+          "tests/test_type_adapter.py",
+          "tests/typechecking/type_adapter.py",
+          "tests/conftest.py"
+        ],
+        "test_cmd": "make test",
+        "summary": "`typing.Self` in a parametrized generic dataclass now fails schema generation",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 341 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": false,
+            "detail": "Does not say what should happen instead",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 1.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pydantic/pydantic",
+      "issue_number": 14073,
+      "issue_url": "https://github.com/pydantic/pydantic/issues/14073",
+      "pr_number": 14082,
+      "base_sha": "2d39ff8c492c8aa71851b2df3989c9752e5c0f81",
+      "truth": [
+        "pydantic-core/src/serializers/errors.rs",
+        "pydantic-core/src/serializers/type_serializers/union.rs"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "pydantic-core/src/errors/validation_exception.rs",
+        "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
+        "pydantic-core/src/serializers/type_serializers/union.rs",
+        "pydantic/type_adapter.py",
+        "pydantic-core/python/pydantic_core/core_schema.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "footprint": [
+          "pydantic-core/src/errors/validation_exception.rs",
+          "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
+          "pydantic-core/src/serializers/type_serializers/union.rs",
+          "pydantic/type_adapter.py",
+          "pydantic-core/python/pydantic_core/core_schema.py",
+          "pydantic-core/src/serializers/type_serializers/function.rs",
+          "pydantic/main.py",
+          "pydantic-core/src/errors/value_exception.rs"
+        ],
+        "tests": [
+          "pydantic-core/tests/serializers/test_union.py",
+          "pydantic-core/tests/validators/test_tagged_union.py",
+          "pydantic-core/tests/validators/test_union.py"
+        ],
+        "test_cmd": "make test",
+        "summary": "Defer formatting discarded errors during nested union serialization",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 369 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": false,
+            "detail": "Does not say what should happen instead",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": true,
+        "cov@3": 0.5,
+        "hit@5": true,
+        "cov@5": 0.5,
+        "first_hit_rank": 3
+      }
+    },
+    {
+      "repo": "pydantic/pydantic",
+      "issue_number": 13925,
+      "issue_url": "https://github.com/pydantic/pydantic/issues/13925",
+      "pr_number": 13956,
+      "base_sha": "359598f48a183e5cab2cd9348acf3f38521a00a2",
+      "truth": [
+        "pydantic-core/src/validators/model_fields.rs"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "pydantic/main.py",
+        "pydantic-core/src/validators/model_fields.rs",
+        "pydantic/_internal/_generate_schema.py",
+        "pydantic/fields.py",
+        "pydantic-core/src/validators/mod.rs"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "pydantic/main.py",
+          "pydantic-core/src/validators/model_fields.rs",
+          "pydantic/_internal/_generate_schema.py",
+          "pydantic/fields.py",
+          "pydantic-core/src/validators/mod.rs",
+          "pydantic/json_schema.py",
+          "pydantic-core/python/pydantic_core/core_schema.py",
+          "pydantic-core/src/validators/dataclass.rs"
+        ],
+        "tests": [
+          "tests/test_main.py",
+          "pydantic-core/tests/validators/test_model_fields.py",
+          "tests/conftest.py"
+        ],
+        "test_cmd": "make test",
+        "summary": "JSON model validation allocates an unused extras dict per model when `extra` isn't `'allow'`",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 401 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "checkable_criteria",
+            "ok": true,
+            "detail": "Has checkable criteria",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 2
+      }
+    },
+    {
+      "repo": "pydantic/pydantic",
+      "issue_number": 13965,
+      "issue_url": "https://github.com/pydantic/pydantic/issues/13965",
+      "pr_number": 13972,
+      "base_sha": "68a839f0712c367f17be497b6850ebcb6825d76c",
+      "truth": [
+        "pydantic/_internal/_known_annotated_metadata.py",
+        "pydantic/_internal/_validators.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "pydantic-core/src/validators/decimal.rs",
+        "pydantic/fields.py",
+        "pydantic/v1/fields.py",
+        "pydantic/type_adapter.py",
+        "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "pydantic-core/src/validators/decimal.rs",
+          "pydantic/fields.py",
+          "pydantic/v1/fields.py",
+          "pydantic/type_adapter.py",
+          "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
+          "pydantic/_internal/_validators.py",
+          "pydantic-core/src/validators/mod.rs",
+          "pydantic/functional_validators.py"
+        ],
+        "tests": [
+          "pydantic-core/tests/serializers/test_decimal.py",
+          "pydantic-core/tests/validators/test_decimal.py",
+          "tests/types/test_decimal.py"
+        ],
+        "test_cmd": "make test",
+        "summary": "`max_digits` whole-digit limit not enforced when a validator precedes `Field` on `Decimal`",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 216 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": true,
+            "detail": "States what should happen vs what happens",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": false,
+        "cov@5": 0.0,
+        "first_hit_rank": null
+      }
+    },
+    {
+      "repo": "pydantic/pydantic",
+      "issue_number": 13817,
+      "issue_url": "https://github.com/pydantic/pydantic/issues/13817",
+      "pr_number": 13819,
+      "base_sha": "7b15a786a755ec4089a34c9bb5f957f8b8ce3690",
+      "truth": [
+        "pydantic-core/src/definitions.rs",
+        "pydantic-core/src/py_gc.rs",
+        "pydantic-core/src/serializers/type_serializers/function.rs",
+        "pydantic-core/src/serializers/type_serializers/generator.rs",
+        "pydantic-core/src/validators/function.rs",
+        "pydantic-core/src/validators/generator.rs"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "pydantic-core/src/validators/function.rs",
+        "pydantic-core/src/validators/generator.rs",
+        "pydantic-core/src/validators/mod.rs",
+        "pydantic-core/src/validators/arguments_v3.rs",
+        "pydantic/functional_validators.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "footprint": [
+          "pydantic-core/src/validators/function.rs",
+          "pydantic-core/src/validators/generator.rs",
+          "pydantic-core/src/validators/mod.rs",
+          "pydantic-core/src/validators/arguments_v3.rs",
+          "pydantic/functional_validators.py",
+          "pydantic/_internal/_generate_schema.py",
+          "pydantic-core/src/validators/model.rs",
+          "pydantic-core/src/validators/dataclass.rs"
+        ],
+        "tests": [
+          "pydantic-core/tests/serializers/test_functions.py",
+          "pydantic-core/tests/test_schema_functions.py",
+          "pydantic-core/tests/validators/test_function.py"
+        ],
+        "test_cmd": "make test",
+        "summary": "Refcount corruption during GC when a `mode='wrap'` validator's `handler` outlives validation (shared validator tree traversed twice)",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 653 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": false,
+            "detail": "Does not say what should happen instead",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.16666666666666666,
+        "hit@3": true,
+        "cov@3": 0.3333333333333333,
+        "hit@5": true,
+        "cov@5": 0.3333333333333333,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pydantic/pydantic",
+      "issue_number": 11454,
+      "issue_url": "https://github.com/pydantic/pydantic/issues/11454",
+      "pr_number": 14027,
+      "base_sha": "a26d95b78ab9c6e076464fe33386e3de06e8c111",
+      "truth": [
+        "pydantic/mypy.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "pydantic/mypy.py",
+        "pydantic/main.py",
+        "pydantic/_internal/_model_construction.py",
+        "pydantic/fields.py",
+        "pydantic/v1/mypy.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "footprint": [
+          "pydantic/mypy.py",
+          "pydantic/main.py",
+          "pydantic/_internal/_model_construction.py",
+          "pydantic/fields.py",
+          "pydantic/v1/mypy.py",
+          "pydantic/_internal/_generics.py",
+          "pydantic/types.py",
+          "pydantic-core/python/pydantic_core/core_schema.py"
+        ],
+        "tests": [
+          "tests/mypy/test_mypy.py",
+          "tests/test_main.py",
+          "tests/test_dunder_all.py"
+        ],
+        "test_cmd": "make test",
+        "summary": "AssertionError for the mypy plugin if type variables are defined before their bound",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 338 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": false,
+            "detail": "Does not say what should happen instead",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 1.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pydantic/pydantic",
+      "issue_number": 11223,
+      "issue_url": "https://github.com/pydantic/pydantic/issues/11223",
+      "pr_number": 14054,
+      "base_sha": "ab0ce7da96a1470c0c0d15a9fddc66056653bc72",
+      "truth": [
+        "pydantic/_internal/_fields.py",
+        "pydantic/_internal/_generate_schema.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "pydantic/main.py",
+        "pydantic/fields.py",
+        "pydantic/_internal/_fields.py",
+        "pydantic/_internal/_model_construction.py",
+        "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "footprint": [
+          "pydantic/main.py",
+          "pydantic/fields.py",
+          "pydantic/_internal/_fields.py",
+          "pydantic/_internal/_model_construction.py",
+          "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
+          "pydantic/_internal/_typing_extra.py",
+          "pydantic/_internal/_generics.py",
+          "pydantic/config.py"
+        ],
+        "tests": [
+          "tests/test_main.py",
+          "pydantic-core/tests/validators/test_model_fields.py",
+          "tests/mypy/modules/plugin_strict_fields.py"
+        ],
+        "test_cmd": "make test",
+        "summary": "Type variables wrongly replaced when two models share the same type variable instance",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 71 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": false,
+            "detail": "Does not say what should happen instead",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": true,
+        "cov@3": 0.5,
+        "hit@5": true,
+        "cov@5": 0.5,
+        "first_hit_rank": 3
+      }
+    },
+    {
+      "repo": "pydantic/pydantic",
+      "issue_number": 14021,
+      "issue_url": "https://github.com/pydantic/pydantic/issues/14021",
+      "pr_number": 14054,
+      "base_sha": "ab0ce7da96a1470c0c0d15a9fddc66056653bc72",
+      "truth": [
+        "pydantic/_internal/_fields.py",
+        "pydantic/_internal/_generate_schema.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "pydantic/_internal/_typing_extra.py",
+        "pydantic/_internal/_fields.py",
+        "pydantic/_internal/_namespace_utils.py",
+        "pydantic/main.py",
+        "pydantic/_internal/_generate_schema.py"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "pydantic/_internal/_typing_extra.py",
+          "pydantic/_internal/_fields.py",
+          "pydantic/_internal/_namespace_utils.py",
+          "pydantic/main.py",
+          "pydantic/_internal/_generate_schema.py",
+          "pydantic/fields.py",
+          "pydantic/_internal/_generics.py",
+          "pydantic/config.py"
+        ],
+        "tests": [
+          "pydantic-core/tests/validators/test_model_fields.py",
+          "tests/mypy/modules/plugin_strict_fields.py",
+          "tests/mypy/outputs/mypy-plugin_ini/plugin_strict_fields.py"
+        ],
+        "test_cmd": "make test",
+        "summary": "model_rebuild() fails with NameError: name 'T' is not defined on PEP 695 generic models with forward references`",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 623 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": true,
+            "detail": "States what should happen vs what happens",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": true,
+        "cov@3": 0.5,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 2
+      }
+    },
+    {
+      "repo": "pydantic/pydantic",
+      "issue_number": 13957,
+      "issue_url": "https://github.com/pydantic/pydantic/issues/13957",
+      "pr_number": 13964,
+      "base_sha": "ca359e009fcfaff2a80df33cb99ee6ab21aaf033",
+      "truth": [
+        "pydantic/_internal/_typing_extra.py"
+      ],
+      "needed_clarification": true,
+      "predicted": [
+        "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
+        "pydantic/main.py",
+        "pydantic/_internal/_generate_schema.py",
+        "pydantic/v1/main.py",
+        "pydantic/config.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "footprint": [
+          "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
+          "pydantic/main.py",
+          "pydantic/_internal/_generate_schema.py",
+          "pydantic/v1/main.py",
+          "pydantic/config.py",
+          "pydantic/type_adapter.py",
+          "pydantic/_internal/_generics.py",
+          "pydantic/_internal/_model_construction.py"
+        ],
+        "tests": [
+          "tests/test_main.py",
+          "tests/conftest.py",
+          "tests/test_config.py"
+        ],
+        "test_cmd": "make test",
+        "summary": "TypeError: ForwardRef.__init__() got an unexpected keyword argument 'is_class` on Python 3.10",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 133 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": false,
+            "detail": "Does not say what should happen instead",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": false,
+            "detail": "Names no file, module or symbol (Ready will try to find them)",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": false,
+        "cov@5": 0.0,
+        "first_hit_rank": null
+      }
+    },
+    {
+      "repo": "pydantic/pydantic",
+      "issue_number": 13971,
+      "issue_url": "https://github.com/pydantic/pydantic/issues/13971",
+      "pr_number": 13980,
+      "base_sha": "d0d67ea05a9c0af3db47b112a0a24eceeccb77da",
+      "truth": [
+        "pydantic/json_schema.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "pydantic/json_schema.py",
+        "pydantic-core/python/pydantic_core/core_schema.py",
+        "pydantic/main.py",
+        "pydantic/_internal/_model_construction.py",
+        "pydantic/_internal/_generate_schema.py"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "pydantic/json_schema.py",
+          "pydantic-core/python/pydantic_core/core_schema.py",
+          "pydantic/main.py",
+          "pydantic/_internal/_model_construction.py",
+          "pydantic/_internal/_generate_schema.py",
+          "pydantic/config.py",
+          "pydantic/type_adapter.py",
+          "pydantic/fields.py"
+        ],
+        "tests": [
+          "tests/test_json_schema.py",
+          "tests/typechecking/json_schema_examples.py",
+          "pydantic-core/tests/serializers/test_core_schema_as_ser_schema.py"
+        ],
+        "test_cmd": "make test",
+        "summary": "models_json_schema reuses a serialization body for a nested validation model",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 652 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": true,
+            "detail": "States what should happen vs what happens",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 1.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pydantic/pydantic",
+      "issue_number": 13985,
+      "issue_url": "https://github.com/pydantic/pydantic/issues/13985",
+      "pr_number": 13995,
+      "base_sha": "e1ca33220585e8f745000eff4b067e04fe7d83e9",
+      "truth": [
+        "pydantic/types.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "pydantic-core/python/pydantic_core/core_schema.py",
+        "pydantic/json_schema.py",
+        "pydantic/type_adapter.py",
+        "pydantic/main.py",
+        "pydantic/types.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "How will we know this is done? Name one behaviour or output an agent can check.",
+        "footprint": [
+          "pydantic-core/python/pydantic_core/core_schema.py",
+          "pydantic/json_schema.py",
+          "pydantic/type_adapter.py",
+          "pydantic/main.py",
+          "pydantic/types.py",
+          "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
+          "pydantic/_internal/_generate_schema.py",
+          "pydantic-core/src/serializers/type_serializers/json_or_python.rs"
+        ],
+        "tests": [
+          "pydantic-core/tests/serializers/test_core_schema_as_ser_schema.py",
+          "tests/test_json_schema.py",
+          "tests/typechecking/json_schema_examples.py"
+        ],
+        "test_cmd": "make test",
+        "summary": "`JsonValue` serialization in Python mode is 3-4x slower than `Any`",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 546 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "checkable_criteria",
+            "ok": false,
+            "detail": "No checkable acceptance criteria",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 5
+      }
+    },
+    {
+      "repo": "pydantic/pydantic",
+      "issue_number": 13919,
+      "issue_url": "https://github.com/pydantic/pydantic/issues/13919",
+      "pr_number": 13967,
+      "base_sha": "eb810eccc508b9fb06c167e9a2027b00ab71dd9c",
+      "truth": [
+        "pydantic/_internal/_generate_schema.py"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "pydantic/_internal/_generate_schema.py",
+        "pydantic/type_adapter.py",
+        "pydantic/fields.py",
+        "pydantic/json_schema.py",
+        "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "pydantic/_internal/_generate_schema.py",
+          "pydantic/type_adapter.py",
+          "pydantic/fields.py",
+          "pydantic/json_schema.py",
+          "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
+          "pydantic-core/python/pydantic_core/core_schema.py",
+          "pydantic/main.py",
+          "pydantic/types.py"
+        ],
+        "tests": [
+          "tests/test_type_adapter.py",
+          "tests/typechecking/type_adapter.py",
+          "pydantic-core/tests/validators/test_model_fields.py"
+        ],
+        "test_cmd": "make test",
+        "summary": "TypedDict `closed`/`extra_items` (PEP 728) not inherited by subclasses; `extra_items=Never` and `ReadOnly[...]` fail",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 403 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": true,
+            "detail": "States what should happen vs what happens",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction or traceback",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 1.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pydantic/pydantic",
+      "issue_number": 13927,
+      "issue_url": "https://github.com/pydantic/pydantic/issues/13927",
+      "pr_number": 13955,
+      "base_sha": "fcdefa7198c4fc94a22eecf1a5b7926e20b9fc8a",
+      "truth": [
+        "pydantic-core/src/validators/model.rs",
+        "pydantic-core/src/validators/model_fields.rs"
+      ],
+      "needed_clarification": false,
+      "predicted": [
+        "pydantic/main.py",
+        "pydantic-core/src/validators/model.rs",
+        "pydantic-core/src/validators/model_fields.rs",
+        "pydantic/json_schema.py",
+        "pydantic-core/python/pydantic_core/core_schema.py"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "pydantic/main.py",
+          "pydantic-core/src/validators/model.rs",
+          "pydantic-core/src/validators/model_fields.rs",
+          "pydantic/json_schema.py",
+          "pydantic-core/python/pydantic_core/core_schema.py",
+          "pydantic/fields.py",
+          "pydantic/_internal/_generate_schema.py",
+          "pydantic/functional_validators.py"
+        ],
+        "tests": [
+          "tests/test_main.py",
+          "pydantic-core/tests/serializers/test_model.py",
+          "pydantic-core/tests/serializers/test_model_root.py"
+        ],
+        "test_cmd": "make test",
+        "summary": "Perf: Avoid the Python tuple round trip between `ModelFieldsValidator` and `ModelValidator`",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 321 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "checkable_criteria",
+            "ok": true,
+            "detail": "Has checkable criteria",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 2
       }
     }
   ]

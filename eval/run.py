@@ -69,8 +69,27 @@ def _baseline_predict(issue_text: str, repo: Path, k: int) -> list[str]:
 
 # ---------- scoring ----------
 
+CODE_EXT = (".py", ".pyi", ".ts", ".tsx", ".js", ".jsx", ".go", ".rs")
+
+
+def engine_state() -> str:
+    """Commit of this repo plus a marker if ready/ has uncommitted edits."""
+    sha = subprocess.run(["git", "-C", str(ROOT), "rev-parse", "--short", "HEAD"],
+                         capture_output=True, text=True).stdout.strip()
+    dirty = subprocess.run(["git", "-C", str(ROOT), "status", "--porcelain", "ready"],
+                           capture_output=True, text=True).stdout.strip()
+    return sha + ("+dirty" if dirty else "")
+
+
 def norm(p: str) -> str:
-    return p.replace("\\", "/").lstrip("./")
+    p = p.replace("\\", "/")
+    while p.startswith("./"):
+        p = p[2:]
+    return p
+
+
+def has_code_truth(row: dict) -> bool:
+    return any(f.endswith(CODE_EXT) for f in row["truth"])
 
 
 def score(pred: list[str], truth: list[str]) -> dict:
@@ -119,7 +138,7 @@ def fmt(x) -> str:
 
 
 def write_markdown(variant: str, k: int, rows: list[dict], overall: dict, per_repo: dict,
-                   cm: dict, note: str | None, elapsed: float) -> None:
+                   cm: dict, note: str | None, elapsed: float | None) -> None:
     lines = [
         f"\n## {dt.datetime.now().strftime('%Y-%m-%d %H:%M')} | variant `{variant}` | k={k} | n={overall['n']}",
         "",
@@ -127,7 +146,8 @@ def write_markdown(variant: str, k: int, rows: list[dict], overall: dict, per_re
     if note:
         lines += [f"Note: {note}", ""]
     lines += [
-        f"Pairs scored: {overall['n']}, errors: {overall['errors']}, wall time: {elapsed:.0f}s. "
+        f"Pairs scored: {overall['n']}, errors: {overall['errors']}, wall time: "
+        f"{f'{elapsed:.0f}s' if elapsed is not None else 'n/a'}. "
         f"Truth files: {overall['truth_files']}, of which {overall['truth_files_absent_at_base']} "
         "do not exist at base_sha (new files, unpredictable by retrieval).",
         "",
@@ -136,7 +156,9 @@ def write_markdown(variant: str, k: int, rows: list[dict], overall: dict, per_re
         "| repo | n | hit@1 | hit@3 | hit@5 | cov@1 | cov@3 | cov@5 |",
         "|---|---|---|---|---|---|---|---|",
     ]
-    for name, s in [*sorted(per_repo.items()), ("**overall**", overall)]:
+    code_only = summarize([r for r in rows if has_code_truth(r)])
+    for name, s in [*sorted(per_repo.items()), ("**overall**", overall),
+                    ("overall, pairs with a code file in truth", code_only)]:
         lines.append(f"| {name} | {s['n']} | " + " | ".join(
             fmt(s[f"{m}@{c}"]) for m in ("hit", "cov") for c in CUTOFFS) + " |")
     lines += [
@@ -178,7 +200,12 @@ def main() -> None:
     ap.add_argument("--variant", choices=["grep", "model"], required=True)
     ap.add_argument("--k", type=int, default=5)
     ap.add_argument("--limit", type=int, default=None)
+    ap.add_argument("--rescore", action="store_true",
+                    help="recompute metrics from evidence/results-<variant>.json instead of running Ready")
     args = ap.parse_args()
+    if args.rescore:
+        rescore(args.variant)
+        return
 
     use_model = args.variant == "model"
     variant = args.variant if ENGINE_ERROR is None else "baseline-internal"
@@ -192,6 +219,7 @@ def main() -> None:
         pairs = pairs[: args.limit]
     pairs.sort(key=lambda p: (p["repo"], p["base_sha"]))
 
+    engine_before = engine_state()
     rows: list[dict] = []
     t0 = time.time()
     for i, p in enumerate(pairs, 1):
@@ -220,21 +248,47 @@ def main() -> None:
         m = row.get("metrics") or {}
         print(f"[{i}/{len(pairs)}] {p['repo']}#{p['issue_number']} hit@5={m.get('hit@5')} "
               f"status={row['verdict_status']}{' ERROR' if row['error'] else ''}", file=sys.stderr)
-    elapsed = time.time() - t0
+    engine_after = engine_state()
+    engine = f"engine {engine_before}" + (
+        "" if engine_after == engine_before
+        else f" at start, {engine_after} at end (ready/ changed during the run; numbers may mix versions)")
+    note = f"{note} {engine}." if note else f"{engine}."
+    report(variant, args.k, rows, note, time.time() - t0)
 
+
+def report(variant: str, k: int, rows: list[dict], note: str | None, elapsed: float | None) -> None:
     ok = [r for r in rows if r["error"] is None]
     overall = summarize(rows)
     per_repo = {repo: summarize([r for r in rows if r["repo"] == repo]) for repo in sorted({r["repo"] for r in rows})}
+    code_only = summarize([r for r in rows if has_code_truth(r)])
     cm = confusion(ok)
 
     out = EVIDENCE / f"results-{variant}.json"
     out.write_text(json.dumps({
-        "variant": variant, "k": args.k, "date": dt.datetime.now().isoformat(timespec="seconds"),
-        "note": note, "overall": overall, "per_repo": per_repo, "confusion": cm, "pairs": rows,
+        "variant": variant, "k": k, "date": dt.datetime.now().isoformat(timespec="seconds"),
+        "note": note, "elapsed_s": round(elapsed) if elapsed is not None else None, "overall": overall,
+        "overall_code_truth_only": code_only, "per_repo": per_repo, "confusion": cm, "pairs": rows,
     }, indent=2, ensure_ascii=False), encoding="utf-8")
-    write_markdown(variant, args.k, rows, overall, per_repo, cm, note, elapsed)
-    print(json.dumps({"overall": overall, "confusion": cm}, indent=2), file=sys.stderr)
+    write_markdown(variant, k, rows, overall, per_repo, cm, note, elapsed)
+    print(json.dumps({"overall": overall, "code_truth_only": code_only, "confusion": cm}, indent=2), file=sys.stderr)
     print(f"wrote {out} and appended evidence/results.md", file=sys.stderr)
+
+
+def rescore(variant: str) -> None:
+    """Recompute metrics from a saved results file without re-running Ready (truth re-read from pairs)."""
+    saved = json.loads((EVIDENCE / f"results-{variant}.json").read_text(encoding="utf-8"))
+    pairs = {(p["repo"], p["issue_number"]): p for p in
+             (json.loads(l) for l in PAIRS.open(encoding="utf-8") if l.strip())}
+    rows = saved["pairs"]
+    for r in rows:
+        r["truth"] = [norm(f) for f in pairs[(r["repo"], r["issue_number"])]["changed_files_src"]]
+        r["truth_absent_at_base"] = [norm(f) for f in r.get("truth_absent_at_base", [])]
+        if r.get("error") is None:
+            r["predicted"] = [norm(x) for x in r["predicted"]]
+            r["metrics"] = score(r["predicted"], r["truth"])
+    note = ((saved.get("note") + " ") if saved.get("note") else "") + \
+        f"Rescored on {dt.date.today()} from the run dated {saved['date']} (no new predictions)."
+    report(saved["variant"], saved["k"], rows, note, saved.get("elapsed_s"))
 
 
 if __name__ == "__main__":
