@@ -60,12 +60,42 @@ Full tables, per-repo numbers and the worst misses are in [`evidence/results.md`
 
 ## Use it
 
+Ready is on PyPI as [`ready-gate`](https://pypi.org/project/ready-gate/) (Python 3.12+).
+
 ```bash
-uv tool install git+https://github.com/SirjanSingh/ready
-ready check https://github.com/owner/repo/issues/42 --repo path/to/checkout          # prints the verdict
-ready check https://github.com/owner/repo/issues/42 --repo path/to/checkout --post   # comments + labels
-ready plan  URL1 URL2 URL3 --repo path/to/checkout                                 # which can run in parallel
+uvx --from ready-gate ready check https://github.com/owner/repo/issues/42 --repo path/to/checkout   # prints the verdict, nothing installed
+pip install ready-gate                                                                         # or keep it installed
+ready check https://github.com/owner/repo/issues/42 --repo path/to/checkout --post             # comments + labels
+ready plan  URL1 URL2 URL3 --repo path/to/checkout                                            # which can run in parallel
 ```
+
+**On every new issue.** Add this workflow to your repo. Ready checks each new or edited issue, and re-checks when the author or a maintainer answers its question in a comment, updating the same comment and label.
+
+```yaml
+name: ready
+on:
+  issues:
+    types: [opened, edited, reopened]
+  issue_comment:
+    types: [created, edited]
+permissions:
+  issues: write
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: SirjanSingh/ready@v1
+```
+
+**In Claude Code, Cursor or any MCP client.**
+
+```bash
+claude mcp add ready -- uvx --from ready-gate ready-mcp
+```
+
+Tools: `check_readiness(issue, repo_path, post)` and `predict_footprint(issue, repo_path, k)`. With the skill installed, an agent calls `check_readiness` before it starts work and stops with the question if the issue isn't ready.
 
 **In Alan.** Add Ready as a custom connector: Settings -> Plugins -> MCP -> Add custom connector -> **Command**.
 
@@ -73,24 +103,15 @@ ready plan  URL1 URL2 URL3 --repo path/to/checkout                              
 |---|---|
 | Name | `ready` |
 | Command | `uvx` |
-| Arguments (one per line) | `--from`, `git+https://github.com/SirjanSingh/ready`, `ready-mcp` |
+| Arguments (one per line) | `--from`, `ready-gate==0.2.0`, `ready-mcp` |
 
-Alan starts it inside each agent run, on your computer or in the cloud sandbox. Then give agents the skill in one of two ways:
+Alan starts it inside each agent run and allows it five seconds to start. A machine that has installed it once starts it in about 3 s; see [`what-broke.md`](what-broke.md) for the cold-start numbers. Then give agents the skill in one of two ways:
 - import `skills/ready` as a team skill (Skills -> Import -> From GitHub)
 - drop it into a project as `.claude/skills/ready/SKILL.md`, as [ready-demo](https://github.com/SirjanSingh/ready-demo) does with its `.mcp.json` and `AGENTS.md`
 
-To run the server yourself:
+To run the server yourself: `ready-mcp` (stdio) or `ready-mcp --http --port 8765` (Streamable HTTP).
 
-```bash
-ready-mcp                      # stdio
-ready-mcp --http --port 8765   # Streamable HTTP
-```
-
-Tools: `check_readiness(issue, repo_path, post)` and `predict_footprint(issue, repo_path, k)`. With the skill installed, an agent calls `check_readiness` before it starts work and stops with the question if the issue isn't ready.
-
-**On every new issue.** Copy `.github/workflows/ready.yml` into your repo.
-
-**Model.** Any OpenAI-compatible endpoint serving an open model: set `READY_BASE_URL`, `READY_MODEL` and `READY_API_KEY` (see `.env.example`). Without a key, Ready still works on repo search alone, and that is the only mode the results above measure.
+**Model.** Any OpenAI-compatible endpoint serving an open model: install `ready-gate[model]` and set `READY_BASE_URL`, `READY_MODEL` and `READY_API_KEY` (see `.env.example`); in the action, pass `model-api-key`, `model-base-url` and `model`. Without a key, Ready still works on repo search alone, and that is the only mode the results above measure.
 
 ## What Ready will not do
 
