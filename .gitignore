@@ -5,3 +5,8 @@ __pycache__/
 .eval-cache/
 .worker/*.log
 .pytest_cache/
+
+# Local only: agent instructions, session notes, worker briefs
+CLAUDE.md
+docs/sessions/
+.worker/
