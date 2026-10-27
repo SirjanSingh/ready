@@ -1,6 +1,6 @@
 [project]
 name = "ready-gate"
-version = "0.1.0"
+version = "0.2.0"
 description = "Checks a task is fit to hand to a coding agent before it is dispatched: fills what the repo can answer, asks only what a human must."
 readme = "README.md"
 license = { text = "MIT" }
