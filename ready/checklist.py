@@ -117,8 +117,9 @@ def evaluate(title: str, body: str) -> list[Finding]:
         ))
     out.append(Finding(
         "locatable",
-        ok=bool(_PATHISH.search(text) or _TRACEBACK.search(body)),
-        detail="Names code it touches" if _PATHISH.search(text) else "Names no file, module or symbol (Ready will try to find them)",
+        # Display only (not human_only): it never changes the verdict.
+        ok=bool(_PATHISH.search(text) or _CODE_SYMBOL.search(text) or _TRACEBACK.search(body)),
+        detail="Names code it touches" if (_PATHISH.search(text) or _CODE_SYMBOL.search(text)) else "Names no file, module or symbol (Ready will try to find them)",
         cites=f'{ALAN_TASK_DOC}: "Links: PRs, docs, incidents, designs, or customer context."',
         human_only=False,
     ))
