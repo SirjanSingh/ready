@@ -63,3 +63,13 @@ def test_test_command_from_config(shop):
 def test_comment_has_marker_and_paths(shop):
     md = render_comment(run_gate(GOOD, shop, use_model=False))
     assert "<!-- ready-gate -->" in md and "`shop/pricing.py`" in md
+
+
+def test_plan_sequences_tasks_that_share_a_file(shop):
+    from ready.plan import plan
+
+    lanes = plan([("#1", GOOD), ("#2", "Coupon codes should be case-insensitive\n`apply_coupon(100, 'tenoff')` raises KeyError. Expected: same as TENOFF."),
+                  ("#3", "render_badge shows wrong label\n`render_badge(count)` should say Basket, not Cart. Expected: Basket (2).")], shop, use_model=False)
+    by = {l.task: l for l in lanes}
+    assert by["#2"].after == ["#1"]
+    assert by["#3"].after == [] or "#1" in by["#3"].after

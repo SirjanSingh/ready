@@ -1,9 +1,11 @@
 {
   "variant": "grep",
   "k": 5,
-  "date": "2026-10-27T03:01:59",
-  "note": "engine 47a0fea at start, 5636dee at end (ready/ changed during the run; numbers may mix versions).",
-  "elapsed_s": 2240,
+  "date": "2026-10-27T05:51:14",
+  "set": "dev",
+  "pairs_file": "evidence/pairs.jsonl",
+  "note": "engine HEAD 6076543 (ready/ last changed in f3f66db) at start, HEAD 6076543 (ready/ last changed in f3f66db) +uncommitted ready/ edits at end (ready/ changed during the run; numbers may mix versions).",
+  "elapsed_s": 1064,
   "overall": {
     "n": 60,
     "errors": 0,
@@ -79,16 +81,29 @@
     }
   },
   "confusion": {
-    "tp": 2,
-    "fp": 34,
-    "fn": 1,
-    "tn": 23,
+    "tp": 0,
+    "fp": 6,
+    "fn": 3,
+    "tn": 51,
     "n": 60,
-    "accuracy": 0.4166666666666667,
-    "precision": 0.05555555555555555,
-    "recall": 0.6666666666666666,
-    "predicted_needs_human": 36,
-    "gold_positive": 3
+    "accuracy": 0.85,
+    "precision": 0.0,
+    "recall": 0.0,
+    "predicted_needs_human": 6,
+    "gold_positive": 3,
+    "needs_human_rate_on_negatives": 0.10526315789473684
+  },
+  "needs_human_by_source": {
+    "random / neg": {
+      "n": 57,
+      "needs_human": 6,
+      "rate": 0.10526315789473684
+    },
+    "random / pos": {
+      "n": 3,
+      "needs_human": 0,
+      "rate": 0.0
+    }
   },
   "pairs": [
     {
@@ -101,6 +116,7 @@
         "httpx/_urlparse.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "httpx/_urls.py",
         "httpx/_urlparse.py",
@@ -134,6 +150,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -157,7 +180,7 @@
           {
             "rule": "reproduction",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -192,6 +215,7 @@
         "httpx/_decoders.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "httpx/_decoders.py",
         "httpx/_exceptions.py",
@@ -199,12 +223,12 @@
         "httpx/_client.py",
         "httpx/_urls.py"
       ],
-      "verdict_status": "needs_human",
+      "verdict_status": "agent_ready",
       "error": null,
       "truth_absent_at_base": [],
       "verdict": {
-        "status": "needs_human",
-        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "status": "agent_ready",
+        "question": null,
         "footprint": [
           "httpx/_decoders.py",
           "httpx/_exceptions.py",
@@ -224,6 +248,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -239,15 +270,15 @@
           },
           {
             "rule": "expected_vs_actual",
-            "ok": false,
-            "detail": "Does not say what should happen instead",
+            "ok": true,
+            "detail": "A named error or version regression implies the expected behaviour",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
             "human_only": true
           },
           {
             "rule": "reproduction",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -281,6 +312,7 @@
         "pyproject.toml"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "httpx/_client.py",
         "httpx/_transports/default.py",
@@ -288,12 +320,12 @@
         "httpx/_api.py",
         "httpx/_auth.py"
       ],
-      "verdict_status": "needs_human",
+      "verdict_status": "agent_ready",
       "error": null,
       "truth_absent_at_base": [],
       "verdict": {
-        "status": "needs_human",
-        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "status": "agent_ready",
+        "question": null,
         "footprint": [
           "httpx/_client.py",
           "httpx/_transports/default.py",
@@ -314,6 +346,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -328,17 +367,10 @@
             "human_only": true
           },
           {
-            "rule": "expected_vs_actual",
-            "ok": false,
-            "detail": "Does not say what should happen instead",
-            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
-            "human_only": true
-          },
-          {
-            "rule": "reproduction",
+            "rule": "checkable_criteria",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
-            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "detail": "Has checkable criteria or names a concrete change",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
             "human_only": true
           },
           {
@@ -373,6 +405,7 @@
         "setup.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "httpx/_decoders.py",
         "httpx/_models.py",
@@ -406,6 +439,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -429,7 +469,7 @@
           {
             "rule": "reproduction",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -463,6 +503,7 @@
         "httpx/_urlparse.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "httpx/_models.py",
         "httpx/_urls.py",
@@ -470,12 +511,12 @@
         "httpx/_client.py",
         "httpx/_api.py"
       ],
-      "verdict_status": "needs_human",
+      "verdict_status": "agent_ready",
       "error": null,
       "truth_absent_at_base": [],
       "verdict": {
-        "status": "needs_human",
-        "question": "How will we know this is done? Name one behaviour or output an agent can check.",
+        "status": "agent_ready",
+        "question": null,
         "footprint": [
           "httpx/_models.py",
           "httpx/_urls.py",
@@ -494,6 +535,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -509,8 +557,8 @@
           },
           {
             "rule": "checkable_criteria",
-            "ok": false,
-            "detail": "No checkable acceptance criteria",
+            "ok": true,
+            "detail": "Has checkable criteria or names a concrete change",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
             "human_only": true
           },
@@ -544,6 +592,7 @@
         "httpx/_urlparse.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "httpx/_urlparse.py",
         "httpx/_urls.py",
@@ -575,6 +624,13 @@
         "summary": "ULR parser percent encoding corrupting query params",
         "acceptance": [],
         "findings": [
+          {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
           {
             "rule": "outcome_title",
             "ok": true,
@@ -633,6 +689,7 @@
         "httpx/_auth.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "httpx/_client.py",
         "httpx/_auth.py",
@@ -666,6 +723,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -689,7 +753,7 @@
           {
             "rule": "reproduction",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -723,6 +787,7 @@
         "httpx/_urlparse.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "httpx/_urls.py",
         "httpx/_urlparse.py",
@@ -730,12 +795,12 @@
         "httpx/_api.py",
         "httpx/_utils.py"
       ],
-      "verdict_status": "needs_human",
+      "verdict_status": "agent_ready",
       "error": null,
       "truth_absent_at_base": [],
       "verdict": {
-        "status": "needs_human",
-        "question": "How will we know this is done? Name one behaviour or output an agent can check.",
+        "status": "agent_ready",
+        "question": null,
         "footprint": [
           "httpx/_urls.py",
           "httpx/_urlparse.py",
@@ -755,6 +820,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -770,8 +842,8 @@
           },
           {
             "rule": "checkable_criteria",
-            "ok": false,
-            "detail": "No checkable acceptance criteria",
+            "ok": true,
+            "detail": "Has checkable criteria or names a concrete change",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
             "human_only": true
           },
@@ -808,6 +880,7 @@
         "httpx/_utils.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "httpx/_utils.py",
         "httpx/_client.py",
@@ -815,12 +888,12 @@
         "httpx/_config.py",
         "httpx/_models.py"
       ],
-      "verdict_status": "needs_human",
+      "verdict_status": "agent_ready",
       "error": null,
       "truth_absent_at_base": [],
       "verdict": {
-        "status": "needs_human",
-        "question": "Can you add the smallest snippet or command that shows the problem, with the versions you ran it on?",
+        "status": "agent_ready",
+        "question": null,
         "footprint": [
           "httpx/_utils.py",
           "httpx/_client.py",
@@ -840,6 +913,13 @@
         "summary": "NetRCInfo.netrc_info() doesn't work when run in a systemd service with DynamicUser=true",
         "acceptance": [],
         "findings": [
+          {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
           {
             "rule": "outcome_title",
             "ok": true,
@@ -863,8 +943,8 @@
           },
           {
             "rule": "reproduction",
-            "ok": false,
-            "detail": "No code, command or traceback to reproduce",
+            "ok": true,
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -898,6 +978,7 @@
         "httpx/_utils.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "httpx/_utils.py",
         "httpx/_urlparse.py",
@@ -930,6 +1011,13 @@
         "summary": "The `get_environment_proxies` function in _utils.py does not support IPv4, IPv6 correctly",
         "acceptance": [],
         "findings": [
+          {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
           {
             "rule": "outcome_title",
             "ok": true,
@@ -988,6 +1076,7 @@
         "httpx/_transports/asgi.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "httpx/_transports/asgi.py",
         "httpx/_client.py",
@@ -1021,6 +1110,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -1044,7 +1140,7 @@
           {
             "rule": "reproduction",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -1079,6 +1175,7 @@
         "pyproject.toml"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "httpx/_transports/default.py",
         "httpx/_client.py",
@@ -1086,12 +1183,12 @@
         "httpx/__init__.py",
         "httpx/_exceptions.py"
       ],
-      "verdict_status": "needs_human",
+      "verdict_status": "agent_ready",
       "error": null,
       "truth_absent_at_base": [],
       "verdict": {
-        "status": "needs_human",
-        "question": "How will we know this is done? Name one behaviour or output an agent can check.",
+        "status": "agent_ready",
+        "question": null,
         "footprint": [
           "httpx/_transports/default.py",
           "httpx/_client.py",
@@ -1111,6 +1208,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -1126,8 +1230,8 @@
           },
           {
             "rule": "checkable_criteria",
-            "ok": false,
-            "detail": "No checkable acceptance criteria",
+            "ok": true,
+            "detail": "Has checkable criteria or names a concrete change",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
             "human_only": true
           },
@@ -1162,6 +1266,7 @@
         "httpx/_transports/default.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "httpx/_client.py",
         "httpx/_urls.py",
@@ -1194,6 +1299,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -1217,7 +1329,7 @@
           {
             "rule": "reproduction",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -1251,6 +1363,7 @@
         "httpx/middleware.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "httpx/dispatch/http11.py",
         "httpx/client.py",
@@ -1258,12 +1371,12 @@
         "httpx/concurrency/asyncio.py",
         "httpx/dispatch/connection_pool.py"
       ],
-      "verdict_status": "needs_human",
+      "verdict_status": "agent_ready",
       "error": null,
       "truth_absent_at_base": [],
       "verdict": {
-        "status": "needs_human",
-        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "status": "agent_ready",
+        "question": null,
         "footprint": [
           "httpx/dispatch/http11.py",
           "httpx/client.py",
@@ -1284,6 +1397,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -1299,15 +1419,15 @@
           },
           {
             "rule": "expected_vs_actual",
-            "ok": false,
-            "detail": "Does not say what should happen instead",
+            "ok": true,
+            "detail": "A named error or version regression implies the expected behaviour",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
             "human_only": true
           },
           {
             "rule": "reproduction",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -1341,6 +1461,7 @@
         "httpx/_urlparse.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "httpx/_models.py",
         "httpx/_compat.py",
@@ -1370,6 +1491,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -1386,7 +1514,7 @@
           {
             "rule": "checkable_criteria",
             "ok": true,
-            "detail": "Has checkable criteria",
+            "detail": "Has checkable criteria or names a concrete change",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
             "human_only": true
           },
@@ -1420,6 +1548,7 @@
         "mkdocs.yml"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "httpx/_client.py",
         "httpx/_main.py",
@@ -1427,12 +1556,12 @@
         "httpx/_exceptions.py",
         "httpx/_api.py"
       ],
-      "verdict_status": "needs_human",
+      "verdict_status": "agent_ready",
       "error": null,
       "truth_absent_at_base": [],
       "verdict": {
-        "status": "needs_human",
-        "question": "How will we know this is done? Name one behaviour or output an agent can check.",
+        "status": "agent_ready",
+        "question": null,
         "footprint": [
           "httpx/_client.py",
           "httpx/_main.py",
@@ -1453,6 +1582,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -1468,8 +1604,8 @@
           },
           {
             "rule": "checkable_criteria",
-            "ok": false,
-            "detail": "No checkable acceptance criteria",
+            "ok": true,
+            "detail": "Has checkable criteria or names a concrete change",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
             "human_only": true
           },
@@ -1503,6 +1639,7 @@
         "httpx/_urlparse.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "httpx/_client.py",
         "httpx/_transports/asgi.py",
@@ -1535,6 +1672,13 @@
         "summary": "Square brackets no longer work",
         "acceptance": [],
         "findings": [
+          {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
           {
             "rule": "outcome_title",
             "ok": true,
@@ -1587,6 +1731,7 @@
         "pyproject.toml"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "httpx/_models.py",
         "httpx/_client.py",
@@ -1594,12 +1739,12 @@
         "httpx/_transports/base.py",
         "httpx/_urls.py"
       ],
-      "verdict_status": "needs_human",
+      "verdict_status": "agent_ready",
       "error": null,
       "truth_absent_at_base": [],
       "verdict": {
-        "status": "needs_human",
-        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "status": "agent_ready",
+        "question": null,
         "footprint": [
           "httpx/_models.py",
           "httpx/_client.py",
@@ -1620,6 +1765,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -1634,17 +1786,10 @@
             "human_only": true
           },
           {
-            "rule": "expected_vs_actual",
-            "ok": false,
-            "detail": "Does not say what should happen instead",
-            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
-            "human_only": true
-          },
-          {
-            "rule": "reproduction",
+            "rule": "checkable_criteria",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
-            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "detail": "Has checkable criteria or names a concrete change",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
             "human_only": true
           },
           {
@@ -1677,6 +1822,7 @@
         "httpx/_transports/asgi.py"
       ],
       "needed_clarification": true,
+      "source": null,
       "predicted": [
         "httpx/_urls.py",
         "httpx/_decoders.py",
@@ -1710,6 +1856,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -1733,7 +1886,7 @@
           {
             "rule": "reproduction",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -1772,6 +1925,7 @@
         "http3/interfaces.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "http3/dispatch/http11.py",
         "http3/client.py",
@@ -1779,12 +1933,12 @@
         "http3/dispatch/connection.py",
         "http3/dispatch/asgi.py"
       ],
-      "verdict_status": "needs_human",
+      "verdict_status": "agent_ready",
       "error": null,
       "truth_absent_at_base": [],
       "verdict": {
-        "status": "needs_human",
-        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "status": "agent_ready",
+        "question": null,
         "footprint": [
           "http3/dispatch/http11.py",
           "http3/client.py",
@@ -1805,6 +1959,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -1820,15 +1981,15 @@
           },
           {
             "rule": "expected_vs_actual",
-            "ok": false,
-            "detail": "Does not say what should happen instead",
+            "ok": true,
+            "detail": "A named error or version regression implies the expected behaviour",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
             "human_only": true
           },
           {
             "rule": "reproduction",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -1862,6 +2023,7 @@
         "sqlmodel/main.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "sqlmodel/main.py",
         "sqlmodel/engine/create.py",
@@ -1869,12 +2031,12 @@
         "sqlmodel/__init__.py",
         "sqlmodel/sql/expression.py"
       ],
-      "verdict_status": "needs_human",
+      "verdict_status": "agent_ready",
       "error": null,
       "truth_absent_at_base": [],
       "verdict": {
-        "status": "needs_human",
-        "question": "How will we know this is done? Name one behaviour or output an agent can check.",
+        "status": "agent_ready",
+        "question": null,
         "footprint": [
           "sqlmodel/main.py",
           "sqlmodel/engine/create.py",
@@ -1894,6 +2056,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -1909,8 +2078,8 @@
           },
           {
             "rule": "checkable_criteria",
-            "ok": false,
-            "detail": "No checkable acceptance criteria",
+            "ok": true,
+            "detail": "Has checkable criteria or names a concrete change",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
             "human_only": true
           },
@@ -1944,6 +2113,7 @@
         "sqlmodel/main.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "sqlmodel/main.py",
         "sqlmodel/_compat.py",
@@ -1977,6 +2147,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -2000,7 +2177,7 @@
           {
             "rule": "reproduction",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -2034,6 +2211,7 @@
         "sqlmodel/main.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "sqlmodel/main.py",
         "sqlmodel/_compat.py",
@@ -2067,6 +2245,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -2090,7 +2275,7 @@
           {
             "rule": "reproduction",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -2124,6 +2309,7 @@
         "sqlmodel/sql/expression.py.jinja2"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "sqlmodel/orm/session.py",
         "sqlmodel/ext/asyncio/session.py",
@@ -2131,12 +2317,12 @@
         "sqlmodel/sql/expression.py",
         "sqlmodel/main.py"
       ],
-      "verdict_status": "needs_human",
+      "verdict_status": "agent_ready",
       "error": null,
       "truth_absent_at_base": [],
       "verdict": {
-        "status": "needs_human",
-        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "status": "agent_ready",
+        "question": null,
         "footprint": [
           "sqlmodel/orm/session.py",
           "sqlmodel/ext/asyncio/session.py",
@@ -2155,6 +2341,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -2170,15 +2363,15 @@
           },
           {
             "rule": "expected_vs_actual",
-            "ok": false,
-            "detail": "Does not say what should happen instead",
+            "ok": true,
+            "detail": "A named error or version regression implies the expected behaviour",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
             "human_only": true
           },
           {
             "rule": "reproduction",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -2213,6 +2406,7 @@
         "sqlmodel/orm/session.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "sqlmodel/ext/asyncio/session.py",
         "sqlmodel/orm/session.py",
@@ -2246,6 +2440,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -2269,7 +2470,7 @@
           {
             "rule": "reproduction",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -2303,6 +2504,7 @@
         "sqlmodel/sql/sqltypes.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "sqlmodel/sql/sqltypes.py",
         "sqlmodel/main.py",
@@ -2310,12 +2512,12 @@
         "sqlmodel/orm/session.py",
         "sqlmodel/ext/asyncio/session.py"
       ],
-      "verdict_status": "needs_human",
+      "verdict_status": "agent_ready",
       "error": null,
       "truth_absent_at_base": [],
       "verdict": {
-        "status": "needs_human",
-        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "status": "agent_ready",
+        "question": null,
         "footprint": [
           "sqlmodel/sql/sqltypes.py",
           "sqlmodel/main.py",
@@ -2335,6 +2537,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -2350,15 +2559,15 @@
           },
           {
             "rule": "expected_vs_actual",
-            "ok": false,
-            "detail": "Does not say what should happen instead",
+            "ok": true,
+            "detail": "A named error or version regression implies the expected behaviour",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
             "human_only": true
           },
           {
             "rule": "reproduction",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -2393,6 +2602,7 @@
         "sqlmodel/orm/session.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "sqlmodel/orm/session.py",
         "sqlmodel/ext/asyncio/session.py",
@@ -2400,12 +2610,12 @@
         "sqlmodel/main.py",
         "sqlmodel/sql/_expression_select_cls.py"
       ],
-      "verdict_status": "needs_human",
+      "verdict_status": "agent_ready",
       "error": null,
       "truth_absent_at_base": [],
       "verdict": {
-        "status": "needs_human",
-        "question": "How will we know this is done? Name one behaviour or output an agent can check.",
+        "status": "agent_ready",
+        "question": null,
         "footprint": [
           "sqlmodel/orm/session.py",
           "sqlmodel/ext/asyncio/session.py",
@@ -2425,6 +2635,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -2440,8 +2657,8 @@
           },
           {
             "rule": "checkable_criteria",
-            "ok": false,
-            "detail": "No checkable acceptance criteria",
+            "ok": true,
+            "detail": "Has checkable criteria or names a concrete change",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
             "human_only": true
           },
@@ -2476,6 +2693,7 @@
         "src/click/termui.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "src/click/termui.py",
         "src/click/_termui_impl.py",
@@ -2507,6 +2725,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -2530,7 +2755,7 @@
           {
             "rule": "reproduction",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -2565,6 +2790,7 @@
         "src/click/termui.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "src/click/types.py",
         "src/click/_termui_impl.py",
@@ -2572,12 +2798,12 @@
         "src/click/core.py",
         "src/click/shell_completion.py"
       ],
-      "verdict_status": "needs_human",
+      "verdict_status": "agent_ready",
       "error": null,
       "truth_absent_at_base": [],
       "verdict": {
-        "status": "needs_human",
-        "question": "How will we know this is done? Name one behaviour or output an agent can check.",
+        "status": "agent_ready",
+        "question": null,
         "footprint": [
           "src/click/types.py",
           "src/click/_termui_impl.py",
@@ -2597,6 +2823,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -2612,8 +2845,8 @@
           },
           {
             "rule": "checkable_criteria",
-            "ok": false,
-            "detail": "No checkable acceptance criteria",
+            "ok": true,
+            "detail": "Has checkable criteria or names a concrete change",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
             "human_only": true
           },
@@ -2647,6 +2880,7 @@
         "pyproject.toml"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "src/click/core.py",
         "src/click/_termui_impl.py",
@@ -2677,6 +2911,13 @@
         "summary": "release 8.5.0",
         "acceptance": [],
         "findings": [
+          {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
           {
             "rule": "outcome_title",
             "ok": false,
@@ -2728,6 +2969,7 @@
         "src/click/_termui_impl.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "src/click/_termui_impl.py",
         "src/click/testing.py",
@@ -2758,6 +3000,13 @@
         "summary": "_pipepager() fails with mutli-call binaries",
         "acceptance": [],
         "findings": [
+          {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
           {
             "rule": "outcome_title",
             "ok": true,
@@ -2816,6 +3065,7 @@
         "src/click/termui.py"
       ],
       "needed_clarification": true,
+      "source": null,
       "predicted": [
         "src/click/_termui_impl.py",
         "src/click/termui.py",
@@ -2823,12 +3073,12 @@
         "tests/typing/typing_edit.py",
         "src/click/core.py"
       ],
-      "verdict_status": "needs_human",
+      "verdict_status": "agent_ready",
       "error": null,
       "truth_absent_at_base": [],
       "verdict": {
-        "status": "needs_human",
-        "question": "How will we know this is done? Name one behaviour or output an agent can check.",
+        "status": "agent_ready",
+        "question": null,
         "footprint": [
           "src/click/_termui_impl.py",
           "src/click/termui.py",
@@ -2847,6 +3097,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -2862,8 +3119,8 @@
           },
           {
             "rule": "checkable_criteria",
-            "ok": false,
-            "detail": "No checkable acceptance criteria",
+            "ok": true,
+            "detail": "Has checkable criteria or names a concrete change",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
             "human_only": true
           },
@@ -2897,6 +3154,7 @@
         "src/click/_termui_impl.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "src/click/_termui_impl.py",
         "src/click/core.py",
@@ -2928,6 +3186,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -2951,7 +3216,7 @@
           {
             "rule": "reproduction",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -2985,6 +3250,7 @@
         "src/click/types.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "src/click/types.py",
         "src/click/core.py",
@@ -3016,6 +3282,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -3039,7 +3312,7 @@
           {
             "rule": "reproduction",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -3073,6 +3346,7 @@
         ".github/workflows/nightly.yaml"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "src/click/core.py",
         "src/click/testing.py",
@@ -3080,12 +3354,12 @@
         "tests/test_commands.py",
         "tests/test_testing.py"
       ],
-      "verdict_status": "needs_human",
+      "verdict_status": "agent_ready",
       "error": null,
       "truth_absent_at_base": [],
       "verdict": {
-        "status": "needs_human",
-        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "status": "agent_ready",
+        "question": null,
         "footprint": [
           "src/click/core.py",
           "src/click/testing.py",
@@ -3105,6 +3379,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -3120,15 +3401,15 @@
           },
           {
             "rule": "expected_vs_actual",
-            "ok": false,
-            "detail": "Does not say what should happen instead",
+            "ok": true,
+            "detail": "A named error or version regression implies the expected behaviour",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
             "human_only": true
           },
           {
             "rule": "reproduction",
-            "ok": false,
-            "detail": "No code, command or traceback to reproduce",
+            "ok": true,
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -3162,6 +3443,7 @@
         "src/click/_termui_impl.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "src/click/termui.py",
         "src/click/_termui_impl.py",
@@ -3193,6 +3475,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -3209,7 +3498,7 @@
           {
             "rule": "checkable_criteria",
             "ok": true,
-            "detail": "Has checkable criteria",
+            "detail": "Has checkable criteria or names a concrete change",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
             "human_only": true
           },
@@ -3243,6 +3532,7 @@
         "src/click/_termui_impl.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "src/click/_termui_impl.py",
         "src/click/termui.py",
@@ -3250,12 +3540,12 @@
         "src/click/core.py",
         "src/click/utils.py"
       ],
-      "verdict_status": "needs_human",
+      "verdict_status": "agent_ready",
       "error": null,
       "truth_absent_at_base": [],
       "verdict": {
-        "status": "needs_human",
-        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "status": "agent_ready",
+        "question": null,
         "footprint": [
           "src/click/_termui_impl.py",
           "src/click/termui.py",
@@ -3275,6 +3565,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -3290,15 +3587,15 @@
           },
           {
             "rule": "expected_vs_actual",
-            "ok": false,
-            "detail": "Does not say what should happen instead",
+            "ok": true,
+            "detail": "A named error or version regression implies the expected behaviour",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
             "human_only": true
           },
           {
             "rule": "reproduction",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -3332,6 +3629,7 @@
         "src/click/_termui_impl.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "src/click/_termui_impl.py",
         "src/click/termui.py",
@@ -3339,12 +3637,12 @@
         "src/click/utils.py",
         "src/click/_compat.py"
       ],
-      "verdict_status": "needs_human",
+      "verdict_status": "agent_ready",
       "error": null,
       "truth_absent_at_base": [],
       "verdict": {
-        "status": "needs_human",
-        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "status": "agent_ready",
+        "question": null,
         "footprint": [
           "src/click/_termui_impl.py",
           "src/click/termui.py",
@@ -3364,6 +3662,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -3379,15 +3684,15 @@
           },
           {
             "rule": "expected_vs_actual",
-            "ok": false,
-            "detail": "Does not say what should happen instead",
+            "ok": true,
+            "detail": "A named error or version regression implies the expected behaviour",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
             "human_only": true
           },
           {
             "rule": "reproduction",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -3421,6 +3726,7 @@
         "src/click/_termui_impl.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "src/click/termui.py",
         "src/click/_termui_impl.py",
@@ -3428,12 +3734,12 @@
         "src/click/core.py",
         "tests/test_utils/test_echo_via_pager.py"
       ],
-      "verdict_status": "needs_human",
+      "verdict_status": "agent_ready",
       "error": null,
       "truth_absent_at_base": [],
       "verdict": {
-        "status": "needs_human",
-        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "status": "agent_ready",
+        "question": null,
         "footprint": [
           "src/click/termui.py",
           "src/click/_termui_impl.py",
@@ -3452,6 +3758,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -3467,15 +3780,15 @@
           },
           {
             "rule": "expected_vs_actual",
-            "ok": false,
-            "detail": "Does not say what should happen instead",
+            "ok": true,
+            "detail": "A named error or version regression implies the expected behaviour",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
             "human_only": true
           },
           {
             "rule": "reproduction",
-            "ok": false,
-            "detail": "No code, command or traceback to reproduce",
+            "ok": true,
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -3509,6 +3822,7 @@
         "src/click/core.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "src/click/core.py",
         "src/click/termui.py",
@@ -3541,6 +3855,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -3564,7 +3885,7 @@
           {
             "rule": "reproduction",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -3600,6 +3921,7 @@
         "pydantic/type_adapter.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "pydantic/json_schema.py",
         "pydantic/main.py",
@@ -3607,12 +3929,12 @@
         "pydantic-core/src/validators/model_fields.rs",
         "pydantic/config.py"
       ],
-      "verdict_status": "needs_human",
+      "verdict_status": "agent_ready",
       "error": null,
       "truth_absent_at_base": [],
       "verdict": {
-        "status": "needs_human",
-        "question": "How will we know this is done? Name one behaviour or output an agent can check.",
+        "status": "agent_ready",
+        "question": null,
         "footprint": [
           "pydantic/json_schema.py",
           "pydantic/main.py",
@@ -3633,6 +3955,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -3648,8 +3977,8 @@
           },
           {
             "rule": "checkable_criteria",
-            "ok": false,
-            "detail": "No checkable acceptance criteria",
+            "ok": true,
+            "detail": "Has checkable criteria or names a concrete change",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
             "human_only": true
           },
@@ -3683,6 +4012,7 @@
         ".github/workflows/ci.yml"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
         "pydantic-core/src/errors/validation_exception.rs",
@@ -3690,12 +4020,12 @@
         "pydantic/json_schema.py",
         "pydantic/networks.py"
       ],
-      "verdict_status": "needs_human",
+      "verdict_status": "agent_ready",
       "error": null,
       "truth_absent_at_base": [],
       "verdict": {
-        "status": "needs_human",
-        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "status": "agent_ready",
+        "question": null,
         "footprint": [
           "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
           "pydantic-core/src/errors/validation_exception.rs",
@@ -3714,6 +4044,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -3729,15 +4066,15 @@
           },
           {
             "rule": "expected_vs_actual",
-            "ok": false,
-            "detail": "Does not say what should happen instead",
+            "ok": true,
+            "detail": "A named error or version regression implies the expected behaviour",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
             "human_only": true
           },
           {
             "rule": "reproduction",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -3771,6 +4108,7 @@
         "pydantic-core/src/input/datetime.rs"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "pydantic-core/src/input/datetime.rs",
         "pydantic-core/src/validators/timedelta.rs",
@@ -3804,6 +4142,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -3827,7 +4172,7 @@
           {
             "rule": "reproduction",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -3861,6 +4206,7 @@
         "pydantic/_internal/_validators.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
         "pydantic-core/python/pydantic_core/core_schema.py",
@@ -3894,6 +4240,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -3917,7 +4270,7 @@
           {
             "rule": "reproduction",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -3952,6 +4305,7 @@
         "pydantic-core/src/errors/value_exception.rs"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
         "pydantic/types.py",
@@ -3959,12 +4313,12 @@
         "pydantic/main.py",
         "pydantic-core/python/pydantic_core/core_schema.py"
       ],
-      "verdict_status": "needs_human",
+      "verdict_status": "agent_ready",
       "error": null,
       "truth_absent_at_base": [],
       "verdict": {
-        "status": "needs_human",
-        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "status": "agent_ready",
+        "question": null,
         "footprint": [
           "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
           "pydantic/types.py",
@@ -3985,6 +4339,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -4000,15 +4361,15 @@
           },
           {
             "rule": "expected_vs_actual",
-            "ok": false,
-            "detail": "Does not say what should happen instead",
+            "ok": true,
+            "detail": "A named error or version regression implies the expected behaviour",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
             "human_only": true
           },
           {
             "rule": "reproduction",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -4042,6 +4403,7 @@
         "pydantic/_internal/_docs_extraction.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "pydantic/main.py",
         "pydantic/json_schema.py",
@@ -4075,6 +4437,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -4098,7 +4467,7 @@
           {
             "rule": "reproduction",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -4132,6 +4501,7 @@
         "pydantic/_internal/_generics.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "pydantic/main.py",
         "pydantic/v1/main.py",
@@ -4165,6 +4535,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -4188,7 +4565,7 @@
           {
             "rule": "reproduction",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -4222,6 +4599,7 @@
         "pydantic/_internal/_generate_schema.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "pydantic/_internal/_generate_schema.py",
         "pydantic/type_adapter.py",
@@ -4229,12 +4607,12 @@
         "pydantic-core/src/errors/types.rs",
         "pydantic/main.py"
       ],
-      "verdict_status": "needs_human",
+      "verdict_status": "agent_ready",
       "error": null,
       "truth_absent_at_base": [],
       "verdict": {
-        "status": "needs_human",
-        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "status": "agent_ready",
+        "question": null,
         "footprint": [
           "pydantic/_internal/_generate_schema.py",
           "pydantic/type_adapter.py",
@@ -4255,6 +4633,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -4270,15 +4655,15 @@
           },
           {
             "rule": "expected_vs_actual",
-            "ok": false,
-            "detail": "Does not say what should happen instead",
+            "ok": true,
+            "detail": "A named error or version regression implies the expected behaviour",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
             "human_only": true
           },
           {
             "rule": "reproduction",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -4313,6 +4698,7 @@
         "pydantic-core/src/serializers/type_serializers/union.rs"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "pydantic-core/src/errors/validation_exception.rs",
         "pydantic-core/src/serializers/type_serializers/union.rs",
@@ -4320,12 +4706,12 @@
         "pydantic-core/python/pydantic_core/core_schema.py",
         "pydantic/type_adapter.py"
       ],
-      "verdict_status": "needs_human",
+      "verdict_status": "agent_ready",
       "error": null,
       "truth_absent_at_base": [],
       "verdict": {
-        "status": "needs_human",
-        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "status": "agent_ready",
+        "question": null,
         "footprint": [
           "pydantic-core/src/errors/validation_exception.rs",
           "pydantic-core/src/serializers/type_serializers/union.rs",
@@ -4346,6 +4732,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -4361,15 +4754,15 @@
           },
           {
             "rule": "expected_vs_actual",
-            "ok": false,
-            "detail": "Does not say what should happen instead",
+            "ok": true,
+            "detail": "A named error or version regression implies the expected behaviour",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
             "human_only": true
           },
           {
             "rule": "reproduction",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -4403,6 +4796,7 @@
         "pydantic-core/src/validators/model_fields.rs"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "pydantic/main.py",
         "pydantic-core/src/validators/model_fields.rs",
@@ -4436,6 +4830,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -4452,7 +4853,7 @@
           {
             "rule": "checkable_criteria",
             "ok": true,
-            "detail": "Has checkable criteria",
+            "detail": "Has checkable criteria or names a concrete change",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
             "human_only": true
           },
@@ -4487,6 +4888,7 @@
         "pydantic/_internal/_validators.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "pydantic-core/src/validators/decimal.rs",
         "pydantic/fields.py",
@@ -4520,6 +4922,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -4543,7 +4952,7 @@
           {
             "rule": "reproduction",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -4582,6 +4991,7 @@
         "pydantic-core/src/validators/generator.rs"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "pydantic-core/src/validators/function.rs",
         "pydantic/functional_validators.py",
@@ -4589,12 +4999,12 @@
         "pydantic-core/src/validators/arguments_v3.rs",
         "pydantic/_internal/_generate_schema.py"
       ],
-      "verdict_status": "needs_human",
+      "verdict_status": "agent_ready",
       "error": null,
       "truth_absent_at_base": [],
       "verdict": {
-        "status": "needs_human",
-        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "status": "agent_ready",
+        "question": null,
         "footprint": [
           "pydantic-core/src/validators/function.rs",
           "pydantic/functional_validators.py",
@@ -4615,6 +5025,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -4630,15 +5047,15 @@
           },
           {
             "rule": "expected_vs_actual",
-            "ok": false,
-            "detail": "Does not say what should happen instead",
+            "ok": true,
+            "detail": "A named error or version regression implies the expected behaviour",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
             "human_only": true
           },
           {
             "rule": "reproduction",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -4672,6 +5089,7 @@
         "pydantic/mypy.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "pydantic/mypy.py",
         "pydantic/main.py",
@@ -4679,12 +5097,12 @@
         "pydantic/fields.py",
         "pydantic/v1/main.py"
       ],
-      "verdict_status": "needs_human",
+      "verdict_status": "agent_ready",
       "error": null,
       "truth_absent_at_base": [],
       "verdict": {
-        "status": "needs_human",
-        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "status": "agent_ready",
+        "question": null,
         "footprint": [
           "pydantic/mypy.py",
           "pydantic/main.py",
@@ -4705,6 +5123,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -4720,15 +5145,15 @@
           },
           {
             "rule": "expected_vs_actual",
-            "ok": false,
-            "detail": "Does not say what should happen instead",
+            "ok": true,
+            "detail": "A named error or version regression implies the expected behaviour",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
             "human_only": true
           },
           {
             "rule": "reproduction",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -4763,6 +5188,7 @@
         "pydantic/_internal/_generate_schema.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "pydantic/main.py",
         "pydantic/_internal/_fields.py",
@@ -4770,12 +5196,12 @@
         "pydantic/_internal/_typing_extra.py",
         "pydantic/_internal/_model_construction.py"
       ],
-      "verdict_status": "needs_human",
+      "verdict_status": "agent_ready",
       "error": null,
       "truth_absent_at_base": [],
       "verdict": {
-        "status": "needs_human",
-        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "status": "agent_ready",
+        "question": null,
         "footprint": [
           "pydantic/main.py",
           "pydantic/_internal/_fields.py",
@@ -4796,6 +5222,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -4811,15 +5244,15 @@
           },
           {
             "rule": "expected_vs_actual",
-            "ok": false,
-            "detail": "Does not say what should happen instead",
+            "ok": true,
+            "detail": "A named error or version regression implies the expected behaviour",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
             "human_only": true
           },
           {
             "rule": "reproduction",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -4854,6 +5287,7 @@
         "pydantic/_internal/_generate_schema.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "pydantic/_internal/_typing_extra.py",
         "pydantic/_internal/_fields.py",
@@ -4887,6 +5321,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -4910,7 +5351,7 @@
           {
             "rule": "reproduction",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -4944,6 +5385,7 @@
         "pydantic/_internal/_typing_extra.py"
       ],
       "needed_clarification": true,
+      "source": null,
       "predicted": [
         "pydantic/main.py",
         "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
@@ -4951,12 +5393,12 @@
         "pydantic/_internal/_generate_schema.py",
         "pydantic/config.py"
       ],
-      "verdict_status": "needs_human",
+      "verdict_status": "agent_ready",
       "error": null,
       "truth_absent_at_base": [],
       "verdict": {
-        "status": "needs_human",
-        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "status": "agent_ready",
+        "question": null,
         "footprint": [
           "pydantic/main.py",
           "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
@@ -4977,6 +5419,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -4992,15 +5441,15 @@
           },
           {
             "rule": "expected_vs_actual",
-            "ok": false,
-            "detail": "Does not say what should happen instead",
+            "ok": true,
+            "detail": "A named error or version regression implies the expected behaviour",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
             "human_only": true
           },
           {
             "rule": "reproduction",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -5034,6 +5483,7 @@
         "pydantic/json_schema.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "pydantic/json_schema.py",
         "pydantic-core/python/pydantic_core/core_schema.py",
@@ -5067,6 +5517,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -5090,7 +5547,7 @@
           {
             "rule": "reproduction",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -5124,6 +5581,7 @@
         "pydantic/types.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "pydantic-core/python/pydantic_core/core_schema.py",
         "pydantic/json_schema.py",
@@ -5131,12 +5589,12 @@
         "pydantic/type_adapter.py",
         "pydantic/types.py"
       ],
-      "verdict_status": "needs_human",
+      "verdict_status": "agent_ready",
       "error": null,
       "truth_absent_at_base": [],
       "verdict": {
-        "status": "needs_human",
-        "question": "How will we know this is done? Name one behaviour or output an agent can check.",
+        "status": "agent_ready",
+        "question": null,
         "footprint": [
           "pydantic-core/python/pydantic_core/core_schema.py",
           "pydantic/json_schema.py",
@@ -5157,6 +5615,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -5172,8 +5637,8 @@
           },
           {
             "rule": "checkable_criteria",
-            "ok": false,
-            "detail": "No checkable acceptance criteria",
+            "ok": true,
+            "detail": "Has checkable criteria or names a concrete change",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
             "human_only": true
           },
@@ -5207,6 +5672,7 @@
         "pydantic/_internal/_generate_schema.py"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "pydantic/_internal/_generate_schema.py",
         "pydantic/type_adapter.py",
@@ -5240,6 +5706,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -5263,7 +5736,7 @@
           {
             "rule": "reproduction",
             "ok": true,
-            "detail": "Has a reproduction or traceback",
+            "detail": "Has a reproduction, traceback or a named failing call",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
             "human_only": true
           },
@@ -5298,6 +5771,7 @@
         "pydantic-core/src/validators/model_fields.rs"
       ],
       "needed_clarification": false,
+      "source": null,
       "predicted": [
         "pydantic/main.py",
         "pydantic-core/src/validators/model.rs",
@@ -5331,6 +5805,13 @@
         "acceptance": [],
         "findings": [
           {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
             "rule": "outcome_title",
             "ok": true,
             "detail": "Title names an outcome",
@@ -5347,7 +5828,7 @@
           {
             "rule": "checkable_criteria",
             "ok": true,
-            "detail": "Has checkable criteria",
+            "detail": "Has checkable criteria or names a concrete change",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
             "human_only": true
           },

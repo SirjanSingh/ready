@@ -40,7 +40,8 @@ _CHANGE_VERB = re.compile(r"\b(support|add|allow|change|rename|remove|deprecate|
 _CODE_SYMBOL = re.compile(r"`[^`\n]{2,}`|\b\w+\.\w+\(|\b[A-Za-z_]+(_[A-Za-z]+)+\b|[A-Z][a-z]+[A-Z]\w+|\b\w+\s*[<>=]=?\s*\d+\.\d+")
 _INJECTION = re.compile(
     r"(ignore (all |any |your )?(previous|prior|above)? ?(instructions|checklist|rules)"
-    r"|ignore your \w+|disregard (the|your|all) \w+|you are (now )?an? (ai|agent|assistant)"
+    r"|ignore your \w+|disregard (the|your|all) \w+|you are now\b|you are an? (ai|agent|assistant)"
+    r"|(note|message|instructions?) (to|for) (the |any )?(ai|agent|assistant|llm|model|bot)\b"
     r"|(label|mark) (it|this)( as)? agent-ready|tell the (agent|ai|assistant) to|system prompt)",
     re.I,
 )
@@ -74,10 +75,12 @@ def evaluate(title: str, body: str) -> list[Finding]:
         detail="Title names an outcome" if len(title.split()) >= 3 else "Title is too short to name an outcome",
         cites=f'{ALAN_TASK_DOC}: "The best task titles describe the outcome, not the activity." Weak: "Docs", "Bug in tasks".',
     ))
+    # Specific beats long: a short body that names the code and the expected result is enough.
+    specific = bool(_CODE_SYMBOL.search(text)) and bool(_EXPECT.search(text) or _ERROR_NAME.search(text))
     out.append(Finding(
         "context",
-        ok=words >= 25,
-        detail=f"Body has {words} words",
+        ok=words >= 25 or (words >= 8 and specific),
+        detail=f"Body has {words} words" + (", and names the code and expected result" if specific else ""),
         cites=f'{ALAN_TASK_DOC}: "Description: context, constraints, and acceptance criteria."',
         human_only=True,
     ))

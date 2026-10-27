@@ -33,3 +33,8 @@ packages = ["ready"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 norecursedirs = ["fixtures"]
+
+[dependency-groups]
+dev = [
+    "pyyaml>=6.0.3",
+]

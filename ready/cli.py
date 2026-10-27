@@ -47,5 +47,21 @@ def check(
     raise typer.Exit(0 if v.status == "agent_ready" else 3)
 
 
+@app.command("plan")
+def plan_cmd(
+    issues: list[str] = typer.Argument(..., help="GitHub issue URLs, in priority order"),
+    repo: Path = typer.Option(Path("."), "--repo"),
+    no_model: bool = typer.Option(False, "--no-model"),
+) -> None:
+    """Say which issues can go to agents in parallel and which must wait for another."""
+    from ready.plan import plan, render
+
+    tasks = []
+    for url in issues:
+        data = github.fetch_issue(url)
+        tasks.append((f"#{data['number']}", github.issue_text(data)))
+    console.print(Markdown(render(plan(tasks, repo, use_model=not no_model))))
+
+
 if __name__ == "__main__":
     app()
