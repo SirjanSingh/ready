@@ -1,0 +1,1802 @@
+{
+  "variant": "grep",
+  "k": 5,
+  "date": "2026-10-27T15:00:39",
+  "set": "held-out",
+  "pairs_file": "evidence/backtest-werkzeug.jsonl",
+  "note": "engine HEAD 34198de (ready/ last changed in 34198de).",
+  "elapsed_s": 109,
+  "overall": {
+    "n": 18,
+    "errors": 2,
+    "hit@1": 1.0,
+    "cov@1": 0.35987654320987655,
+    "hit@3": 1.0,
+    "cov@3": 0.4697530864197531,
+    "hit@5": 1.0,
+    "cov@5": 0.4981481481481482,
+    "truth_files": 59,
+    "truth_files_absent_at_base": 0
+  },
+  "overall_code_truth_only": {
+    "n": 18,
+    "errors": 2,
+    "hit@1": 1.0,
+    "cov@1": 0.35987654320987655,
+    "hit@3": 1.0,
+    "cov@3": 0.4697530864197531,
+    "hit@5": 1.0,
+    "cov@5": 0.4981481481481482,
+    "truth_files": 59,
+    "truth_files_absent_at_base": 0
+  },
+  "per_repo": {
+    "pallets/werkzeug": {
+      "n": 18,
+      "errors": 2,
+      "hit@1": 1.0,
+      "cov@1": 0.35987654320987655,
+      "hit@3": 1.0,
+      "cov@3": 0.4697530864197531,
+      "hit@5": 1.0,
+      "cov@5": 0.4981481481481482,
+      "truth_files": 59,
+      "truth_files_absent_at_base": 0
+    }
+  },
+  "confusion": {
+    "tp": 0,
+    "fp": 3,
+    "fn": 1,
+    "tn": 14,
+    "n": 18,
+    "accuracy": 0.7777777777777778,
+    "precision": 0.0,
+    "recall": 0.0,
+    "predicted_needs_human": 3,
+    "gold_positive": 1,
+    "needs_human_rate_on_negatives": 0.17647058823529413
+  },
+  "needs_human_by_source": {
+    "random / neg": {
+      "n": 17,
+      "needs_human": 3,
+      "rate": 0.17647058823529413
+    },
+    "random / pos": {
+      "n": 1,
+      "needs_human": 0,
+      "rate": 0.0
+    }
+  },
+  "pairs": [
+    {
+      "repo": "pallets/werkzeug",
+      "issue_number": 3247,
+      "issue_url": "https://github.com/pallets/werkzeug/issues/3247",
+      "pr_number": 3266,
+      "base_sha": "0005c79e09bae5f4cc2bd8ccd468d7dafe24a455",
+      "truth": [
+        "CHANGES.rst",
+        "src/werkzeug/wrappers/response.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/werkzeug/wrappers/response.py",
+        "src/werkzeug/sansio/response.py",
+        "src/werkzeug/test.py",
+        "src/werkzeug/sansio/request.py",
+        "src/werkzeug/routing/map.py"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "src/werkzeug/wrappers/response.py",
+          "src/werkzeug/sansio/response.py",
+          "src/werkzeug/test.py",
+          "src/werkzeug/sansio/request.py",
+          "src/werkzeug/routing/map.py",
+          "pyproject.toml",
+          "src/werkzeug/utils.py",
+          "src/werkzeug/http.py"
+        ],
+        "tests": [
+          "tests/conftest.py",
+          "tests/middleware/test_dispatcher.py",
+          "tests/middleware/test_http_proxy.py"
+        ],
+        "test_cmd": "pytest",
+        "summary": "remove `Response.autocorrect_location_header`",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
+            "rule": "outcome_title",
+            "ok": false,
+            "detail": "Title is too short to name an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 195 words, and names the code and expected result",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "checkable_criteria",
+            "ok": true,
+            "detail": "Has checkable criteria or names a concrete change",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.5,
+        "hit@3": true,
+        "cov@3": 0.5,
+        "hit@5": true,
+        "cov@5": 0.5,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pallets/werkzeug",
+      "issue_number": 3318,
+      "issue_url": "https://github.com/pallets/werkzeug/issues/3318",
+      "pr_number": 3327,
+      "base_sha": "0819a2a9b262aceab39d19ef30f3824d6048daf4",
+      "truth": [
+        "CHANGES.rst",
+        "src/werkzeug/sansio/response.py",
+        "src/werkzeug/utils.py",
+        "src/werkzeug/wrappers/response.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/werkzeug/wrappers/response.py",
+        "src/werkzeug/sansio/response.py",
+        "src/werkzeug/urls.py",
+        "src/werkzeug/test.py",
+        "src/werkzeug/sansio/request.py"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "src/werkzeug/wrappers/response.py",
+          "src/werkzeug/sansio/response.py",
+          "src/werkzeug/urls.py",
+          "src/werkzeug/test.py",
+          "src/werkzeug/sansio/request.py",
+          "src/werkzeug/exceptions.py",
+          "src/werkzeug/http.py",
+          "src/werkzeug/datastructures/headers.py"
+        ],
+        "tests": [
+          "tests/test_urls.py"
+        ],
+        "test_cmd": "pytest",
+        "summary": "`Response.location` and `content_location` should use `iri_to_uri`",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 80 words, and names the code and expected result",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "checkable_criteria",
+            "ok": true,
+            "detail": "Has checkable criteria or names a concrete change",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": false,
+            "detail": "Names no file, module or symbol (Ready will try to find them)",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.25,
+        "hit@3": true,
+        "cov@3": 0.5,
+        "hit@5": true,
+        "cov@5": 0.5,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pallets/werkzeug",
+      "issue_number": 3323,
+      "issue_url": "https://github.com/pallets/werkzeug/issues/3323",
+      "pr_number": 3325,
+      "base_sha": "15fc22b699ecacd04824092453c0cd2a8c4a3a67",
+      "truth": [
+        "CHANGES.rst",
+        "src/werkzeug/wrappers/response.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/werkzeug/wrappers/response.py",
+        "src/werkzeug/sansio/response.py",
+        "src/werkzeug/wsgi.py",
+        "src/werkzeug/wrappers/request.py",
+        "src/werkzeug/datastructures/range.py"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "src/werkzeug/wrappers/response.py",
+          "src/werkzeug/sansio/response.py",
+          "src/werkzeug/wsgi.py",
+          "src/werkzeug/wrappers/request.py",
+          "src/werkzeug/datastructures/range.py",
+          "src/werkzeug/test.py",
+          "src/werkzeug/utils.py",
+          "src/werkzeug/datastructures/headers.py"
+        ],
+        "tests": [
+          "tests/test_wsgi.py"
+        ],
+        "test_cmd": "pytest",
+        "summary": "deprecate mixed string/bytes response iterable",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 148 words, and names the code and expected result",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "checkable_criteria",
+            "ok": true,
+            "detail": "Has checkable criteria or names a concrete change",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.5,
+        "hit@3": true,
+        "cov@3": 0.5,
+        "hit@5": true,
+        "cov@5": 0.5,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pallets/werkzeug",
+      "issue_number": 3324,
+      "issue_url": "https://github.com/pallets/werkzeug/issues/3324",
+      "pr_number": 3325,
+      "base_sha": "15fc22b699ecacd04824092453c0cd2a8c4a3a67",
+      "truth": [
+        "CHANGES.rst",
+        "src/werkzeug/wrappers/response.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/werkzeug/wrappers/response.py",
+        "src/werkzeug/sansio/response.py",
+        "src/werkzeug/wrappers/request.py",
+        "src/werkzeug/utils.py",
+        "src/werkzeug/serving.py"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "src/werkzeug/wrappers/response.py",
+          "src/werkzeug/sansio/response.py",
+          "src/werkzeug/wrappers/request.py",
+          "src/werkzeug/utils.py",
+          "src/werkzeug/serving.py",
+          "src/werkzeug/wsgi.py",
+          "src/werkzeug/middleware/lint.py",
+          "src/werkzeug/test.py"
+        ],
+        "tests": [
+          "tests/sansio/test_request.py"
+        ],
+        "test_cmd": "pytest",
+        "summary": "deprecate `Response.stream`",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
+            "rule": "outcome_title",
+            "ok": false,
+            "detail": "Title is too short to name an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 197 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "checkable_criteria",
+            "ok": true,
+            "detail": "Has checkable criteria or names a concrete change",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.5,
+        "hit@3": true,
+        "cov@3": 0.5,
+        "hit@5": true,
+        "cov@5": 0.5,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pallets/werkzeug",
+      "issue_number": 3294,
+      "issue_url": "https://github.com/pallets/werkzeug/issues/3294",
+      "pr_number": 3298,
+      "base_sha": "25663ddc295879d362a206b4c33f16ea2e694392",
+      "truth": [
+        "CHANGES.rst",
+        "src/werkzeug/middleware/proxy_fix.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [],
+      "verdict_status": null,
+      "error": "Traceback (most recent call last):\n  File \"G:\\ready-bt\\eval\\run.py\", line 279, in main\n    repo = checkout(p[\"repo\"], p[\"base_sha\"])\n  File \"G:\\ready-bt\\eval\\checkout.py\", line 53, in checkout\n    raise RuntimeError(f\"checkout {repo}@{sha[:10]} failed: {proc.stderr.strip()}\")\nRuntimeError: checkout pallets/werkzeug@25663ddc29 failed: fatal: Unable to create 'G:/ready-bt/.eval-cache/pallets__werkzeug/.git/index.lock': File exists.\n\nAnother git process seems to be running in this repository, e.g.\nan editor opened by 'git commit'. Please make sure all processes\nare terminated then try again. If it still fails, a git process\nmay have crashed in this repository earlier:\nremove the file manually to continue.\n",
+      "truth_absent_at_base": []
+    },
+    {
+      "repo": "pallets/werkzeug",
+      "issue_number": 3328,
+      "issue_url": "https://github.com/pallets/werkzeug/issues/3328",
+      "pr_number": 3329,
+      "base_sha": "456407ae4201661b14f726e1409db185418b6df7",
+      "truth": [
+        "CHANGES.rst",
+        "src/werkzeug/_internal.py",
+        "src/werkzeug/serving.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/werkzeug/serving.py",
+        "src/werkzeug/middleware/lint.py",
+        "src/werkzeug/test.py",
+        "src/werkzeug/wrappers/response.py",
+        "src/werkzeug/wsgi.py"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "src/werkzeug/serving.py",
+          "src/werkzeug/middleware/lint.py",
+          "src/werkzeug/test.py",
+          "src/werkzeug/wrappers/response.py",
+          "src/werkzeug/wsgi.py",
+          "src/werkzeug/debug/console.py",
+          "src/werkzeug/datastructures/file_storage.py",
+          "src/werkzeug/wrappers/request.py"
+        ],
+        "tests": [
+          "tests/test_serving.py",
+          "tests/middleware/test_lint.py",
+          "tests/conftest.py"
+        ],
+        "test_cmd": "pytest",
+        "summary": "dev server doesn't close response iterable when client resets connection",
+        "acceptance": [
+          "Expected: `closed` is printed."
+        ],
+        "findings": [
+          {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 288 words, and names the code and expected result",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": true,
+            "detail": "States what should happen vs what happens",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction, traceback or a named failing call",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.3333333333333333,
+        "hit@3": true,
+        "cov@3": 0.3333333333333333,
+        "hit@5": true,
+        "cov@5": 0.3333333333333333,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pallets/werkzeug",
+      "issue_number": 3207,
+      "issue_url": "https://github.com/pallets/werkzeug/issues/3207",
+      "pr_number": 3216,
+      "base_sha": "48dde21febc3db2bd75cbad3bf3aa74dedf32e4a",
+      "truth": [
+        "CHANGES.rst",
+        "src/werkzeug/middleware/profiler.py"
+      ],
+      "needed_clarification": true,
+      "source": "random",
+      "predicted": [
+        "src/werkzeug/middleware/profiler.py",
+        "tests/middleware/test_profiler.py",
+        "src/werkzeug/routing/map.py",
+        "src/werkzeug/utils.py",
+        "src/werkzeug/serving.py"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "src/werkzeug/middleware/profiler.py",
+          "tests/middleware/test_profiler.py",
+          "src/werkzeug/routing/map.py",
+          "src/werkzeug/utils.py",
+          "src/werkzeug/serving.py",
+          "pyproject.toml",
+          "src/werkzeug/http.py",
+          "src/werkzeug/test.py"
+        ],
+        "tests": [
+          "tests/middleware/test_profiler.py",
+          "tests/sansio/test_utils.py",
+          "tests/test_utils.py"
+        ],
+        "test_cmd": "pytest",
+        "summary": "Test error in python 3.15",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 235 words, and names the code and expected result",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": true,
+            "detail": "States what should happen vs what happens",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction, traceback or a named failing call",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.5,
+        "hit@3": true,
+        "cov@3": 0.5,
+        "hit@5": true,
+        "cov@5": 0.5,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pallets/werkzeug",
+      "issue_number": 3301,
+      "issue_url": "https://github.com/pallets/werkzeug/issues/3301",
+      "pr_number": 3306,
+      "base_sha": "4eabe333c6b359979664cc313c3241b5a770ee84",
+      "truth": [
+        "CHANGES.rst",
+        "examples/upload.py",
+        "src/werkzeug/middleware/lint.py",
+        "src/werkzeug/wsgi.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/werkzeug/wsgi.py",
+        "src/werkzeug/middleware/lint.py",
+        "src/werkzeug/test.py",
+        "src/werkzeug/utils.py",
+        "src/werkzeug/wrappers/response.py"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "src/werkzeug/wsgi.py",
+          "src/werkzeug/middleware/lint.py",
+          "src/werkzeug/test.py",
+          "src/werkzeug/utils.py",
+          "src/werkzeug/wrappers/response.py",
+          "src/werkzeug/routing/rules.py",
+          "src/werkzeug/middleware/shared_data.py",
+          "src/werkzeug/local.py"
+        ],
+        "tests": [
+          "tests/test_wsgi.py",
+          "tests/middleware/test_lint.py",
+          "tests/conftest.py"
+        ],
+        "test_cmd": "pytest",
+        "summary": "Deprecate `FileWrapper`",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
+            "rule": "outcome_title",
+            "ok": false,
+            "detail": "Title is too short to name an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 67 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "checkable_criteria",
+            "ok": true,
+            "detail": "Has checkable criteria or names a concrete change",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.25,
+        "hit@3": true,
+        "cov@3": 0.5,
+        "hit@5": true,
+        "cov@5": 0.5,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pallets/werkzeug",
+      "issue_number": 3289,
+      "issue_url": "https://github.com/pallets/werkzeug/issues/3289",
+      "pr_number": 3292,
+      "base_sha": "6048fa48753c7b61e35cc34537667809dee8fa35",
+      "truth": [
+        "CHANGES.rst",
+        "src/werkzeug/datastructures/etag.py",
+        "src/werkzeug/sansio/http.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/werkzeug/datastructures/etag.py",
+        "src/werkzeug/datastructures/set.py",
+        "src/werkzeug/datastructures/structures.py",
+        "src/werkzeug/datastructures/headers.py",
+        "src/werkzeug/datastructures/accept.py"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "src/werkzeug/datastructures/etag.py",
+          "src/werkzeug/datastructures/set.py",
+          "src/werkzeug/datastructures/structures.py",
+          "src/werkzeug/datastructures/headers.py",
+          "src/werkzeug/datastructures/accept.py",
+          "pyproject.toml",
+          "src/werkzeug/local.py",
+          "src/werkzeug/middleware/shared_data.py"
+        ],
+        "tests": [
+          "tests/test_datastructures.py"
+        ],
+        "test_cmd": "pytest",
+        "summary": "Deprecate unneeded `ETagSet` methods",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 287 words, and names the code and expected result",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "checkable_criteria",
+            "ok": true,
+            "detail": "Has checkable criteria or names a concrete change",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": false,
+            "detail": "Names no file, module or symbol (Ready will try to find them)",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.3333333333333333,
+        "hit@3": true,
+        "cov@3": 0.3333333333333333,
+        "hit@5": true,
+        "cov@5": 0.3333333333333333,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pallets/werkzeug",
+      "issue_number": 3320,
+      "issue_url": "https://github.com/pallets/werkzeug/issues/3320",
+      "pr_number": 3335,
+      "base_sha": "665e760ca6325a348ce03e5cf780b17e4be01848",
+      "truth": [
+        "CHANGES.rst",
+        "src/werkzeug/wrappers/response.py",
+        "src/werkzeug/wsgi.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/werkzeug/wrappers/response.py",
+        "src/werkzeug/sansio/response.py",
+        "src/werkzeug/http.py",
+        "src/werkzeug/wrappers/request.py",
+        "src/werkzeug/utils.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "How will we know this is done? Name one behaviour or output an agent can check.",
+        "footprint": [
+          "src/werkzeug/wrappers/response.py",
+          "src/werkzeug/sansio/response.py",
+          "src/werkzeug/http.py",
+          "src/werkzeug/wrappers/request.py",
+          "src/werkzeug/utils.py",
+          "src/werkzeug/test.py",
+          "src/werkzeug/wsgi.py",
+          "src/werkzeug/exceptions.py"
+        ],
+        "tests": [
+          "tests/middleware/test_http_proxy.py",
+          "tests/test_http.py"
+        ],
+        "test_cmd": "pytest",
+        "summary": "Move header and body checks to sans-IO `Response`",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 154 words, and names the code and expected result",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "checkable_criteria",
+            "ok": false,
+            "detail": "No checkable acceptance criteria",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": false,
+            "detail": "Names no file, module or symbol (Ready will try to find them)",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.3333333333333333,
+        "hit@3": true,
+        "cov@3": 0.3333333333333333,
+        "hit@5": true,
+        "cov@5": 0.3333333333333333,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pallets/werkzeug",
+      "issue_number": 3291,
+      "issue_url": "https://github.com/pallets/werkzeug/issues/3291",
+      "pr_number": 3308,
+      "base_sha": "671537e0e5c7dcec4ac61ffc755dbd8936cefcfb",
+      "truth": [
+        "CHANGES.rst",
+        "src/werkzeug/datastructures/etag.py",
+        "src/werkzeug/datastructures/range.py",
+        "src/werkzeug/http.py",
+        "src/werkzeug/middleware/shared_data.py",
+        "src/werkzeug/sansio/http.py",
+        "src/werkzeug/test.py",
+        "src/werkzeug/utils.py",
+        "src/werkzeug/wrappers/response.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/werkzeug/wrappers/response.py",
+        "src/werkzeug/sansio/response.py",
+        "src/werkzeug/http.py",
+        "src/werkzeug/datastructures/etag.py",
+        "src/werkzeug/sansio/request.py"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "src/werkzeug/wrappers/response.py",
+          "src/werkzeug/sansio/response.py",
+          "src/werkzeug/http.py",
+          "src/werkzeug/datastructures/etag.py",
+          "src/werkzeug/sansio/request.py",
+          "src/werkzeug/datastructures/range.py",
+          "src/werkzeug/utils.py",
+          "src/werkzeug/exceptions.py"
+        ],
+        "tests": [
+          "tests/middleware/test_http_proxy.py",
+          "tests/test_http.py"
+        ],
+        "test_cmd": "pytest",
+        "summary": "`make_conditional` has a lot of problems",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 475 words, and names the code and expected result",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": true,
+            "detail": "States what should happen vs what happens",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": true,
+            "detail": "Has a reproduction, traceback or a named failing call",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": false,
+            "detail": "Names no file, module or symbol (Ready will try to find them)",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.1111111111111111,
+        "hit@3": true,
+        "cov@3": 0.2222222222222222,
+        "hit@5": true,
+        "cov@5": 0.3333333333333333,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pallets/werkzeug",
+      "issue_number": 3271,
+      "issue_url": "https://github.com/pallets/werkzeug/issues/3271",
+      "pr_number": 3273,
+      "base_sha": "a33190bffb7f6dd4c7084c08257b4542689b8c66",
+      "truth": [
+        "CHANGES.rst",
+        "src/werkzeug/sansio/request.py",
+        "src/werkzeug/user_agent.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/werkzeug/sansio/request.py",
+        "src/werkzeug/user_agent.py",
+        "src/werkzeug/wrappers/request.py",
+        "src/werkzeug/routing/map.py",
+        "src/werkzeug/http.py"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "src/werkzeug/sansio/request.py",
+          "src/werkzeug/user_agent.py",
+          "src/werkzeug/wrappers/request.py",
+          "src/werkzeug/routing/map.py",
+          "src/werkzeug/http.py",
+          "pyproject.toml",
+          "src/werkzeug/datastructures/structures.py",
+          "src/werkzeug/sansio/response.py"
+        ],
+        "tests": [
+          "tests/sansio/test_request.py"
+        ],
+        "test_cmd": "pytest",
+        "summary": "deprecate `UserAgent`",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
+            "rule": "outcome_title",
+            "ok": false,
+            "detail": "Title is too short to name an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 181 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "checkable_criteria",
+            "ok": true,
+            "detail": "Has checkable criteria or names a concrete change",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.3333333333333333,
+        "hit@3": true,
+        "cov@3": 0.6666666666666666,
+        "hit@5": true,
+        "cov@5": 0.6666666666666666,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pallets/werkzeug",
+      "issue_number": 3302,
+      "issue_url": "https://github.com/pallets/werkzeug/issues/3302",
+      "pr_number": 3304,
+      "base_sha": "b5c57f308465deb39bcc801017c4edde1f81d6ea",
+      "truth": [
+        "CHANGES.rst",
+        "src/werkzeug/wsgi.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [],
+      "verdict_status": null,
+      "error": "Traceback (most recent call last):\n  File \"G:\\ready-bt\\eval\\run.py\", line 279, in main\n    repo = checkout(p[\"repo\"], p[\"base_sha\"])\n  File \"G:\\ready-bt\\eval\\checkout.py\", line 53, in checkout\n    raise RuntimeError(f\"checkout {repo}@{sha[:10]} failed: {proc.stderr.strip()}\")\nRuntimeError: checkout pallets/werkzeug@b5c57f3084 failed: fatal: Unable to create 'G:/ready-bt/.eval-cache/pallets__werkzeug/.git/index.lock': File exists.\n\nAnother git process seems to be running in this repository, e.g.\nan editor opened by 'git commit'. Please make sure all processes\nare terminated then try again. If it still fails, a git process\nmay have crashed in this repository earlier:\nremove the file manually to continue.\n",
+      "truth_absent_at_base": []
+    },
+    {
+      "repo": "pallets/werkzeug",
+      "issue_number": 3290,
+      "issue_url": "https://github.com/pallets/werkzeug/issues/3290",
+      "pr_number": 3293,
+      "base_sha": "cdc9e2d2fff5f576580d7c73ad5280778ec5d55b",
+      "truth": [
+        "CHANGES.rst",
+        "src/werkzeug/datastructures/accept.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/werkzeug/datastructures/accept.py",
+        "src/werkzeug/exceptions.py",
+        "src/werkzeug/wrappers/request.py",
+        "src/werkzeug/wrappers/response.py",
+        "src/werkzeug/test.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "Can you add the smallest snippet or command that shows the problem, with the versions you ran it on?",
+        "footprint": [
+          "src/werkzeug/datastructures/accept.py",
+          "src/werkzeug/exceptions.py",
+          "src/werkzeug/wrappers/request.py",
+          "src/werkzeug/wrappers/response.py",
+          "src/werkzeug/test.py",
+          "src/werkzeug/routing/map.py",
+          "src/werkzeug/wsgi.py",
+          "src/werkzeug/sansio/request.py"
+        ],
+        "tests": [
+          "tests/test_exceptions.py",
+          "tests/sansio/test_request.py"
+        ],
+        "test_cmd": "pytest",
+        "summary": "`MIMEAccept.accept_html` is incorrect",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 124 words, and names the code and expected result",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": true,
+            "detail": "States what should happen vs what happens",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": false,
+            "detail": "No code, command or traceback to reproduce",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": false,
+            "detail": "Names no file, module or symbol (Ready will try to find them)",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.5,
+        "hit@3": true,
+        "cov@3": 0.5,
+        "hit@5": true,
+        "cov@5": 0.5,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pallets/werkzeug",
+      "issue_number": 3297,
+      "issue_url": "https://github.com/pallets/werkzeug/issues/3297",
+      "pr_number": 3300,
+      "base_sha": "d4b67549221d050e3e7300dfaa002b8b59672a12",
+      "truth": [
+        "CHANGES.rst",
+        "examples/i18nurls/application.py",
+        "src/werkzeug/debug/__init__.py",
+        "src/werkzeug/wrappers/request.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/werkzeug/wrappers/request.py",
+        "src/werkzeug/sansio/request.py",
+        "src/werkzeug/test.py",
+        "src/werkzeug/wrappers/response.py",
+        "src/werkzeug/routing/map.py"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "src/werkzeug/wrappers/request.py",
+          "src/werkzeug/sansio/request.py",
+          "src/werkzeug/test.py",
+          "src/werkzeug/wrappers/response.py",
+          "src/werkzeug/routing/map.py",
+          "src/werkzeug/utils.py",
+          "src/werkzeug/debug/__init__.py",
+          "src/werkzeug/wsgi.py"
+        ],
+        "tests": [
+          "tests/sansio/test_request.py",
+          "tests/conftest.py",
+          "tests/middleware/test_dispatcher.py"
+        ],
+        "test_cmd": "pytest",
+        "summary": "Deprecate `Request` `populate_request` behavior",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 185 words, and names the code and expected result",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "checkable_criteria",
+            "ok": true,
+            "detail": "Has checkable criteria or names a concrete change",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.25,
+        "hit@3": true,
+        "cov@3": 0.25,
+        "hit@5": true,
+        "cov@5": 0.25,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pallets/werkzeug",
+      "issue_number": 3280,
+      "issue_url": "https://github.com/pallets/werkzeug/issues/3280",
+      "pr_number": 3282,
+      "base_sha": "e27473b7f765ad0d774a612cb76aa0b8a0332c27",
+      "truth": [
+        "CHANGES.rst",
+        "src/werkzeug/_header_property.py",
+        "src/werkzeug/sansio/request.py",
+        "src/werkzeug/sansio/response.py",
+        "src/werkzeug/utils.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/werkzeug/utils.py",
+        "src/werkzeug/sansio/request.py",
+        "src/werkzeug/wrappers/request.py",
+        "src/werkzeug/_header_property.py",
+        "src/werkzeug/sansio/response.py"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "src/werkzeug/utils.py",
+          "src/werkzeug/sansio/request.py",
+          "src/werkzeug/wrappers/request.py",
+          "src/werkzeug/_header_property.py",
+          "src/werkzeug/sansio/response.py",
+          "pyproject.toml",
+          "src/werkzeug/http.py",
+          "src/werkzeug/wrappers/response.py"
+        ],
+        "tests": [
+          "tests/sansio/test_utils.py",
+          "tests/test_utils.py",
+          "tests/sansio/test_request.py"
+        ],
+        "test_cmd": "pytest",
+        "summary": "deprecate `header_property`",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
+            "rule": "outcome_title",
+            "ok": false,
+            "detail": "Title is too short to name an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 142 words, and names the code and expected result",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "checkable_criteria",
+            "ok": true,
+            "detail": "Has checkable criteria or names a concrete change",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.2,
+        "hit@3": true,
+        "cov@3": 0.4,
+        "hit@5": true,
+        "cov@5": 0.8,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pallets/werkzeug",
+      "issue_number": 3242,
+      "issue_url": "https://github.com/pallets/werkzeug/issues/3242",
+      "pr_number": 3243,
+      "base_sha": "ef518e429b67a91a307de37a1845c93110180371",
+      "truth": [
+        "CHANGES.rst",
+        "src/werkzeug/routing/converters.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/werkzeug/routing/converters.py",
+        "src/werkzeug/serving.py",
+        "src/werkzeug/middleware/lint.py",
+        "src/werkzeug/routing/rules.py",
+        "src/werkzeug/http.py"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "src/werkzeug/routing/converters.py",
+          "src/werkzeug/serving.py",
+          "src/werkzeug/middleware/lint.py",
+          "src/werkzeug/routing/rules.py",
+          "src/werkzeug/http.py",
+          "src/werkzeug/_internal.py",
+          "src/werkzeug/sansio/response.py",
+          "src/werkzeug/utils.py"
+        ],
+        "tests": [
+          "tests/test_serving.py",
+          "tests/middleware/test_lint.py"
+        ],
+        "test_cmd": "pytest",
+        "summary": "`int` and `float` converter issues",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 207 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "checkable_criteria",
+            "ok": true,
+            "detail": "Has checkable criteria or names a concrete change",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.5,
+        "hit@3": true,
+        "cov@3": 0.5,
+        "hit@5": true,
+        "cov@5": 0.5,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pallets/werkzeug",
+      "issue_number": 3275,
+      "issue_url": "https://github.com/pallets/werkzeug/issues/3275",
+      "pr_number": 3276,
+      "base_sha": "f97c305673ba121a1dae6764c37e8be48907a1d1",
+      "truth": [
+        "CHANGES.rst",
+        "src/werkzeug/test.py",
+        "src/werkzeug/utils.py",
+        "src/werkzeug/wrappers/request.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/werkzeug/utils.py",
+        "src/werkzeug/wrappers/request.py",
+        "src/werkzeug/test.py",
+        "src/werkzeug/wrappers/response.py",
+        "src/werkzeug/wsgi.py"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "src/werkzeug/utils.py",
+          "src/werkzeug/wrappers/request.py",
+          "src/werkzeug/test.py",
+          "src/werkzeug/wrappers/response.py",
+          "src/werkzeug/wsgi.py",
+          "src/werkzeug/routing/map.py",
+          "src/werkzeug/local.py",
+          "src/werkzeug/_internal.py"
+        ],
+        "tests": [
+          "tests/sansio/test_utils.py",
+          "tests/test_utils.py",
+          "tests/sansio/test_request.py"
+        ],
+        "test_cmd": "pytest",
+        "summary": "deprecate environ properties",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 116 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "checkable_criteria",
+            "ok": true,
+            "detail": "Has checkable criteria or names a concrete change",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.25,
+        "hit@3": true,
+        "cov@3": 0.75,
+        "hit@5": true,
+        "cov@5": 0.75,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pallets/werkzeug",
+      "issue_number": 3295,
+      "issue_url": "https://github.com/pallets/werkzeug/issues/3295",
+      "pr_number": 3299,
+      "base_sha": "fa93b5cee027bc9baadba67f21360a8a39b2317b",
+      "truth": [
+        "CHANGES.rst",
+        "src/werkzeug/wrappers/request.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/werkzeug/wrappers/request.py",
+        "src/werkzeug/exceptions.py",
+        "src/werkzeug/wsgi.py",
+        "src/werkzeug/routing/map.py",
+        "src/werkzeug/wrappers/response.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "How will we know this is done? Name one behaviour or output an agent can check.",
+        "footprint": [
+          "src/werkzeug/wrappers/request.py",
+          "src/werkzeug/exceptions.py",
+          "src/werkzeug/wsgi.py",
+          "src/werkzeug/routing/map.py",
+          "src/werkzeug/wrappers/response.py",
+          "src/werkzeug/sansio/request.py",
+          "src/werkzeug/local.py",
+          "src/werkzeug/middleware/http_proxy.py"
+        ],
+        "tests": [
+          "tests/sansio/test_request.py",
+          "tests/test_exceptions.py",
+          "tests/test_wsgi.py"
+        ],
+        "test_cmd": "pytest",
+        "summary": "`Request.application` doesn't type check when decorating a method",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 26 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "checkable_criteria",
+            "ok": false,
+            "detail": "No checkable acceptance criteria",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": false,
+            "detail": "Names no file, module or symbol (Ready will try to find them)",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.5,
+        "hit@3": true,
+        "cov@3": 0.5,
+        "hit@5": true,
+        "cov@5": 0.5,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pallets/werkzeug",
+      "issue_number": 3272,
+      "issue_url": "https://github.com/pallets/werkzeug/issues/3272",
+      "pr_number": 3283,
+      "base_sha": "fd471c92b59a56c3c53f862050d1a0a3f2316db9",
+      "truth": [
+        "CHANGES.rst",
+        "src/werkzeug/formparser.py",
+        "src/werkzeug/wrappers/request.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/werkzeug/wrappers/request.py",
+        "src/werkzeug/formparser.py",
+        "src/werkzeug/sansio/request.py",
+        "src/werkzeug/http.py",
+        "src/werkzeug/wrappers/response.py"
+      ],
+      "verdict_status": "agent_ready",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "agent_ready",
+        "question": null,
+        "footprint": [
+          "src/werkzeug/wrappers/request.py",
+          "src/werkzeug/formparser.py",
+          "src/werkzeug/sansio/request.py",
+          "src/werkzeug/http.py",
+          "src/werkzeug/wrappers/response.py",
+          "pyproject.toml",
+          "src/werkzeug/routing/map.py",
+          "src/werkzeug/test.py"
+        ],
+        "tests": [
+          "tests/sansio/test_request.py",
+          "tests/test_formparser.py"
+        ],
+        "test_cmd": "pytest",
+        "summary": "deprecate `Request.form_data_parser_class`",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
+            "rule": "outcome_title",
+            "ok": false,
+            "detail": "Title is too short to name an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 205 words, and names the code and expected result",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "checkable_criteria",
+            "ok": true,
+            "detail": "Has checkable criteria or names a concrete change",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": true,
+            "detail": "Names code it touches",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.3333333333333333,
+        "hit@3": true,
+        "cov@3": 0.6666666666666666,
+        "hit@5": true,
+        "cov@5": 0.6666666666666666,
+        "first_hit_rank": 1
+      }
+    }
+  ]
+}

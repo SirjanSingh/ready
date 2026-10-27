@@ -500,3 +500,17 @@ Worst 10 misses (lowest cov@5, fewest true files first):
 - https://github.com/pallets/click/issues/3766 cov@5=0.000 | truth: .github/workflows/nightly.yaml | predicted: src/click/core.py, src/click/testing.py, tests/test_context.py
 - https://github.com/pydantic/pydantic/issues/13977 cov@5=0.000 | truth: .github/workflows/ci.yml | predicted: pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi, pydantic-core/src/errors/validation_exception.rs, pydantic-core/python/pydantic_core/core_schema.py
 - https://github.com/pydantic/pydantic/issues/13976 cov@5=0.000 | truth: pydantic/_internal/_validators.py | predicted: pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi, pydantic-core/python/pydantic_core/core_schema.py, pydantic/_internal/_generate_schema.py
+
+## Backtest on an unseen repo: pallets/werkzeug (27 Oct, engine commit `34198de`, grep variant)
+
+werkzeug was in neither the dev set nor the held-out set, and nothing was tuned on it. The 20 most recently updated closed issues linked to a merged PR were collected with `eval/fetch.py`; 3 failed to check out (git lock files on an exFAT drive), so n = 17. Ground truth is the PR's changed files at its base commit.
+
+| repo | n | hit@1 | hit@3 | hit@5 |
+|---|---|---|---|---|
+| pallets/werkzeug | 17 | 1.00 | 1.00 | 1.00 |
+
+Read this as an easy set, not as Ready's typical accuracy: 15 of the 17 issues were filed by werkzeug's maintainer and name the exact function or class (for example "`make_conditional` has a lot of problems"). n is small and the result is noisy.
+
+Readiness on the same 17: 1 issue was labelled as needing more information, and Ready did not catch it. Ready flagged 5 of the 16 ordinary issues as needs-human (31%), in line with the 27% false-alarm rate on held-out. The readiness gate is still the weak part.
+
+Files: `evidence/backtest-werkzeug.jsonl`, `evidence/results-grep-backtest-werkzeug.json`.
