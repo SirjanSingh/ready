@@ -2,6 +2,8 @@ name: ready
 on:
   issues:
     types: [opened, edited, reopened]
+  issue_comment:
+    types: [created, edited]  # a human answered Ready's question: re-check and update in place
   workflow_dispatch:
     inputs:
       issue:
@@ -14,6 +16,8 @@ permissions:
 
 jobs:
   check:
+    # Skip comments on pull requests and comments by bots, Ready's own included.
+    if: github.event_name != 'issue_comment' || (github.event.issue.pull_request == null && github.event.comment.user.type != 'Bot')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -24,5 +28,6 @@ jobs:
           READY_API_KEY: ${{ secrets.READY_API_KEY }}
           READY_BASE_URL: ${{ vars.READY_BASE_URL }}
           READY_MODEL: ${{ vars.READY_MODEL }}
+          RECHECK: ${{ github.event_name == 'issue_comment' && '--recheck' || '' }}
         run: |
-          uvx --from "git+https://github.com/${{ vars.READY_SOURCE || 'SirjanSingh/ready' }}" ready check "${{ github.event.issue.html_url || inputs.issue }}" --repo . --post || [ $? -eq 3 ]
+          uvx --from "git+https://github.com/${{ vars.READY_SOURCE || 'SirjanSingh/ready' }}" ready check "${{ github.event.issue.html_url || inputs.issue }}" --repo . --post $RECHECK || [ $? -eq 3 ]

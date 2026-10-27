@@ -28,9 +28,13 @@ def check(
     post: bool = typer.Option(False, "--post", help="Comment and label on the issue"),
     as_json: bool = typer.Option(False, "--json"),
     no_model: bool = typer.Option(False, "--no-model", help="Repo search only, no model call"),
+    recheck: bool = typer.Option(False, "--recheck", help="Only re-check issues Ready already commented on (for issue_comment events)"),
 ) -> None:
     if issue.startswith("http"):
         data = github.fetch_issue(issue)
+        if recheck and not data["checked"]:
+            console.print("Ready has not checked this issue yet; nothing to re-check.")
+            raise typer.Exit(0)
         text, url = github.issue_text(data), data["url"]
     else:
         text, url = Path(issue).read_text(encoding="utf-8"), None

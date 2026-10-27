@@ -35,11 +35,32 @@ def _client() -> httpx.Client:
     return httpx.Client(base_url="https://api.github.com", headers={"Authorization": f"Bearer {_token()}", "Accept": "application/vnd.github+json"}, timeout=30)
 
 
+TRUSTED = {"OWNER", "MEMBER", "COLLABORATOR"}
+
+
+def thread_replies(comments: list[dict], issue_author: str) -> list[str]:
+    """Answers a human gave on the thread: from the issue author or a maintainer, never a bot or Ready itself."""
+    out = []
+    for cm in comments:
+        user = cm.get("user") or {}
+        body = (cm.get("body") or "").strip()
+        if not body or MARKER in body or user.get("type") == "Bot":
+            continue
+        if user.get("login") == issue_author or cm.get("author_association") in TRUSTED:
+            out.append(body)
+    return out
+
+
 def fetch_issue(url: str) -> dict:
     owner, repo, n = parse_issue_url(url)
     with _client() as c:
         issue = c.get(f"/repos/{owner}/{repo}/issues/{n}").raise_for_status().json()
-    return {"owner": owner, "repo": repo, "number": n, "title": issue["title"], "body": issue.get("body") or "", "url": issue["html_url"]}
+        comments = c.get(f"/repos/{owner}/{repo}/issues/{n}/comments", params={"per_page": 100}).raise_for_status().json() if issue.get("comments") else []
+    return {
+        "owner": owner, "repo": repo, "number": n, "title": issue["title"], "body": issue.get("body") or "", "url": issue["html_url"],
+        "replies": thread_replies(comments, (issue.get("user") or {}).get("login", "")),
+        "checked": any(MARKER in (cm.get("body") or "") for cm in comments),
+    }
 
 
 def post_verdict(url: str, comment_md: str, status: str) -> str:
@@ -60,7 +81,11 @@ def post_verdict(url: str, comment_md: str, status: str) -> str:
 
 
 def issue_text(issue: dict) -> str:
-    return f"{issue['title']}\n{issue['body']}"
+    # Replies join the body, so every rule (the injection check included) and the quoted
+    # "Expected:" lines see them exactly as they see the original text.
+    replies = issue.get("replies") or []
+    thread = "\n\nAnswers from the thread:\n" + "\n\n".join(replies) if replies else ""
+    return f"{issue['title']}\n{issue['body']}{thread}"
 
 
 if __name__ == "__main__":  # pragma: no cover
