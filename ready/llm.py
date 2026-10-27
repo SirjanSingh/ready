@@ -53,7 +53,11 @@ def _snippet(repo: Path, c: Candidate, terms: list[str], max_lines: int = 6) -> 
 def rank_and_draft(issue_text: str, candidates: list[Candidate], repo: Path, terms: list[str]) -> Draft | None:
     if not configured() or not candidates:
         return None
-    from openai import OpenAI
+    try:
+        from openai import OpenAI
+    except ImportError:  # the model is an optional extra: pip install "ready-gate[model]"
+        print("[ready] READY_API_KEY is set but openai is not installed; install ready-gate[model]. Using repo ranking.")
+        return None
 
     client = OpenAI(base_url=os.getenv("READY_BASE_URL"), api_key=os.getenv("READY_API_KEY"), timeout=60)
     cand_block = "\n\n".join(f"### {c.path}\n{_snippet(Path(repo), c, terms)}" for c in candidates[:15])
