@@ -2,6 +2,11 @@ name: ready
 on:
   issues:
     types: [opened, edited, reopened]
+  workflow_dispatch:
+    inputs:
+      issue:
+        description: Issue URL to check (re-posts its Ready comment)
+        required: true
 
 permissions:
   issues: write
@@ -20,4 +25,4 @@ jobs:
           READY_BASE_URL: ${{ vars.READY_BASE_URL }}
           READY_MODEL: ${{ vars.READY_MODEL }}
         run: |
-          uvx --from "git+https://github.com/${{ vars.READY_SOURCE || 'SirjanSingh/ready' }}" ready check "${{ github.event.issue.html_url }}" --repo . --post || [ $? -eq 3 ]
+          uvx --from "git+https://github.com/${{ vars.READY_SOURCE || 'SirjanSingh/ready' }}" ready check "${{ github.event.issue.html_url || inputs.issue }}" --repo . --post || [ $? -eq 3 ]
