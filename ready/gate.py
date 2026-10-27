@@ -49,8 +49,10 @@ def run_gate(issue_text: str, repo: Path, use_model: bool = True) -> Verdict:
     else:
         footprint = grep_order
     cfg = [p for p in config_candidates(issue_text, repo) if p not in footprint]
-    if cfg:  # after the best two code hits, so a config hint never buries a strong code match
-        footprint = footprint[:2] + cfg + footprint[2:]
+    if cfg:
+        # After the top 5, never inside it: at positions 3-4 these cost held-out hit@3
+        # 0.78 -> 0.71 (see what-broke.md), so they are listed as "also check", not ranked.
+        footprint = footprint[:5] + cfg + footprint[5:]
     footprint = footprint[:8]
     src = [p for p in footprint if not p.startswith("tests/")][:3]
 
