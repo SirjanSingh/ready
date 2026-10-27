@@ -13,9 +13,10 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from ready.gate import run_gate
-from ready.repo import is_test_path
+from ready.repo import candidate_files, is_test_path
 
 TOP = 3  # only the confident head of each footprint counts as a claim on a file
+CLAIM_SHARE = 0.5  # ...and only files scoring at least half the best match
 
 
 @dataclass
@@ -32,6 +33,11 @@ def plan(tasks: list[tuple[str, str]], repo: Path, use_model: bool = True) -> li
     for task_id, text in tasks:
         v = run_gate(text, repo, use_model=use_model)
         fp = [p for p in v.footprint if not is_test_path(p)][:TOP]
+        # Only a strong match claims a file. A weak one (a shared path word like "shop/")
+        # pads the footprint and would serialise tasks that never touch the same code.
+        scores = {c.path: c.score for c in candidate_files(text, repo)}
+        best = max(scores.values(), default=0.0)
+        fp = [p for p in fp if scores.get(p, 0.0) >= CLAIM_SHARE * best] or fp[:1]
         if v.status != "agent_ready":
             lanes.append(Lane(task_id, fp, [], held=True))
             continue
