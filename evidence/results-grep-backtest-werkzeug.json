@@ -1,67 +1,67 @@
 {
   "variant": "grep",
   "k": 5,
-  "date": "2026-10-27T15:00:39",
+  "date": "2026-10-27T15:11:04",
   "set": "held-out",
   "pairs_file": "evidence/backtest-werkzeug.jsonl",
   "note": "engine HEAD 34198de (ready/ last changed in 34198de).",
-  "elapsed_s": 109,
+  "elapsed_s": 129,
   "overall": {
-    "n": 18,
-    "errors": 2,
+    "n": 20,
+    "errors": 0,
     "hit@1": 1.0,
-    "cov@1": 0.35987654320987655,
+    "cov@1": 0.3738888888888889,
     "hit@3": 1.0,
-    "cov@3": 0.4697530864197531,
+    "cov@3": 0.4727777777777778,
     "hit@5": 1.0,
-    "cov@5": 0.4981481481481482,
-    "truth_files": 59,
+    "cov@5": 0.49833333333333335,
+    "truth_files": 63,
     "truth_files_absent_at_base": 0
   },
   "overall_code_truth_only": {
-    "n": 18,
-    "errors": 2,
+    "n": 20,
+    "errors": 0,
     "hit@1": 1.0,
-    "cov@1": 0.35987654320987655,
+    "cov@1": 0.3738888888888889,
     "hit@3": 1.0,
-    "cov@3": 0.4697530864197531,
+    "cov@3": 0.4727777777777778,
     "hit@5": 1.0,
-    "cov@5": 0.4981481481481482,
-    "truth_files": 59,
+    "cov@5": 0.49833333333333335,
+    "truth_files": 63,
     "truth_files_absent_at_base": 0
   },
   "per_repo": {
     "pallets/werkzeug": {
-      "n": 18,
-      "errors": 2,
+      "n": 20,
+      "errors": 0,
       "hit@1": 1.0,
-      "cov@1": 0.35987654320987655,
+      "cov@1": 0.3738888888888889,
       "hit@3": 1.0,
-      "cov@3": 0.4697530864197531,
+      "cov@3": 0.4727777777777778,
       "hit@5": 1.0,
-      "cov@5": 0.4981481481481482,
-      "truth_files": 59,
+      "cov@5": 0.49833333333333335,
+      "truth_files": 63,
       "truth_files_absent_at_base": 0
     }
   },
   "confusion": {
     "tp": 0,
-    "fp": 3,
+    "fp": 5,
     "fn": 1,
     "tn": 14,
-    "n": 18,
-    "accuracy": 0.7777777777777778,
+    "n": 20,
+    "accuracy": 0.7,
     "precision": 0.0,
     "recall": 0.0,
-    "predicted_needs_human": 3,
+    "predicted_needs_human": 5,
     "gold_positive": 1,
-    "needs_human_rate_on_negatives": 0.17647058823529413
+    "needs_human_rate_on_negatives": 0.2631578947368421
   },
   "needs_human_by_source": {
     "random / neg": {
-      "n": 17,
-      "needs_human": 3,
-      "rate": 0.17647058823529413
+      "n": 19,
+      "needs_human": 5,
+      "rate": 0.2631578947368421
     },
     "random / pos": {
       "n": 1,
@@ -446,10 +446,92 @@
       ],
       "needed_clarification": false,
       "source": "random",
-      "predicted": [],
-      "verdict_status": null,
-      "error": "Traceback (most recent call last):\n  File \"G:\\ready-bt\\eval\\run.py\", line 279, in main\n    repo = checkout(p[\"repo\"], p[\"base_sha\"])\n  File \"G:\\ready-bt\\eval\\checkout.py\", line 53, in checkout\n    raise RuntimeError(f\"checkout {repo}@{sha[:10]} failed: {proc.stderr.strip()}\")\nRuntimeError: checkout pallets/werkzeug@25663ddc29 failed: fatal: Unable to create 'G:/ready-bt/.eval-cache/pallets__werkzeug/.git/index.lock': File exists.\n\nAnother git process seems to be running in this repository, e.g.\nan editor opened by 'git commit'. Please make sure all processes\nare terminated then try again. If it still fails, a git process\nmay have crashed in this repository earlier:\nremove the file manually to continue.\n",
-      "truth_absent_at_base": []
+      "predicted": [
+        "src/werkzeug/middleware/proxy_fix.py",
+        "src/werkzeug/test.py",
+        "src/werkzeug/wsgi.py",
+        "src/werkzeug/serving.py",
+        "src/werkzeug/middleware/lint.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "What should happen instead? One sentence on the correct behaviour is enough for an agent to verify the fix.",
+        "footprint": [
+          "src/werkzeug/middleware/proxy_fix.py",
+          "src/werkzeug/test.py",
+          "src/werkzeug/wsgi.py",
+          "src/werkzeug/serving.py",
+          "src/werkzeug/middleware/lint.py",
+          "src/werkzeug/sansio/utils.py",
+          "src/werkzeug/sansio/request.py",
+          "tests/middleware/test_proxy_fix.py"
+        ],
+        "tests": [
+          "tests/middleware/test_proxy_fix.py",
+          "tests/conftest.py",
+          "tests/middleware/test_dispatcher.py"
+        ],
+        "test_cmd": "pytest",
+        "summary": "`ProxyFix` shouldn't set `SERVER_NAME` or `SERVER_PORT`",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
+            "rule": "outcome_title",
+            "ok": true,
+            "detail": "Title names an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": true,
+            "detail": "Body has 45 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "expected_vs_actual",
+            "ok": false,
+            "detail": "Does not say what should happen instead",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked.\"",
+            "human_only": true
+          },
+          {
+            "rule": "reproduction",
+            "ok": false,
+            "detail": "No code, command or traceback to reproduce",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"A task should be small enough to execute and specific enough to verify.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": false,
+            "detail": "Names no file, module or symbol (Ready will try to find them)",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.5,
+        "hit@3": true,
+        "cov@3": 0.5,
+        "hit@5": true,
+        "cov@5": 0.5,
+        "first_hit_rank": 1
+      }
     },
     {
       "repo": "pallets/werkzeug",
@@ -1137,10 +1219,84 @@
       ],
       "needed_clarification": false,
       "source": "random",
-      "predicted": [],
-      "verdict_status": null,
-      "error": "Traceback (most recent call last):\n  File \"G:\\ready-bt\\eval\\run.py\", line 279, in main\n    repo = checkout(p[\"repo\"], p[\"base_sha\"])\n  File \"G:\\ready-bt\\eval\\checkout.py\", line 53, in checkout\n    raise RuntimeError(f\"checkout {repo}@{sha[:10]} failed: {proc.stderr.strip()}\")\nRuntimeError: checkout pallets/werkzeug@b5c57f3084 failed: fatal: Unable to create 'G:/ready-bt/.eval-cache/pallets__werkzeug/.git/index.lock': File exists.\n\nAnother git process seems to be running in this repository, e.g.\nan editor opened by 'git commit'. Please make sure all processes\nare terminated then try again. If it still fails, a git process\nmay have crashed in this repository earlier:\nremove the file manually to continue.\n",
-      "truth_absent_at_base": []
+      "predicted": [
+        "src/werkzeug/wsgi.py",
+        "src/werkzeug/wrappers/request.py",
+        "src/werkzeug/routing/map.py",
+        "src/werkzeug/exceptions.py",
+        "src/werkzeug/wrappers/response.py"
+      ],
+      "verdict_status": "needs_human",
+      "error": null,
+      "truth_absent_at_base": [],
+      "verdict": {
+        "status": "needs_human",
+        "question": "Can you add a few lines of context: where you hit this and what you were trying to do?",
+        "footprint": [
+          "src/werkzeug/wsgi.py",
+          "src/werkzeug/wrappers/request.py",
+          "src/werkzeug/routing/map.py",
+          "src/werkzeug/exceptions.py",
+          "src/werkzeug/wrappers/response.py",
+          "src/werkzeug/sansio/request.py",
+          "src/werkzeug/local.py",
+          "src/werkzeug/middleware/http_proxy.py"
+        ],
+        "tests": [
+          "tests/test_wsgi.py",
+          "tests/sansio/test_request.py"
+        ],
+        "test_cmd": "pytest",
+        "summary": "Deprecate `responder`",
+        "acceptance": [],
+        "findings": [
+          {
+            "rule": "addressed_to_agent",
+            "ok": true,
+            "detail": "No instructions aimed at an agent",
+            "cites": "An issue is data for the agent, not instructions to it; a human must confirm intent.",
+            "human_only": true
+          },
+          {
+            "rule": "outcome_title",
+            "ok": false,
+            "detail": "Title is too short to name an outcome",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"The best task titles describe the outcome, not the activity.\" Weak: \"Docs\", \"Bug in tasks\".",
+            "human_only": false
+          },
+          {
+            "rule": "context",
+            "ok": false,
+            "detail": "Body has 9 words",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
+            "human_only": true
+          },
+          {
+            "rule": "checkable_criteria",
+            "ok": true,
+            "detail": "Has checkable criteria or names a concrete change",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Add criteria that can be checked. Avoid criteria such as 'looks good'.\"",
+            "human_only": true
+          },
+          {
+            "rule": "locatable",
+            "ok": false,
+            "detail": "Names no file, module or symbol (Ready will try to find them)",
+            "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
+            "human_only": false
+          }
+        ],
+        "model": null
+      },
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.5,
+        "hit@3": true,
+        "cov@3": 0.5,
+        "hit@5": true,
+        "cov@5": 0.5,
+        "first_hit_rank": 1
+      }
     },
     {
       "repo": "pallets/werkzeug",
@@ -1273,9 +1429,9 @@
           "src/werkzeug/test.py",
           "src/werkzeug/wrappers/response.py",
           "src/werkzeug/routing/map.py",
-          "src/werkzeug/utils.py",
           "src/werkzeug/debug/__init__.py",
-          "src/werkzeug/wsgi.py"
+          "src/werkzeug/wsgi.py",
+          "src/werkzeug/http.py"
         ],
         "tests": [
           "tests/sansio/test_request.py",

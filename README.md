@@ -31,7 +31,7 @@ Evaluated on real, closed GitHub issues that were fixed by a merged PR. Ready se
 |---|---|---|---|---|
 | **held-out** (none used to build or tune Ready; 48 of 58 from flask, starlette, typer, requests) | 58 | 0.47 | **0.78** | **0.88** |
 | dev (httpx, pydantic, click, sqlmodel; the rules were tuned here) | 60 | 0.47 | 0.70 | 0.77 |
-| backtest on werkzeug (unseen, engine `34198de`; an easy set: 15 of 17 issues filed by its maintainer, naming the exact symbol) | 17 | 1.00 | 1.00 | 1.00 |
+| backtest on werkzeug (unseen, engine `34198de`; an easy set: most issues filed by its maintainer, naming the exact symbol) | 20 | 1.00 | 1.00 | 1.00 |
 
 **Is it ready.** This is the weak part, and it is reported as measured. On the held-out set, Ready holds back 4 of the 10 issues that maintainers explicitly labelled "needs more info" or "awaiting response". It also flags 27% of ordinary issues that were fixed without anyone asking a question. On the dev set, which it was calibrated on, the false-alarm rate is 10%. The rules lean cautious: a false "needs-human" costs one question, while a false "agent-ready" costs a wasted run.
 

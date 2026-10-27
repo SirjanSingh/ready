@@ -503,14 +503,14 @@ Worst 10 misses (lowest cov@5, fewest true files first):
 
 ## Backtest on an unseen repo: pallets/werkzeug (27 Oct, engine commit `34198de`, grep variant)
 
-werkzeug was in neither the dev set nor the held-out set, and nothing was tuned on it. The 20 most recently updated closed issues linked to a merged PR were collected with `eval/fetch.py`; 3 failed to check out (git lock files on an exFAT drive), so n = 17. Ground truth is the PR's changed files at its base commit.
+werkzeug was in neither the dev set nor the held-out set, and nothing was tuned on it. Pairs: `eval/fetch.py --repos pallets/werkzeug --per-repo 20 --max-total 20 --no-fallback --exclude evidence/pairs.jsonl,evidence/heldout.jsonl`. Ground truth is the PR's changed files at its base commit. n = 20, 0 errors. (An earlier n = 17 figure came from a run that collided with a parallel worker in the same folder; it is superseded by this one, which matches the worker's own clean run.)
 
-| repo | n | hit@1 | hit@3 | hit@5 |
-|---|---|---|---|---|
-| pallets/werkzeug | 17 | 1.00 | 1.00 | 1.00 |
+| repo | n | hit@1 | hit@3 | hit@5 | cov@5 |
+|---|---|---|---|---|---|
+| pallets/werkzeug | 20 | 1.00 | 1.00 | 1.00 | 0.50 |
 
-Read this as an easy set, not as Ready's typical accuracy: 15 of the 17 issues were filed by werkzeug's maintainer and name the exact function or class (for example "`make_conditional` has a lot of problems"). n is small and the result is noisy.
+Read this as an easy set, not as Ready's typical accuracy: most of these issues were filed by werkzeug's maintainer and name the exact function or class (for example "`make_conditional` has a lot of problems"). Every PR also touches `CHANGES.rst`, which Ready never ranks, so coverage of a two-file PR stops at 0.50. n is small and the result is noisy. Issues #3323 and #3324 share one fix PR.
 
-Readiness on the same 17: 1 issue was labelled as needing more information, and Ready did not catch it. Ready flagged 5 of the 16 ordinary issues as needs-human (31%), in line with the 27% false-alarm rate on held-out. The readiness gate is still the weak part.
+Readiness on the same 20: the one issue that needed clarification (#3207) was passed as agent-ready, though its file still ranked first. Ready flagged 5 of the 19 ordinary issues as needs-human (26%: #3294, #3302, #3320, #3290, #3295), in line with the 27% false-alarm rate on held-out. The readiness gate is still the weak part.
 
 Files: `evidence/backtest-werkzeug.jsonl`, `evidence/results-grep-backtest-werkzeug.json`.
