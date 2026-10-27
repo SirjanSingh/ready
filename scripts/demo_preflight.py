@@ -1,6 +1,6 @@
 """Check everything the demo video depends on, live, before recording.
 
-    uv run python scripts/demo_preflight.py [--alan-pin 89912c2]
+    uv run python scripts/demo_preflight.py [--alan-pin 559b909]
 
 Each line is PASS or FAIL with the reason. Nothing is changed: it only reads GitHub and
 starts the MCP server once to time it.
@@ -75,7 +75,7 @@ def check_mcp(pin: str) -> bool:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--alan-pin", default="89912c2", help="commit the Alan connector is pinned to")
+    ap.add_argument("--alan-pin", default="559b909", help="commit the Alan connector is pinned to")
     args = ap.parse_args()
     results = [check_pin(), check_runs(), check_labels(), check_mcp(args.alan_pin)]
     print("\nREADY TO RECORD" if all(results) else "\nFIX THE FAILS ABOVE BEFORE RECORDING")
