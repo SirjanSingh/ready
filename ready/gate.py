@@ -74,7 +74,7 @@ def run_gate(issue_text: str, repo: Path, use_model: bool = True) -> Verdict:
         tests=related_tests(src, repo),
         test_cmd=detect_test_command(repo),
         summary=(draft.summary if draft else "") or title,
-        acceptance=draft.acceptance if draft else [],
+        acceptance=(draft.acceptance if draft and draft.acceptance else checklist.stated_expectations(body)),
         findings=[asdict(f) for f in findings],
         model=draft.model if draft else None,
     )

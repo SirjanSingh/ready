@@ -73,3 +73,12 @@ def test_plan_sequences_tasks_that_share_a_file(shop):
     by = {l.task: l for l in lanes}
     assert by["#2"].after == ["#1"]
     assert by["#3"].after == [] or "#1" in by["#3"].after
+
+
+def test_title_symbol_definition_ranks_first(shop):
+    assert run_gate(GOOD, shop, use_model=False).footprint[0] == "shop/pricing.py"
+
+
+def test_acceptance_is_quoted_from_the_issue_without_a_model(shop):
+    v = run_gate(GOOD, shop, use_model=False)
+    assert any("unknown code should be ignored" in a for a in v.acceptance), v.acceptance

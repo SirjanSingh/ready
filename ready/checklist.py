@@ -125,6 +125,22 @@ def evaluate(title: str, body: str) -> list[Finding]:
     return out
 
 
+_STATED = re.compile(r"^\s*(?:[-*]\s*)?(?:\*\*)?(expected(?: behaviou?r| result| output)?|should|acceptance criteria|done when)(?:\*\*)?\s*[:\-]?\s*(.+)$", re.I)
+
+
+def stated_expectations(body: str, limit: int = 4) -> list[str]:
+    """Quote what the issue itself says should happen. Never paraphrase, never invent."""
+    out: list[str] = []
+    for line in body.splitlines():
+        m = _STATED.match(line)
+        if m and len(m.group(2).strip()) > 8:
+            text = (m.group(1) + ": " + m.group(2).strip()) if m.group(1).lower().startswith(("expected", "acceptance", "done")) else line.strip(" -*")
+            out.append(text[:200])
+        elif re.match(r"^\s*- \[ \]\s+\S", line):
+            out.append(line.strip()[6:][:200])
+    return out[:limit]
+
+
 # What to ask when a human-only rule fails, in priority order. One question, never a form.
 QUESTIONS = {
     "addressed_to_agent": "This issue contains instructions aimed at an AI agent, which Ready ignored. Can a maintainer restate what change is actually wanted?",
