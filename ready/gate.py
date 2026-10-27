@@ -103,5 +103,8 @@ def render_comment(v: Verdict, issue_url: str | None = None) -> str:
         lines.append("<details><summary>Checklist (rules cite Alan's task guide)</summary>\n")
         lines += [f"- {f['rule']}: {f['detail']}" for f in v.findings]
         lines.append("\n</details>")
-    lines.append("\n<sub>Ready decides with rules; the open model" + (f" ({v.model})" if v.model else "") + " only ranks files and phrases the summary.</sub>")
+    if v.model:
+        lines.append(f"\n<sub>Ready decides with rules; the open model ({v.model}) only ranks files and phrases the summary.</sub>")
+    else:
+        lines.append("\n<sub>Ready decides with rules. No model ran: files are in repo-search order.</sub>")
     return "\n".join(lines)

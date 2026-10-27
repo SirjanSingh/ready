@@ -75,6 +75,21 @@ def test_plan_sequences_tasks_that_share_a_file(shop):
     assert by["#3"].after == [] or "#1" in by["#3"].after
 
 
+def test_plan_holds_tasks_that_need_a_human(shop):
+    from ready.plan import plan, render
+
+    lanes = plan([("#1", GOOD), ("#2", VAGUE)], shop, use_model=False)
+    by = {l.task: l for l in lanes}
+    assert by["#2"].held and by["#2"].after == []
+    assert not by["#1"].held
+    assert "held: needs a human answer first" in render(lanes)
+
+
+def test_footer_says_when_no_model_ran(shop):
+    md = render_comment(run_gate(GOOD, shop, use_model=False))
+    assert "No model ran" in md and "open model" not in md
+
+
 def test_acceptance_is_quoted_from_the_issue_without_a_model(shop):
     v = run_gate(GOOD, shop, use_model=False)
     assert any("unknown code should be ignored" in a for a in v.acceptance), v.acceptance
