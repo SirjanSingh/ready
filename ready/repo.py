@@ -109,12 +109,10 @@ def candidate_files(issue_text: str, repo: Path, limit: int = 25) -> list[Candid
                 s += w * 1.5
             n = len(re.findall(rf"\b(def|class|function|const|let|var|fn|func)\s+{re.escape(leaf)}\b", content))
             if n:
-                # The definition site outranks mentions, and defining the symbol the *title*
-                # names outranks defining a neighbour from the body (ready-demo#1: the crash is
-                # in apply_coupon's file, not in the Cart that calls it).
-                code_like = "_" in leaf or re.search(r"[a-z][A-Z]", leaf) is not None
-                in_title = code_like and re.search(rf"\b{re.escape(leaf)}\b", title) is not None
-                s += w * (8 if in_title else 4)
+                # The definition site outranks mentions. A stronger boost for the symbol the
+                # title names fixed ready-demo#1 but cost held-out hit@1 and hit@3, so it was
+                # reverted (what-broke.md, 27 Oct 09:45).
+                s += w * 4
                 hits.setdefault(f, []).append(f"def {leaf}")
             elif re.search(rf"\b{re.escape(leaf)}\b", content):
                 s += w * 0.6

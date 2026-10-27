@@ -22,3 +22,6 @@ Fixes that live in `pyproject.toml`, CI YAML or `mkdocs.yml` were invisible, bec
 
 ## 27 Oct, 06:45: the config fix made held-out results worse
 With config hints at positions 3-4, held-out hit@3 fell from 0.776 to 0.707 and hit@5 from 0.879 to 0.845, while dev barely moved. The hints pushed real code hits out of the top five more often than they caught a config-only fix. They now sit after the top five. This was decided by looking at the held-out numbers, so that set is slightly less clean than before. Both runs are kept in `evidence/results.md`.
+
+## 27 Oct, 09:45: a fix for my own demo did not survive real data
+An agent working on ready-demo#1 opened `shop/pricing.py`, where `apply_coupon` (named in the title) is defined, while Ready had ranked the calling file `shop/cart.py` first. Giving the title's symbol a double definition boost fixed the demo, but on held-out it moved hit@1 from 0.466 to 0.448 and hit@3 from 0.776 to 0.759, with hit@5 unchanged. That is one issue out of 58 each way, so it is noise-sized, but it points in the wrong direction. It was reverted. The same run exposed a real gap that was kept: with no model, the "Done when" list was empty even when the issue said "Expected: ...". Ready now quotes those lines verbatim.

@@ -1,32 +1,32 @@
 {
   "variant": "grep",
   "k": 5,
-  "date": "2026-10-27T06:43:24",
+  "date": "2026-10-27T09:43:50",
   "set": "dev",
   "pairs_file": "evidence/pairs.jsonl",
-  "note": "engine HEAD 79d8054 (ready/ last changed in e130718).",
-  "elapsed_s": 913,
+  "note": "engine HEAD db48ecf (ready/ last changed in db48ecf).",
+  "elapsed_s": 1239,
   "overall": {
     "n": 60,
     "errors": 0,
-    "hit@1": 0.4666666666666667,
-    "cov@1": 0.3625,
-    "hit@3": 0.7,
-    "cov@3": 0.6055555555555556,
+    "hit@1": 0.45,
+    "cov@1": 0.3541666666666667,
+    "hit@3": 0.7166666666666667,
+    "cov@3": 0.6166666666666667,
     "hit@5": 0.7666666666666667,
-    "cov@5": 0.6666666666666666,
+    "cov@5": 0.6694444444444444,
     "truth_files": 91,
     "truth_files_absent_at_base": 0
   },
   "overall_code_truth_only": {
     "n": 54,
     "errors": 0,
-    "hit@1": 0.5185185185185185,
-    "cov@1": 0.4027777777777778,
-    "hit@3": 0.7592592592592593,
-    "cov@3": 0.654320987654321,
-    "hit@5": 0.8333333333333334,
-    "cov@5": 0.7222222222222222,
+    "hit@1": 0.5,
+    "cov@1": 0.39351851851851855,
+    "hit@3": 0.7962962962962963,
+    "cov@3": 0.6851851851851852,
+    "hit@5": 0.8518518518518519,
+    "cov@5": 0.7438271604938271,
     "truth_files": 85,
     "truth_files_absent_at_base": 0
   },
@@ -36,10 +36,10 @@
       "errors": 0,
       "hit@1": 0.4,
       "cov@1": 0.2375,
-      "hit@3": 0.65,
-      "cov@3": 0.55,
-      "hit@5": 0.7,
-      "cov@5": 0.6,
+      "hit@3": 0.6,
+      "cov@3": 0.475,
+      "hit@5": 0.65,
+      "cov@5": 0.5333333333333333,
       "truth_files": 34,
       "truth_files_absent_at_base": 0
     },
@@ -58,8 +58,8 @@
     "pallets/click": {
       "n": 13,
       "errors": 0,
-      "hit@1": 0.5384615384615384,
-      "cov@1": 0.5,
+      "hit@1": 0.46153846153846156,
+      "cov@1": 0.46153846153846156,
       "hit@3": 0.8461538461538461,
       "cov@3": 0.8076923076923077,
       "hit@5": 0.8461538461538461,
@@ -72,10 +72,10 @@
       "errors": 0,
       "hit@1": 0.35,
       "cov@1": 0.275,
-      "hit@3": 0.6,
-      "cov@3": 0.4416666666666667,
-      "hit@5": 0.75,
-      "cov@5": 0.575,
+      "hit@3": 0.7,
+      "cov@3": 0.55,
+      "hit@5": 0.8,
+      "cov@5": 0.65,
       "truth_files": 33,
       "truth_files_absent_at_base": 0
     }
@@ -316,9 +316,9 @@
       "predicted": [
         "httpx/_client.py",
         "httpx/_transports/default.py",
-        "pyproject.toml",
-        "requirements.txt",
-        "httpx/_main.py"
+        "httpx/_main.py",
+        "httpx/_api.py",
+        "httpx/_auth.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -329,16 +329,17 @@
         "footprint": [
           "httpx/_client.py",
           "httpx/_transports/default.py",
-          "pyproject.toml",
-          "requirements.txt",
           "httpx/_main.py",
           "httpx/_api.py",
           "httpx/_auth.py",
+          "pyproject.toml",
+          "requirements.txt",
           "httpx/_config.py"
         ],
         "tests": [
           "tests/client/test_async_client.py",
-          "tests/client/test_client.py"
+          "tests/client/test_client.py",
+          "tests/test_main.py"
         ],
         "test_cmd": "bash scripts/test",
         "summary": "Support httpcore >= 1.0.0",
@@ -385,11 +386,11 @@
       "metrics": {
         "hit@1": false,
         "cov@1": 0.0,
-        "hit@3": true,
-        "cov@3": 1.0,
-        "hit@5": true,
-        "cov@5": 1.0,
-        "first_hit_rank": 3
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": false,
+        "cov@5": 0.0,
+        "first_hit_rank": null
       }
     },
     {
@@ -408,9 +409,9 @@
       "predicted": [
         "httpx/_decoders.py",
         "httpx/_models.py",
-        "setup.cfg",
         "httpx/_utils.py",
-        "httpx/_client.py"
+        "httpx/_client.py",
+        "httpx/_content_streams.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -421,16 +422,17 @@
         "footprint": [
           "httpx/_decoders.py",
           "httpx/_models.py",
-          "setup.cfg",
           "httpx/_utils.py",
           "httpx/_client.py",
           "httpx/_content_streams.py",
+          "setup.cfg",
           "setup.py",
           "httpx/_auth.py"
         ],
         "tests": [
           "tests/test_decoders.py",
-          "tests/models/test_responses.py"
+          "tests/test_utils.py",
+          "tests/client/test_proxies.py"
         ],
         "test_cmd": "bash scripts/test",
         "summary": "Replace chardet with plain UTF-8 detection",
@@ -691,9 +693,9 @@
       "predicted": [
         "httpx/_client.py",
         "httpx/_auth.py",
-        "pyproject.toml",
-        "setup.cfg",
-        "httpx/_models.py"
+        "httpx/_models.py",
+        "httpx/_urls.py",
+        "httpx/_decoders.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -704,11 +706,11 @@
         "footprint": [
           "httpx/_client.py",
           "httpx/_auth.py",
-          "pyproject.toml",
-          "setup.cfg",
           "httpx/_models.py",
           "httpx/_urls.py",
           "httpx/_decoders.py",
+          "pyproject.toml",
+          "setup.cfg",
           "httpx/_utils.py"
         ],
         "tests": [
@@ -1177,9 +1179,9 @@
       "predicted": [
         "httpx/_transports/default.py",
         "httpx/_client.py",
-        "pyproject.toml",
-        "requirements.txt",
-        "httpx/_transports/base.py"
+        "httpx/_transports/base.py",
+        "httpx/__init__.py",
+        "httpx/_exceptions.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -1190,11 +1192,11 @@
         "footprint": [
           "httpx/_transports/default.py",
           "httpx/_client.py",
-          "pyproject.toml",
-          "requirements.txt",
           "httpx/_transports/base.py",
           "httpx/__init__.py",
           "httpx/_exceptions.py",
+          "pyproject.toml",
+          "requirements.txt",
           "httpx/_models.py"
         ],
         "tests": [
@@ -1247,9 +1249,9 @@
         "hit@1": true,
         "cov@1": 0.5,
         "hit@3": true,
-        "cov@3": 1.0,
+        "cov@3": 0.5,
         "hit@5": true,
-        "cov@5": 1.0,
+        "cov@5": 0.5,
         "first_hit_rank": 1
       }
     },
@@ -1268,9 +1270,9 @@
       "predicted": [
         "httpx/_client.py",
         "httpx/_urls.py",
-        "pyproject.toml",
-        "requirements.txt",
-        "httpx/_models.py"
+        "httpx/_models.py",
+        "httpx/_api.py",
+        "httpx/_utils.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -1281,11 +1283,11 @@
         "footprint": [
           "httpx/_client.py",
           "httpx/_urls.py",
-          "pyproject.toml",
-          "requirements.txt",
           "httpx/_models.py",
           "httpx/_api.py",
           "httpx/_utils.py",
+          "pyproject.toml",
+          "requirements.txt",
           "httpx/_transports/default.py"
         ],
         "tests": [
@@ -1365,9 +1367,9 @@
       "predicted": [
         "httpx/dispatch/http11.py",
         "httpx/client.py",
-        "setup.cfg",
-        "setup.py",
-        "httpx/models.py"
+        "httpx/models.py",
+        "httpx/concurrency/asyncio.py",
+        "httpx/dispatch/connection_pool.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -1378,16 +1380,17 @@
         "footprint": [
           "httpx/dispatch/http11.py",
           "httpx/client.py",
-          "setup.cfg",
-          "setup.py",
           "httpx/models.py",
           "httpx/concurrency/asyncio.py",
           "httpx/dispatch/connection_pool.py",
+          "setup.cfg",
+          "setup.py",
           "httpx/dispatch/http2.py"
         ],
         "tests": [
           "tests/client/test_async_client.py",
-          "tests/client/test_client.py"
+          "tests/client/test_client.py",
+          "tests/models/test_responses.py"
         ],
         "test_cmd": "nox",
         "summary": "h11._util.LocalProtocolError: Too little data for declared Content-Length",
@@ -1926,9 +1929,9 @@
       "predicted": [
         "http3/dispatch/http11.py",
         "http3/client.py",
-        "setup.py",
-        "requirements.txt",
-        "http3/dispatch/connection_pool.py"
+        "http3/dispatch/connection_pool.py",
+        "http3/dispatch/connection.py",
+        "http3/dispatch/asgi.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -1939,16 +1942,17 @@
         "footprint": [
           "http3/dispatch/http11.py",
           "http3/client.py",
-          "setup.py",
-          "requirements.txt",
           "http3/dispatch/connection_pool.py",
           "http3/dispatch/connection.py",
           "http3/dispatch/asgi.py",
+          "setup.py",
+          "requirements.txt",
           "http3/dispatch/http2.py"
         ],
         "tests": [
           "tests/client/test_async_client.py",
-          "tests/client/test_client.py"
+          "tests/client/test_client.py",
+          "tests/dispatch/test_connection_pools.py"
         ],
         "test_cmd": "bash scripts/test",
         "summary": "h11._util.RemoteProtocolError: can't handle event type ConnectionClosed when role=SERVER and state=SEND_RESPONSE",
@@ -2005,7 +2009,7 @@
         "hit@3": true,
         "cov@3": 0.3333333333333333,
         "hit@5": true,
-        "cov@5": 0.3333333333333333,
+        "cov@5": 0.5,
         "first_hit_rank": 1
       }
     },
@@ -2211,9 +2215,9 @@
       "predicted": [
         "sqlmodel/main.py",
         "sqlmodel/_compat.py",
-        "pyproject.toml",
-        "requirements.txt",
-        "sqlmodel/default.py"
+        "sqlmodel/default.py",
+        "scripts/generate_select.py",
+        "sqlmodel/__init__.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -2224,11 +2228,11 @@
         "footprint": [
           "sqlmodel/main.py",
           "sqlmodel/_compat.py",
-          "pyproject.toml",
-          "requirements.txt",
           "sqlmodel/default.py",
           "scripts/generate_select.py",
           "sqlmodel/__init__.py",
+          "pyproject.toml",
+          "requirements.txt",
           "tests/test_field_sa_column.py"
         ],
         "tests": [
@@ -2309,9 +2313,9 @@
       "predicted": [
         "sqlmodel/orm/session.py",
         "sqlmodel/ext/asyncio/session.py",
-        "mkdocs.yml",
         ".github/actions/comment-docs-preview-in-pr/app/main.py",
-        "sqlmodel/sql/expression.py"
+        "sqlmodel/sql/expression.py",
+        "sqlmodel/main.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -2322,14 +2326,16 @@
         "footprint": [
           "sqlmodel/orm/session.py",
           "sqlmodel/ext/asyncio/session.py",
-          "mkdocs.yml",
           ".github/actions/comment-docs-preview-in-pr/app/main.py",
           "sqlmodel/sql/expression.py",
           "sqlmodel/main.py",
+          "mkdocs.yml",
           ".github/actions/watch-previews/app/main.py",
           "sqlmodel/engine/result.py"
         ],
-        "tests": [],
+        "tests": [
+          "tests/test_tutorial/test_fastapi/test_app_testing/test_tutorial001_tests_main.py"
+        ],
         "test_cmd": "bash scripts/test.sh",
         "summary": "SAWarning from sqlalchemy",
         "acceptance": [],
@@ -2404,9 +2410,9 @@
       "predicted": [
         "sqlmodel/ext/asyncio/session.py",
         "sqlmodel/orm/session.py",
-        "pyproject.toml",
-        "mkdocs.yml",
-        "sqlmodel/main.py"
+        "sqlmodel/main.py",
+        "sqlmodel/sql/expression.py",
+        ".github/actions/comment-docs-preview-in-pr/app/main.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -2417,14 +2423,18 @@
         "footprint": [
           "sqlmodel/ext/asyncio/session.py",
           "sqlmodel/orm/session.py",
-          "pyproject.toml",
-          "mkdocs.yml",
           "sqlmodel/main.py",
           "sqlmodel/sql/expression.py",
           ".github/actions/comment-docs-preview-in-pr/app/main.py",
+          "pyproject.toml",
+          "mkdocs.yml",
           "sqlmodel/__init__.py"
         ],
-        "tests": [],
+        "tests": [
+          "tests/test_main.py",
+          "tests/test_tutorial/test_fastapi/test_app_testing/test_tutorial001_tests_main.py",
+          "tests/conftest.py"
+        ],
         "test_cmd": "bash scripts/test.sh",
         "summary": "AsyncSession does not play well with typing and autocompletion",
         "acceptance": [],
@@ -2498,9 +2508,9 @@
       "predicted": [
         "sqlmodel/sql/sqltypes.py",
         "sqlmodel/main.py",
-        "pyproject.toml",
         "sqlmodel/engine/result.py",
-        "sqlmodel/orm/session.py"
+        "sqlmodel/orm/session.py",
+        "sqlmodel/ext/asyncio/session.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -2511,10 +2521,10 @@
         "footprint": [
           "sqlmodel/sql/sqltypes.py",
           "sqlmodel/main.py",
-          "pyproject.toml",
           "sqlmodel/engine/result.py",
           "sqlmodel/orm/session.py",
           "sqlmodel/ext/asyncio/session.py",
+          "pyproject.toml",
           "sqlmodel/sql/expression.py",
           "sqlmodel/engine/create.py"
         ],
@@ -2685,8 +2695,8 @@
       "needed_clarification": false,
       "source": null,
       "predicted": [
-        "src/click/termui.py",
         "src/click/_termui_impl.py",
+        "src/click/termui.py",
         "src/click/__init__.py",
         "src/click/core.py",
         "src/click/_compat.py"
@@ -2698,8 +2708,8 @@
         "status": "agent_ready",
         "question": null,
         "footprint": [
-          "src/click/termui.py",
           "src/click/_termui_impl.py",
+          "src/click/termui.py",
           "src/click/__init__.py",
           "src/click/core.py",
           "src/click/_compat.py",
@@ -2760,13 +2770,13 @@
         "model": null
       },
       "metrics": {
-        "hit@1": true,
-        "cov@1": 0.5,
+        "hit@1": false,
+        "cov@1": 0.0,
         "hit@3": true,
         "cov@3": 0.5,
         "hit@5": true,
         "cov@5": 0.5,
-        "first_hit_rank": 1
+        "first_hit_rank": 2
       }
     },
     {
@@ -2874,9 +2884,9 @@
       "predicted": [
         "src/click/core.py",
         "src/click/_termui_impl.py",
-        ".github/workflows/lock.yaml",
-        ".pre-commit-config.yaml",
-        "src/click/termui.py"
+        "src/click/termui.py",
+        "src/click/shell_completion.py",
+        "src/click/decorators.py"
       ],
       "verdict_status": "needs_human",
       "error": null,
@@ -2887,14 +2897,16 @@
         "footprint": [
           "src/click/core.py",
           "src/click/_termui_impl.py",
-          ".github/workflows/lock.yaml",
-          ".pre-commit-config.yaml",
           "src/click/termui.py",
           "src/click/shell_completion.py",
           "src/click/decorators.py",
+          ".github/workflows/lock.yaml",
+          ".pre-commit-config.yaml",
           "src/click/testing.py"
         ],
-        "tests": [],
+        "tests": [
+          "tests/test_termui.py"
+        ],
         "test_cmd": "pytest",
         "summary": "release 8.5.0",
         "acceptance": [],
@@ -3057,9 +3069,9 @@
       "predicted": [
         "src/click/_termui_impl.py",
         "src/click/termui.py",
-        "pyproject.toml",
         "src/click/__init__.py",
-        "tests/typing/typing_edit.py"
+        "tests/typing/typing_edit.py",
+        "src/click/core.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -3070,16 +3082,15 @@
         "footprint": [
           "src/click/_termui_impl.py",
           "src/click/termui.py",
-          "pyproject.toml",
           "src/click/__init__.py",
           "tests/typing/typing_edit.py",
           "src/click/core.py",
+          "pyproject.toml",
           "src/click/shell_completion.py",
           "src/click/testing.py"
         ],
         "tests": [
-          "tests/test_termui.py",
-          "tests/test_utils/test__expand_args.py"
+          "tests/test_termui.py"
         ],
         "test_cmd": "pytest",
         "summary": "The `edit` utility does not work on Windows for Visual Studio Code",
@@ -3147,9 +3158,9 @@
       "predicted": [
         "src/click/_termui_impl.py",
         "src/click/core.py",
-        "pyproject.toml",
         "src/click/termui.py",
-        "src/click/testing.py"
+        "src/click/testing.py",
+        "src/click/utils.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -3160,15 +3171,15 @@
         "footprint": [
           "src/click/_termui_impl.py",
           "src/click/core.py",
-          "pyproject.toml",
           "src/click/termui.py",
           "src/click/testing.py",
           "src/click/utils.py",
+          "pyproject.toml",
           "src/click/types.py",
           "src/click/shell_completion.py"
         ],
         "tests": [
-          "tests/test_utils/test__expand_args.py"
+          "tests/test_termui.py"
         ],
         "test_cmd": "pytest",
         "summary": "_pipepager mis-detects raw-mode flag, enabling color from any 'r'/'R' substring in $LESS or filename args",
@@ -3243,9 +3254,9 @@
       "predicted": [
         "src/click/types.py",
         "src/click/core.py",
-        "pyproject.toml",
         "src/click/termui.py",
-        "src/click/utils.py"
+        "src/click/utils.py",
+        "src/click/testing.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -3256,15 +3267,15 @@
         "footprint": [
           "src/click/types.py",
           "src/click/core.py",
-          "pyproject.toml",
           "src/click/termui.py",
           "src/click/utils.py",
           "src/click/testing.py",
+          "pyproject.toml",
           "src/click/_termui_impl.py",
           "src/click/shell_completion.py"
         ],
         "tests": [
-          "tests/test_utils/test__expand_args.py"
+          "tests/test_termui.py"
         ],
         "test_cmd": "pytest",
         "summary": "`click.Path` should be generic on `path_type`",
@@ -3339,9 +3350,9 @@
       "predicted": [
         "src/click/core.py",
         "src/click/testing.py",
-        ".github/workflows/lock.yaml",
-        ".pre-commit-config.yaml",
-        "tests/test_context.py"
+        "tests/test_context.py",
+        "tests/test_commands.py",
+        "tests/test_testing.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -3352,11 +3363,11 @@
         "footprint": [
           "src/click/core.py",
           "src/click/testing.py",
-          ".github/workflows/lock.yaml",
-          ".pre-commit-config.yaml",
           "tests/test_context.py",
           "tests/test_commands.py",
           "tests/test_testing.py",
+          ".github/workflows/lock.yaml",
+          ".pre-commit-config.yaml",
           "src/click/termui.py"
         ],
         "tests": [
@@ -3460,7 +3471,9 @@
         ],
         "test_cmd": "pytest",
         "summary": "`click.progressbar` doesn't show full completion when using `show_pos=True` combined with `update_min_steps`",
-        "acceptance": [],
+        "acceptance": [
+          "Expected behaviour: I had expected the output to show `20/20` at the end."
+        ],
         "findings": [
           {
             "rule": "addressed_to_agent",
@@ -3524,9 +3537,9 @@
       "predicted": [
         "src/click/_termui_impl.py",
         "src/click/termui.py",
-        "pyproject.toml",
         "src/click/testing.py",
-        "src/click/core.py"
+        "src/click/core.py",
+        "src/click/utils.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -3537,16 +3550,16 @@
         "footprint": [
           "src/click/_termui_impl.py",
           "src/click/termui.py",
-          "pyproject.toml",
           "src/click/testing.py",
           "src/click/core.py",
           "src/click/utils.py",
+          "pyproject.toml",
           "src/click/_compat.py",
           "src/click/types.py"
         ],
         "tests": [
           "tests/test_termui.py",
-          "tests/test_utils/test__expand_args.py"
+          "tests/test_testing.py"
         ],
         "test_cmd": "pytest",
         "summary": "[Bug] On Windows, get_pager_file returns a typing.BinaryIO object NOT typing.TextIO",
@@ -3621,9 +3634,9 @@
       "predicted": [
         "src/click/_termui_impl.py",
         "src/click/termui.py",
-        "pyproject.toml",
         "src/click/testing.py",
-        "src/click/utils.py"
+        "src/click/utils.py",
+        "src/click/_compat.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -3634,16 +3647,16 @@
         "footprint": [
           "src/click/_termui_impl.py",
           "src/click/termui.py",
-          "pyproject.toml",
           "src/click/testing.py",
           "src/click/utils.py",
           "src/click/_compat.py",
+          "pyproject.toml",
           "src/click/core.py",
           "src/click/types.py"
         ],
         "tests": [
           "tests/test_termui.py",
-          "tests/test_utils/test__expand_args.py"
+          "tests/test_testing.py"
         ],
         "test_cmd": "pytest",
         "summary": "echo_via_pager on Windows fails with WinError 32, masking a TypeError from writing str to a binary temp file (8.4.0 regression)",
@@ -3814,9 +3827,9 @@
       "predicted": [
         "src/click/core.py",
         "src/click/termui.py",
-        ".github/workflows/lock.yaml",
-        ".pre-commit-config.yaml",
-        "src/click/_compat.py"
+        "src/click/_compat.py",
+        "src/click/utils.py",
+        "src/click/testing.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -3827,15 +3840,16 @@
         "footprint": [
           "src/click/core.py",
           "src/click/termui.py",
-          ".github/workflows/lock.yaml",
-          ".pre-commit-config.yaml",
           "src/click/_compat.py",
           "src/click/utils.py",
           "src/click/testing.py",
+          ".github/workflows/lock.yaml",
+          ".pre-commit-config.yaml",
           "src/click/exceptions.py"
         ],
         "tests": [
-          "tests/test_termui.py"
+          "tests/test_termui.py",
+          "tests/test_compat.py"
         ],
         "test_cmd": "pytest",
         "summary": "`KeyboardInterrupt` during `click.prompt()` can race",
@@ -3912,8 +3926,8 @@
       "predicted": [
         "pydantic/json_schema.py",
         "pydantic/main.py",
-        "pyproject.toml",
         "pydantic-core/python/pydantic_core/core_schema.py",
+        "pydantic-core/src/lookup_key.rs",
         "pydantic-core/src/validators/model_fields.rs"
       ],
       "verdict_status": "agent_ready",
@@ -3925,12 +3939,12 @@
         "footprint": [
           "pydantic/json_schema.py",
           "pydantic/main.py",
-          "pyproject.toml",
           "pydantic-core/python/pydantic_core/core_schema.py",
+          "pydantic-core/src/lookup_key.rs",
           "pydantic-core/src/validators/model_fields.rs",
+          "pyproject.toml",
           "pydantic/config.py",
-          "pydantic-core/src/validators/dataclass.rs",
-          "pydantic-core/src/validators/named_tuple.rs"
+          "pydantic-core/src/validators/dataclass.rs"
         ],
         "tests": [
           "tests/test_json_schema.py",
@@ -4003,9 +4017,9 @@
       "predicted": [
         "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
         "pydantic-core/src/errors/validation_exception.rs",
-        "pyproject.toml",
         "pydantic-core/python/pydantic_core/core_schema.py",
-        "pydantic/json_schema.py"
+        "pydantic/json_schema.py",
+        "pydantic/networks.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -4016,15 +4030,15 @@
         "footprint": [
           "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
           "pydantic-core/src/errors/validation_exception.rs",
-          "pyproject.toml",
           "pydantic-core/python/pydantic_core/core_schema.py",
           "pydantic/json_schema.py",
           "pydantic/networks.py",
+          "pyproject.toml",
           "pydantic/main.py",
           "pydantic/_internal/_generate_schema.py"
         ],
         "tests": [
-          "tests/mypy/test_mypy.py"
+          "pydantic-core/tests/serializers/test_core_schema_as_ser_schema.py"
         ],
         "test_cmd": "make test",
         "summary": "No PyPy 8.0 wheels for pydantic-core",
@@ -4099,9 +4113,9 @@
       "predicted": [
         "pydantic-core/src/input/datetime.rs",
         "pydantic-core/src/validators/timedelta.rs",
-        "pyproject.toml",
         "pydantic-core/src/input/input_python.rs",
-        "pydantic-core/src/input/input_json.rs"
+        "pydantic-core/src/input/input_json.rs",
+        "pydantic-core/src/input/return_enums.rs"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -4112,10 +4126,10 @@
         "footprint": [
           "pydantic-core/src/input/datetime.rs",
           "pydantic-core/src/validators/timedelta.rs",
-          "pyproject.toml",
           "pydantic-core/src/input/input_python.rs",
           "pydantic-core/src/input/input_json.rs",
           "pydantic-core/src/input/return_enums.rs",
+          "pyproject.toml",
           "pydantic-core/src/errors/validation_exception.rs",
           "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi"
         ],
@@ -4126,7 +4140,9 @@
         ],
         "test_cmd": "make test",
         "summary": "Huge int input to a timedelta field wraps to a small wrong timedelta",
-        "acceptance": [],
+        "acceptance": [
+          "expected: for all int inputs: ValidationError time_delta_parsing, like the float input"
+        ],
         "findings": [
           {
             "rule": "addressed_to_agent",
@@ -4197,9 +4213,9 @@
       "predicted": [
         "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
         "pydantic-core/python/pydantic_core/core_schema.py",
-        "pyproject.toml",
         "pydantic/_internal/_generate_schema.py",
-        "pydantic/type_adapter.py"
+        "pydantic/type_adapter.py",
+        "pydantic/_internal/_model_construction.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -4210,16 +4226,17 @@
         "footprint": [
           "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
           "pydantic-core/python/pydantic_core/core_schema.py",
-          "pyproject.toml",
           "pydantic/_internal/_generate_schema.py",
           "pydantic/type_adapter.py",
           "pydantic/_internal/_model_construction.py",
+          "pyproject.toml",
           "pydantic/networks.py",
           "pydantic/json_schema.py"
         ],
         "tests": [
           "pydantic-core/tests/serializers/test_core_schema_as_ser_schema.py",
-          "tests/mypy/test_mypy.py"
+          "tests/conftest.py",
+          "tests/test_config.py"
         ],
         "test_cmd": "make test",
         "summary": "Sequence validation reconstructs named tuples incorrectly",
@@ -4295,9 +4312,9 @@
       "predicted": [
         "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
         "pydantic/types.py",
-        "pyproject.toml",
         "pydantic-core/src/errors/validation_exception.rs",
-        "pydantic/main.py"
+        "pydantic/main.py",
+        "pydantic-core/python/pydantic_core/core_schema.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -4308,10 +4325,10 @@
         "footprint": [
           "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
           "pydantic/types.py",
-          "pyproject.toml",
           "pydantic-core/src/errors/validation_exception.rs",
           "pydantic/main.py",
           "pydantic-core/python/pydantic_core/core_schema.py",
+          "pyproject.toml",
           "pydantic/functional_validators.py",
           "pydantic/version.py"
         ],
@@ -4372,11 +4389,11 @@
       "metrics": {
         "hit@1": false,
         "cov@1": 0.0,
-        "hit@3": false,
-        "cov@3": 0.0,
+        "hit@3": true,
+        "cov@3": 0.5,
         "hit@5": true,
         "cov@5": 0.5,
-        "first_hit_rank": 4
+        "first_hit_rank": 3
       }
     },
     {
@@ -4393,9 +4410,9 @@
       "predicted": [
         "pydantic/main.py",
         "pydantic/json_schema.py",
-        "pyproject.toml",
         "pydantic/config.py",
-        "pydantic/v1/main.py"
+        "pydantic/v1/main.py",
+        "pydantic-core/src/validators/dataclass.rs"
       ],
       "verdict_status": "needs_human",
       "error": null,
@@ -4406,10 +4423,10 @@
         "footprint": [
           "pydantic/main.py",
           "pydantic/json_schema.py",
-          "pyproject.toml",
           "pydantic/config.py",
           "pydantic/v1/main.py",
           "pydantic-core/src/validators/dataclass.rs",
+          "pyproject.toml",
           "pydantic/_internal/_model_construction.py",
           "pydantic/_internal/_generate_schema.py"
         ],
@@ -4491,9 +4508,9 @@
       "predicted": [
         "pydantic/main.py",
         "pydantic/v1/main.py",
-        "pyproject.toml",
         "pydantic/_internal/_generics.py",
-        "pydantic/_internal/_generate_schema.py"
+        "pydantic/_internal/_generate_schema.py",
+        "pydantic/_internal/_model_construction.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -4504,21 +4521,23 @@
         "footprint": [
           "pydantic/main.py",
           "pydantic/v1/main.py",
-          "pyproject.toml",
           "pydantic/_internal/_generics.py",
           "pydantic/_internal/_generate_schema.py",
           "pydantic/_internal/_model_construction.py",
+          "pyproject.toml",
           "pydantic/v1/utils.py",
           "pydantic/v1/generics.py"
         ],
         "tests": [
           "tests/test_main.py",
-          "tests/mypy/test_mypy.py",
-          "tests/test_dunder_all.py"
+          "tests/benchmarks/test_fastapi_startup_generics.py",
+          "tests/test_generics.py"
         ],
         "test_cmd": "make test",
         "summary": "Parametrized generic models no longer resolvable by `__module__`/`__qualname__` (pickle fails) since 2.14.0",
-        "acceptance": [],
+        "acceptance": [
+          "Expected: ** as in 2.13.5, a module-scope parametrization is resolvable at `f\"{cls.__module__}.{cls.__qualname__}\"`, so pickle round-trips the instance (including nested generic type arguments) and th"
+        ],
         "findings": [
           {
             "rule": "addressed_to_agent",
@@ -4568,11 +4587,11 @@
       "metrics": {
         "hit@1": false,
         "cov@1": 0.0,
-        "hit@3": false,
-        "cov@3": 0.0,
+        "hit@3": true,
+        "cov@3": 1.0,
         "hit@5": true,
         "cov@5": 1.0,
-        "first_hit_rank": 4
+        "first_hit_rank": 3
       }
     },
     {
@@ -4589,9 +4608,9 @@
       "predicted": [
         "pydantic/_internal/_generate_schema.py",
         "pydantic/type_adapter.py",
-        "pyproject.toml",
         "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
-        "pydantic-core/src/errors/types.rs"
+        "pydantic-core/src/errors/types.rs",
+        "pydantic/main.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -4602,10 +4621,10 @@
         "footprint": [
           "pydantic/_internal/_generate_schema.py",
           "pydantic/type_adapter.py",
-          "pyproject.toml",
           "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
           "pydantic-core/src/errors/types.rs",
           "pydantic/main.py",
+          "pyproject.toml",
           "pydantic-core/src/validators/with_default.rs",
           "pydantic/_internal/_generics.py"
         ],
@@ -4786,9 +4805,9 @@
       "predicted": [
         "pydantic/main.py",
         "pydantic-core/src/validators/model_fields.rs",
-        "pyproject.toml",
-        "mkdocs.yml",
-        "pydantic-core/src/validators/mod.rs"
+        "pydantic-core/src/validators/mod.rs",
+        "pydantic/_internal/_generate_schema.py",
+        "pydantic-core/src/validators/dataclass.rs"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -4799,21 +4818,26 @@
         "footprint": [
           "pydantic/main.py",
           "pydantic-core/src/validators/model_fields.rs",
-          "pyproject.toml",
-          "mkdocs.yml",
           "pydantic-core/src/validators/mod.rs",
           "pydantic/_internal/_generate_schema.py",
           "pydantic-core/src/validators/dataclass.rs",
+          "pyproject.toml",
+          "mkdocs.yml",
           "pydantic-core/python/pydantic_core/core_schema.py"
         ],
         "tests": [
           "tests/test_main.py",
           "pydantic-core/tests/validators/test_model_fields.py",
-          "tests/mypy/test_mypy.py"
+          "pydantic-core/tests/serializers/test_model.py"
         ],
         "test_cmd": "make test",
         "summary": "JSON model validation allocates an unused extras dict per model when `extra` isn't `'allow'`",
-        "acceptance": [],
+        "acceptance": [
+          "[Compatibility between releases](https://pydantic.dev/docs/validation/latest/get-started/changelog/)",
+          "[Data serialization](https://pydantic.dev/docs/validation/latest/concepts/serialization/) - `.model_dump()` and `.model_dump_json()`",
+          "[JSON Schema](https://pydantic.dev/docs/validation/latest/concepts/json_schema/)",
+          "[Dataclasses](https://pydantic.dev/docs/validation/latest/concepts/dataclasses/)"
+        ],
         "findings": [
           {
             "rule": "addressed_to_agent",
@@ -4878,9 +4902,9 @@
       "predicted": [
         "pydantic-core/src/validators/decimal.rs",
         "pydantic/fields.py",
-        "pyproject.toml",
         "pydantic/v1/fields.py",
-        "pydantic/_internal/_validators.py"
+        "pydantic/_internal/_validators.py",
+        "pydantic/functional_validators.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -4891,10 +4915,10 @@
         "footprint": [
           "pydantic-core/src/validators/decimal.rs",
           "pydantic/fields.py",
-          "pyproject.toml",
           "pydantic/v1/fields.py",
           "pydantic/_internal/_validators.py",
           "pydantic/functional_validators.py",
+          "pyproject.toml",
           "pydantic/type_adapter.py",
           "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi"
         ],
@@ -4905,7 +4929,9 @@
         ],
         "test_cmd": "make test",
         "summary": "`max_digits` whole-digit limit not enforced when a validator precedes `Field` on `Decimal`",
-        "acceptance": [],
+        "acceptance": [
+          "Expected: the same `decimal_whole_digits` error in both cases."
+        ],
         "findings": [
           {
             "rule": "addressed_to_agent",
@@ -4959,7 +4985,7 @@
         "cov@3": 0.0,
         "hit@5": true,
         "cov@5": 0.5,
-        "first_hit_rank": 5
+        "first_hit_rank": 4
       }
     },
     {
@@ -4981,9 +5007,9 @@
       "predicted": [
         "pydantic-core/src/validators/function.rs",
         "pydantic/functional_validators.py",
-        "pyproject.toml",
-        ".github/workflows/ci.yml",
-        "pydantic-core/src/validators/generator.rs"
+        "pydantic-core/src/validators/generator.rs",
+        "pydantic-core/src/validators/arguments_v3.rs",
+        "pydantic/_internal/_generate_schema.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -4994,11 +5020,11 @@
         "footprint": [
           "pydantic-core/src/validators/function.rs",
           "pydantic/functional_validators.py",
-          "pyproject.toml",
-          ".github/workflows/ci.yml",
           "pydantic-core/src/validators/generator.rs",
           "pydantic-core/src/validators/arguments_v3.rs",
           "pydantic/_internal/_generate_schema.py",
+          "pyproject.toml",
+          ".github/workflows/ci.yml",
           "pydantic-core/src/validators/mod.rs"
         ],
         "tests": [
@@ -5059,7 +5085,7 @@
         "hit@1": true,
         "cov@1": 0.16666666666666666,
         "hit@3": true,
-        "cov@3": 0.16666666666666666,
+        "cov@3": 0.3333333333333333,
         "hit@5": true,
         "cov@5": 0.3333333333333333,
         "first_hit_rank": 1
@@ -5079,9 +5105,9 @@
       "predicted": [
         "pydantic/mypy.py",
         "pydantic/main.py",
-        "pyproject.toml",
-        "mkdocs.yml",
-        "pydantic/_internal/_model_construction.py"
+        "pydantic/_internal/_model_construction.py",
+        "pydantic/fields.py",
+        "pydantic/v1/main.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -5092,11 +5118,11 @@
         "footprint": [
           "pydantic/mypy.py",
           "pydantic/main.py",
-          "pyproject.toml",
-          "mkdocs.yml",
           "pydantic/_internal/_model_construction.py",
           "pydantic/fields.py",
           "pydantic/v1/main.py",
+          "pyproject.toml",
+          "mkdocs.yml",
           "pydantic-core/python/pydantic_core/core_schema.py"
         ],
         "tests": [
@@ -5277,9 +5303,9 @@
       "predicted": [
         "pydantic/_internal/_typing_extra.py",
         "pydantic/_internal/_fields.py",
-        "pyproject.toml",
+        "pydantic/main.py",
         "pydantic/_internal/_namespace_utils.py",
-        "pydantic/main.py"
+        "pydantic/_internal/_generate_schema.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -5290,10 +5316,10 @@
         "footprint": [
           "pydantic/_internal/_typing_extra.py",
           "pydantic/_internal/_fields.py",
-          "pyproject.toml",
-          "pydantic/_internal/_namespace_utils.py",
           "pydantic/main.py",
+          "pydantic/_internal/_namespace_utils.py",
           "pydantic/_internal/_generate_schema.py",
+          "pyproject.toml",
           "pydantic/fields.py",
           "pydantic/_internal/_generics.py"
         ],
@@ -5357,7 +5383,7 @@
         "hit@3": true,
         "cov@3": 0.5,
         "hit@5": true,
-        "cov@5": 0.5,
+        "cov@5": 1.0,
         "first_hit_rank": 2
       }
     },
@@ -5375,9 +5401,9 @@
       "predicted": [
         "pydantic/main.py",
         "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
-        "pyproject.toml",
         "pydantic/v1/main.py",
-        "pydantic/_internal/_generate_schema.py"
+        "pydantic/_internal/_generate_schema.py",
+        "pydantic/config.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -5388,17 +5414,17 @@
         "footprint": [
           "pydantic/main.py",
           "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
-          "pyproject.toml",
           "pydantic/v1/main.py",
           "pydantic/_internal/_generate_schema.py",
           "pydantic/config.py",
+          "pyproject.toml",
           "pydantic/type_adapter.py",
           "pydantic/_internal/_generics.py"
         ],
         "tests": [
           "tests/test_main.py",
-          "tests/mypy/test_mypy.py",
-          "tests/test_dunder_all.py"
+          "tests/test_dunder_all.py",
+          "tests/test_type_hints.py"
         ],
         "test_cmd": "make test",
         "summary": "TypeError: ForwardRef.__init__() got an unexpected keyword argument 'is_class` on Python 3.10",
@@ -5473,9 +5499,9 @@
       "predicted": [
         "pydantic/json_schema.py",
         "pydantic-core/python/pydantic_core/core_schema.py",
-        "pyproject.toml",
         "pydantic/main.py",
-        "pydantic/_internal/_model_construction.py"
+        "pydantic/_internal/_model_construction.py",
+        "pydantic/_internal/_generate_schema.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -5486,10 +5512,10 @@
         "footprint": [
           "pydantic/json_schema.py",
           "pydantic-core/python/pydantic_core/core_schema.py",
-          "pyproject.toml",
           "pydantic/main.py",
           "pydantic/_internal/_model_construction.py",
           "pydantic/_internal/_generate_schema.py",
+          "pyproject.toml",
           "pydantic/config.py",
           "pydantic-core/src/validators/typed_dict.rs"
         ],
@@ -5571,9 +5597,9 @@
       "predicted": [
         "pydantic-core/python/pydantic_core/core_schema.py",
         "pydantic/json_schema.py",
-        "pyproject.toml",
-        "mkdocs.yml",
-        "pydantic/main.py"
+        "pydantic/main.py",
+        "pydantic/type_adapter.py",
+        "pydantic/types.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -5584,12 +5610,12 @@
         "footprint": [
           "pydantic-core/python/pydantic_core/core_schema.py",
           "pydantic/json_schema.py",
-          "pyproject.toml",
-          "mkdocs.yml",
           "pydantic/main.py",
           "pydantic/type_adapter.py",
           "pydantic/types.py",
-          "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi"
+          "pyproject.toml",
+          "mkdocs.yml",
+          "pydantic-core/src/input/input_json.rs"
         ],
         "tests": [
           "pydantic-core/tests/serializers/test_core_schema_as_ser_schema.py",
@@ -5643,9 +5669,9 @@
         "cov@1": 0.0,
         "hit@3": false,
         "cov@3": 0.0,
-        "hit@5": false,
-        "cov@5": 0.0,
-        "first_hit_rank": null
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 5
       }
     },
     {
@@ -5662,9 +5688,9 @@
       "predicted": [
         "pydantic/_internal/_generate_schema.py",
         "pydantic/type_adapter.py",
-        "pyproject.toml",
         "pydantic/fields.py",
-        "pydantic/json_schema.py"
+        "pydantic/json_schema.py",
+        "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -5675,21 +5701,23 @@
         "footprint": [
           "pydantic/_internal/_generate_schema.py",
           "pydantic/type_adapter.py",
-          "pyproject.toml",
           "pydantic/fields.py",
           "pydantic/json_schema.py",
           "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
+          "pyproject.toml",
           "pydantic-core/python/pydantic_core/core_schema.py",
           "pydantic/main.py"
         ],
         "tests": [
           "tests/test_type_adapter.py",
           "tests/typechecking/type_adapter.py",
-          "tests/conftest.py"
+          "pydantic-core/tests/validators/test_model_fields.py"
         ],
         "test_cmd": "make test",
         "summary": "TypedDict `closed`/`extra_items` (PEP 728) not inherited by subclasses; `extra_items=Never` and `ReadOnly[...]` fail",
-        "acceptance": [],
+        "acceptance": [
+          "should also accept extra int items. Pydantic treats the subclass as a plain TypedDict"
+        ],
         "findings": [
           {
             "rule": "addressed_to_agent",
@@ -5761,9 +5789,9 @@
       "predicted": [
         "pydantic/main.py",
         "pydantic-core/src/validators/model.rs",
-        "mkdocs.yml",
         "pydantic-core/src/validators/model_fields.rs",
-        "pydantic-core/python/pydantic_core/core_schema.py"
+        "pydantic-core/python/pydantic_core/core_schema.py",
+        "pydantic/json_schema.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -5774,10 +5802,10 @@
         "footprint": [
           "pydantic/main.py",
           "pydantic-core/src/validators/model.rs",
-          "mkdocs.yml",
           "pydantic-core/src/validators/model_fields.rs",
           "pydantic-core/python/pydantic_core/core_schema.py",
           "pydantic/json_schema.py",
+          "mkdocs.yml",
           "pydantic-core/src/validators/mod.rs",
           "pydantic/fields.py"
         ],
@@ -5788,7 +5816,12 @@
         ],
         "test_cmd": "make test",
         "summary": "Perf: Avoid the Python tuple round trip between `ModelFieldsValidator` and `ModelValidator`",
-        "acceptance": [],
+        "acceptance": [
+          "[Compatibility between releases](https://pydantic.dev/docs/validation/latest/get-started/changelog/)",
+          "[Data serialization](https://pydantic.dev/docs/validation/latest/concepts/serialization/) - `.model_dump()` and `.model_dump_json()`",
+          "[JSON Schema](https://pydantic.dev/docs/validation/latest/concepts/json_schema/)",
+          "[Dataclasses](https://pydantic.dev/docs/validation/latest/concepts/dataclasses/)"
+        ],
         "findings": [
           {
             "rule": "addressed_to_agent",
@@ -5832,7 +5865,7 @@
         "hit@1": false,
         "cov@1": 0.0,
         "hit@3": true,
-        "cov@3": 0.5,
+        "cov@3": 1.0,
         "hit@5": true,
         "cov@5": 1.0,
         "first_hit_rank": 2
