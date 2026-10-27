@@ -10,7 +10,7 @@ from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
 from ready import checklist, llm
-from ready.repo import candidate_files, extract_terms, related_tests, detect_test_command
+from ready.repo import candidate_files, config_candidates, extract_terms, related_tests, detect_test_command
 
 PRIORITY = ["addressed_to_agent", "expected_vs_actual", "reproduction", "checkable_criteria", "context"]
 
@@ -48,6 +48,9 @@ def run_gate(issue_text: str, repo: Path, use_model: bool = True) -> Verdict:
         footprint = draft.ranked + [p for p in grep_order if p not in draft.ranked]
     else:
         footprint = grep_order
+    cfg = [p for p in config_candidates(issue_text, repo) if p not in footprint]
+    if cfg:  # after the best two code hits, so a config hint never buries a strong code match
+        footprint = footprint[:2] + cfg + footprint[2:]
     footprint = footprint[:8]
     src = [p for p in footprint if not p.startswith("tests/")][:3]
 

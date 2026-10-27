@@ -119,6 +119,35 @@ def candidate_files(issue_text: str, repo: Path, limit: int = 25) -> list[Candid
     return [Candidate(p, sc, hits.get(p, [])) for p, sc in scores.most_common(limit)]
 
 
+# Some fixes live in config, not code: dependency pins, CI, docs builds. Code search never
+# ranks these, so name them when the issue talks about what they control.
+CONFIG_HINTS = [
+    (re.compile(r"\b(install|dependenc|requires?|pin(ned)?|version (bump|constraint)|wheels?|sdist|packag|>=|<=|upper bound|support \w+ ?[<>=]+)", re.I),
+     ("pyproject.toml", "setup.cfg", "setup.py", "requirements.txt", "package.json")),
+    (re.compile(r"\b(ci|workflow|github actions?|nightly|pipeline|pre-commit)\b", re.I),
+     (".github/workflows/", ".pre-commit-config.yaml")),
+    (re.compile(r"\b(docs?|documentation|mkdocs|readthedocs|sphinx)\b.*\b(build|broken|link|page|render)", re.I | re.S),
+     ("mkdocs.yml", "docs/conf.py")),
+]
+
+
+def config_candidates(issue_text: str, repo: Path, limit: int = 2) -> list[str]:
+    try:
+        tracked = subprocess.run(["git", "-C", str(repo), "ls-files"], capture_output=True, text=True, check=True).stdout.splitlines()
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        return []
+    out: list[str] = []
+    for pattern, targets in CONFIG_HINTS:
+        if not pattern.search(issue_text):
+            continue
+        for t in targets:
+            for f in tracked:
+                if (f == t or (t.endswith("/") and f.startswith(t))) and f not in out:
+                    out.append(f)
+                    break
+    return out[:limit]
+
+
 def related_tests(paths: list[str], repo: Path, limit: int = 3) -> list[str]:
     """Test files that import or are named after the given source files."""
     files = [f for f in _tracked_files(Path(repo)) if is_test_path(f)]
