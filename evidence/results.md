@@ -514,3 +514,146 @@ Read this as an easy set, not as Ready's typical accuracy: most of these issues 
 Readiness on the same 20: the one issue that needed clarification (#3207) was passed as agent-ready, though its file still ranked first. Ready flagged 5 of the 19 ordinary issues as needs-human (26%: #3294, #3302, #3320, #3290, #3295), in line with the 27% false-alarm rate on held-out. The readiness gate is still the weak part.
 
 Files: `evidence/backtest-werkzeug.jsonl`, `evidence/results-grep-backtest-werkzeug.json`.
+
+## 2026-10-27 15:28 | HELD-OUT set | variant `bm25` | k=5 | n=58
+
+Set: held-out (`evidence/heldout.jsonl`). None of these issues were used to build or tune Ready.
+
+Note: BASELINE `bm25`: Ready is not called, so there is no readiness verdict. engine HEAD 22a25b4 (ready/ last changed in dbe6254).
+
+Pairs scored: 58, errors: 0, wall time: 51s. Truth files: 139, of which 3 do not exist at base_sha (new files, unpredictable by retrieval).
+
+hit@k = at least one true file in the top k. cov@k = mean fraction of the PR's source files found in the top k.
+
+| repo | n | hit@1 | hit@3 | hit@5 | cov@1 | cov@3 | cov@5 |
+|---|---|---|---|---|---|---|---|
+| Kludex/starlette | 12 | 0.500 | 0.750 | 0.750 | 0.500 | 0.608 | 0.608 |
+| encode/httpx | 2 | 0.500 | 0.500 | 1.000 | 0.125 | 0.125 | 0.625 |
+| fastapi/typer | 14 | 0.286 | 0.714 | 0.786 | 0.164 | 0.493 | 0.579 |
+| pallets/click | 1 | 0.000 | 1.000 | 1.000 | 0.000 | 0.500 | 0.500 |
+| pallets/flask | 11 | 0.545 | 1.000 | 1.000 | 0.197 | 0.508 | 0.515 |
+| psf/requests | 11 | 0.545 | 0.818 | 0.909 | 0.455 | 0.682 | 0.773 |
+| pydantic/pydantic | 7 | 0.143 | 0.429 | 0.714 | 0.143 | 0.357 | 0.643 |
+| **overall** | 58 | 0.414 | 0.759 | 0.845 | 0.288 | 0.526 | 0.617 |
+| overall, pairs with a code file in truth | 57 | 0.421 | 0.772 | 0.860 | 0.293 | 0.536 | 0.628 |
+
+Readiness check: `verdict.status == "needs_human"` vs proxy label `needed_clarification`.
+
+| | gold needed_clarification | gold not |
+|---|---|---|
+| predicted needs_human | TP 0 | FP 0 |
+| predicted agent_ready | FN 0 | TN 0 |
+
+n=0, accuracy n/a, precision n/a, recall n/a, predicted needs_human 0, gold positives 0. needs_human rate on gold positives n/a, on gold negatives (false-alarm rate) n/a.
+
+Worst 10 misses (lowest cov@5, fewest true files first):
+
+- https://github.com/Kludex/starlette/issues/1724 cov@5=0.000 | truth: mkdocs.yml | predicted: starlette/applications.py, starlette/testclient.py, starlette/routing.py
+- https://github.com/Kludex/starlette/issues/950 cov@5=0.000 | truth: starlette/responses.py | predicted: starlette/middleware/wsgi.py, starlette/testclient.py, starlette/formparsers.py
+- https://github.com/fastapi/typer/issues/1787 cov@5=0.000 | truth: typer/core.py | predicted: typer/params.py, typer/main.py, typer/rich_utils.py
+- https://github.com/fastapi/typer/issues/334 cov@5=0.000 | truth: typer/main.py | predicted: typer/rich_utils.py, typer/core.py, typer/_completion_shared.py
+- https://github.com/psf/requests/issues/7434 cov@5=0.000 | truth: src/requests/_types.py | predicted: src/requests/help.py, src/requests/__init__.py, src/requests/models.py
+- https://github.com/pydantic/pydantic/issues/9909 cov@5=0.000 | truth: pydantic/_internal/_generate_schema.py | predicted: pydantic/type_adapter.py, pydantic/config.py, pydantic/main.py
+- https://github.com/Kludex/starlette/issues/2155 cov@5=0.000 | truth: starlette/applications.py, starlette/formparsers.py, starlette/middleware/body_limit.py, starlette/routing.py | predicted: benchmarks/gzip_benchmark.py, starlette/testclient.py, starlette/middleware/errors.py
+- https://github.com/pydantic/pydantic/issues/7713 cov@5=0.000 | truth: pydantic-core/src/lookup_key.rs, pydantic-core/src/serializers/infer.rs, pydantic-core/src/serializers/polymorphism_trampoline.rs, pydantic-core/src/tools.rs ... | predicted: pydantic/main.py, pydantic/type_adapter.py, pydantic/_internal/_generate_schema.py
+- https://github.com/fastapi/typer/issues/1503 cov@5=0.000 | truth: .github/workflows/test-redistribute.yml, pdm_build.py, pyproject.toml, typer/_completion_shared.py ... | predicted: typer/main.py, typer/params.py, typer/rich_utils.py
+- https://github.com/Kludex/starlette/issues/64 cov@5=0.091 | truth: .travis.yml, mkdocs.yml, scripts/lint, scripts/test ... | predicted: setup.py, starlette/testclient.py, starlette/endpoints.py
+
+## 2026-10-27 15:29 | HELD-OUT set | variant `naive` | k=5 | n=58
+
+Set: held-out (`evidence/heldout.jsonl`). None of these issues were used to build or tune Ready.
+
+Note: BASELINE `naive`: Ready is not called, so there is no readiness verdict. engine HEAD 22a25b4 (ready/ last changed in dbe6254).
+
+Pairs scored: 58, errors: 0, wall time: 35s. Truth files: 139, of which 3 do not exist at base_sha (new files, unpredictable by retrieval).
+
+hit@k = at least one true file in the top k. cov@k = mean fraction of the PR's source files found in the top k.
+
+| repo | n | hit@1 | hit@3 | hit@5 | cov@1 | cov@3 | cov@5 |
+|---|---|---|---|---|---|---|---|
+| Kludex/starlette | 12 | 0.417 | 0.667 | 0.750 | 0.417 | 0.532 | 0.615 |
+| encode/httpx | 2 | 0.500 | 0.500 | 0.500 | 0.125 | 0.250 | 0.250 |
+| fastapi/typer | 14 | 0.286 | 0.643 | 0.786 | 0.193 | 0.414 | 0.555 |
+| pallets/click | 1 | 0.000 | 1.000 | 1.000 | 0.000 | 0.500 | 0.500 |
+| pallets/flask | 11 | 0.636 | 1.000 | 1.000 | 0.220 | 0.439 | 0.508 |
+| psf/requests | 11 | 0.364 | 0.727 | 0.909 | 0.364 | 0.591 | 0.773 |
+| pydantic/pydantic | 7 | 0.143 | 0.286 | 0.286 | 0.143 | 0.286 | 0.286 |
+| **overall** | 58 | 0.379 | 0.690 | 0.776 | 0.265 | 0.457 | 0.556 |
+| overall, pairs with a code file in truth | 57 | 0.386 | 0.702 | 0.789 | 0.270 | 0.465 | 0.565 |
+
+Readiness check: `verdict.status == "needs_human"` vs proxy label `needed_clarification`.
+
+| | gold needed_clarification | gold not |
+|---|---|---|
+| predicted needs_human | TP 0 | FP 0 |
+| predicted agent_ready | FN 0 | TN 0 |
+
+n=0, accuracy n/a, precision n/a, recall n/a, predicted needs_human 0, gold positives 0. needs_human rate on gold positives n/a, on gold negatives (false-alarm rate) n/a.
+
+Worst 10 misses (lowest cov@5, fewest true files first):
+
+- https://github.com/Kludex/starlette/issues/1724 cov@5=0.000 | truth: mkdocs.yml | predicted: starlette/routing.py, starlette/requests.py, starlette/responses.py
+- https://github.com/Kludex/starlette/issues/950 cov@5=0.000 | truth: starlette/responses.py | predicted: starlette/requests.py, starlette/testclient.py, starlette/middleware/errors.py
+- https://github.com/encode/httpx/issues/746 cov@5=0.000 | truth: httpx/_utils.py | predicted: httpx/_client.py, httpx/_urls.py, httpx/_content.py
+- https://github.com/fastapi/typer/issues/1787 cov@5=0.000 | truth: typer/core.py | predicted: typer/main.py, typer/params.py, scripts/docs.py
+- https://github.com/fastapi/typer/issues/1156 cov@5=0.000 | truth: typer/rich_utils.py | predicted: typer/main.py, typer/params.py, typer/_click/core.py
+- https://github.com/fastapi/typer/issues/359 cov@5=0.000 | truth: typer/_completion_classes.py | predicted: typer/main.py, typer/rich_utils.py, typer/core.py
+- https://github.com/psf/requests/issues/7434 cov@5=0.000 | truth: src/requests/_types.py | predicted: src/requests/models.py, src/requests/sessions.py, src/requests/utils.py
+- https://github.com/pydantic/pydantic/issues/940 cov@5=0.000 | truth: pydantic/class_validators.py | predicted: pydantic/fields.py, pydantic/validators.py, pydantic/schema.py
+- https://github.com/pydantic/pydantic/issues/9909 cov@5=0.000 | truth: pydantic/_internal/_generate_schema.py | predicted: pydantic/fields.py, pydantic/config.py, pydantic/main.py
+- https://github.com/pydantic/pydantic/issues/8291 cov@5=0.000 | truth: pydantic/_internal/_typing_extra.py | predicted: pydantic/main.py, pydantic/mypy.py, pydantic/types.py
+
+## 2026-10-27 15:35 | HELD-OUT set | variant `grep` | k=5 | n=58
+
+Set: held-out (`evidence/heldout.jsonl`). None of these issues were used to build or tune Ready.
+
+Note: engine HEAD 22a25b4 (ready/ last changed in dbe6254) at start, HEAD d969a5d (ready/ last changed in dbe6254) at end (ready/ changed during the run; numbers may mix versions).
+
+Pairs scored: 58, errors: 0, wall time: 357s. Truth files: 139, of which 3 do not exist at base_sha (new files, unpredictable by retrieval).
+
+hit@k = at least one true file in the top k. cov@k = mean fraction of the PR's source files found in the top k.
+
+| repo | n | hit@1 | hit@3 | hit@5 | cov@1 | cov@3 | cov@5 |
+|---|---|---|---|---|---|---|---|
+| Kludex/starlette | 12 | 0.667 | 0.833 | 0.833 | 0.591 | 0.691 | 0.691 |
+| encode/httpx | 2 | 0.000 | 0.500 | 1.000 | 0.000 | 0.125 | 0.750 |
+| fastapi/typer | 14 | 0.214 | 0.714 | 0.857 | 0.121 | 0.440 | 0.655 |
+| pallets/click | 1 | 1.000 | 1.000 | 1.000 | 0.500 | 0.500 | 0.500 |
+| pallets/flask | 11 | 0.727 | 0.909 | 1.000 | 0.258 | 0.470 | 0.553 |
+| psf/requests | 11 | 0.545 | 0.818 | 0.909 | 0.500 | 0.727 | 0.773 |
+| pydantic/pydantic | 7 | 0.143 | 0.571 | 0.714 | 0.143 | 0.500 | 0.643 |
+| **overall** | 58 | 0.466 | 0.776 | 0.879 | 0.321 | 0.550 | 0.664 |
+| overall, pairs with a code file in truth | 57 | 0.474 | 0.789 | 0.895 | 0.327 | 0.559 | 0.676 |
+
+Readiness check: `verdict.status == "needs_human"` vs proxy label `needed_clarification`.
+
+| | gold needed_clarification | gold not |
+|---|---|---|
+| predicted needs_human | TP 4 | FP 10 |
+| predicted agent_ready | FN 17 | TN 27 |
+
+n=58, accuracy 0.534, precision 0.286, recall 0.190, predicted needs_human 14, gold positives 21. needs_human rate on gold positives 0.190, on gold negatives (false-alarm rate) 0.270.
+
+needs_human rate by how the pair was selected:
+
+| source / gold | n | needs_human | rate |
+|---|---|---|---|
+| label / pos | 10 | 4 | 0.400 |
+| random / neg | 37 | 10 | 0.270 |
+| random / pos | 3 | 0 | 0.000 |
+| regex / pos | 8 | 0 | 0.000 |
+
+Worst 10 misses (lowest cov@5, fewest true files first):
+
+- https://github.com/Kludex/starlette/issues/1724 cov@5=0.000 | truth: mkdocs.yml | predicted: starlette/routing.py, starlette/applications.py, starlette/background.py
+- https://github.com/fastapi/typer/issues/438 cov@5=0.000 | truth: typer/rich_utils.py | predicted: typer/main.py, typer/params.py, typer/_click/utils.py
+- https://github.com/fastapi/typer/issues/359 cov@5=0.000 | truth: typer/_completion_classes.py | predicted: typer/main.py, typer/_completion_shared.py, typer/core.py
+- https://github.com/psf/requests/issues/7434 cov@5=0.000 | truth: src/requests/_types.py | predicted: src/requests/models.py, src/requests/sessions.py, src/requests/utils.py
+- https://github.com/pydantic/pydantic/issues/9909 cov@5=0.000 | truth: pydantic/_internal/_generate_schema.py | predicted: pydantic/main.py, pydantic/json_schema.py, pydantic/fields.py
+- https://github.com/Kludex/starlette/issues/2155 cov@5=0.000 | truth: starlette/applications.py, starlette/formparsers.py, starlette/middleware/body_limit.py, starlette/routing.py | predicted: starlette/requests.py, starlette/responses.py, starlette/testclient.py
+- https://github.com/pydantic/pydantic/issues/7713 cov@5=0.000 | truth: pydantic-core/src/lookup_key.rs, pydantic-core/src/serializers/infer.rs, pydantic-core/src/serializers/polymorphism_trampoline.rs, pydantic-core/src/tools.rs ... | predicted: pydantic/main.py, pydantic/v1/main.py, pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi
+- https://github.com/Kludex/starlette/issues/64 cov@5=0.091 | truth: .travis.yml, mkdocs.yml, scripts/lint, scripts/test ... | predicted: starlette/applications.py, starlette/exceptions.py, starlette/middleware/httpsredirect.py
+- https://github.com/fastapi/typer/issues/1503 cov@5=0.167 | truth: .github/workflows/test-redistribute.yml, pdm_build.py, pyproject.toml, typer/_completion_shared.py ... | predicted: typer/main.py, typer/_completion_shared.py, typer/params.py
+- https://github.com/Kludex/starlette/issues/3308 cov@5=0.200 | truth: mkdocs.yml, starlette/endpoints.py, starlette/middleware/base.py, starlette/middleware/gzip.py ... | predicted: starlette/status.py, starlette/requests.py, starlette/routing.py
+
+Note on the 15:35 HELD-OUT `grep` section above: HEAD moved from 22a25b4 to d969a5d during the run (a release commit touching only pyproject.toml), so the harness printed "numbers may mix versions". `ready/` was last changed in dbe6254 before and after, so every pair was scored on the same engine. The README's "Against plain search" comparison uses this run and the 15:28 `bm25` and 15:29 `naive` baseline sections.

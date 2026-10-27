@@ -70,6 +70,57 @@ def _baseline_predict(issue_text: str, repo: Path, k: int) -> list[str]:
     return [f for f, _ in scores.most_common(k)]
 
 
+# ---------- BM25 baseline: what plain text retrieval gets without any of Ready's rules ----------
+
+_WORD = re.compile(r"[A-Za-z][A-Za-z0-9]+")
+
+
+def _bm25_tokens(text: str) -> list[str]:
+    """Identifiers split into words: `apply_coupon` and `applyCoupon` both give apply, coupon."""
+    out = []
+    for w in re.findall(r"[A-Za-z_][A-Za-z0-9_]*", text):
+        parts = [p for chunk in w.split("_") for p in re.findall(r"[A-Z]+(?![a-z])|[A-Z]?[a-z0-9]+", chunk)]
+        out += [p.lower() for p in parts if len(p) > 2]
+    return out
+
+
+def _bm25_predict(issue_text: str, repo: Path, k: int, k1: float = 1.2, b: float = 0.75) -> list[str]:
+    """Okapi BM25 over the same tracked source files Ready searches, path words included.
+    Test files are left out (they mention everything), which makes this baseline stronger, not weaker."""
+    import math
+    from ready.repo import STOP, _tracked_files, is_test_path
+
+    files = [f for f in _tracked_files(repo) if not is_test_path(f)]
+    docs: dict[str, Counter[str]] = {}
+    for f in files:
+        try:
+            body = (repo / f).read_text(encoding="utf-8", errors="ignore")
+        except OSError:
+            continue
+        docs[f] = Counter(_bm25_tokens(f.replace("/", " ") + " " + body))
+    if not docs:
+        return []
+    query = {t for t in _bm25_tokens(issue_text) if t not in STOP}
+    n = len(docs)
+    avg = sum(sum(c.values()) for c in docs.values()) / n
+    df = Counter(t for c in docs.values() for t in query if t in c)
+    scores: dict[str, float] = {}
+    for f, c in docs.items():
+        dl = sum(c.values())
+        s = 0.0
+        for t in query:
+            tf = c.get(t, 0)
+            if tf:
+                idf = math.log(1 + (n - df[t] + 0.5) / (df[t] + 0.5))
+                s += idf * tf * (k1 + 1) / (tf + k1 * (1 - b + b * dl / avg))
+        if s:
+            scores[f] = s
+    return sorted(scores, key=lambda f: -scores[f])[:k]
+
+
+BASELINES = {"naive": _baseline_predict, "bm25": _bm25_predict}
+
+
 # ---------- scoring ----------
 
 CODE_EXT = (".py", ".pyi", ".ts", ".tsx", ".js", ".jsx", ".go", ".rs")
@@ -239,7 +290,8 @@ def write_markdown(variant: str, k: int, rows: list[dict], overall: dict, per_re
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--variant", choices=["grep", "model"], required=True)
+    ap.add_argument("--variant", choices=["grep", "model", *BASELINES], required=True,
+                    help="grep/model run Ready; naive/bm25 are baselines that never call Ready")
     ap.add_argument("--k", type=int, default=5)
     ap.add_argument("--limit", type=int, default=None)
     ap.add_argument("--pairs", default=str(PAIRS.relative_to(ROOT)),
@@ -253,9 +305,10 @@ def main() -> None:
         return
 
     use_model = args.variant == "model"
-    variant = args.variant if ENGINE_ERROR is None else "baseline-internal"
-    note = None
-    if ENGINE_ERROR:
+    variant = args.variant if (ENGINE_ERROR is None or args.variant in BASELINES) else "baseline-internal"
+    note = (f"BASELINE `{args.variant}`: Ready is not called, so there is no readiness verdict."
+            if args.variant in BASELINES else None)
+    if ENGINE_ERROR and args.variant not in BASELINES:
         note = f"ready.api import failed ({ENGINE_ERROR}); used the internal grep baseline."
         print(note, file=sys.stderr)
 
@@ -278,7 +331,9 @@ def main() -> None:
         try:
             repo = checkout(p["repo"], p["base_sha"])
             row["truth_absent_at_base"] = [f for f in truth if not (repo / f).exists()]
-            if ENGINE_ERROR is None:
+            if args.variant in BASELINES:
+                pred = BASELINES[args.variant](text, repo, args.k)
+            elif ENGINE_ERROR is None:
                 verdict = check(text, repo, use_model=use_model)
                 if use_model or args.k > 8:
                     pred = predict_footprint(text, repo, k=args.k, use_model=use_model)

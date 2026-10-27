@@ -1,18 +1,18 @@
 {
   "variant": "grep",
   "k": 5,
-  "date": "2026-10-27T09:23:11",
+  "date": "2026-10-27T15:35:57",
   "set": "held-out",
   "pairs_file": "evidence/heldout.jsonl",
-  "note": "engine HEAD db48ecf (ready/ last changed in db48ecf).",
-  "elapsed_s": 369,
+  "note": "engine HEAD 22a25b4 (ready/ last changed in dbe6254) at start, HEAD d969a5d (ready/ last changed in dbe6254) at end (ready/ changed during the run; numbers may mix versions).",
+  "elapsed_s": 357,
   "overall": {
     "n": 58,
     "errors": 0,
-    "hit@1": 0.4482758620689655,
-    "cov@1": 0.3124869383490073,
-    "hit@3": 0.7586206896551724,
-    "cov@3": 0.5323145245559039,
+    "hit@1": 0.46551724137931033,
+    "cov@1": 0.32110762800417975,
+    "hit@3": 0.7758620689655172,
+    "cov@3": 0.5495559038662488,
     "hit@5": 0.8793103448275862,
     "cov@5": 0.6644984326018808,
     "truth_files": 139,
@@ -21,10 +21,10 @@
   "overall_code_truth_only": {
     "n": 57,
     "errors": 0,
-    "hit@1": 0.45614035087719296,
-    "cov@1": 0.3179691653375864,
-    "hit@3": 0.7719298245614035,
-    "cov@3": 0.5416533758639022,
+    "hit@1": 0.47368421052631576,
+    "cov@1": 0.32674109516214783,
+    "hit@3": 0.7894736842105263,
+    "cov@3": 0.559197235513025,
     "hit@5": 0.8947368421052632,
     "cov@5": 0.6761562998405103,
     "truth_files": 138,
@@ -94,10 +94,10 @@
     "psf/requests": {
       "n": 11,
       "errors": 0,
-      "hit@1": 0.45454545454545453,
-      "cov@1": 0.45454545454545453,
-      "hit@3": 0.7272727272727273,
-      "cov@3": 0.6363636363636364,
+      "hit@1": 0.5454545454545454,
+      "cov@1": 0.5,
+      "hit@3": 0.8181818181818182,
+      "cov@3": 0.7272727272727273,
       "hit@5": 0.9090909090909091,
       "cov@5": 0.7727272727272727,
       "truth_files": 14,
@@ -1575,8 +1575,8 @@
           },
           {
             "rule": "locatable",
-            "ok": false,
-            "detail": "Names no file, module or symbol (Ready will try to find them)",
+            "ok": true,
+            "detail": "Names code it touches",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
             "human_only": false
           }
@@ -3211,8 +3211,8 @@
           },
           {
             "rule": "locatable",
-            "ok": false,
-            "detail": "Names no file, module or symbol (Ready will try to find them)",
+            "ok": true,
+            "detail": "Names code it touches",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
             "human_only": false
           }
@@ -3597,8 +3597,8 @@
           },
           {
             "rule": "locatable",
-            "ok": false,
-            "detail": "Names no file, module or symbol (Ready will try to find them)",
+            "ok": true,
+            "detail": "Names code it touches",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
             "human_only": false
           }
@@ -3691,8 +3691,8 @@
           },
           {
             "rule": "locatable",
-            "ok": false,
-            "detail": "Names no file, module or symbol (Ready will try to find them)",
+            "ok": true,
+            "detail": "Names code it touches",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Links: PRs, docs, incidents, designs, or customer context.\"",
             "human_only": false
           }
@@ -4568,10 +4568,10 @@
       "source": "random",
       "predicted": [
         "src/requests/sessions.py",
-        "tests/test_utils.py",
         "src/requests/cookies.py",
         "src/requests/utils.py",
-        "src/requests/api.py"
+        "src/requests/api.py",
+        "src/requests/help.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -4581,13 +4581,13 @@
         "question": null,
         "footprint": [
           "src/requests/sessions.py",
-          "tests/test_utils.py",
           "src/requests/cookies.py",
           "src/requests/utils.py",
           "src/requests/api.py",
           "src/requests/help.py",
           "src/requests/structures.py",
-          "src/requests/models.py"
+          "src/requests/models.py",
+          "tests/test_utils.py"
         ],
         "tests": [
           "tests/test_utils.py",
@@ -4638,11 +4638,11 @@
       "metrics": {
         "hit@1": false,
         "cov@1": 0.0,
-        "hit@3": false,
-        "cov@3": 0.0,
+        "hit@3": true,
+        "cov@3": 1.0,
         "hit@5": true,
         "cov@5": 1.0,
-        "first_hit_rank": 4
+        "first_hit_rank": 3
       }
     },
     {
@@ -4755,8 +4755,8 @@
       "needed_clarification": false,
       "source": "random",
       "predicted": [
-        "src/requests/exceptions.py",
         "src/requests/__init__.py",
+        "src/requests/exceptions.py",
         "src/requests/models.py",
         "src/requests/sessions.py",
         "src/requests/adapters.py"
@@ -4768,8 +4768,8 @@
         "status": "agent_ready",
         "question": null,
         "footprint": [
-          "src/requests/exceptions.py",
           "src/requests/__init__.py",
+          "src/requests/exceptions.py",
           "src/requests/models.py",
           "src/requests/sessions.py",
           "src/requests/adapters.py",
@@ -4823,13 +4823,13 @@
         "model": null
       },
       "metrics": {
-        "hit@1": false,
-        "cov@1": 0.0,
+        "hit@1": true,
+        "cov@1": 0.5,
         "hit@3": true,
         "cov@3": 0.5,
         "hit@5": true,
         "cov@5": 0.5,
-        "first_hit_rank": 2
+        "first_hit_rank": 1
       }
     },
     {
@@ -5326,8 +5326,8 @@
       "predicted": [
         "pydantic/main.py",
         "pydantic/v1/main.py",
-        "pydantic/root_model.py",
         "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
+        "pydantic/root_model.py",
         "pydantic-core/python/pydantic_core/core_schema.py"
       ],
       "verdict_status": "agent_ready",
@@ -5339,8 +5339,8 @@
         "footprint": [
           "pydantic/main.py",
           "pydantic/v1/main.py",
-          "pydantic/root_model.py",
           "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
+          "pydantic/root_model.py",
           "pydantic-core/python/pydantic_core/core_schema.py",
           "pyproject.toml",
           "pydantic/fields.py",
@@ -5348,8 +5348,8 @@
         ],
         "tests": [
           "tests/test_main.py",
-          "tests/mypy/modules/root_models.py",
-          "tests/mypy/outputs/mypy-default_ini/root_models.py"
+          "tests/test_dunder_all.py",
+          "tests/test_type_hints.py"
         ],
         "test_cmd": "make test",
         "summary": "Error during Serialization (`model_dump`)",

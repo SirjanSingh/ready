@@ -1,0 +1,2020 @@
+{
+  "variant": "naive",
+  "k": 5,
+  "date": "2026-10-27T15:29:26",
+  "set": "held-out",
+  "pairs_file": "evidence/heldout.jsonl",
+  "note": "BASELINE `naive`: Ready is not called, so there is no readiness verdict. engine HEAD 22a25b4 (ready/ last changed in dbe6254).",
+  "elapsed_s": 35,
+  "overall": {
+    "n": 58,
+    "errors": 0,
+    "hit@1": 0.3793103448275862,
+    "cov@1": 0.2649425287356322,
+    "hit@3": 0.6896551724137931,
+    "cov@3": 0.45715778474399166,
+    "hit@5": 0.7758620689655172,
+    "cov@5": 0.5557210031347963,
+    "truth_files": 139,
+    "truth_files_absent_at_base": 3
+  },
+  "overall_code_truth_only": {
+    "n": 57,
+    "errors": 0,
+    "hit@1": 0.38596491228070173,
+    "cov@1": 0.2695906432748538,
+    "hit@3": 0.7017543859649122,
+    "cov@3": 0.46517809675704413,
+    "hit@5": 0.7894736842105263,
+    "cov@5": 0.5654704944178629,
+    "truth_files": 138,
+    "truth_files_absent_at_base": 3
+  },
+  "per_repo": {
+    "Kludex/starlette": {
+      "n": 12,
+      "errors": 0,
+      "hit@1": 0.4166666666666667,
+      "cov@1": 0.4166666666666667,
+      "hit@3": 0.6666666666666666,
+      "cov@3": 0.5318181818181819,
+      "hit@5": 0.75,
+      "cov@5": 0.6151515151515151,
+      "truth_files": 29,
+      "truth_files_absent_at_base": 2
+    },
+    "encode/httpx": {
+      "n": 2,
+      "errors": 0,
+      "hit@1": 0.5,
+      "cov@1": 0.125,
+      "hit@3": 0.5,
+      "cov@3": 0.25,
+      "hit@5": 0.5,
+      "cov@5": 0.25,
+      "truth_files": 5,
+      "truth_files_absent_at_base": 0
+    },
+    "fastapi/typer": {
+      "n": 14,
+      "errors": 0,
+      "hit@1": 0.2857142857142857,
+      "cov@1": 0.19285714285714287,
+      "hit@3": 0.6428571428571429,
+      "cov@3": 0.41428571428571426,
+      "hit@5": 0.7857142857142857,
+      "cov@5": 0.5547619047619048,
+      "truth_files": 38,
+      "truth_files_absent_at_base": 1
+    },
+    "pallets/click": {
+      "n": 1,
+      "errors": 0,
+      "hit@1": 0.0,
+      "cov@1": 0.0,
+      "hit@3": 1.0,
+      "cov@3": 0.5,
+      "hit@5": 1.0,
+      "cov@5": 0.5,
+      "truth_files": 2,
+      "truth_files_absent_at_base": 0
+    },
+    "pallets/flask": {
+      "n": 11,
+      "errors": 0,
+      "hit@1": 0.6363636363636364,
+      "cov@1": 0.2196969696969697,
+      "hit@3": 1.0,
+      "cov@3": 0.4393939393939394,
+      "hit@5": 1.0,
+      "cov@5": 0.5075757575757576,
+      "truth_files": 39,
+      "truth_files_absent_at_base": 0
+    },
+    "psf/requests": {
+      "n": 11,
+      "errors": 0,
+      "hit@1": 0.36363636363636365,
+      "cov@1": 0.36363636363636365,
+      "hit@3": 0.7272727272727273,
+      "cov@3": 0.5909090909090909,
+      "hit@5": 0.9090909090909091,
+      "cov@5": 0.7727272727272727,
+      "truth_files": 14,
+      "truth_files_absent_at_base": 0
+    },
+    "pydantic/pydantic": {
+      "n": 7,
+      "errors": 0,
+      "hit@1": 0.14285714285714285,
+      "cov@1": 0.14285714285714285,
+      "hit@3": 0.2857142857142857,
+      "cov@3": 0.2857142857142857,
+      "hit@5": 0.2857142857142857,
+      "cov@5": 0.2857142857142857,
+      "truth_files": 12,
+      "truth_files_absent_at_base": 0
+    }
+  },
+  "confusion": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "tn": 0,
+    "n": 0,
+    "accuracy": null,
+    "precision": null,
+    "recall": null,
+    "predicted_needs_human": 0,
+    "gold_positive": 0,
+    "needs_human_rate_on_negatives": null
+  },
+  "needs_human_by_source": {},
+  "pairs": [
+    {
+      "repo": "Kludex/starlette",
+      "issue_number": 3308,
+      "issue_url": "https://github.com/Kludex/starlette/issues/3308",
+      "pr_number": 3435,
+      "base_sha": "04741d073fb6c3ab5fccad08be8ae7aad1f67e91",
+      "truth": [
+        "mkdocs.yml",
+        "starlette/endpoints.py",
+        "starlette/middleware/base.py",
+        "starlette/middleware/gzip.py",
+        "starlette/requests.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "starlette/status.py",
+        "starlette/middleware/wsgi.py",
+        "starlette/requests.py",
+        "starlette/responses.py",
+        "benchmarks/gzip_benchmark.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": true,
+        "cov@3": 0.2,
+        "hit@5": true,
+        "cov@5": 0.2,
+        "first_hit_rank": 3
+      }
+    },
+    {
+      "repo": "Kludex/starlette",
+      "issue_number": 3645,
+      "issue_url": "https://github.com/Kludex/starlette/issues/3645",
+      "pr_number": 3651,
+      "base_sha": "0a15da395d13e8eb6ecadeb6f4928d7d7c493fc8",
+      "truth": [
+        "starlette/middleware/sessions.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "starlette/middleware/sessions.py",
+        "starlette/requests.py",
+        "starlette/responses.py",
+        "starlette/routing.py",
+        "starlette/testclient.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 1.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "Kludex/starlette",
+      "issue_number": 3683,
+      "issue_url": "https://github.com/Kludex/starlette/issues/3683",
+      "pr_number": 3716,
+      "base_sha": "1a3a401c0d33920b7c8b1541fb89784976a41a96",
+      "truth": [
+        "starlette/convertors.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "starlette/convertors.py",
+        "starlette/routing.py",
+        "starlette/formparsers.py",
+        "starlette/requests.py",
+        "starlette/testclient.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 1.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "Kludex/starlette",
+      "issue_number": 64,
+      "issue_url": "https://github.com/Kludex/starlette/issues/64",
+      "pr_number": 98,
+      "base_sha": "27fc98b58b543392a1e6c2e8015f0c377cccd659",
+      "truth": [
+        ".travis.yml",
+        "mkdocs.yml",
+        "scripts/lint",
+        "scripts/test",
+        "starlette/applications.py",
+        "starlette/datastructures.py",
+        "starlette/endpoints.py",
+        "starlette/lifespan.py",
+        "starlette/requests.py",
+        "starlette/routing.py",
+        "starlette/staticfiles.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "starlette/testclient.py",
+        "starlette/applications.py",
+        "starlette/endpoints.py",
+        "starlette/exceptions.py",
+        "starlette/middleware/cors.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [
+        "starlette/lifespan.py"
+      ],
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": true,
+        "cov@3": 0.18181818181818182,
+        "hit@5": true,
+        "cov@5": 0.18181818181818182,
+        "first_hit_rank": 2
+      }
+    },
+    {
+      "repo": "Kludex/starlette",
+      "issue_number": 3687,
+      "issue_url": "https://github.com/Kludex/starlette/issues/3687",
+      "pr_number": 3720,
+      "base_sha": "2ec33ec5efecdfbf1732c7c282a3f34e263bef5e",
+      "truth": [
+        "starlette/config.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "starlette/config.py",
+        "starlette/requests.py",
+        "starlette/routing.py",
+        "starlette/datastructures.py",
+        "starlette/testclient.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 1.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "Kludex/starlette",
+      "issue_number": 1724,
+      "issue_url": "https://github.com/Kludex/starlette/issues/1724",
+      "pr_number": 2881,
+      "base_sha": "5cc4ddf1a5d07388015458e7c6b2ae5df617c372",
+      "truth": [
+        "mkdocs.yml"
+      ],
+      "needed_clarification": true,
+      "source": "random",
+      "predicted": [
+        "starlette/routing.py",
+        "starlette/requests.py",
+        "starlette/responses.py",
+        "starlette/applications.py",
+        "starlette/middleware/base.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": false,
+        "cov@5": 0.0,
+        "first_hit_rank": null
+      }
+    },
+    {
+      "repo": "Kludex/starlette",
+      "issue_number": 3689,
+      "issue_url": "https://github.com/Kludex/starlette/issues/3689",
+      "pr_number": 3718,
+      "base_sha": "61123a5c76ebb9d5786758008945c4fbbb380bf6",
+      "truth": [
+        "starlette/middleware/wsgi.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "starlette/middleware/wsgi.py",
+        "starlette/routing.py",
+        "benchmarks/multipart_benchmark.py",
+        "starlette/requests.py",
+        "benchmarks/json_benchmark.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 1.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "Kludex/starlette",
+      "issue_number": 3579,
+      "issue_url": "https://github.com/Kludex/starlette/issues/3579",
+      "pr_number": 3671,
+      "base_sha": "7b2948fe7b7fff28bb018607d54cd4dfa518910e",
+      "truth": [
+        "starlette/datastructures.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "starlette/routing.py",
+        "starlette/responses.py",
+        "starlette/requests.py",
+        "starlette/datastructures.py",
+        "starlette/testclient.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 4
+      }
+    },
+    {
+      "repo": "Kludex/starlette",
+      "issue_number": 950,
+      "issue_url": "https://github.com/Kludex/starlette/issues/950",
+      "pr_number": 2697,
+      "base_sha": "8d0cff820f89b5d5b19677246293513a9d1c952c",
+      "truth": [
+        "starlette/responses.py"
+      ],
+      "needed_clarification": true,
+      "source": "regex",
+      "predicted": [
+        "starlette/requests.py",
+        "starlette/testclient.py",
+        "starlette/middleware/errors.py",
+        "starlette/routing.py",
+        "starlette/applications.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": false,
+        "cov@5": 0.0,
+        "first_hit_rank": null
+      }
+    },
+    {
+      "repo": "Kludex/starlette",
+      "issue_number": 3630,
+      "issue_url": "https://github.com/Kludex/starlette/issues/3630",
+      "pr_number": 3631,
+      "base_sha": "96d5023c55b29224edb8d684868c49f681d079a9",
+      "truth": [
+        "starlette/middleware/gzip.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "starlette/middleware/gzip.py",
+        "starlette/routing.py",
+        "starlette/responses.py",
+        "benchmarks/gzip_benchmark.py",
+        "starlette/requests.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 1.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "Kludex/starlette",
+      "issue_number": 1102,
+      "issue_url": "https://github.com/Kludex/starlette/issues/1102",
+      "pr_number": 3491,
+      "base_sha": "b7901fb908f0c6c3b8b6e495517cea6b2e77e66b",
+      "truth": [
+        "starlette/testclient.py"
+      ],
+      "needed_clarification": true,
+      "source": "random",
+      "predicted": [
+        "starlette/requests.py",
+        "starlette/routing.py",
+        "starlette/testclient.py",
+        "starlette/middleware/base.py",
+        "starlette/responses.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 3
+      }
+    },
+    {
+      "repo": "Kludex/starlette",
+      "issue_number": 2155,
+      "issue_url": "https://github.com/Kludex/starlette/issues/2155",
+      "pr_number": 3431,
+      "base_sha": "c41236c03868fb3779a64101f4ea88cd47877e23",
+      "truth": [
+        "starlette/applications.py",
+        "starlette/formparsers.py",
+        "starlette/middleware/body_limit.py",
+        "starlette/routing.py"
+      ],
+      "needed_clarification": true,
+      "source": "regex",
+      "predicted": [
+        "starlette/requests.py",
+        "starlette/responses.py",
+        "benchmarks/gzip_benchmark.py",
+        "starlette/testclient.py",
+        "starlette/middleware/base.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [
+        "starlette/middleware/body_limit.py"
+      ],
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": false,
+        "cov@5": 0.0,
+        "first_hit_rank": null
+      }
+    },
+    {
+      "repo": "encode/httpx",
+      "issue_number": 746,
+      "issue_url": "https://github.com/encode/httpx/issues/746",
+      "pr_number": 2523,
+      "base_sha": "10a3b68a71d6cb16b170dec4efe2ec1ae197d65f",
+      "truth": [
+        "httpx/_utils.py"
+      ],
+      "needed_clarification": true,
+      "source": "regex",
+      "predicted": [
+        "httpx/_client.py",
+        "httpx/_urls.py",
+        "httpx/_content.py",
+        "httpx/_exceptions.py",
+        "httpx/_models.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": false,
+        "cov@5": 0.0,
+        "first_hit_rank": null
+      }
+    },
+    {
+      "repo": "encode/httpx",
+      "issue_number": 435,
+      "issue_url": "https://github.com/encode/httpx/issues/435",
+      "pr_number": 593,
+      "base_sha": "c08ae7796f01bf0be6b3d43bfd4c4a0b169dca49",
+      "truth": [
+        "httpx/__init__.py",
+        "httpx/client.py",
+        "httpx/config.py",
+        "httpx/exceptions.py"
+      ],
+      "needed_clarification": true,
+      "source": "label",
+      "predicted": [
+        "httpx/client.py",
+        "httpx/config.py",
+        "httpx/concurrency/asyncio.py",
+        "httpx/dispatch/http2.py",
+        "httpx/models.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.25,
+        "hit@3": true,
+        "cov@3": 0.5,
+        "hit@5": true,
+        "cov@5": 0.5,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "fastapi/typer",
+      "issue_number": 986,
+      "issue_url": "https://github.com/fastapi/typer/issues/986",
+      "pr_number": 987,
+      "base_sha": "1823714798c2cdaf4cbda0a639e7cf0aa85bd88a",
+      "truth": [
+        "typer/completion.py",
+        "typer/core.py",
+        "typer/main.py",
+        "typer/models.py",
+        "typer/params.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "typer/main.py",
+        "typer/core.py",
+        "typer/utils.py",
+        "typer/models.py",
+        "typer/rich_utils.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.2,
+        "hit@3": true,
+        "cov@3": 0.4,
+        "hit@5": true,
+        "cov@5": 0.6,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "fastapi/typer",
+      "issue_number": 76,
+      "issue_url": "https://github.com/fastapi/typer/issues/76",
+      "pr_number": 429,
+      "base_sha": "2ece3e6445f5e585f6118be9ff68d6afe85fe5fe",
+      "truth": [
+        "typer/_typing.py",
+        "typer/main.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "typer/rich_utils.py",
+        "typer/core.py",
+        "typer/main.py",
+        "typer/_typing.py",
+        "typer/models.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": true,
+        "cov@3": 0.5,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 3
+      }
+    },
+    {
+      "repo": "fastapi/typer",
+      "issue_number": 951,
+      "issue_url": "https://github.com/fastapi/typer/issues/951",
+      "pr_number": 1138,
+      "base_sha": "3c9f2c0ef1722974a2da6d439bea8c465064c621",
+      "truth": [
+        "typer/main.py",
+        "typer/models.py"
+      ],
+      "needed_clarification": true,
+      "source": "random",
+      "predicted": [
+        "typer/main.py",
+        "scripts/docs.py",
+        "typer/_completion_shared.py",
+        "scripts/deploy_docs_status.py",
+        "typer/core.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.5,
+        "hit@3": true,
+        "cov@3": 0.5,
+        "hit@5": true,
+        "cov@5": 0.5,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "fastapi/typer",
+      "issue_number": 1159,
+      "issue_url": "https://github.com/fastapi/typer/issues/1159",
+      "pr_number": 1356,
+      "base_sha": "6382ee250eeb610d9bed5a68ad9bdb46331ff971",
+      "truth": [
+        "typer/rich_utils.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "typer/main.py",
+        "typer/rich_utils.py",
+        "scripts/docs.py",
+        "typer/_completion_shared.py",
+        "typer/cli.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 2
+      }
+    },
+    {
+      "repo": "fastapi/typer",
+      "issue_number": 447,
+      "issue_url": "https://github.com/fastapi/typer/issues/447",
+      "pr_number": 815,
+      "base_sha": "83eaba8d6822023b4d46212c8ef75bbd707cc49d",
+      "truth": [
+        "typer/rich_utils.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "typer/rich_utils.py",
+        "typer/main.py",
+        "typer/core.py",
+        "scripts/docs.py",
+        "typer/_completion_shared.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 1.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "fastapi/typer",
+      "issue_number": 1787,
+      "issue_url": "https://github.com/fastapi/typer/issues/1787",
+      "pr_number": 1788,
+      "base_sha": "959a356fec72cedcfd4ee3f84790789f8e961989",
+      "truth": [
+        "typer/core.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "typer/main.py",
+        "typer/params.py",
+        "scripts/docs.py",
+        "typer/models.py",
+        "typer/_click/core.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": false,
+        "cov@5": 0.0,
+        "first_hit_rank": null
+      }
+    },
+    {
+      "repo": "fastapi/typer",
+      "issue_number": 1156,
+      "issue_url": "https://github.com/fastapi/typer/issues/1156",
+      "pr_number": 1410,
+      "base_sha": "b7cb8c7a5879cafb5a787db9f6d960c0654e0123",
+      "truth": [
+        "typer/rich_utils.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "typer/main.py",
+        "typer/params.py",
+        "typer/_click/core.py",
+        "typer/core.py",
+        "typer/models.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": false,
+        "cov@5": 0.0,
+        "first_hit_rank": null
+      }
+    },
+    {
+      "repo": "fastapi/typer",
+      "issue_number": 438,
+      "issue_url": "https://github.com/fastapi/typer/issues/438",
+      "pr_number": 1410,
+      "base_sha": "b7cb8c7a5879cafb5a787db9f6d960c0654e0123",
+      "truth": [
+        "typer/rich_utils.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "typer/main.py",
+        "scripts/docs.py",
+        "typer/models.py",
+        "typer/params.py",
+        "typer/rich_utils.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 5
+      }
+    },
+    {
+      "repo": "fastapi/typer",
+      "issue_number": 427,
+      "issue_url": "https://github.com/fastapi/typer/issues/427",
+      "pr_number": 760,
+      "base_sha": "d6921fb8104c1ad518acdf949a2bc71e0129bb87",
+      "truth": [
+        ".github/workflows/test.yml",
+        "pyproject.toml",
+        "typer/_compat_utils.py",
+        "typer/_completion_classes.py",
+        "typer/_completion_click7.py",
+        "typer/_completion_shared.py",
+        "typer/completion.py",
+        "typer/core.py",
+        "typer/models.py",
+        "typer/rich_utils.py"
+      ],
+      "needed_clarification": true,
+      "source": "label",
+      "predicted": [
+        "typer/main.py",
+        "typer/core.py",
+        "typer/rich_utils.py",
+        "typer/_typing.py",
+        "typer/_completion_shared.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [
+        "typer/_completion_classes.py"
+      ],
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": true,
+        "cov@3": 0.2,
+        "hit@5": true,
+        "cov@5": 0.3,
+        "first_hit_rank": 2
+      }
+    },
+    {
+      "repo": "fastapi/typer",
+      "issue_number": 1503,
+      "issue_url": "https://github.com/fastapi/typer/issues/1503",
+      "pr_number": 1522,
+      "base_sha": "d9b46c3404a8e46f79d3ba924146b0c3fd933199",
+      "truth": [
+        ".github/workflows/test-redistribute.yml",
+        "pdm_build.py",
+        "pyproject.toml",
+        "typer/_completion_shared.py",
+        "typer/completion.py",
+        "typer/core.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "typer/main.py",
+        "typer/params.py",
+        "typer/models.py",
+        "typer/rich_utils.py",
+        "typer/core.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": true,
+        "cov@5": 0.16666666666666666,
+        "first_hit_rank": 5
+      }
+    },
+    {
+      "repo": "fastapi/typer",
+      "issue_number": 118,
+      "issue_url": "https://github.com/fastapi/typer/issues/118",
+      "pr_number": 120,
+      "base_sha": "f6304f16fd5463f7754460b71236f3e1f05d4bcb",
+      "truth": [
+        "typer/main.py"
+      ],
+      "needed_clarification": true,
+      "source": "label",
+      "predicted": [
+        "typer/main.py",
+        "typer/completion.py",
+        "typer/models.py",
+        "typer/__init__.py",
+        "typer/params.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 1.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "fastapi/typer",
+      "issue_number": 359,
+      "issue_url": "https://github.com/fastapi/typer/issues/359",
+      "pr_number": 360,
+      "base_sha": "fda56d00be573d22dc761174895e26a0a1d12e78",
+      "truth": [
+        "typer/_completion_classes.py"
+      ],
+      "needed_clarification": true,
+      "source": "label",
+      "predicted": [
+        "typer/main.py",
+        "typer/rich_utils.py",
+        "typer/core.py",
+        "scripts/docs.py",
+        "typer/_completion_shared.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": false,
+        "cov@5": 0.0,
+        "first_hit_rank": null
+      }
+    },
+    {
+      "repo": "fastapi/typer",
+      "issue_number": 334,
+      "issue_url": "https://github.com/fastapi/typer/issues/334",
+      "pr_number": 737,
+      "base_sha": "fda56d00be573d22dc761174895e26a0a1d12e78",
+      "truth": [
+        "typer/main.py"
+      ],
+      "needed_clarification": true,
+      "source": "regex",
+      "predicted": [
+        "typer/core.py",
+        "scripts/docs.py",
+        "typer/main.py",
+        "typer/rich_utils.py",
+        "typer/_typing.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 3
+      }
+    },
+    {
+      "repo": "fastapi/typer",
+      "issue_number": 221,
+      "issue_url": "https://github.com/fastapi/typer/issues/221",
+      "pr_number": 1504,
+      "base_sha": "ffae793a141c5a073e797952cf29ecb3768380b0",
+      "truth": [
+        "mkdocs.yml",
+        "pyproject.toml",
+        "typer/main.py",
+        "typer/models.py",
+        "typer/params.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "scripts/docs.py",
+        "typer/main.py",
+        "typer/core.py",
+        "typer/_completion_shared.py",
+        "scripts/deploy_docs_status.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": true,
+        "cov@3": 0.2,
+        "hit@5": true,
+        "cov@5": 0.2,
+        "first_hit_rank": 2
+      }
+    },
+    {
+      "repo": "pallets/click",
+      "issue_number": 2939,
+      "issue_url": "https://github.com/pallets/click/issues/2939",
+      "pr_number": 2940,
+      "base_sha": "36deba8a95a2585de1a2aa4475b7f054f52830ac",
+      "truth": [
+        "CHANGES.rst",
+        "src/click/testing.py"
+      ],
+      "needed_clarification": true,
+      "source": "regex",
+      "predicted": [
+        "src/click/core.py",
+        "src/click/testing.py",
+        "src/click/termui.py",
+        "src/click/utils.py",
+        "src/click/_termui_impl.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": true,
+        "cov@3": 0.5,
+        "hit@5": true,
+        "cov@5": 0.5,
+        "first_hit_rank": 2
+      }
+    },
+    {
+      "repo": "pallets/flask",
+      "issue_number": 5553,
+      "issue_url": "https://github.com/pallets/flask/issues/5553",
+      "pr_number": 5634,
+      "base_sha": "07c7d5730a2685ef2281cc635e289685e5c3d478",
+      "truth": [
+        "CHANGES.rst",
+        "src/flask/app.py"
+      ],
+      "needed_clarification": true,
+      "source": "regex",
+      "predicted": [
+        "src/flask/app.py",
+        "src/flask/sansio/app.py",
+        "src/flask/helpers.py",
+        "src/flask/cli.py",
+        "src/flask/sansio/scaffold.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.5,
+        "hit@3": true,
+        "cov@3": 0.5,
+        "hit@5": true,
+        "cov@5": 0.5,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pallets/flask",
+      "issue_number": 5636,
+      "issue_url": "https://github.com/pallets/flask/issues/5636",
+      "pr_number": 5637,
+      "base_sha": "10bdf61a0f751f3cb000f8f8ac5ac5b4bb535677",
+      "truth": [
+        "CHANGES.rst",
+        "src/flask/app.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/flask/config.py",
+        "src/flask/sansio/app.py",
+        "src/flask/app.py",
+        "src/flask/sansio/scaffold.py",
+        "src/flask/cli.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": true,
+        "cov@3": 0.5,
+        "hit@5": true,
+        "cov@5": 0.5,
+        "first_hit_rank": 3
+      }
+    },
+    {
+      "repo": "pallets/flask",
+      "issue_number": 5639,
+      "issue_url": "https://github.com/pallets/flask/issues/5639",
+      "pr_number": 5812,
+      "base_sha": "330123258e8c3dc391cbe55ab1ed94891ca83af3",
+      "truth": [
+        "CHANGES.rst",
+        "src/flask/app.py",
+        "src/flask/cli.py",
+        "src/flask/ctx.py",
+        "src/flask/debughelpers.py",
+        "src/flask/globals.py",
+        "src/flask/helpers.py",
+        "src/flask/json/__init__.py",
+        "src/flask/sansio/app.py",
+        "src/flask/sansio/scaffold.py",
+        "src/flask/templating.py",
+        "src/flask/testing.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/flask/app.py",
+        "src/flask/sansio/app.py",
+        "src/flask/cli.py",
+        "src/flask/helpers.py",
+        "src/flask/ctx.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.08333333333333333,
+        "hit@3": true,
+        "cov@3": 0.25,
+        "hit@5": true,
+        "cov@5": 0.4166666666666667,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pallets/flask",
+      "issue_number": 6093,
+      "issue_url": "https://github.com/pallets/flask/issues/6093",
+      "pr_number": 6096,
+      "base_sha": "514fc6b3e8402e4c646d5284e97a4f0ab50a7c4b",
+      "truth": [
+        "src/flask/app.py",
+        "src/flask/testing.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/flask/app.py",
+        "src/flask/sansio/app.py",
+        "src/flask/helpers.py",
+        "src/flask/cli.py",
+        "src/flask/sansio/scaffold.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.5,
+        "hit@3": true,
+        "cov@3": 0.5,
+        "hit@5": true,
+        "cov@5": 0.5,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pallets/flask",
+      "issue_number": 5621,
+      "issue_url": "https://github.com/pallets/flask/issues/5621",
+      "pr_number": 5632,
+      "base_sha": "7522c4bcdb10449dc919e0ffbdebb92fe66822b5",
+      "truth": [
+        "CHANGES.rst",
+        "pyproject.toml",
+        "src/flask/app.py",
+        "src/flask/sessions.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/flask/sessions.py",
+        "src/flask/app.py",
+        "src/flask/helpers.py",
+        "src/flask/cli.py",
+        "src/flask/sansio/app.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.25,
+        "hit@3": true,
+        "cov@3": 0.5,
+        "hit@5": true,
+        "cov@5": 0.5,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pallets/flask",
+      "issue_number": 5729,
+      "issue_url": "https://github.com/pallets/flask/issues/5729",
+      "pr_number": 5736,
+      "base_sha": "85c5d93cbd049c4bd0679c36fd1ddcae8c37b642",
+      "truth": [
+        "CHANGES.rst",
+        "src/flask/sansio/app.py",
+        "src/flask/sansio/blueprints.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/flask/app.py",
+        "src/flask/helpers.py",
+        "src/flask/sansio/app.py",
+        "src/flask/cli.py",
+        "src/flask/config.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": true,
+        "cov@3": 0.3333333333333333,
+        "hit@5": true,
+        "cov@5": 0.3333333333333333,
+        "first_hit_rank": 3
+      }
+    },
+    {
+      "repo": "pallets/flask",
+      "issue_number": 5816,
+      "issue_url": "https://github.com/pallets/flask/issues/5816",
+      "pr_number": 5899,
+      "base_sha": "9b74a90dd3c47f792734823e8793ac36f38bc4dd",
+      "truth": [
+        "CHANGES.rst",
+        "src/flask/app.py",
+        "src/flask/sansio/app.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/flask/app.py",
+        "src/flask/sansio/app.py",
+        "src/flask/cli.py",
+        "src/flask/ctx.py",
+        "src/flask/sansio/scaffold.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.3333333333333333,
+        "hit@3": true,
+        "cov@3": 0.6666666666666666,
+        "hit@5": true,
+        "cov@5": 0.6666666666666666,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pallets/flask",
+      "issue_number": 5815,
+      "issue_url": "https://github.com/pallets/flask/issues/5815",
+      "pr_number": 5818,
+      "base_sha": "adf363679da2d9a5ddc564bb2da563c7ca083916",
+      "truth": [
+        "CHANGES.rst",
+        "src/flask/app.py",
+        "src/flask/ctx.py",
+        "src/flask/templating.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/flask/app.py",
+        "src/flask/cli.py",
+        "src/flask/sansio/app.py",
+        "src/flask/ctx.py",
+        "src/flask/helpers.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.25,
+        "hit@3": true,
+        "cov@3": 0.25,
+        "hit@5": true,
+        "cov@5": 0.5,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pallets/flask",
+      "issue_number": 5776,
+      "issue_url": "https://github.com/pallets/flask/issues/5776",
+      "pr_number": 5777,
+      "base_sha": "c56c5ec7c41e6ffd02516bf7cb80dd2ba9ba7aa3",
+      "truth": [
+        "CHANGES.rst",
+        "src/flask/helpers.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/flask/helpers.py",
+        "src/flask/app.py",
+        "src/flask/cli.py",
+        "src/flask/sansio/app.py",
+        "src/flask/ctx.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 0.5,
+        "hit@3": true,
+        "cov@3": 0.5,
+        "hit@5": true,
+        "cov@5": 0.5,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pallets/flask",
+      "issue_number": 5916,
+      "issue_url": "https://github.com/pallets/flask/issues/5916",
+      "pr_number": 5917,
+      "base_sha": "d3b78fd18a8d9e224cb9ef58a23cec9b1ffc9ce9",
+      "truth": [
+        "CHANGES.rst",
+        "src/flask/sansio/app.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/flask/app.py",
+        "src/flask/sansio/app.py",
+        "src/flask/cli.py",
+        "src/flask/sansio/scaffold.py",
+        "src/flask/ctx.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": true,
+        "cov@3": 0.5,
+        "hit@5": true,
+        "cov@5": 0.5,
+        "first_hit_rank": 2
+      }
+    },
+    {
+      "repo": "pallets/flask",
+      "issue_number": 5895,
+      "issue_url": "https://github.com/pallets/flask/issues/5895",
+      "pr_number": 5898,
+      "base_sha": "eb58d862cc4a8f31a369b6e9ad1724e9e642f13f",
+      "truth": [
+        "CHANGES.rst",
+        "src/flask/helpers.py",
+        "src/flask/sansio/app.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/flask/app.py",
+        "src/flask/cli.py",
+        "src/flask/sansio/app.py",
+        "src/flask/helpers.py",
+        "src/flask/ctx.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": true,
+        "cov@3": 0.3333333333333333,
+        "hit@5": true,
+        "cov@5": 0.6666666666666666,
+        "first_hit_rank": 3
+      }
+    },
+    {
+      "repo": "psf/requests",
+      "issue_number": 7434,
+      "issue_url": "https://github.com/psf/requests/issues/7434",
+      "pr_number": 7436,
+      "base_sha": "0b401c76b6e80a4eecf3c690085b2553f6e261ca",
+      "truth": [
+        "src/requests/_types.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/requests/models.py",
+        "src/requests/sessions.py",
+        "src/requests/utils.py",
+        "src/requests/help.py",
+        "src/requests/__init__.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": false,
+        "cov@5": 0.0,
+        "first_hit_rank": null
+      }
+    },
+    {
+      "repo": "psf/requests",
+      "issue_number": 7432,
+      "issue_url": "https://github.com/psf/requests/issues/7432",
+      "pr_number": 7433,
+      "base_sha": "0b401c76b6e80a4eecf3c690085b2553f6e261ca",
+      "truth": [
+        "src/requests/models.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/requests/models.py",
+        "src/requests/sessions.py",
+        "src/requests/utils.py",
+        "src/requests/adapters.py",
+        "src/requests/help.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 1.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "psf/requests",
+      "issue_number": 6643,
+      "issue_url": "https://github.com/psf/requests/issues/6643",
+      "pr_number": 6644,
+      "base_sha": "382fc2c0c6c0ef0874bc65bc1175f97c073e5086",
+      "truth": [
+        "src/requests/adapters.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/requests/models.py",
+        "src/requests/utils.py",
+        "src/requests/sessions.py",
+        "src/requests/adapters.py",
+        "src/requests/auth.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 4
+      }
+    },
+    {
+      "repo": "psf/requests",
+      "issue_number": 6859,
+      "issue_url": "https://github.com/psf/requests/issues/6859",
+      "pr_number": 6865,
+      "base_sha": "47914226c2968802f2cdee3f6f0f6e06e4472f64",
+      "truth": [
+        "src/requests/sessions.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/requests/models.py",
+        "src/requests/sessions.py",
+        "src/requests/adapters.py",
+        "src/requests/utils.py",
+        "src/requests/cookies.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 2
+      }
+    },
+    {
+      "repo": "psf/requests",
+      "issue_number": 7375,
+      "issue_url": "https://github.com/psf/requests/issues/7375",
+      "pr_number": 7376,
+      "base_sha": "5f3ff9b9e4d3d44960467e7877e06e9efa22f20b",
+      "truth": [
+        "src/requests/__init__.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/requests/__init__.py",
+        "src/requests/models.py",
+        "src/requests/utils.py",
+        "src/requests/sessions.py",
+        "src/requests/adapters.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 1.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "psf/requests",
+      "issue_number": 6813,
+      "issue_url": "https://github.com/psf/requests/issues/6813",
+      "pr_number": 6994,
+      "base_sha": "91a3eabd3dcc4d7f36dd8249e4777a90ef9b4305",
+      "truth": [
+        "src/requests/sessions.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/requests/sessions.py",
+        "src/requests/adapters.py",
+        "src/requests/api.py",
+        "src/requests/models.py",
+        "src/requests/exceptions.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 1.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "psf/requests",
+      "issue_number": 4795,
+      "issue_url": "https://github.com/psf/requests/issues/4795",
+      "pr_number": 7427,
+      "base_sha": "b684dcb9bbf3aa557d1238e72062c4a29737dd1c",
+      "truth": [
+        "src/requests/utils.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/requests/utils.py",
+        "src/requests/sessions.py",
+        "src/requests/models.py",
+        "src/requests/help.py",
+        "src/requests/adapters.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 1.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "psf/requests",
+      "issue_number": 7442,
+      "issue_url": "https://github.com/psf/requests/issues/7442",
+      "pr_number": 7441,
+      "base_sha": "b7b549b54571d03950b16afd2d01bc6ff0348224",
+      "truth": [
+        "src/requests/_types.py",
+        "src/requests/models.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/requests/help.py",
+        "src/requests/models.py",
+        "src/requests/sessions.py",
+        "src/requests/utils.py",
+        "src/requests/adapters.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": true,
+        "cov@3": 0.5,
+        "hit@5": true,
+        "cov@5": 0.5,
+        "first_hit_rank": 2
+      }
+    },
+    {
+      "repo": "psf/requests",
+      "issue_number": 7219,
+      "issue_url": "https://github.com/psf/requests/issues/7219",
+      "pr_number": 7220,
+      "base_sha": "da9113c0466850a425e554630a732ec1f7d045fc",
+      "truth": [
+        "pyproject.toml",
+        "src/requests/__init__.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/requests/utils.py",
+        "src/requests/__init__.py",
+        "src/requests/models.py",
+        "src/requests/cookies.py",
+        "src/requests/exceptions.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": true,
+        "cov@3": 0.5,
+        "hit@5": true,
+        "cov@5": 0.5,
+        "first_hit_rank": 2
+      }
+    },
+    {
+      "repo": "psf/requests",
+      "issue_number": 6159,
+      "issue_url": "https://github.com/psf/requests/issues/6159",
+      "pr_number": 6356,
+      "base_sha": "e90852d20c9bc44c465e55234c01432711627d94",
+      "truth": [
+        "requests/_internal_utils.py",
+        "requests/utils.py"
+      ],
+      "needed_clarification": true,
+      "source": "regex",
+      "predicted": [
+        "requests/models.py",
+        "requests/utils.py",
+        "requests/sessions.py",
+        "requests/adapters.py",
+        "requests/cookies.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": true,
+        "cov@3": 0.5,
+        "hit@5": true,
+        "cov@5": 0.5,
+        "first_hit_rank": 2
+      }
+    },
+    {
+      "repo": "psf/requests",
+      "issue_number": 6810,
+      "issue_url": "https://github.com/psf/requests/issues/6810",
+      "pr_number": 7310,
+      "base_sha": "f0198e6dfc431a2293dc16e1b1e8fcddc910a7f3",
+      "truth": [
+        "src/requests/auth.py"
+      ],
+      "needed_clarification": false,
+      "source": "random",
+      "predicted": [
+        "src/requests/sessions.py",
+        "src/requests/utils.py",
+        "src/requests/models.py",
+        "src/requests/adapters.py",
+        "src/requests/auth.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 5
+      }
+    },
+    {
+      "repo": "pydantic/pydantic",
+      "issue_number": 8760,
+      "issue_url": "https://github.com/pydantic/pydantic/issues/8760",
+      "pr_number": 9008,
+      "base_sha": "18d39febf00cb07954e19ebbdbd8168ef20e3df1",
+      "truth": [
+        "pydantic/mypy.py"
+      ],
+      "needed_clarification": true,
+      "source": "label",
+      "predicted": [
+        "pydantic/mypy.py",
+        "pydantic/v1/mypy.py",
+        "pydantic/_internal/_model_construction.py",
+        "pydantic/json_schema.py",
+        "pydantic/main.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": true,
+        "cov@1": 1.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 1
+      }
+    },
+    {
+      "repo": "pydantic/pydantic",
+      "issue_number": 940,
+      "issue_url": "https://github.com/pydantic/pydantic/issues/940",
+      "pr_number": 941,
+      "base_sha": "25f657fd5ff03f661cb84656747b0a90bad02c46",
+      "truth": [
+        "pydantic/class_validators.py"
+      ],
+      "needed_clarification": true,
+      "source": "label",
+      "predicted": [
+        "pydantic/fields.py",
+        "pydantic/validators.py",
+        "pydantic/schema.py",
+        "pydantic/main.py",
+        "pydantic/color.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": false,
+        "cov@5": 0.0,
+        "first_hit_rank": null
+      }
+    },
+    {
+      "repo": "pydantic/pydantic",
+      "issue_number": 8071,
+      "issue_url": "https://github.com/pydantic/pydantic/issues/8071",
+      "pr_number": 10666,
+      "base_sha": "27afdfc9120c7a5b1071d907a25c37b46b103292",
+      "truth": [
+        "pydantic/_internal/_generate_schema.py"
+      ],
+      "needed_clarification": true,
+      "source": "label",
+      "predicted": [
+        "pydantic/mypy.py",
+        "pydantic/_internal/_generate_schema.py",
+        "pydantic/main.py",
+        "pydantic/json_schema.py",
+        "pydantic/config.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": true,
+        "cov@3": 1.0,
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 2
+      }
+    },
+    {
+      "repo": "pydantic/pydantic",
+      "issue_number": 7713,
+      "issue_url": "https://github.com/pydantic/pydantic/issues/7713",
+      "pr_number": 13922,
+      "base_sha": "98e9ecec0a5e56cfc92a8882eca19d525340ba98",
+      "truth": [
+        "pydantic-core/src/lookup_key.rs",
+        "pydantic-core/src/serializers/infer.rs",
+        "pydantic-core/src/serializers/polymorphism_trampoline.rs",
+        "pydantic-core/src/tools.rs",
+        "pydantic/_internal/_mock_val_ser.py"
+      ],
+      "needed_clarification": true,
+      "source": "regex",
+      "predicted": [
+        "pydantic/main.py",
+        "pydantic/_internal/_generate_schema.py",
+        "pydantic/config.py",
+        "pydantic/types.py",
+        "pydantic/json_schema.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": false,
+        "cov@5": 0.0,
+        "first_hit_rank": null
+      }
+    },
+    {
+      "repo": "pydantic/pydantic",
+      "issue_number": 8591,
+      "issue_url": "https://github.com/pydantic/pydantic/issues/8591",
+      "pr_number": 8639,
+      "base_sha": "a280f138c8c5c984a007168bd30f4349f6d4b7e2",
+      "truth": [
+        "pydantic/networks.py",
+        "pydantic/root_model.py"
+      ],
+      "needed_clarification": true,
+      "source": "label",
+      "predicted": [
+        "pydantic/mypy.py",
+        "pydantic/main.py",
+        "pydantic/type_adapter.py",
+        "pydantic/_internal/_generate_schema.py",
+        "pydantic/config.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": false,
+        "cov@5": 0.0,
+        "first_hit_rank": null
+      }
+    },
+    {
+      "repo": "pydantic/pydantic",
+      "issue_number": 9909,
+      "issue_url": "https://github.com/pydantic/pydantic/issues/9909",
+      "pr_number": 9932,
+      "base_sha": "cc90fb060d9f7b9abb7cecafc118a06f2b5df4f9",
+      "truth": [
+        "pydantic/_internal/_generate_schema.py"
+      ],
+      "needed_clarification": true,
+      "source": "label",
+      "predicted": [
+        "pydantic/fields.py",
+        "pydantic/config.py",
+        "pydantic/main.py",
+        "pydantic/mypy.py",
+        "pydantic/types.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": false,
+        "cov@5": 0.0,
+        "first_hit_rank": null
+      }
+    },
+    {
+      "repo": "pydantic/pydantic",
+      "issue_number": 8291,
+      "issue_url": "https://github.com/pydantic/pydantic/issues/8291",
+      "pr_number": 10030,
+      "base_sha": "ddc8f58301efe378e1fc3eb342e13a6e49126b21",
+      "truth": [
+        "pydantic/_internal/_typing_extra.py"
+      ],
+      "needed_clarification": true,
+      "source": "label",
+      "predicted": [
+        "pydantic/main.py",
+        "pydantic/mypy.py",
+        "pydantic/types.py",
+        "pydantic/fields.py",
+        "pydantic/_internal/_generate_schema.py"
+      ],
+      "verdict_status": null,
+      "error": null,
+      "truth_absent_at_base": [],
+      "metrics": {
+        "hit@1": false,
+        "cov@1": 0.0,
+        "hit@3": false,
+        "cov@3": 0.0,
+        "hit@5": false,
+        "cov@5": 0.0,
+        "first_hit_rank": null
+      }
+    }
+  ]
+}
