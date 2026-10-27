@@ -326,3 +326,56 @@ Worst 10 misses (lowest cov@5, fewest true files first):
 - https://github.com/pydantic/pydantic/issues/13977 cov@5=0.000 | truth: .github/workflows/ci.yml | predicted: pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi, pydantic-core/src/errors/validation_exception.rs, pyproject.toml
 - https://github.com/pydantic/pydantic/issues/13976 cov@5=0.000 | truth: pydantic/_internal/_validators.py | predicted: pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi, pydantic-core/python/pydantic_core/core_schema.py, pyproject.toml
 - https://github.com/pydantic/pydantic/issues/14041 cov@5=0.000 | truth: pydantic/_internal/_docs_extraction.py | predicted: pydantic/main.py, pydantic/json_schema.py, pyproject.toml
+
+## 2026-10-27 06:48 | HELD-OUT set | variant `grep` | k=5 | n=58
+
+Set: held-out (`evidence/heldout.jsonl`). None of these issues were used to build or tune Ready.
+
+Note: engine HEAD a4a094b (ready/ last changed in a4a094b).
+
+Pairs scored: 58, errors: 0, wall time: 276s. Truth files: 139, of which 3 do not exist at base_sha (new files, unpredictable by retrieval).
+
+hit@k = at least one true file in the top k. cov@k = mean fraction of the PR's source files found in the top k.
+
+| repo | n | hit@1 | hit@3 | hit@5 | cov@1 | cov@3 | cov@5 |
+|---|---|---|---|---|---|---|---|
+| Kludex/starlette | 12 | 0.667 | 0.833 | 0.833 | 0.591 | 0.691 | 0.691 |
+| encode/httpx | 2 | 0.000 | 0.500 | 1.000 | 0.000 | 0.125 | 0.750 |
+| fastapi/typer | 14 | 0.214 | 0.714 | 0.857 | 0.121 | 0.440 | 0.655 |
+| pallets/click | 1 | 1.000 | 1.000 | 1.000 | 0.500 | 0.500 | 0.500 |
+| pallets/flask | 11 | 0.727 | 0.909 | 1.000 | 0.258 | 0.470 | 0.553 |
+| psf/requests | 11 | 0.545 | 0.818 | 0.909 | 0.500 | 0.727 | 0.773 |
+| pydantic/pydantic | 7 | 0.143 | 0.571 | 0.714 | 0.143 | 0.500 | 0.643 |
+| **overall** | 58 | 0.466 | 0.776 | 0.879 | 0.321 | 0.550 | 0.664 |
+| overall, pairs with a code file in truth | 57 | 0.474 | 0.789 | 0.895 | 0.327 | 0.559 | 0.676 |
+
+Readiness check: `verdict.status == "needs_human"` vs proxy label `needed_clarification`.
+
+| | gold needed_clarification | gold not |
+|---|---|---|
+| predicted needs_human | TP 4 | FP 10 |
+| predicted agent_ready | FN 17 | TN 27 |
+
+n=58, accuracy 0.534, precision 0.286, recall 0.190, predicted needs_human 14, gold positives 21. needs_human rate on gold positives 0.190, on gold negatives (false-alarm rate) 0.270.
+
+needs_human rate by how the pair was selected:
+
+| source / gold | n | needs_human | rate |
+|---|---|---|---|
+| label / pos | 10 | 4 | 0.400 |
+| random / neg | 37 | 10 | 0.270 |
+| random / pos | 3 | 0 | 0.000 |
+| regex / pos | 8 | 0 | 0.000 |
+
+Worst 10 misses (lowest cov@5, fewest true files first):
+
+- https://github.com/Kludex/starlette/issues/1724 cov@5=0.000 | truth: mkdocs.yml | predicted: starlette/routing.py, starlette/applications.py, starlette/background.py
+- https://github.com/fastapi/typer/issues/438 cov@5=0.000 | truth: typer/rich_utils.py | predicted: typer/main.py, typer/params.py, typer/_click/utils.py
+- https://github.com/fastapi/typer/issues/359 cov@5=0.000 | truth: typer/_completion_classes.py | predicted: typer/main.py, typer/_completion_shared.py, typer/core.py
+- https://github.com/psf/requests/issues/7434 cov@5=0.000 | truth: src/requests/_types.py | predicted: src/requests/models.py, src/requests/sessions.py, src/requests/utils.py
+- https://github.com/pydantic/pydantic/issues/9909 cov@5=0.000 | truth: pydantic/_internal/_generate_schema.py | predicted: pydantic/main.py, pydantic/json_schema.py, pydantic/fields.py
+- https://github.com/Kludex/starlette/issues/2155 cov@5=0.000 | truth: starlette/applications.py, starlette/formparsers.py, starlette/middleware/body_limit.py, starlette/routing.py | predicted: starlette/requests.py, starlette/responses.py, starlette/testclient.py
+- https://github.com/pydantic/pydantic/issues/7713 cov@5=0.000 | truth: pydantic-core/src/lookup_key.rs, pydantic-core/src/serializers/infer.rs, pydantic-core/src/serializers/polymorphism_trampoline.rs, pydantic-core/src/tools.rs ... | predicted: pydantic/main.py, pydantic/v1/main.py, pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi
+- https://github.com/Kludex/starlette/issues/64 cov@5=0.091 | truth: .travis.yml, mkdocs.yml, scripts/lint, scripts/test ... | predicted: starlette/applications.py, starlette/exceptions.py, starlette/middleware/httpsredirect.py
+- https://github.com/fastapi/typer/issues/1503 cov@5=0.167 | truth: .github/workflows/test-redistribute.yml, pdm_build.py, pyproject.toml, typer/_completion_shared.py ... | predicted: typer/main.py, typer/_completion_shared.py, typer/params.py
+- https://github.com/Kludex/starlette/issues/3308 cov@5=0.200 | truth: mkdocs.yml, starlette/endpoints.py, starlette/middleware/base.py, starlette/middleware/gzip.py ... | predicted: starlette/status.py, starlette/requests.py, starlette/routing.py

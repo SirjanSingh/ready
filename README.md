@@ -25,17 +25,26 @@ Alan's PM Agent shapes requirements, but it can't run commands. Ready reads the 
 Evaluated on real, closed GitHub issues that were fixed by a merged PR. Ready sees only the issue text as filed. Its predicted files are compared with the files the PR actually changed, from git, not from labels anyone wrote.
 
 <!-- RESULTS:START -->
-Dev set: 60 issues from encode/httpx, pydantic/pydantic, pallets/click and fastapi/sqlmodel, using repo search only (no model).
+**Where the fix lives.** Does a file the real PR changed appear in Ready's top k? Repo search only, no model. Engine commit `a4a094b`.
 
-| | hit@1 | hit@3 | hit@5 |
-|---|---|---|---|
-| all issues | 0.45 | 0.68 | 0.77 |
-| issues whose fix touched code | 0.50 | 0.76 | 0.85 |
+| set | issues | hit@1 | hit@3 | hit@5 |
+|---|---|---|---|---|
+| **held-out** (none used to build or tune Ready; 48 of 58 from flask, starlette, typer, requests) | 58 | 0.47 | **0.78** | **0.88** |
+| dev (httpx, pydantic, click, sqlmodel; the rules were tuned here) | 60 | 0.47 | 0.70 | 0.77 |
 
-The readiness rules were calibrated on this same set. They flag 6 of 60 (10%) as needs-human, where maintainers fixed the issue without asking anything. Held-out numbers from repos the rules never saw are in [`evidence/results.md`](evidence/results.md).
+**Is it ready.** This is the weak part, and it is reported as measured. On the held-out set, Ready holds back 4 of the 10 issues that maintainers explicitly labelled "needs more info" or "awaiting response". It also flags 27% of ordinary issues that were fixed without anyone asking a question. On the dev set, which it was calibrated on, the false-alarm rate is 10%. The rules lean cautious: a false "needs-human" costs one question, while a false "agent-ready" costs a wasted run.
+
+**Red team.** Seven hostile issues in [`redteam/cases.yaml`](redteam/cases.yaml), all run as tests:
+- instructions aimed at the agent
+- fake system prompts
+- an injection inside an otherwise good issue
+- a planted path that doesn't exist in the repo
+- a benign issue that merely mentions AI, which must *not* be flagged
+
+The injection check fired on 0 of the 60 real dev issues.
+
+Full tables, per-repo numbers and the worst misses are in [`evidence/results.md`](evidence/results.md). What went wrong while building it is in [`what-broke.md`](what-broke.md), including a change that made the held-out numbers worse and was rolled back.
 <!-- RESULTS:END -->
-
-The misses are listed in `evidence/results.md`. The biggest class is fixes that live in config (`pyproject.toml`, CI YAML, `mkdocs.yml`), which code search does not rank. See [`what-broke.md`](what-broke.md).
 
 ## Use it
 
@@ -43,6 +52,7 @@ The misses are listed in `evidence/results.md`. The biggest class is fixes that 
 uv tool install git+https://github.com/SirjanSingh/ready
 ready check https://github.com/owner/repo/issues/42 --repo path/to/checkout          # prints the verdict
 ready check https://github.com/owner/repo/issues/42 --repo path/to/checkout --post   # comments + labels
+ready plan  URL1 URL2 URL3 --repo path/to/checkout                                 # which can run in parallel
 ```
 
 **In Alan.** Import `skills/ready` as a team skill (Skills -> Import -> From GitHub), and add the MCP server as a custom connector:

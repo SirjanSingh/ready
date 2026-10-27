@@ -1,20 +1,20 @@
 {
   "variant": "grep",
   "k": 5,
-  "date": "2026-10-27T06:28:10",
+  "date": "2026-10-27T06:48:59",
   "set": "held-out",
   "pairs_file": "evidence/heldout.jsonl",
-  "note": "engine HEAD e130718 (ready/ last changed in e130718) at start, HEAD 79d8054 (ready/ last changed in e130718) at end (ready/ changed during the run; numbers may mix versions).",
-  "elapsed_s": 283,
+  "note": "engine HEAD a4a094b (ready/ last changed in a4a094b).",
+  "elapsed_s": 276,
   "overall": {
     "n": 58,
     "errors": 0,
     "hit@1": 0.46551724137931033,
     "cov@1": 0.32110762800417975,
-    "hit@3": 0.7068965517241379,
-    "cov@3": 0.5093260188087774,
-    "hit@5": 0.8448275862068966,
-    "cov@5": 0.6466823406478579,
+    "hit@3": 0.7758620689655172,
+    "cov@3": 0.5495559038662488,
+    "hit@5": 0.8793103448275862,
+    "cov@5": 0.6644984326018808,
     "truth_files": 139,
     "truth_files_absent_at_base": 3
   },
@@ -23,10 +23,10 @@
     "errors": 0,
     "hit@1": 0.47368421052631576,
     "cov@1": 0.32674109516214783,
-    "hit@3": 0.7192982456140351,
-    "cov@3": 0.5182615629984051,
-    "hit@5": 0.8596491228070176,
-    "cov@5": 0.6580276448697502,
+    "hit@3": 0.7894736842105263,
+    "cov@3": 0.559197235513025,
+    "hit@5": 0.8947368421052632,
+    "cov@5": 0.6761562998405103,
     "truth_files": 138,
     "truth_files_absent_at_base": 3
   },
@@ -61,9 +61,9 @@
       "hit@1": 0.21428571428571427,
       "cov@1": 0.12142857142857143,
       "hit@3": 0.7142857142857143,
-      "cov@3": 0.4523809523809524,
-      "hit@5": 0.7857142857142857,
-      "cov@5": 0.6166666666666666,
+      "cov@3": 0.4404761904761905,
+      "hit@5": 0.8571428571428571,
+      "cov@5": 0.6547619047619048,
       "truth_files": 38,
       "truth_files_absent_at_base": 1
     },
@@ -84,8 +84,8 @@
       "errors": 0,
       "hit@1": 0.7272727272727273,
       "cov@1": 0.25757575757575757,
-      "hit@3": 0.8181818181818182,
-      "cov@3": 0.42424242424242425,
+      "hit@3": 0.9090909090909091,
+      "cov@3": 0.4696969696969697,
       "hit@5": 1.0,
       "cov@5": 0.553030303030303,
       "truth_files": 39,
@@ -96,10 +96,10 @@
       "errors": 0,
       "hit@1": 0.5454545454545454,
       "cov@1": 0.5,
-      "hit@3": 0.6363636363636364,
-      "cov@3": 0.6363636363636364,
+      "hit@3": 0.8181818181818182,
+      "cov@3": 0.7272727272727273,
       "hit@5": 0.9090909090909091,
-      "cov@5": 0.8181818181818182,
+      "cov@5": 0.7727272727272727,
       "truth_files": 14,
       "truth_files_absent_at_base": 0
     },
@@ -108,10 +108,10 @@
       "errors": 0,
       "hit@1": 0.14285714285714285,
       "cov@1": 0.14285714285714285,
-      "hit@3": 0.42857142857142855,
-      "cov@3": 0.35714285714285715,
-      "hit@5": 0.5714285714285714,
-      "cov@5": 0.5,
+      "hit@3": 0.5714285714285714,
+      "cov@3": 0.5,
+      "hit@5": 0.7142857142857143,
+      "cov@5": 0.6428571428571429,
       "truth_files": 12,
       "truth_files_absent_at_base": 0
     }
@@ -1134,9 +1134,9 @@
       "predicted": [
         "starlette/testclient.py",
         "starlette/requests.py",
-        "pyproject.toml",
         "starlette/responses.py",
-        "starlette/middleware/body_limit.py"
+        "starlette/middleware/body_limit.py",
+        "starlette/middleware/base.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -1147,17 +1147,17 @@
         "footprint": [
           "starlette/testclient.py",
           "starlette/requests.py",
-          "pyproject.toml",
           "starlette/responses.py",
           "starlette/middleware/body_limit.py",
           "starlette/middleware/base.py",
+          "pyproject.toml",
           "starlette/websockets.py",
           "benchmarks/_utils.py"
         ],
         "tests": [
           "tests/test_testclient.py",
           "tests/test_requests.py",
-          "tests/conftest.py"
+          "tests/test_responses.py"
         ],
         "test_cmd": "bash scripts/test",
         "summary": "TestClient.request does not honor stream=True",
@@ -2085,9 +2085,9 @@
       "predicted": [
         "typer/main.py",
         "typer/params.py",
-        "pyproject.toml",
-        "mkdocs.yml",
-        "typer/_click/core.py"
+        "typer/_click/core.py",
+        "typer/rich_utils.py",
+        "typer/_click/utils.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -2098,17 +2098,17 @@
         "footprint": [
           "typer/main.py",
           "typer/params.py",
-          "pyproject.toml",
-          "mkdocs.yml",
           "typer/_click/core.py",
           "typer/rich_utils.py",
           "typer/_click/utils.py",
+          "pyproject.toml",
+          "mkdocs.yml",
           "typer/core.py"
         ],
         "tests": [
           "tests/test_ambiguous_params.py",
-          "tests/assets/type_error_no_rich.py",
-          "tests/assets/type_error_no_rich_short_disable.py"
+          "tests/test_core.py",
+          "tests/assets/type_error_no_rich.py"
         ],
         "test_cmd": "bash scripts/test.sh",
         "summary": "Argument(metavar=\"MY_ARG\") has different meaning for the arguments panel compared to the usage text or the non-rich help output",
@@ -2157,9 +2157,9 @@
         "cov@1": 0.0,
         "hit@3": false,
         "cov@3": 0.0,
-        "hit@5": false,
-        "cov@5": 0.0,
-        "first_hit_rank": null
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 4
       }
     },
     {
@@ -2276,9 +2276,9 @@
       "predicted": [
         "typer/main.py",
         "typer/core.py",
-        "pyproject.toml",
         "typer/rich_utils.py",
-        "typer/_compat_utils.py"
+        "typer/_compat_utils.py",
+        "typer/utils.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -2291,17 +2291,17 @@
         "footprint": [
           "typer/main.py",
           "typer/core.py",
-          "pyproject.toml",
           "typer/rich_utils.py",
           "typer/_compat_utils.py",
           "typer/utils.py",
+          "pyproject.toml",
           ".github/actions/comment-docs-preview-in-pr/app/main.py",
           "typer/_completion_shared.py"
         ],
         "tests": [
+          "tests/test_rich_utils.py",
           "tests/assets/type_error_no_rich.py",
-          "tests/assets/type_error_no_rich_short_disable.py",
-          "tests/assets/type_error_normal_traceback.py"
+          "tests/assets/type_error_no_rich_short_disable.py"
         ],
         "test_cmd": "bash scripts/test.sh",
         "summary": "click.utils has no attribute _expand_args (click version 7.1.2, typer version 0.6.1)",
@@ -2351,7 +2351,7 @@
         "hit@3": true,
         "cov@3": 0.2,
         "hit@5": true,
-        "cov@5": 0.4,
+        "cov@5": 0.3,
         "first_hit_rank": 2
       }
     },
@@ -2374,9 +2374,9 @@
       "predicted": [
         "typer/main.py",
         "typer/_completion_shared.py",
-        "pyproject.toml",
         "typer/params.py",
-        "typer/models.py"
+        "typer/models.py",
+        "typer/rich_utils.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -2387,17 +2387,17 @@
         "footprint": [
           "typer/main.py",
           "typer/_completion_shared.py",
-          "pyproject.toml",
           "typer/params.py",
           "typer/models.py",
           "typer/rich_utils.py",
+          "pyproject.toml",
           "typer/cli.py",
           "typer/completion.py"
         ],
         "tests": [
+          "tests/test_ambiguous_params.py",
           "tests/assets/type_error_no_rich.py",
-          "tests/assets/type_error_no_rich_short_disable.py",
-          "tests/assets/type_error_normal_traceback.py"
+          "tests/assets/type_error_no_rich_short_disable.py"
         ],
         "test_cmd": "bash scripts/test.sh",
         "summary": "Overlap of typer and typer-slim causes package managemers to fail",
@@ -2452,9 +2452,9 @@
         "hit@1": false,
         "cov@1": 0.0,
         "hit@3": true,
-        "cov@3": 0.3333333333333333,
+        "cov@3": 0.16666666666666666,
         "hit@5": true,
-        "cov@5": 0.3333333333333333,
+        "cov@5": 0.16666666666666666,
         "first_hit_rank": 2
       }
     },
@@ -2761,9 +2761,9 @@
       "predicted": [
         "typer/_completion_shared.py",
         "typer/cli.py",
-        "mkdocs.yml",
         "typer/main.py",
-        "typer/completion.py"
+        "typer/completion.py",
+        "typer/_completion_classes.py"
       ],
       "verdict_status": "needs_human",
       "error": null,
@@ -2774,10 +2774,10 @@
         "footprint": [
           "typer/_completion_shared.py",
           "typer/cli.py",
-          "mkdocs.yml",
           "typer/main.py",
           "typer/completion.py",
           "typer/_completion_classes.py",
+          "mkdocs.yml",
           "typer/core.py",
           "typer/models.py"
         ],
@@ -2834,7 +2834,7 @@
         "hit@3": true,
         "cov@3": 0.2,
         "hit@5": true,
-        "cov@5": 0.4,
+        "cov@5": 0.2,
         "first_hit_rank": 3
       }
     },
@@ -2853,9 +2853,9 @@
       "predicted": [
         "src/click/testing.py",
         "src/click/core.py",
-        "pyproject.toml",
         "src/click/types.py",
-        "src/click/decorators.py"
+        "src/click/decorators.py",
+        "src/click/utils.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -2866,16 +2866,16 @@
         "footprint": [
           "src/click/testing.py",
           "src/click/core.py",
-          "pyproject.toml",
           "src/click/types.py",
           "src/click/decorators.py",
           "src/click/utils.py",
+          "pyproject.toml",
           "src/click/termui.py",
           "src/click/_termui_impl.py"
         ],
         "tests": [
           "tests/test_testing.py",
-          "tests/test_utils.py"
+          "tests/test_types.py"
         ],
         "test_cmd": "pytest",
         "summary": "Click 8.2.1 CliRunner raises SystemExit(1) when using click.File's stdin support",
@@ -3823,9 +3823,9 @@
       "predicted": [
         "src/flask/views.py",
         "src/flask/app.py",
-        "pyproject.toml",
         "src/flask/sansio/app.py",
-        "src/flask/sansio/scaffold.py"
+        "src/flask/sansio/scaffold.py",
+        "src/flask/cli.py"
       ],
       "verdict_status": "needs_human",
       "error": null,
@@ -3836,10 +3836,10 @@
         "footprint": [
           "src/flask/views.py",
           "src/flask/app.py",
-          "pyproject.toml",
           "src/flask/sansio/app.py",
           "src/flask/sansio/scaffold.py",
           "src/flask/cli.py",
+          "pyproject.toml",
           "src/flask/sansio/blueprints.py",
           "src/flask/helpers.py"
         ],
@@ -3893,11 +3893,11 @@
       "metrics": {
         "hit@1": false,
         "cov@1": 0.0,
-        "hit@3": false,
-        "cov@3": 0.0,
+        "hit@3": true,
+        "cov@3": 0.5,
         "hit@5": true,
         "cov@5": 0.5,
-        "first_hit_rank": 4
+        "first_hit_rank": 3
       }
     },
     {
@@ -3916,9 +3916,9 @@
       "predicted": [
         "src/flask/sansio/app.py",
         "src/flask/helpers.py",
-        "docs/conf.py",
         "src/flask/app.py",
-        "src/flask/cli.py"
+        "src/flask/cli.py",
+        "src/flask/views.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -3929,10 +3929,10 @@
         "footprint": [
           "src/flask/sansio/app.py",
           "src/flask/helpers.py",
-          "docs/conf.py",
           "src/flask/app.py",
           "src/flask/cli.py",
           "src/flask/views.py",
+          "docs/conf.py",
           "src/flask/sansio/scaffold.py",
           "tests/test_helpers.py"
         ],
@@ -4201,9 +4201,9 @@
       "predicted": [
         "src/requests/sessions.py",
         "src/requests/api.py",
-        "pyproject.toml",
-        "setup.cfg",
-        "src/requests/adapters.py"
+        "src/requests/adapters.py",
+        "src/requests/models.py",
+        "src/requests/cookies.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -4214,11 +4214,11 @@
         "footprint": [
           "src/requests/sessions.py",
           "src/requests/api.py",
-          "pyproject.toml",
-          "setup.cfg",
           "src/requests/adapters.py",
           "src/requests/models.py",
           "src/requests/cookies.py",
+          "pyproject.toml",
+          "setup.cfg",
           "src/requests/utils.py"
         ],
         "tests": [],
@@ -4274,11 +4274,11 @@
       "metrics": {
         "hit@1": false,
         "cov@1": 0.0,
-        "hit@3": false,
-        "cov@3": 0.0,
+        "hit@3": true,
+        "cov@3": 1.0,
         "hit@5": true,
         "cov@5": 1.0,
-        "first_hit_rank": 5
+        "first_hit_rank": 3
       }
     },
     {
@@ -4382,9 +4382,9 @@
       "predicted": [
         "src/requests/__init__.py",
         "src/requests/sessions.py",
-        "pyproject.toml",
-        "setup.py",
-        "src/requests/models.py"
+        "src/requests/models.py",
+        "src/requests/api.py",
+        "src/requests/adapters.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -4395,11 +4395,11 @@
         "footprint": [
           "src/requests/__init__.py",
           "src/requests/sessions.py",
-          "pyproject.toml",
-          "setup.py",
           "src/requests/models.py",
           "src/requests/api.py",
           "src/requests/adapters.py",
+          "pyproject.toml",
+          "setup.py",
           "tests/__init__.py"
         ],
         "tests": [
@@ -4755,9 +4755,9 @@
       "predicted": [
         "src/requests/__init__.py",
         "src/requests/exceptions.py",
-        "pyproject.toml",
-        "setup.py",
-        "src/requests/models.py"
+        "src/requests/models.py",
+        "src/requests/sessions.py",
+        "src/requests/adapters.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -4768,11 +4768,11 @@
         "footprint": [
           "src/requests/__init__.py",
           "src/requests/exceptions.py",
-          "pyproject.toml",
-          "setup.py",
           "src/requests/models.py",
           "src/requests/sessions.py",
           "src/requests/adapters.py",
+          "pyproject.toml",
+          "setup.py",
           "src/requests/auth.py"
         ],
         "tests": [
@@ -4824,9 +4824,9 @@
         "hit@1": true,
         "cov@1": 0.5,
         "hit@3": true,
-        "cov@3": 1.0,
+        "cov@3": 0.5,
         "hit@5": true,
-        "cov@5": 1.0,
+        "cov@5": 0.5,
         "first_hit_rank": 1
       }
     },
@@ -4845,9 +4845,9 @@
       "predicted": [
         "requests/sessions.py",
         "requests/models.py",
-        "pyproject.toml",
-        "setup.cfg",
-        "requests/utils.py"
+        "requests/utils.py",
+        "requests/api.py",
+        "requests/cookies.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -4858,14 +4858,16 @@
         "footprint": [
           "requests/sessions.py",
           "requests/models.py",
-          "pyproject.toml",
-          "setup.cfg",
           "requests/utils.py",
           "requests/api.py",
           "requests/cookies.py",
+          "pyproject.toml",
+          "setup.cfg",
           "requests/structures.py"
         ],
         "tests": [
+          "tests/test_utils.py",
+          "tests/utils.py",
           "tests/test_requests.py"
         ],
         "test_cmd": "make test",
@@ -4920,11 +4922,11 @@
       "metrics": {
         "hit@1": false,
         "cov@1": 0.0,
-        "hit@3": false,
-        "cov@3": 0.0,
+        "hit@3": true,
+        "cov@3": 0.5,
         "hit@5": true,
         "cov@5": 0.5,
-        "first_hit_rank": 5
+        "first_hit_rank": 3
       }
     },
     {
@@ -5031,9 +5033,9 @@
       "predicted": [
         "pydantic/main.py",
         "pydantic/v1/mypy.py",
-        "pyproject.toml",
         "pydantic/mypy.py",
-        "pydantic/v1/main.py"
+        "pydantic/v1/main.py",
+        "pydantic/_internal/_model_construction.py"
       ],
       "verdict_status": "needs_human",
       "error": null,
@@ -5044,10 +5046,10 @@
         "footprint": [
           "pydantic/main.py",
           "pydantic/v1/mypy.py",
-          "pyproject.toml",
           "pydantic/mypy.py",
           "pydantic/v1/main.py",
           "pydantic/_internal/_model_construction.py",
+          "pyproject.toml",
           "pydantic/_internal/_typing_extra.py",
           "pydantic/config.py"
         ],
@@ -5108,11 +5110,11 @@
       "metrics": {
         "hit@1": false,
         "cov@1": 0.0,
-        "hit@3": false,
-        "cov@3": 0.0,
+        "hit@3": true,
+        "cov@3": 1.0,
         "hit@5": true,
         "cov@5": 1.0,
-        "first_hit_rank": 4
+        "first_hit_rank": 3
       }
     },
     {
@@ -5220,9 +5222,9 @@
       "predicted": [
         "pydantic/main.py",
         "pydantic/v1/main.py",
-        "pyproject.toml",
         "pydantic/type_adapter.py",
-        "pydantic/config.py"
+        "pydantic/config.py",
+        "pydantic/_internal/_generate_schema.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -5233,17 +5235,17 @@
         "footprint": [
           "pydantic/main.py",
           "pydantic/v1/main.py",
-          "pyproject.toml",
           "pydantic/type_adapter.py",
           "pydantic/config.py",
           "pydantic/_internal/_generate_schema.py",
+          "pyproject.toml",
           "pydantic/_internal/_generics.py",
           "pydantic/types.py"
         ],
         "tests": [
           "tests/test_main.py",
-          "tests/mypy/test_mypy.py",
-          "tests/test_dunder_all.py"
+          "tests/test_type_adapter.py",
+          "tests/typechecking/type_adapter.py"
         ],
         "test_cmd": "make test",
         "summary": "Inferred nested generic fails validation.",
@@ -5299,9 +5301,9 @@
         "cov@1": 0.0,
         "hit@3": false,
         "cov@3": 0.0,
-        "hit@5": false,
-        "cov@5": 0.0,
-        "first_hit_rank": null
+        "hit@5": true,
+        "cov@5": 1.0,
+        "first_hit_rank": 5
       }
     },
     {
@@ -5322,9 +5324,9 @@
       "predicted": [
         "pydantic/main.py",
         "pydantic/v1/main.py",
-        "pyproject.toml",
         "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
-        "pydantic/root_model.py"
+        "pydantic/root_model.py",
+        "pydantic-core/python/pydantic_core/core_schema.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -5335,17 +5337,17 @@
         "footprint": [
           "pydantic/main.py",
           "pydantic/v1/main.py",
-          "pyproject.toml",
           "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
           "pydantic/root_model.py",
           "pydantic-core/python/pydantic_core/core_schema.py",
+          "pyproject.toml",
           "pydantic/fields.py",
           "pydantic-core/src/serializers/type_serializers/dataclass.rs"
         ],
         "tests": [
           "tests/test_main.py",
-          "tests/mypy/test_mypy.py",
-          "tests/test_dunder_all.py"
+          "tests/test_dunder_all.py",
+          "tests/test_type_hints.py"
         ],
         "test_cmd": "make test",
         "summary": "Error during Serialization (`model_dump`)",
@@ -5421,9 +5423,9 @@
       "predicted": [
         "pydantic/v1/networks.py",
         "pydantic/networks.py",
-        "pyproject.toml",
-        "mkdocs.yml",
-        "pydantic/main.py"
+        "pydantic/main.py",
+        "pydantic/mypy.py",
+        "pydantic/fields.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -5434,17 +5436,17 @@
         "footprint": [
           "pydantic/v1/networks.py",
           "pydantic/networks.py",
-          "pyproject.toml",
-          "mkdocs.yml",
           "pydantic/main.py",
           "pydantic/mypy.py",
           "pydantic/fields.py",
+          "pyproject.toml",
+          "mkdocs.yml",
           "pydantic/types.py"
         ],
         "tests": [
           "tests/test_networks.py",
           "tests/test_networks_ipaddress.py",
-          "tests/benchmarks/test_north_star.py"
+          "tests/test_main.py"
         ],
         "test_cmd": "make test",
         "summary": "HttpUrl docs example has type issues",
@@ -5519,9 +5521,9 @@
       "predicted": [
         "pydantic/main.py",
         "pydantic/json_schema.py",
-        "pyproject.toml",
-        "mkdocs.yml",
-        "pydantic/fields.py"
+        "pydantic/fields.py",
+        "pydantic/root_model.py",
+        "pydantic/type_adapter.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -5532,11 +5534,11 @@
         "footprint": [
           "pydantic/main.py",
           "pydantic/json_schema.py",
-          "pyproject.toml",
-          "mkdocs.yml",
           "pydantic/fields.py",
           "pydantic/root_model.py",
           "pydantic/type_adapter.py",
+          "pyproject.toml",
+          "mkdocs.yml",
           "pydantic/config.py"
         ],
         "tests": [
@@ -5610,9 +5612,9 @@
       "predicted": [
         "pydantic/_internal/_model_construction.py",
         "pydantic/_internal/_typing_extra.py",
-        "pyproject.toml",
-        "mkdocs.yml",
-        "pydantic/_internal/_fields.py"
+        "pydantic/_internal/_fields.py",
+        "pydantic/v1/typing.py",
+        "pydantic/main.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -5623,17 +5625,17 @@
         "footprint": [
           "pydantic/_internal/_model_construction.py",
           "pydantic/_internal/_typing_extra.py",
-          "pyproject.toml",
-          "mkdocs.yml",
           "pydantic/_internal/_fields.py",
           "pydantic/v1/typing.py",
           "pydantic/main.py",
+          "pyproject.toml",
+          "mkdocs.yml",
           "pydantic/typing.py"
         ],
         "tests": [
-          "tests/mypy/test_mypy.py",
-          "tests/test_config.py",
-          "tests/test_model_signature.py"
+          "tests/mypy/modules/computed_fields.py",
+          "tests/mypy/modules/plugin_strict_fields.py",
+          "tests/mypy/outputs/1.0.1/mypy-plugin_ini/plugin_strict_fields.py"
         ],
         "test_cmd": "make test",
         "summary": "Classes that are generic in stubs but not at runtime causes TypeError",
