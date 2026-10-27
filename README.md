@@ -25,7 +25,7 @@ Alan's PM Agent shapes requirements, but it can't run commands. Ready reads the 
 Evaluated on real, closed GitHub issues that were fixed by a merged PR. Ready sees only the issue text as filed. Its predicted files are compared with the files the PR actually changed, from git, not from labels anyone wrote.
 
 <!-- RESULTS:START -->
-**Where the fix lives.** Does a file the real PR changed appear in Ready's top k? Repo search only, no model. Engine commit `a4a094b`.
+**Where the fix lives.** Does a file the real PR changed appear in Ready's top k? Repo search only, no model. Engine commit `6783148`.
 
 | set | issues | hit@1 | hit@3 | hit@5 |
 |---|---|---|---|---|

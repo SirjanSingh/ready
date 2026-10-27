@@ -1,6 +1,6 @@
 # Demo script (target 2:00, hard ceiling 3:00)
 
-One take where possible. Screen: the Alan desktop app on the left, the GitHub issue on the right.
+One take where possible. Screen: Alan (app.tryalan.ai) on the left, the GitHub issue on the right.
 
 | Time | On screen | Say |
 |---|---|---|
@@ -16,5 +16,5 @@ One take where possible. Screen: the Alan desktop app on the left, the GitHub is
 
 Before recording:
 - Re-run `ready check ... --post` on demo issues #1-#3 so the comments are fresh.
-- Make ready and ready-demo public (submission needs a public repo).
+- The 0:00 beat needs the Action on ready-demo: open a fresh "checkout broken, pls fix" issue on camera and wait for the comment (about a minute).
 - If the model key is set, re-run, so the comment footer names the open model.

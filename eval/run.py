@@ -7,7 +7,7 @@ issue as filed (title + body, no comments). Writes evidence/results-<variant>[-<
 and appends a summary to evidence/results.md.
 
 Sets: evidence/pairs.jsonl is the DEV set (ready/checklist.py was calibrated on it in
-a0a5b79, so its readiness numbers are optimistic). evidence/heldout.jsonl is HELD-OUT.
+b3f6d16, so its readiness numbers are optimistic). evidence/heldout.jsonl is HELD-OUT.
 """
 
 from __future__ import annotations

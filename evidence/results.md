@@ -2,6 +2,26 @@
 
 Appended by `eval/run.py`. DEV set: `evidence/pairs.jsonl` (readiness rules were calibrated on it). HELD-OUT set: `evidence/heldout.jsonl`. Each section header says which.
 
+**Commit hashes.** On 27 Oct, before the repo went public, git history was rewritten to drop local notes files (agent instructions, session notes, worker briefs). No file under `ready/`, `eval/`, `tests/` or `evidence/` changed, but every commit hash did. The sections below are left exactly as they were logged, with the old hashes. Map them with this table:
+
+| logged as | now |
+|---|---|
+| 7b70010 | d546470 |
+| 47a0fea | e1040b7 |
+| 5636dee | 0448d92 |
+| a0a5b79 | b3f6d16 |
+| f3f66db | 933477a |
+| 6076543 | 4f2d4d8 |
+| 08d54cf | 7302779 |
+| e130718 | d8bfcd2 |
+| 79d8054 | 7da69b3 |
+| 6b779fc | 80eec2b |
+| a4a094b | 6783148 |
+| 78267f5 | 86603f2 |
+| db48ecf | 814b843 |
+| fe8c67b | c553a27 |
+| 435236b | 112c71d |
+
 ## 2026-10-27 02:22 | variant `grep` | k=5 | n=60
 
 SUPERSEDED: this run started at 01:53:05 while `ready/repo.py` was still being edited (last write 01:53:26, committed in 47a0fea), so it measured an engine version that was never committed. Truth paths starting with `.github/` are also shown without the leading dot. The 02:23 section below rescored it with the path fix and has the same caveat. Use the next section that names an engine commit.
