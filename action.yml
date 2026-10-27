@@ -1,0 +1,51 @@
+name: Ready gate
+description: Check an issue is fit to hand to a coding agent before the agent starts. Posts one comment and an agent-ready or needs-human label.
+author: Sirjan Singh
+branding:
+  icon: check-circle
+  color: green
+
+inputs:
+  issue:
+    description: Issue URL to check. Defaults to the issue that triggered the workflow.
+    required: false
+    default: ""
+  github-token:
+    description: Token used to comment and label. Needs issues write.
+    required: false
+    default: ${{ github.token }}
+  version:
+    description: ready-gate version from PyPI, e.g. "0.2.0". Empty means the latest release.
+    required: false
+    default: ""
+  model-api-key:
+    description: Optional key for an OpenAI-compatible endpoint serving an open model. Without it Ready uses repo search only.
+    required: false
+    default: ""
+  model-base-url:
+    description: Optional OpenAI-compatible base URL.
+    required: false
+    default: ""
+  model:
+    description: Optional model name.
+    required: false
+    default: ""
+
+runs:
+  using: composite
+  steps:
+    - uses: astral-sh/setup-uv@v6
+    - name: Check the issue is ready for an agent
+      if: github.event_name != 'issue_comment' || (github.event.issue.pull_request == null && github.event.comment.user.type != 'Bot')
+      shell: bash
+      env:
+        GITHUB_TOKEN: ${{ inputs.github-token }}
+        READY_API_KEY: ${{ inputs.model-api-key }}
+        READY_BASE_URL: ${{ inputs.model-base-url }}
+        READY_MODEL: ${{ inputs.model }}
+        ISSUE_URL: ${{ inputs.issue || github.event.issue.html_url }}
+        PKG: ready-gate${{ inputs.model-api-key != '' && '[model]' || '' }}${{ inputs.version != '' && format('=={0}', inputs.version) || '' }}
+        RECHECK: ${{ github.event_name == 'issue_comment' && '--recheck' || '' }}
+      run: |
+        if [ -z "$ISSUE_URL" ]; then echo "No issue URL: pass 'issue' or run on an issues/issue_comment event"; exit 1; fi
+        uvx --from "$PKG" ready check "$ISSUE_URL" --repo . --post $RECHECK || [ $? -eq 3 ]
