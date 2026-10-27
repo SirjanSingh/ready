@@ -1,20 +1,20 @@
 {
   "variant": "grep",
   "k": 5,
-  "date": "2026-10-27T05:33:26",
+  "date": "2026-10-27T06:28:10",
   "set": "held-out",
   "pairs_file": "evidence/heldout.jsonl",
-  "note": "engine HEAD 6076543 (ready/ last changed in f3f66db).",
-  "elapsed_s": 412,
+  "note": "engine HEAD e130718 (ready/ last changed in e130718) at start, HEAD 79d8054 (ready/ last changed in e130718) at end (ready/ changed during the run; numbers may mix versions).",
+  "elapsed_s": 283,
   "overall": {
     "n": 58,
     "errors": 0,
     "hit@1": 0.46551724137931033,
     "cov@1": 0.32110762800417975,
-    "hit@3": 0.7758620689655172,
-    "cov@3": 0.5495559038662488,
-    "hit@5": 0.8793103448275862,
-    "cov@5": 0.6644984326018808,
+    "hit@3": 0.7068965517241379,
+    "cov@3": 0.5093260188087774,
+    "hit@5": 0.8448275862068966,
+    "cov@5": 0.6466823406478579,
     "truth_files": 139,
     "truth_files_absent_at_base": 3
   },
@@ -23,10 +23,10 @@
     "errors": 0,
     "hit@1": 0.47368421052631576,
     "cov@1": 0.32674109516214783,
-    "hit@3": 0.7894736842105263,
-    "cov@3": 0.559197235513025,
-    "hit@5": 0.8947368421052632,
-    "cov@5": 0.6761562998405103,
+    "hit@3": 0.7192982456140351,
+    "cov@3": 0.5182615629984051,
+    "hit@5": 0.8596491228070176,
+    "cov@5": 0.6580276448697502,
     "truth_files": 138,
     "truth_files_absent_at_base": 3
   },
@@ -61,9 +61,9 @@
       "hit@1": 0.21428571428571427,
       "cov@1": 0.12142857142857143,
       "hit@3": 0.7142857142857143,
-      "cov@3": 0.4404761904761905,
-      "hit@5": 0.8571428571428571,
-      "cov@5": 0.6547619047619048,
+      "cov@3": 0.4523809523809524,
+      "hit@5": 0.7857142857142857,
+      "cov@5": 0.6166666666666666,
       "truth_files": 38,
       "truth_files_absent_at_base": 1
     },
@@ -84,8 +84,8 @@
       "errors": 0,
       "hit@1": 0.7272727272727273,
       "cov@1": 0.25757575757575757,
-      "hit@3": 0.9090909090909091,
-      "cov@3": 0.4696969696969697,
+      "hit@3": 0.8181818181818182,
+      "cov@3": 0.42424242424242425,
       "hit@5": 1.0,
       "cov@5": 0.553030303030303,
       "truth_files": 39,
@@ -96,10 +96,10 @@
       "errors": 0,
       "hit@1": 0.5454545454545454,
       "cov@1": 0.5,
-      "hit@3": 0.8181818181818182,
-      "cov@3": 0.7272727272727273,
+      "hit@3": 0.6363636363636364,
+      "cov@3": 0.6363636363636364,
       "hit@5": 0.9090909090909091,
-      "cov@5": 0.7727272727272727,
+      "cov@5": 0.8181818181818182,
       "truth_files": 14,
       "truth_files_absent_at_base": 0
     },
@@ -108,10 +108,10 @@
       "errors": 0,
       "hit@1": 0.14285714285714285,
       "cov@1": 0.14285714285714285,
-      "hit@3": 0.5714285714285714,
-      "cov@3": 0.5,
-      "hit@5": 0.7142857142857143,
-      "cov@5": 0.6428571428571429,
+      "hit@3": 0.42857142857142855,
+      "cov@3": 0.35714285714285715,
+      "hit@5": 0.5714285714285714,
+      "cov@5": 0.5,
       "truth_files": 12,
       "truth_files_absent_at_base": 0
     }
@@ -307,7 +307,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 317 words",
+            "detail": "Body has 317 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -405,7 +405,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 216 words",
+            "detail": "Body has 216 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -795,7 +795,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 107 words",
+            "detail": "Body has 107 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -893,7 +893,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 317 words",
+            "detail": "Body has 317 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -1082,7 +1082,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 395 words",
+            "detail": "Body has 395 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -1134,9 +1134,9 @@
       "predicted": [
         "starlette/testclient.py",
         "starlette/requests.py",
+        "pyproject.toml",
         "starlette/responses.py",
-        "starlette/middleware/body_limit.py",
-        "starlette/middleware/base.py"
+        "starlette/middleware/body_limit.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -1147,17 +1147,17 @@
         "footprint": [
           "starlette/testclient.py",
           "starlette/requests.py",
+          "pyproject.toml",
           "starlette/responses.py",
           "starlette/middleware/body_limit.py",
           "starlette/middleware/base.py",
           "starlette/websockets.py",
-          "benchmarks/_utils.py",
-          "benchmarks/streaming_response_benchmark.py"
+          "benchmarks/_utils.py"
         ],
         "tests": [
           "tests/test_testclient.py",
           "tests/test_requests.py",
-          "tests/test_responses.py"
+          "tests/conftest.py"
         ],
         "test_cmd": "bash scripts/test",
         "summary": "TestClient.request does not honor stream=True",
@@ -1180,7 +1180,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 290 words",
+            "detail": "Body has 290 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -1283,7 +1283,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 248 words",
+            "detail": "Body has 248 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -1373,7 +1373,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 84 words",
+            "detail": "Body has 84 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -1467,7 +1467,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 137 words",
+            "detail": "Body has 137 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -1746,7 +1746,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 123 words",
+            "detail": "Body has 123 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -1837,7 +1837,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 271 words",
+            "detail": "Body has 271 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -1935,7 +1935,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 340 words",
+            "detail": "Body has 340 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -2033,7 +2033,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 251 words",
+            "detail": "Body has 251 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -2085,9 +2085,9 @@
       "predicted": [
         "typer/main.py",
         "typer/params.py",
-        "typer/_click/core.py",
-        "typer/rich_utils.py",
-        "typer/_click/utils.py"
+        "pyproject.toml",
+        "mkdocs.yml",
+        "typer/_click/core.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -2098,17 +2098,17 @@
         "footprint": [
           "typer/main.py",
           "typer/params.py",
+          "pyproject.toml",
+          "mkdocs.yml",
           "typer/_click/core.py",
           "typer/rich_utils.py",
           "typer/_click/utils.py",
-          "typer/core.py",
-          "typer/models.py",
-          "typer/cli.py"
+          "typer/core.py"
         ],
         "tests": [
           "tests/test_ambiguous_params.py",
-          "tests/test_core.py",
-          "tests/assets/type_error_no_rich.py"
+          "tests/assets/type_error_no_rich.py",
+          "tests/assets/type_error_no_rich_short_disable.py"
         ],
         "test_cmd": "bash scripts/test.sh",
         "summary": "Argument(metavar=\"MY_ARG\") has different meaning for the arguments panel compared to the usage text or the non-rich help output",
@@ -2131,7 +2131,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 432 words",
+            "detail": "Body has 432 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -2157,9 +2157,9 @@
         "cov@1": 0.0,
         "hit@3": false,
         "cov@3": 0.0,
-        "hit@5": true,
-        "cov@5": 1.0,
-        "first_hit_rank": 4
+        "hit@5": false,
+        "cov@5": 0.0,
+        "first_hit_rank": null
       }
     },
     {
@@ -2222,7 +2222,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 182 words",
+            "detail": "Body has 182 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -2276,9 +2276,9 @@
       "predicted": [
         "typer/main.py",
         "typer/core.py",
+        "pyproject.toml",
         "typer/rich_utils.py",
-        "typer/_compat_utils.py",
-        "typer/utils.py"
+        "typer/_compat_utils.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -2291,17 +2291,17 @@
         "footprint": [
           "typer/main.py",
           "typer/core.py",
+          "pyproject.toml",
           "typer/rich_utils.py",
           "typer/_compat_utils.py",
           "typer/utils.py",
           ".github/actions/comment-docs-preview-in-pr/app/main.py",
-          "typer/_completion_shared.py",
-          "typer/completion.py"
+          "typer/_completion_shared.py"
         ],
         "tests": [
-          "tests/test_rich_utils.py",
           "tests/assets/type_error_no_rich.py",
-          "tests/assets/type_error_no_rich_short_disable.py"
+          "tests/assets/type_error_no_rich_short_disable.py",
+          "tests/assets/type_error_normal_traceback.py"
         ],
         "test_cmd": "bash scripts/test.sh",
         "summary": "click.utils has no attribute _expand_args (click version 7.1.2, typer version 0.6.1)",
@@ -2324,7 +2324,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 223 words",
+            "detail": "Body has 223 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -2351,7 +2351,7 @@
         "hit@3": true,
         "cov@3": 0.2,
         "hit@5": true,
-        "cov@5": 0.3,
+        "cov@5": 0.4,
         "first_hit_rank": 2
       }
     },
@@ -2374,9 +2374,9 @@
       "predicted": [
         "typer/main.py",
         "typer/_completion_shared.py",
+        "pyproject.toml",
         "typer/params.py",
-        "typer/models.py",
-        "typer/rich_utils.py"
+        "typer/models.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -2387,17 +2387,17 @@
         "footprint": [
           "typer/main.py",
           "typer/_completion_shared.py",
+          "pyproject.toml",
           "typer/params.py",
           "typer/models.py",
           "typer/rich_utils.py",
           "typer/cli.py",
-          "typer/completion.py",
-          "typer/_completion_classes.py"
+          "typer/completion.py"
         ],
         "tests": [
-          "tests/test_ambiguous_params.py",
           "tests/assets/type_error_no_rich.py",
-          "tests/assets/type_error_no_rich_short_disable.py"
+          "tests/assets/type_error_no_rich_short_disable.py",
+          "tests/assets/type_error_normal_traceback.py"
         ],
         "test_cmd": "bash scripts/test.sh",
         "summary": "Overlap of typer and typer-slim causes package managemers to fail",
@@ -2420,7 +2420,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 359 words",
+            "detail": "Body has 359 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -2452,9 +2452,9 @@
         "hit@1": false,
         "cov@1": 0.0,
         "hit@3": true,
-        "cov@3": 0.16666666666666666,
+        "cov@3": 0.3333333333333333,
         "hit@5": true,
-        "cov@5": 0.16666666666666666,
+        "cov@5": 0.3333333333333333,
         "first_hit_rank": 2
       }
     },
@@ -2712,7 +2712,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 259 words",
+            "detail": "Body has 259 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -2761,9 +2761,9 @@
       "predicted": [
         "typer/_completion_shared.py",
         "typer/cli.py",
+        "mkdocs.yml",
         "typer/main.py",
-        "typer/completion.py",
-        "typer/_completion_classes.py"
+        "typer/completion.py"
       ],
       "verdict_status": "needs_human",
       "error": null,
@@ -2774,12 +2774,12 @@
         "footprint": [
           "typer/_completion_shared.py",
           "typer/cli.py",
+          "mkdocs.yml",
           "typer/main.py",
           "typer/completion.py",
           "typer/_completion_classes.py",
           "typer/core.py",
-          "typer/models.py",
-          "scripts/deploy_docs_status.py"
+          "typer/models.py"
         ],
         "tests": [
           "tests/assets/cli/extended_app_cli.py",
@@ -2834,7 +2834,7 @@
         "hit@3": true,
         "cov@3": 0.2,
         "hit@5": true,
-        "cov@5": 0.2,
+        "cov@5": 0.4,
         "first_hit_rank": 3
       }
     },
@@ -2853,9 +2853,9 @@
       "predicted": [
         "src/click/testing.py",
         "src/click/core.py",
+        "pyproject.toml",
         "src/click/types.py",
-        "src/click/decorators.py",
-        "src/click/utils.py"
+        "src/click/decorators.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -2866,16 +2866,16 @@
         "footprint": [
           "src/click/testing.py",
           "src/click/core.py",
+          "pyproject.toml",
           "src/click/types.py",
           "src/click/decorators.py",
           "src/click/utils.py",
           "src/click/termui.py",
-          "src/click/_termui_impl.py",
-          "src/click/shell_completion.py"
+          "src/click/_termui_impl.py"
         ],
         "tests": [
           "tests/test_testing.py",
-          "tests/test_types.py"
+          "tests/test_utils.py"
         ],
         "test_cmd": "pytest",
         "summary": "Click 8.2.1 CliRunner raises SystemExit(1) when using click.File's stdin support",
@@ -2898,7 +2898,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 384 words",
+            "detail": "Body has 384 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -2997,7 +2997,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 281 words",
+            "detail": "Body has 281 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -3484,7 +3484,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 255 words",
+            "detail": "Body has 255 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -3678,7 +3678,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 284 words",
+            "detail": "Body has 284 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -3770,7 +3770,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 209 words",
+            "detail": "Body has 209 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -3823,9 +3823,9 @@
       "predicted": [
         "src/flask/views.py",
         "src/flask/app.py",
+        "pyproject.toml",
         "src/flask/sansio/app.py",
-        "src/flask/sansio/scaffold.py",
-        "src/flask/cli.py"
+        "src/flask/sansio/scaffold.py"
       ],
       "verdict_status": "needs_human",
       "error": null,
@@ -3836,12 +3836,12 @@
         "footprint": [
           "src/flask/views.py",
           "src/flask/app.py",
+          "pyproject.toml",
           "src/flask/sansio/app.py",
           "src/flask/sansio/scaffold.py",
           "src/flask/cli.py",
           "src/flask/sansio/blueprints.py",
-          "src/flask/helpers.py",
-          "tests/test_basic.py"
+          "src/flask/helpers.py"
         ],
         "tests": [
           "tests/test_views.py",
@@ -3869,7 +3869,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 305 words",
+            "detail": "Body has 305 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -3893,11 +3893,11 @@
       "metrics": {
         "hit@1": false,
         "cov@1": 0.0,
-        "hit@3": true,
-        "cov@3": 0.5,
+        "hit@3": false,
+        "cov@3": 0.0,
         "hit@5": true,
         "cov@5": 0.5,
-        "first_hit_rank": 3
+        "first_hit_rank": 4
       }
     },
     {
@@ -3916,9 +3916,9 @@
       "predicted": [
         "src/flask/sansio/app.py",
         "src/flask/helpers.py",
+        "docs/conf.py",
         "src/flask/app.py",
-        "src/flask/cli.py",
-        "src/flask/views.py"
+        "src/flask/cli.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -3929,12 +3929,12 @@
         "footprint": [
           "src/flask/sansio/app.py",
           "src/flask/helpers.py",
+          "docs/conf.py",
           "src/flask/app.py",
           "src/flask/cli.py",
           "src/flask/views.py",
           "src/flask/sansio/scaffold.py",
-          "tests/test_helpers.py",
-          "src/flask/debughelpers.py"
+          "tests/test_helpers.py"
         ],
         "tests": [
           "tests/test_appctx.py",
@@ -3962,7 +3962,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 211 words",
+            "detail": "Body has 211 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -4052,7 +4052,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 276 words",
+            "detail": "Body has 276 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -4149,7 +4149,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 260 words",
+            "detail": "Body has 260 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -4201,9 +4201,9 @@
       "predicted": [
         "src/requests/sessions.py",
         "src/requests/api.py",
-        "src/requests/adapters.py",
-        "src/requests/models.py",
-        "src/requests/cookies.py"
+        "pyproject.toml",
+        "setup.cfg",
+        "src/requests/adapters.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -4214,12 +4214,12 @@
         "footprint": [
           "src/requests/sessions.py",
           "src/requests/api.py",
+          "pyproject.toml",
+          "setup.cfg",
           "src/requests/adapters.py",
           "src/requests/models.py",
           "src/requests/cookies.py",
-          "src/requests/utils.py",
-          "src/requests/help.py",
-          "src/requests/structures.py"
+          "src/requests/utils.py"
         ],
         "tests": [],
         "test_cmd": "make test",
@@ -4243,7 +4243,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 337 words",
+            "detail": "Body has 337 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -4274,11 +4274,11 @@
       "metrics": {
         "hit@1": false,
         "cov@1": 0.0,
-        "hit@3": true,
-        "cov@3": 1.0,
+        "hit@3": false,
+        "cov@3": 0.0,
         "hit@5": true,
         "cov@5": 1.0,
-        "first_hit_rank": 3
+        "first_hit_rank": 5
       }
     },
     {
@@ -4337,7 +4337,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 103 words",
+            "detail": "Body has 103 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -4382,9 +4382,9 @@
       "predicted": [
         "src/requests/__init__.py",
         "src/requests/sessions.py",
-        "src/requests/models.py",
-        "src/requests/api.py",
-        "src/requests/adapters.py"
+        "pyproject.toml",
+        "setup.py",
+        "src/requests/models.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -4395,12 +4395,12 @@
         "footprint": [
           "src/requests/__init__.py",
           "src/requests/sessions.py",
+          "pyproject.toml",
+          "setup.py",
           "src/requests/models.py",
           "src/requests/api.py",
           "src/requests/adapters.py",
-          "tests/__init__.py",
-          "src/requests/auth.py",
-          "src/requests/cookies.py"
+          "tests/__init__.py"
         ],
         "tests": [
           "tests/test_requests.py"
@@ -4426,7 +4426,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 116 words",
+            "detail": "Body has 116 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -4612,7 +4612,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 250 words",
+            "detail": "Body has 250 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -4702,7 +4702,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 172 words",
+            "detail": "Body has 172 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -4755,9 +4755,9 @@
       "predicted": [
         "src/requests/__init__.py",
         "src/requests/exceptions.py",
-        "src/requests/models.py",
-        "src/requests/sessions.py",
-        "src/requests/adapters.py"
+        "pyproject.toml",
+        "setup.py",
+        "src/requests/models.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -4768,12 +4768,12 @@
         "footprint": [
           "src/requests/__init__.py",
           "src/requests/exceptions.py",
+          "pyproject.toml",
+          "setup.py",
           "src/requests/models.py",
           "src/requests/sessions.py",
           "src/requests/adapters.py",
-          "src/requests/auth.py",
-          "src/requests/cookies.py",
-          "src/requests/structures.py"
+          "src/requests/auth.py"
         ],
         "tests": [
           "tests/test_requests.py"
@@ -4799,7 +4799,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 128 words",
+            "detail": "Body has 128 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -4824,9 +4824,9 @@
         "hit@1": true,
         "cov@1": 0.5,
         "hit@3": true,
-        "cov@3": 0.5,
+        "cov@3": 1.0,
         "hit@5": true,
-        "cov@5": 0.5,
+        "cov@5": 1.0,
         "first_hit_rank": 1
       }
     },
@@ -4845,9 +4845,9 @@
       "predicted": [
         "requests/sessions.py",
         "requests/models.py",
-        "requests/utils.py",
-        "requests/api.py",
-        "requests/cookies.py"
+        "pyproject.toml",
+        "setup.cfg",
+        "requests/utils.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -4858,16 +4858,14 @@
         "footprint": [
           "requests/sessions.py",
           "requests/models.py",
+          "pyproject.toml",
+          "setup.cfg",
           "requests/utils.py",
           "requests/api.py",
           "requests/cookies.py",
-          "requests/structures.py",
-          "requests/adapters.py",
-          "requests/auth.py"
+          "requests/structures.py"
         ],
         "tests": [
-          "tests/test_utils.py",
-          "tests/utils.py",
           "tests/test_requests.py"
         ],
         "test_cmd": "make test",
@@ -4891,7 +4889,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 409 words",
+            "detail": "Body has 409 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -4922,11 +4920,11 @@
       "metrics": {
         "hit@1": false,
         "cov@1": 0.0,
-        "hit@3": true,
-        "cov@3": 0.5,
+        "hit@3": false,
+        "cov@3": 0.0,
         "hit@5": true,
         "cov@5": 0.5,
-        "first_hit_rank": 3
+        "first_hit_rank": 5
       }
     },
     {
@@ -4988,7 +4986,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 103 words",
+            "detail": "Body has 103 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -5033,9 +5031,9 @@
       "predicted": [
         "pydantic/main.py",
         "pydantic/v1/mypy.py",
+        "pyproject.toml",
         "pydantic/mypy.py",
-        "pydantic/v1/main.py",
-        "pydantic/_internal/_model_construction.py"
+        "pydantic/v1/main.py"
       ],
       "verdict_status": "needs_human",
       "error": null,
@@ -5046,12 +5044,12 @@
         "footprint": [
           "pydantic/main.py",
           "pydantic/v1/mypy.py",
+          "pyproject.toml",
           "pydantic/mypy.py",
           "pydantic/v1/main.py",
           "pydantic/_internal/_model_construction.py",
           "pydantic/_internal/_typing_extra.py",
-          "pydantic/config.py",
-          "pydantic/fields.py"
+          "pydantic/config.py"
         ],
         "tests": [
           "tests/test_main.py",
@@ -5110,11 +5108,11 @@
       "metrics": {
         "hit@1": false,
         "cov@1": 0.0,
-        "hit@3": true,
-        "cov@3": 1.0,
+        "hit@3": false,
+        "cov@3": 0.0,
         "hit@5": true,
         "cov@5": 1.0,
-        "first_hit_rank": 3
+        "first_hit_rank": 4
       }
     },
     {
@@ -5222,9 +5220,9 @@
       "predicted": [
         "pydantic/main.py",
         "pydantic/v1/main.py",
+        "pyproject.toml",
         "pydantic/type_adapter.py",
-        "pydantic/config.py",
-        "pydantic/_internal/_generate_schema.py"
+        "pydantic/config.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -5235,17 +5233,17 @@
         "footprint": [
           "pydantic/main.py",
           "pydantic/v1/main.py",
+          "pyproject.toml",
           "pydantic/type_adapter.py",
           "pydantic/config.py",
           "pydantic/_internal/_generate_schema.py",
           "pydantic/_internal/_generics.py",
-          "pydantic/types.py",
-          "pydantic/json_schema.py"
+          "pydantic/types.py"
         ],
         "tests": [
           "tests/test_main.py",
-          "tests/test_type_adapter.py",
-          "tests/typechecking/type_adapter.py"
+          "tests/mypy/test_mypy.py",
+          "tests/test_dunder_all.py"
         ],
         "test_cmd": "make test",
         "summary": "Inferred nested generic fails validation.",
@@ -5268,7 +5266,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 290 words",
+            "detail": "Body has 290 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -5301,9 +5299,9 @@
         "cov@1": 0.0,
         "hit@3": false,
         "cov@3": 0.0,
-        "hit@5": true,
-        "cov@5": 1.0,
-        "first_hit_rank": 5
+        "hit@5": false,
+        "cov@5": 0.0,
+        "first_hit_rank": null
       }
     },
     {
@@ -5324,9 +5322,9 @@
       "predicted": [
         "pydantic/main.py",
         "pydantic/v1/main.py",
+        "pyproject.toml",
         "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
-        "pydantic/root_model.py",
-        "pydantic-core/python/pydantic_core/core_schema.py"
+        "pydantic/root_model.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -5337,17 +5335,17 @@
         "footprint": [
           "pydantic/main.py",
           "pydantic/v1/main.py",
+          "pyproject.toml",
           "pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi",
           "pydantic/root_model.py",
           "pydantic-core/python/pydantic_core/core_schema.py",
           "pydantic/fields.py",
-          "pydantic-core/src/serializers/type_serializers/dataclass.rs",
-          "pydantic/_internal/_generate_schema.py"
+          "pydantic-core/src/serializers/type_serializers/dataclass.rs"
         ],
         "tests": [
           "tests/test_main.py",
-          "tests/test_dunder_all.py",
-          "tests/test_type_hints.py"
+          "tests/mypy/test_mypy.py",
+          "tests/test_dunder_all.py"
         ],
         "test_cmd": "make test",
         "summary": "Error during Serialization (`model_dump`)",
@@ -5370,7 +5368,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 525 words",
+            "detail": "Body has 525 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -5423,9 +5421,9 @@
       "predicted": [
         "pydantic/v1/networks.py",
         "pydantic/networks.py",
-        "pydantic/main.py",
-        "pydantic/mypy.py",
-        "pydantic/fields.py"
+        "pyproject.toml",
+        "mkdocs.yml",
+        "pydantic/main.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -5436,17 +5434,17 @@
         "footprint": [
           "pydantic/v1/networks.py",
           "pydantic/networks.py",
+          "pyproject.toml",
+          "mkdocs.yml",
           "pydantic/main.py",
           "pydantic/mypy.py",
           "pydantic/fields.py",
-          "pydantic/types.py",
-          "pydantic/deprecated/tools.py",
-          "pydantic/v1/tools.py"
+          "pydantic/types.py"
         ],
         "tests": [
           "tests/test_networks.py",
           "tests/test_networks_ipaddress.py",
-          "tests/test_main.py"
+          "tests/benchmarks/test_north_star.py"
         ],
         "test_cmd": "make test",
         "summary": "HttpUrl docs example has type issues",
@@ -5469,7 +5467,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 226 words",
+            "detail": "Body has 226 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -5521,9 +5519,9 @@
       "predicted": [
         "pydantic/main.py",
         "pydantic/json_schema.py",
-        "pydantic/fields.py",
-        "pydantic/root_model.py",
-        "pydantic/type_adapter.py"
+        "pyproject.toml",
+        "mkdocs.yml",
+        "pydantic/fields.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -5534,12 +5532,12 @@
         "footprint": [
           "pydantic/main.py",
           "pydantic/json_schema.py",
+          "pyproject.toml",
+          "mkdocs.yml",
           "pydantic/fields.py",
           "pydantic/root_model.py",
           "pydantic/type_adapter.py",
-          "pydantic/config.py",
-          "pydantic/_internal/_generate_schema.py",
-          "pydantic/types.py"
+          "pydantic/config.py"
         ],
         "tests": [
           "tests/test_main.py",
@@ -5567,7 +5565,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 306 words",
+            "detail": "Body has 306 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },
@@ -5612,9 +5610,9 @@
       "predicted": [
         "pydantic/_internal/_model_construction.py",
         "pydantic/_internal/_typing_extra.py",
-        "pydantic/_internal/_fields.py",
-        "pydantic/v1/typing.py",
-        "pydantic/main.py"
+        "pyproject.toml",
+        "mkdocs.yml",
+        "pydantic/_internal/_fields.py"
       ],
       "verdict_status": "agent_ready",
       "error": null,
@@ -5625,17 +5623,17 @@
         "footprint": [
           "pydantic/_internal/_model_construction.py",
           "pydantic/_internal/_typing_extra.py",
+          "pyproject.toml",
+          "mkdocs.yml",
           "pydantic/_internal/_fields.py",
           "pydantic/v1/typing.py",
           "pydantic/main.py",
-          "pydantic/typing.py",
-          "pydantic/v1/main.py",
-          "pydantic/_internal/_generate_schema.py"
+          "pydantic/typing.py"
         ],
         "tests": [
-          "tests/mypy/modules/computed_fields.py",
-          "tests/mypy/modules/plugin_strict_fields.py",
-          "tests/mypy/outputs/1.0.1/mypy-plugin_ini/plugin_strict_fields.py"
+          "tests/mypy/test_mypy.py",
+          "tests/test_config.py",
+          "tests/test_model_signature.py"
         ],
         "test_cmd": "make test",
         "summary": "Classes that are generic in stubs but not at runtime causes TypeError",
@@ -5658,7 +5656,7 @@
           {
             "rule": "context",
             "ok": true,
-            "detail": "Body has 407 words",
+            "detail": "Body has 407 words, and names the code and expected result",
             "cites": "docs.tryalan.ai/docs/tasks/create-a-task: \"Description: context, constraints, and acceptance criteria.\"",
             "human_only": true
           },

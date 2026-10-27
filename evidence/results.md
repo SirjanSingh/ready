@@ -225,3 +225,104 @@ Worst 10 misses (lowest cov@5, fewest true files first):
 - https://github.com/pallets/click/issues/3766 cov@5=0.000 | truth: .github/workflows/nightly.yaml | predicted: src/click/core.py, src/click/testing.py, tests/test_context.py
 - https://github.com/pydantic/pydantic/issues/13977 cov@5=0.000 | truth: .github/workflows/ci.yml | predicted: pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi, pydantic-core/src/errors/validation_exception.rs, pydantic-core/python/pydantic_core/core_schema.py
 - https://github.com/pydantic/pydantic/issues/13976 cov@5=0.000 | truth: pydantic/_internal/_validators.py | predicted: pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi, pydantic-core/python/pydantic_core/core_schema.py, pydantic/_internal/_generate_schema.py
+
+## 2026-10-27 06:28 | HELD-OUT set | variant `grep` | k=5 | n=58
+
+Set: held-out (`evidence/heldout.jsonl`). None of these issues were used to build or tune Ready.
+
+Note: engine HEAD e130718 (ready/ last changed in e130718) at start, HEAD 79d8054 (ready/ last changed in e130718) at end (ready/ changed during the run; numbers may mix versions).
+
+Pairs scored: 58, errors: 0, wall time: 283s. Truth files: 139, of which 3 do not exist at base_sha (new files, unpredictable by retrieval).
+
+hit@k = at least one true file in the top k. cov@k = mean fraction of the PR's source files found in the top k.
+
+| repo | n | hit@1 | hit@3 | hit@5 | cov@1 | cov@3 | cov@5 |
+|---|---|---|---|---|---|---|---|
+| Kludex/starlette | 12 | 0.667 | 0.833 | 0.833 | 0.591 | 0.691 | 0.691 |
+| encode/httpx | 2 | 0.000 | 0.500 | 1.000 | 0.000 | 0.125 | 0.750 |
+| fastapi/typer | 14 | 0.214 | 0.714 | 0.786 | 0.121 | 0.452 | 0.617 |
+| pallets/click | 1 | 1.000 | 1.000 | 1.000 | 0.500 | 0.500 | 0.500 |
+| pallets/flask | 11 | 0.727 | 0.818 | 1.000 | 0.258 | 0.424 | 0.553 |
+| psf/requests | 11 | 0.545 | 0.636 | 0.909 | 0.500 | 0.636 | 0.818 |
+| pydantic/pydantic | 7 | 0.143 | 0.429 | 0.571 | 0.143 | 0.357 | 0.500 |
+| **overall** | 58 | 0.466 | 0.707 | 0.845 | 0.321 | 0.509 | 0.647 |
+| overall, pairs with a code file in truth | 57 | 0.474 | 0.719 | 0.860 | 0.327 | 0.518 | 0.658 |
+
+Readiness check: `verdict.status == "needs_human"` vs proxy label `needed_clarification`.
+
+| | gold needed_clarification | gold not |
+|---|---|---|
+| predicted needs_human | TP 4 | FP 10 |
+| predicted agent_ready | FN 17 | TN 27 |
+
+n=58, accuracy 0.534, precision 0.286, recall 0.190, predicted needs_human 14, gold positives 21. needs_human rate on gold positives 0.190, on gold negatives (false-alarm rate) 0.270.
+
+needs_human rate by how the pair was selected:
+
+| source / gold | n | needs_human | rate |
+|---|---|---|---|
+| label / pos | 10 | 4 | 0.400 |
+| random / neg | 37 | 10 | 0.270 |
+| random / pos | 3 | 0 | 0.000 |
+| regex / pos | 8 | 0 | 0.000 |
+
+Worst 10 misses (lowest cov@5, fewest true files first):
+
+- https://github.com/Kludex/starlette/issues/1724 cov@5=0.000 | truth: mkdocs.yml | predicted: starlette/routing.py, starlette/applications.py, starlette/background.py
+- https://github.com/fastapi/typer/issues/1156 cov@5=0.000 | truth: typer/rich_utils.py | predicted: typer/main.py, typer/params.py, pyproject.toml
+- https://github.com/fastapi/typer/issues/438 cov@5=0.000 | truth: typer/rich_utils.py | predicted: typer/main.py, typer/params.py, typer/_click/utils.py
+- https://github.com/fastapi/typer/issues/359 cov@5=0.000 | truth: typer/_completion_classes.py | predicted: typer/main.py, typer/_completion_shared.py, typer/core.py
+- https://github.com/psf/requests/issues/7434 cov@5=0.000 | truth: src/requests/_types.py | predicted: src/requests/models.py, src/requests/sessions.py, src/requests/utils.py
+- https://github.com/pydantic/pydantic/issues/8071 cov@5=0.000 | truth: pydantic/_internal/_generate_schema.py | predicted: pydantic/main.py, pydantic/v1/main.py, pyproject.toml
+- https://github.com/pydantic/pydantic/issues/9909 cov@5=0.000 | truth: pydantic/_internal/_generate_schema.py | predicted: pydantic/main.py, pydantic/json_schema.py, pyproject.toml
+- https://github.com/Kludex/starlette/issues/2155 cov@5=0.000 | truth: starlette/applications.py, starlette/formparsers.py, starlette/middleware/body_limit.py, starlette/routing.py | predicted: starlette/requests.py, starlette/responses.py, starlette/testclient.py
+- https://github.com/pydantic/pydantic/issues/7713 cov@5=0.000 | truth: pydantic-core/src/lookup_key.rs, pydantic-core/src/serializers/infer.rs, pydantic-core/src/serializers/polymorphism_trampoline.rs, pydantic-core/src/tools.rs ... | predicted: pydantic/main.py, pydantic/v1/main.py, pyproject.toml
+- https://github.com/Kludex/starlette/issues/64 cov@5=0.091 | truth: .travis.yml, mkdocs.yml, scripts/lint, scripts/test ... | predicted: starlette/applications.py, starlette/exceptions.py, starlette/middleware/httpsredirect.py
+
+## 2026-10-27 06:43 | DEV set | variant `grep` | k=5 | n=60
+
+Set: dev (`evidence/pairs.jsonl`). ready/checklist.py was calibrated on these issues, so readiness numbers here are optimistic.
+
+Note: engine HEAD 79d8054 (ready/ last changed in e130718).
+
+Pairs scored: 60, errors: 0, wall time: 913s. Truth files: 91, of which 0 do not exist at base_sha (new files, unpredictable by retrieval).
+
+hit@k = at least one true file in the top k. cov@k = mean fraction of the PR's source files found in the top k.
+
+| repo | n | hit@1 | hit@3 | hit@5 | cov@1 | cov@3 | cov@5 |
+|---|---|---|---|---|---|---|---|
+| encode/httpx | 20 | 0.400 | 0.650 | 0.700 | 0.237 | 0.550 | 0.600 |
+| fastapi/sqlmodel | 7 | 0.857 | 0.857 | 0.857 | 0.714 | 0.857 | 0.857 |
+| pallets/click | 13 | 0.538 | 0.846 | 0.846 | 0.500 | 0.808 | 0.808 |
+| pydantic/pydantic | 20 | 0.350 | 0.600 | 0.750 | 0.275 | 0.442 | 0.575 |
+| **overall** | 60 | 0.467 | 0.700 | 0.767 | 0.362 | 0.606 | 0.667 |
+| overall, pairs with a code file in truth | 54 | 0.519 | 0.759 | 0.833 | 0.403 | 0.654 | 0.722 |
+
+Readiness check: `verdict.status == "needs_human"` vs proxy label `needed_clarification`.
+
+| | gold needed_clarification | gold not |
+|---|---|---|
+| predicted needs_human | TP 0 | FP 6 |
+| predicted agent_ready | FN 3 | TN 51 |
+
+n=60, accuracy 0.850, precision 0.000, recall 0.000, predicted needs_human 6, gold positives 3. needs_human rate on gold positives 0.000, on gold negatives (false-alarm rate) 0.105.
+
+needs_human rate by how the pair was selected:
+
+| source / gold | n | needs_human | rate |
+|---|---|---|---|
+| random / neg | 57 | 6 | 0.105 |
+| random / pos | 3 | 0 | 0.000 |
+
+Worst 10 misses (lowest cov@5, fewest true files first):
+
+- https://github.com/encode/httpx/issues/309 cov@5=0.000 | truth: httpx/middleware.py | predicted: httpx/dispatch/http11.py, httpx/client.py, setup.cfg
+- https://github.com/encode/httpx/issues/2599 cov@5=0.000 | truth: mkdocs.yml | predicted: httpx/_client.py, httpx/_main.py, httpx/_models.py
+- https://github.com/encode/httpx/issues/2694 cov@5=0.000 | truth: httpx/_urlparse.py | predicted: httpx/_client.py, httpx/_transports/asgi.py, httpx/_exceptions.py
+- https://github.com/encode/httpx/issues/2810 cov@5=0.000 | truth: httpx/_transports/asgi.py | predicted: httpx/_urls.py, httpx/_decoders.py, httpx/_client.py
+- https://github.com/fastapi/sqlmodel/issues/189 cov@5=0.000 | truth: sqlmodel/sql/expression.py.jinja2 | predicted: sqlmodel/orm/session.py, sqlmodel/ext/asyncio/session.py, mkdocs.yml
+- https://github.com/pallets/click/issues/3786 cov@5=0.000 | truth: pyproject.toml | predicted: src/click/core.py, src/click/_termui_impl.py, .github/workflows/lock.yaml
+- https://github.com/pallets/click/issues/3766 cov@5=0.000 | truth: .github/workflows/nightly.yaml | predicted: src/click/core.py, src/click/testing.py, .github/workflows/lock.yaml
+- https://github.com/pydantic/pydantic/issues/13977 cov@5=0.000 | truth: .github/workflows/ci.yml | predicted: pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi, pydantic-core/src/errors/validation_exception.rs, pyproject.toml
+- https://github.com/pydantic/pydantic/issues/13976 cov@5=0.000 | truth: pydantic/_internal/_validators.py | predicted: pydantic-core/python/pydantic_core/_pydantic_core/__init__.pyi, pydantic-core/python/pydantic_core/core_schema.py, pyproject.toml
+- https://github.com/pydantic/pydantic/issues/14041 cov@5=0.000 | truth: pydantic/_internal/_docs_extraction.py | predicted: pydantic/main.py, pydantic/json_schema.py, pyproject.toml
