@@ -55,7 +55,19 @@ ready check https://github.com/owner/repo/issues/42 --repo path/to/checkout --po
 ready plan  URL1 URL2 URL3 --repo path/to/checkout                                 # which can run in parallel
 ```
 
-**In Alan.** Import `skills/ready` as a team skill (Skills -> Import -> From GitHub), and add the MCP server as a custom connector:
+**In Alan.** Add Ready as a custom connector: Settings -> Plugins -> MCP -> Add custom connector -> **Command**.
+
+| field | value |
+|---|---|
+| Name | `ready` |
+| Command | `uvx` |
+| Arguments (one per line) | `--from`, `git+https://github.com/SirjanSingh/ready`, `ready-mcp` |
+
+Alan starts it inside each agent run, on your computer or in the cloud sandbox. Then give agents the skill in one of two ways:
+- import `skills/ready` as a team skill (Skills -> Import -> From GitHub)
+- drop it into a project as `.claude/skills/ready/SKILL.md`, as [ready-demo](https://github.com/SirjanSingh/ready-demo) does with its `.mcp.json` and `AGENTS.md`
+
+To run the server yourself:
 
 ```bash
 ready-mcp                      # stdio
