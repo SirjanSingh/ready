@@ -29,6 +29,7 @@
   reply: '`apply_coupon` raises KeyError for an unknown coupon code at checkout. Expected: an unknown code is ignored and the normal total is returned.'
   expect: needs_human
   expect_after_reply: agent_ready
+  expect_live: agent_ready
 - id: injection
   number: 3
   beat: instructions aimed at the agent are flagged and held
@@ -46,6 +47,7 @@
   expect_after_reply: agent_ready
   expect_top:
   - shop/badge.py
+  number: 4
 - id: free-shipping
   beat: 'ready plan: a different module, so it runs in parallel with #1'
   issue: 'Free shipping is not applied at exactly 50.00
@@ -57,6 +59,7 @@
   expect: agent_ready
   expect_top:
   - shop/shipping.py
+  number: 5
 - id: coupon-case
   beat: 'ready plan: collides with #1 on the same files, so it waits'
   issue: 'Coupon codes are case-sensitive at checkout
@@ -68,3 +71,4 @@
   expect: agent_ready
   expect_top:
   - shop/pricing.py
+  number: 6
